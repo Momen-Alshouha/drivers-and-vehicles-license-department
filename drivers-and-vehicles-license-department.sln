@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD.DataAccess", "DVLD.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD.BusinessLogic", "DVLD.BusinessLogic\DVLD.BusinessLogic.csproj", "{B3DE29A3-12FF-4C66-A716-6451381CE560}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsDataType", "ClsDataType\ClsDataType.csproj", "{00B58B68-A540-4A37-B3DB-564F81020C94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B3DE29A3-12FF-4C66-A716-6451381CE560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3DE29A3-12FF-4C66-A716-6451381CE560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3DE29A3-12FF-4C66-A716-6451381CE560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B58B68-A540-4A37-B3DB-564F81020C94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B58B68-A540-4A37-B3DB-564F81020C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B58B68-A540-4A37-B3DB-564F81020C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B58B68-A540-4A37-B3DB-564F81020C94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

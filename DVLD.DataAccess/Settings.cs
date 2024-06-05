@@ -8,6 +8,6 @@ namespace DVLD.DataAccess
 {
     internal class Settings
     {
-        public static readonly string ConnectionString = "Server=.;Database=ContactsDB;Integrated security=true;TrustServerCertificate=True";
+        public static readonly string ConnectionString = "Server=.;Database=DVLD;Integrated security=true;TrustServerCertificate=True";
     }
 }
