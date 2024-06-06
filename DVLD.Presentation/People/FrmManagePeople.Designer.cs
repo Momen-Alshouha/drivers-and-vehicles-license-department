@@ -31,7 +31,9 @@
             this.dgvPeople = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.LblNumberOfPeople = new System.Windows.Forms.Label();
+            this.pictureBoxAddPerson = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddPerson)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPeople
@@ -65,11 +67,24 @@
             this.LblNumberOfPeople.TabIndex = 2;
             this.LblNumberOfPeople.Text = "0";
             // 
+            // pictureBoxAddPerson
+            // 
+            this.pictureBoxAddPerson.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAddPerson.Image = global::DVLD.Presentation.Properties.Resources.Add_Person_72;
+            this.pictureBoxAddPerson.Location = new System.Drawing.Point(1275, 98);
+            this.pictureBoxAddPerson.Name = "pictureBoxAddPerson";
+            this.pictureBoxAddPerson.Size = new System.Drawing.Size(100, 89);
+            this.pictureBoxAddPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAddPerson.TabIndex = 3;
+            this.pictureBoxAddPerson.TabStop = false;
+            this.pictureBoxAddPerson.Click += new System.EventHandler(this.pictureBoxAddPerson_Click);
+            // 
             // FrmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1387, 703);
+            this.Controls.Add(this.pictureBoxAddPerson);
             this.Controls.Add(this.LblNumberOfPeople);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvPeople);
@@ -78,6 +93,7 @@
             this.Text = "Manage People";
             this.Load += new System.EventHandler(this.FrmManagePeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddPerson)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,5 +104,6 @@
         private System.Windows.Forms.DataGridView dgvPeople;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblNumberOfPeople;
+        private System.Windows.Forms.PictureBox pictureBoxAddPerson;
     }
 }

@@ -52,6 +52,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\Controls\FrmAddEditPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\Controls\FrmAddEditPerson.Designer.cs">
+      <DependentUpon>FrmAddEditPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\FrmManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\FrmAddEditPerson.resx">
+      <DependentUpon>FrmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmManagePeople.resx">
       <DependentUpon>FrmManagePeople.cs</DependentUpon>
@@ -90,6 +99,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClsDataType\ClsDataType.csproj">
+      <Project>{00b58b68-a540-4a37-b3db-564f81020c94}</Project>
+      <Name>ClsDataType</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DVLD.BusinessLogic\DVLD.BusinessLogic.csproj">
       <Project>{b3de29a3-12ff-4c66-a716-6451381ce560}</Project>
       <Name>DVLD.BusinessLogic</Name>
@@ -100,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dvld_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Person 72.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

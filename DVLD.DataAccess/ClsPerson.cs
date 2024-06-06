@@ -90,7 +90,7 @@ namespace DVLD.DataAccess
             }
             return count;
         }
-        public bool GetPerson(int id, ref StPerson person)
+        public static bool GetPerson(int id, ref StPerson person)
         {
             bool isFound = false;
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
@@ -135,7 +135,7 @@ namespace DVLD.DataAccess
             }
             return isFound;
         }
-        public bool GetPersonByNationalNo(string NationalNo, ref StPerson person)
+        public static bool GetPerson(string NationalNo, ref StPerson person)
         {
             bool isFound = false;
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
@@ -211,7 +211,7 @@ namespace DVLD.DataAccess
             }
             return IsDeleted;
         }
-        public bool AddNewPerson(StPerson person)
+        public static int AddNewPerson(StPerson person)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
@@ -219,16 +219,17 @@ namespace DVLD.DataAccess
                     INSERT INTO People (
                         NationalNo, FirstName, SecondName, ThirdName, LastName, 
                         BirthDate, Gender, Address, Phone, Email, 
-                        NationalCountryId, ImagePath
+                        NationalityCountryId, ImagePath
                     ) VALUES (
                         @NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, 
                         @BirthDate, @Gender, @Address, @Phone, @Email, 
                         @NationalityCountryId, @ImagePath
-                    )";
+                    )
+                    Select SCOPE_IDENTITY()";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@NationalId", person.NationalNo);
+                    command.Parameters.AddWithValue("@NationalNo", person.NationalNo);
                     command.Parameters.AddWithValue("@FirstName", person.FirstName);
                     command.Parameters.AddWithValue("@SecondName", person.SecondName);
                     command.Parameters.AddWithValue("@ThirdName", person.ThirdName);
@@ -244,8 +245,12 @@ namespace DVLD.DataAccess
                     try
                     {
                         connection.Open();
-                        int rowsAffected = command.ExecuteNonQuery();
-                        return rowsAffected > 0;
+                        object ID = command.ExecuteScalar();
+
+                        if (ID!=null)
+                        {
+                            return int.Parse(ID.ToString());
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -255,10 +260,12 @@ namespace DVLD.DataAccess
                     {
                         connection.Close();
                     }
+
                 }
             }
+            return -1;
         }
-        public bool UpdatePerson(StPerson person)
+        public static bool UpdatePerson(StPerson person)
         {
             bool IsUpdated = false;
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
@@ -347,7 +354,7 @@ namespace DVLD.DataAccess
             }
             return IsDeleted;
         }
-        public bool IsPersonExist(string NationalNo)
+        public static bool IsPersonExist(string NationalNo)
         {
             bool IsExisit = false;
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
@@ -377,7 +384,7 @@ namespace DVLD.DataAccess
             }
             return IsExisit;
         }
-        public bool IsPersonExist(int PersonId)
+        public static bool IsPersonExist(int PersonId)
         {
             bool IsExisit = false;
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))

@@ -42,10 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="ClsCountry.cs" />
+    <Compile Include="ClsPerson.cs" />
     <Compile Include="People.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClsDataType\ClsDataType.csproj">
+      <Project>{00b58b68-a540-4a37-b3db-564f81020c94}</Project>
+      <Name>ClsDataType</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DVLD.DataAccess\DVLD.DataAccess.csproj">
       <Project>{6c181f6d-896f-40e9-8da3-f2191dd3b340}</Project>
       <Name>DVLD.DataAccess</Name>
