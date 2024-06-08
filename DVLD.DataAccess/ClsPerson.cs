@@ -95,32 +95,51 @@ namespace DVLD.DataAccess
             bool isFound = false;
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
-                string query = "SELECT * FROM People WHERE PersonId = @PersonId";
+                string query = "SELECT * FROM People WHERE PersonID = @PersonId";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@PersonId", id);
                     try
                     {
                         connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        if (reader.HasRows)
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            reader.Read();
-                            person.Id = id;
-                            person.NationalNo = (string)reader["NationalNo"];
-                            person.FirstName = reader["FirstName"] != DBNull.Value ? (string)reader["FirstName"] : string.Empty;
-                            person.SecondName = reader["SecondName"] != DBNull.Value ? (string)reader["SecondName"] : string.Empty;
-                            person.ThirdName = reader["ThirdName"] != DBNull.Value ? (string)reader["ThirdName"] : string.Empty;
-                            person.LastName = reader["LastName"] != DBNull.Value ? (string)reader["LastName"] : string.Empty;
-                            person.BirthDate = reader["BirthDate"] != DBNull.Value ? (DateTime)reader["BirthDate"] : DateTime.MinValue;
-                            person.Gender = reader["Gender"] != DBNull.Value ? (short)reader["Gender"] : (short)0;
-                            person.Address = reader["Address"] != DBNull.Value ? (string)reader["Address"] : string.Empty;
-                            person.Phone = reader["Phone"] != DBNull.Value ? (string)reader["Phone"] : string.Empty;
-                            person.Email = reader["Email"] != DBNull.Value ? (string)reader["Email"] : string.Empty;
-                            person.NationalityCountryId= reader["NationalityCountryId"] != DBNull.Value ? (int)reader["NationalityCountryId"] : 0;
-                            person.ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : string.Empty;
+                            if (reader.Read())
+                            {
+                                person.Id = id;
+                                person.NationalNo = (string)reader["NationalNo"];
+                                person.FirstName = (string)reader["FirstName"];
+                                person.SecondName = (string)reader["SecondName"] as string ?? string.Empty;
+                                person.ThirdName = (string)reader["ThirdName"];
+                                person.LastName = (string)reader["LastName"];
+                                person.BirthDate = (DateTime)reader["BirthDate"];
 
-                            isFound = true;
+                                try
+                                {
+                                    var genderValue = reader["Gender"];
+                                    if (genderValue != DBNull.Value)
+                                    {
+                                        person.Gender = (short)(byte)reader["Gender"]; 
+                                    }
+                                    else
+                                    {
+                                        person.Gender = 0; 
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine($"Error casting Gender: {ex.Message}");
+                                    throw;
+                                }
+
+                                person.Address = reader["Address"] as string ?? string.Empty;
+                                person.Phone = reader["Phone"] as string ?? string.Empty;
+                                person.Email = reader["Email"] as string ?? string.Empty;
+                                person.NationalityCountryId = reader["NationalityCountryId"] != DBNull.Value ? (int)reader["NationalityCountryId"] : 0;
+                                person.ImagePath = reader["ImagePath"] as string ?? string.Empty;
+
+                                isFound = true;
+                            }
                         }
                     }
                     catch (Exception ex)
@@ -135,6 +154,7 @@ namespace DVLD.DataAccess
             }
             return isFound;
         }
+
         public static bool GetPerson(string NationalNo, ref StPerson person)
         {
             bool isFound = false;

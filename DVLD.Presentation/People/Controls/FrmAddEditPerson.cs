@@ -41,6 +41,7 @@ namespace DVLD.Presentation.People.Controls
             InitializeComponent();
             _Mode = EnMode.Update;
             _PersonId = PersonId;
+            _LoadPersonData();
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -100,6 +101,7 @@ namespace DVLD.Presentation.People.Controls
             StPerson? person = BusinessLogic.ClsPerson.Find(_PersonId);
             if (person.HasValue)
             {
+                LblPersonId.Text = person.Value.Id.ToString();
                 TxtNationalNo.Text = person.Value.NationalNo;
                 TxtFirstName.Text = person.Value.FirstName;
                 TxtSecondName.Text = person.Value.SecondName;
@@ -121,12 +123,14 @@ namespace DVLD.Presentation.People.Controls
                 TxtEmail.Text = person.Value.Email;
                 ComboBoxCountries.SelectedItem = BusinessLogic.ClsCountry.GetCountryName(person.Value.NationalityCountryId);
 
-                
                 if (!string.IsNullOrEmpty(person.Value.ImagePath))
                 {
                     PictureBoxPersonImage.ImageLocation = person.Value.ImagePath;
                 }
-
+                else
+                {
+                    PictureBoxPersonImage.Image = null;
+                }
             }
         }
         private void FrmAddEditPerson_Load(object sender, EventArgs e)
@@ -137,14 +141,22 @@ namespace DVLD.Presentation.People.Controls
                 _LoadPersonData();
             }
         }
-
         private void LinkLabelRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            PictureBoxPersonImage.ImageLocation = null;
+            PictureBoxPersonImage.Image = null;
+        }
+        private bool _HandlePersonImage()
+        {
+            // ToDo:Handle Person Image
+            return true;
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            // To Do:Valiation
+            if (!_HandlePersonImage())
+                return;
+
             _Person.Person.NationalityCountryId = BusinessLogic.ClsCountry.GetCountryID(ComboBoxCountries.SelectedItem.ToString());
 
             _Person.Person.FirstName = TxtFirstName.Text.Trim();
@@ -171,18 +183,15 @@ namespace DVLD.Presentation.People.Controls
                 return;
             }
 
-            // Optionally handle the image path
-            _Person.Person.ImagePath = PictureBoxPersonImage.Text.Trim();
-            _Person.Person.ImagePath = "test";
-
-            // Save the person data using the appropriate business logic method
             bool success = false;
 
             if (_Person.Save())
             {
                 success = true;
-                _ParentForm.LoadNumberOfPeople();
-                _ParentForm.LoadPeopleInDataGridView();
+                LblPersonId.Text = _Person.Person.Id.ToString();
+                _Mode = EnMode.Update;
+                _SetFormTitleMode();
+                // To Do:trigger event to sent data back to the caller form
             }
 
             if (success)
@@ -195,6 +204,20 @@ namespace DVLD.Presentation.People.Controls
             }
         }
 
-      
+        private void LinkLabelSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp|All Files|*.*";
+            openFileDialog1.Title = "Select an Image";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string selectedFilePath = openFileDialog1.FileName;
+
+                PictureBoxPersonImage.Image = Image.FromFile(selectedFilePath);
+                LinkLabelRemoveImage.Visible = true;
+                _Person.Person.ImagePath = selectedFilePath;
+            }
+        }
+
     }
 }

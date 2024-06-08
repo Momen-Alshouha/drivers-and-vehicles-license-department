@@ -62,6 +62,7 @@
             this.BtnSave = new System.Windows.Forms.Button();
             this.LblPersonId = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPersonImage)).BeginInit();
             this.SuspendLayout();
@@ -220,6 +221,7 @@
             this.LinkLabelSetImage.TabIndex = 13;
             this.LinkLabelSetImage.TabStop = true;
             this.LinkLabelSetImage.Text = "Set Image";
+            this.LinkLabelSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSetImage_LinkClicked);
             // 
             // DTPDateOfBirth
             // 
@@ -444,6 +446,10 @@
             this.label22.TabIndex = 105;
             this.label22.Text = "Person ID :";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // FrmAddEditPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -502,5 +508,6 @@
         private System.Windows.Forms.Label LblPersonId;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox ComboBoxCountries;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
