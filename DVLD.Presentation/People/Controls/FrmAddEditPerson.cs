@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,7 @@ namespace DVLD.Presentation.People.Controls
         public FrmAddEditPerson(int PersonId)
         {
             InitializeComponent();
+            InitializePerson();
             _Mode = EnMode.Update;
             _PersonId = PersonId;
             _LoadPersonData();
@@ -144,15 +146,34 @@ namespace DVLD.Presentation.People.Controls
         private void LinkLabelRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             PictureBoxPersonImage.Image = null;
+            PictureBoxPersonImage.ImageLocation = null;
         }
         private bool _HandlePersonImage()
         {
-            // ToDo:Handle Person Image
+            
+            if (PictureBoxPersonImage.ImageLocation!=null)
+            {
+                string SourceImageFile = PictureBoxPersonImage.ImageLocation.ToString();
+                if (ClsUtil.CopyImageToProjectImagesFolder(ref SourceImageFile))
+                {
+                    PictureBoxPersonImage.ImageLocation = SourceImageFile;
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+
+            if (PictureBoxPersonImage.ImageLocation != null)
+                _Person.Person.ImagePath = PictureBoxPersonImage.ImageLocation;
+            else
+                _Person.Person.ImagePath = "";
+
             // To Do:Valiation
             if (!_HandlePersonImage())
                 return;
@@ -183,6 +204,11 @@ namespace DVLD.Presentation.People.Controls
                 return;
             }
 
+            if (PictureBoxPersonImage.ImageLocation != null)
+                _Person.Person.ImagePath = PictureBoxPersonImage.ImageLocation;
+            else
+                _Person.Person.ImagePath = "";
+
             bool success = false;
 
             if (_Person.Save())
@@ -206,16 +232,17 @@ namespace DVLD.Presentation.People.Controls
 
         private void LinkLabelSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp|All Files|*.*";
-            openFileDialog1.Title = "Select an Image";
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                // Process the selected file
                 string selectedFilePath = openFileDialog1.FileName;
-
-                PictureBoxPersonImage.Image = Image.FromFile(selectedFilePath);
+                PictureBoxPersonImage.Load(selectedFilePath);
                 LinkLabelRemoveImage.Visible = true;
-                _Person.Person.ImagePath = selectedFilePath;
+                // ...
             }
         }
 
