@@ -74,5 +74,15 @@ namespace DVLD.Presentation.People
             FrmAddEditPerson frmAddEditPerson = new FrmAddEditPerson();
             frmAddEditPerson.ShowDialog();
         }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvPeople.SelectedRows.Count > 0)
+            {
+                int personId = Convert.ToInt32(dgvPeople.SelectedRows[0].Cells["PersonID"].Value);
+                FrmPersonDetails frmPersonDetails = new FrmPersonDetails(personId);
+                frmPersonDetails.ShowDialog();
+            }
+        }
     }
 }

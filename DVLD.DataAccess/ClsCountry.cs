@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DVLD.DataAccess
 {
-    public class ClsCountry : ClsDataType.ICountryDataAccess
+    public class ClsCountry
     {
-        public string GetCountryName(int CountryID)
+        public static string GetCountryName(int CountryID)
         {
             string CountryName = null;
 

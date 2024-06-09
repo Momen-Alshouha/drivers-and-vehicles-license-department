@@ -19,7 +19,7 @@ namespace DVLD.BusinessLogic
 
         public static string GetCountryName(int id)
         {
-            return new DataAccess.ClsCountry().GetCountryName(id);
+            return DataAccess.ClsCountry.GetCountryName(id);
         }
         public static int GetCountryID(string CountryName)
         {

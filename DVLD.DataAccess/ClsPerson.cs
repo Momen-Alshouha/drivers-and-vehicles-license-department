@@ -113,7 +113,10 @@ namespace DVLD.DataAccess
                                 person.ThirdName = (string)reader["ThirdName"];
                                 person.LastName = (string)reader["LastName"];
                                 person.BirthDate = (DateTime)reader["BirthDate"];
-
+                                person.NationalityCountryId = (int)reader["NationalityCountryId"];
+                                person.FullName= person.FirstName+" "+ person.SecondName+" "+ person.ThirdName+" "+person.LastName;
+                                person.CountryName = ClsCountry.GetCountryName(person.NationalityCountryId);
+                                
                                 try
                                 {
                                     var genderValue = reader["Gender"];

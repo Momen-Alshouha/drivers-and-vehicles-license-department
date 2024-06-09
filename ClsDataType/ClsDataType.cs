@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace ClsDataType
 {
@@ -12,6 +13,7 @@ namespace ClsDataType
             public string SecondName;
             public string ThirdName;
             public string LastName;
+            public string FullName;
             public DateTime BirthDate;
             public short Gender;
             public string Address;
@@ -19,10 +21,10 @@ namespace ClsDataType
             public string Email;
             public int NationalityCountryId;
             public string ImagePath;
-            private readonly string _CountryName;
-            private readonly ICountryDataAccess _CountryDataAccess;
+            public string CountryName;
 
-            public StPerson(ICountryDataAccess countryDataAccess)
+
+            public StPerson()
             {
                 Id = -1;
                 NationalNo = string.Empty;
@@ -30,6 +32,7 @@ namespace ClsDataType
                 SecondName = string.Empty;
                 ThirdName = string.Empty;
                 LastName = string.Empty;
+                FullName = string.Empty;
                 BirthDate = DateTime.MinValue;
                 Gender = 0;
                 Address = string.Empty;
@@ -37,20 +40,8 @@ namespace ClsDataType
                 Email = string.Empty;
                 NationalityCountryId = 0;
                 ImagePath = string.Empty;
-                _CountryDataAccess = countryDataAccess;
-                _CountryName = _CountryDataAccess.GetCountryName(NationalityCountryId);
-            }
-
-            // Method to retrieve the country name
-            public string GetCountryName()
-            {
-                return _CountryDataAccess?.GetCountryName(NationalityCountryId) ?? "Unknown";
             }
         }
     }
 
-    public interface ICountryDataAccess
-    {
-        string GetCountryName(int countryId);
-    }
 }

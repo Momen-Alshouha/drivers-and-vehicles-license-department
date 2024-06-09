@@ -54,10 +54,16 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Controls\FrmAddEditPerson.cs">
+    <Compile Include="People\Controls\CtrlUserDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\CtrlUserDetails.Designer.cs">
+      <DependentUpon>CtrlUserDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\FrmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\Controls\FrmAddEditPerson.Designer.cs">
+    <Compile Include="People\FrmAddEditPerson.Designer.cs">
       <DependentUpon>FrmAddEditPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="People\FrmManagePeople.cs">
@@ -66,16 +72,28 @@
     <Compile Include="People\FrmManagePeople.Designer.cs">
       <DependentUpon>FrmManagePeople.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\FrmPersonDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\FrmPersonDetails.Designer.cs">
+      <DependentUpon>FrmPersonDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Controls\FrmAddEditPerson.resx">
+    <EmbeddedResource Include="People\Controls\CtrlUserDetails.resx">
+      <DependentUpon>CtrlUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\FrmAddEditPerson.resx">
       <DependentUpon>FrmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmManagePeople.resx">
       <DependentUpon>FrmManagePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\FrmPersonDetails.resx">
+      <DependentUpon>FrmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -119,5 +137,6 @@
   <ItemGroup>
     <None Include="Resources\Add Person 72.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

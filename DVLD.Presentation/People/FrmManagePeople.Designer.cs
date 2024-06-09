@@ -32,13 +32,14 @@
             this.dgvPeople = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.LblNumberOfPeople = new System.Windows.Forms.Label();
-            this.pictureBoxAddPerson = new System.Windows.Forms.PictureBox();
             this.contextMenuStripPeopleDataGridView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBoxAddPerson = new System.Windows.Forms.PictureBox();
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddPerson)).BeginInit();
             this.contextMenuStripPeopleDataGridView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddPerson)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPeople
@@ -74,26 +75,15 @@
             this.LblNumberOfPeople.TabIndex = 2;
             this.LblNumberOfPeople.Text = "0";
             // 
-            // pictureBoxAddPerson
-            // 
-            this.pictureBoxAddPerson.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxAddPerson.Image = global::DVLD.Presentation.Properties.Resources.Add_Person_72;
-            this.pictureBoxAddPerson.Location = new System.Drawing.Point(1329, 147);
-            this.pictureBoxAddPerson.Name = "pictureBoxAddPerson";
-            this.pictureBoxAddPerson.Size = new System.Drawing.Size(50, 51);
-            this.pictureBoxAddPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAddPerson.TabIndex = 3;
-            this.pictureBoxAddPerson.TabStop = false;
-            this.pictureBoxAddPerson.Click += new System.EventHandler(this.pictureBoxAddPerson_Click);
-            // 
             // contextMenuStripPeopleDataGridView
             // 
             this.contextMenuStripPeopleDataGridView.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripPeopleDataGridView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showDetailsToolStripMenuItem,
             this.editPersonToolStripMenuItem,
             this.addNewPersonToolStripMenuItem});
             this.contextMenuStripPeopleDataGridView.Name = "contextMenuStripPeopleDataGridView";
-            this.contextMenuStripPeopleDataGridView.Size = new System.Drawing.Size(188, 52);
+            this.contextMenuStripPeopleDataGridView.Size = new System.Drawing.Size(211, 104);
             // 
             // editPersonToolStripMenuItem
             // 
@@ -109,6 +99,25 @@
             this.addNewPersonToolStripMenuItem.Text = "Add New Person";
             this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem_Click);
             // 
+            // pictureBoxAddPerson
+            // 
+            this.pictureBoxAddPerson.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAddPerson.Image = global::DVLD.Presentation.Properties.Resources.Add_Person_72;
+            this.pictureBoxAddPerson.Location = new System.Drawing.Point(1329, 147);
+            this.pictureBoxAddPerson.Name = "pictureBoxAddPerson";
+            this.pictureBoxAddPerson.Size = new System.Drawing.Size(50, 51);
+            this.pictureBoxAddPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAddPerson.TabIndex = 3;
+            this.pictureBoxAddPerson.TabStop = false;
+            this.pictureBoxAddPerson.Click += new System.EventHandler(this.pictureBoxAddPerson_Click);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
+            // 
             // FrmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -123,8 +132,8 @@
             this.Text = "Manage People";
             this.Load += new System.EventHandler(this.FrmManagePeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddPerson)).EndInit();
             this.contextMenuStripPeopleDataGridView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddPerson)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +148,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripPeopleDataGridView;
         private System.Windows.Forms.ToolStripMenuItem editPersonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewPersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
     }
 }
