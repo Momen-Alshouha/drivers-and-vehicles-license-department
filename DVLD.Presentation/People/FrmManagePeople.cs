@@ -84,5 +84,39 @@ namespace DVLD.Presentation.People
                 frmPersonDetails.ShowDialog();
             }
         }
+        private void deletePersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvPeople.SelectedRows.Count > 0)
+            {
+                int personId = Convert.ToInt32(dgvPeople.SelectedRows[0].Cells["PersonID"].Value);
+                StPerson? person = BusinessLogic.ClsPerson.Find(personId);
+
+                if (person.HasValue)
+                {
+                    string fullName = $"{person.Value.FirstName} {person.Value.LastName}";
+                    DialogResult result = MessageBox.Show("Are You Sure?", $"Delete {fullName}", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (BusinessLogic.ClsPerson.DeletePerson(personId))
+                        {
+                            MessageBox.Show("Person Deleted Successfully!", "Deleted!", MessageBoxButtons.OK);
+
+                            LoadPeopleInDataGridView();
+                            LoadNumberOfPeople();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Person not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a person to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

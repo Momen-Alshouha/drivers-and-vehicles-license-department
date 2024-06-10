@@ -97,5 +97,10 @@ namespace DVLD.BusinessLogic
         {
             return IsPersonExist(NationalNo);
         }
+
+        public static bool DeletePerson(int PersonId)
+        {
+            return (DataAccess.ClsPerson.DeletePerson(PersonId));
+        }
     }
 }
