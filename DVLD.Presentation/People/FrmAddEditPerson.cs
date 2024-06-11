@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,13 +35,24 @@ namespace DVLD.Presentation.People.Controls
         private void InitializePerson()
         {
             _Person = new ClsPerson();
+            _Person.mode = ClsPerson.EnMode.AddNew;
             _Person.Person = new ClsDataType.ClsDataType.StPerson();
         }
+
+        private void InitializePerson(int PersonId)
+        {
+            _Mode = EnMode.Add;
+            _Person = new ClsPerson();
+            _Person.mode = ClsPerson.EnMode.Update;
+            StPerson? foundPerson = BusinessLogic.ClsPerson.Find(PersonId);
+            _Person.Person = foundPerson.Value;
+        }
+
 
         public FrmAddEditPerson(int PersonId)
         {
             InitializeComponent();
-            InitializePerson();
+            InitializePerson(PersonId);
             _Mode = EnMode.Update;
             _PersonId = PersonId;
             _LoadPersonData();
@@ -68,9 +80,11 @@ namespace DVLD.Presentation.People.Controls
             if (_Mode==EnMode.Add)
             {
                 LblAddNewPerson.Text = "Add New Person";
+                _Mode = EnMode.Update;
             } else if (_Mode==EnMode.Update)
             {
                 LblAddNewPerson.Text = "Update Person";
+                _Mode = EnMode.Add;
             }
         }
         private void _ResetTexts()
@@ -215,7 +229,6 @@ namespace DVLD.Presentation.People.Controls
             {
                 success = true;
                 LblPersonId.Text = _Person.Person.Id.ToString();
-                _Mode = EnMode.Update;
                 _SetFormTitleMode();
                 // To Do:trigger event to sent data back to the caller form
             }

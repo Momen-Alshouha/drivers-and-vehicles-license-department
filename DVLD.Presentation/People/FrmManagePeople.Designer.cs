@@ -45,9 +45,13 @@
             // 
             // dgvPeople
             // 
+            this.dgvPeople.AllowUserToAddRows = false;
+            this.dgvPeople.AllowUserToDeleteRows = false;
+            this.dgvPeople.AllowUserToOrderColumns = true;
             this.dgvPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPeople.Location = new System.Drawing.Point(16, 204);
             this.dgvPeople.Name = "dgvPeople";
+            this.dgvPeople.ReadOnly = true;
             this.dgvPeople.RowHeadersWidth = 51;
             this.dgvPeople.RowTemplate.Height = 24;
             this.dgvPeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -85,7 +89,7 @@
             this.addNewPersonToolStripMenuItem,
             this.deletePersonToolStripMenuItem});
             this.contextMenuStripPeopleDataGridView.Name = "contextMenuStripPeopleDataGridView";
-            this.contextMenuStripPeopleDataGridView.Size = new System.Drawing.Size(211, 128);
+            this.contextMenuStripPeopleDataGridView.Size = new System.Drawing.Size(188, 100);
             // 
             // editPersonToolStripMenuItem
             // 
@@ -112,7 +116,7 @@
             // 
             this.pictureBoxAddPerson.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxAddPerson.Image = global::DVLD.Presentation.Properties.Resources.Add_Person_72;
-            this.pictureBoxAddPerson.Location = new System.Drawing.Point(1329, 147);
+            this.pictureBoxAddPerson.Location = new System.Drawing.Point(1314, 147);
             this.pictureBoxAddPerson.Name = "pictureBoxAddPerson";
             this.pictureBoxAddPerson.Size = new System.Drawing.Size(50, 51);
             this.pictureBoxAddPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
