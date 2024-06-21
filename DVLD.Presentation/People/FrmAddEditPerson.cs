@@ -16,6 +16,9 @@ namespace DVLD.Presentation.People.Controls
 {
     public partial class FrmAddEditPerson : Form
     {
+
+        //public delegate void PersonAddedHandler(object sender, EventArgs e);
+        //public event PersonAddedHandler PersonAdded;
         enum EnMode
         {
             Add=0,Update=1
@@ -151,10 +154,14 @@ namespace DVLD.Presentation.People.Controls
         }
         private void FrmAddEditPerson_Load(object sender, EventArgs e)
         {
-            _ResetDefaultValues();
+            
             if (_Mode==EnMode.Update)
             {
                 _LoadPersonData();
+            }
+            else
+            {
+                _ResetDefaultValues();
             }
         }
         private void LinkLabelRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -231,6 +238,7 @@ namespace DVLD.Presentation.People.Controls
                 LblPersonId.Text = _Person.Person.Id.ToString();
                 _SetFormTitleMode();
                 // To Do:trigger event to sent data back to the caller form
+                //PersonAdded?.Invoke(this, EventArgs.Empty);
             }
 
             if (success)

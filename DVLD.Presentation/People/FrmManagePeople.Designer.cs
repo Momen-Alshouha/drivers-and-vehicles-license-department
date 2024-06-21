@@ -38,6 +38,7 @@
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxAddPerson = new System.Windows.Forms.PictureBox();
             this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LblManagePeopleFormTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.contextMenuStripPeopleDataGridView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddPerson)).BeginInit();
@@ -94,21 +95,21 @@
             // editPersonToolStripMenuItem
             // 
             this.editPersonToolStripMenuItem.Name = "editPersonToolStripMenuItem";
-            this.editPersonToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.editPersonToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
             this.editPersonToolStripMenuItem.Text = "Edit Person";
             this.editPersonToolStripMenuItem.Click += new System.EventHandler(this.editPersonToolStripMenuItem_Click);
             // 
             // addNewPersonToolStripMenuItem
             // 
             this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
             this.addNewPersonToolStripMenuItem.Text = "Add New Person";
             this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem_Click);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
@@ -127,15 +128,26 @@
             // deletePersonToolStripMenuItem
             // 
             this.deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
-            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
             this.deletePersonToolStripMenuItem.Text = "Delete Person";
             this.deletePersonToolStripMenuItem.Click += new System.EventHandler(this.deletePersonToolStripMenuItem_Click);
+            // 
+            // LblManagePeopleFormTitle
+            // 
+            this.LblManagePeopleFormTitle.AutoSize = true;
+            this.LblManagePeopleFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblManagePeopleFormTitle.Location = new System.Drawing.Point(489, 83);
+            this.LblManagePeopleFormTitle.Name = "LblManagePeopleFormTitle";
+            this.LblManagePeopleFormTitle.Size = new System.Drawing.Size(312, 46);
+            this.LblManagePeopleFormTitle.TabIndex = 4;
+            this.LblManagePeopleFormTitle.Text = "Manage People";
             // 
             // FrmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1387, 703);
+            this.Controls.Add(this.LblManagePeopleFormTitle);
             this.Controls.Add(this.pictureBoxAddPerson);
             this.Controls.Add(this.LblNumberOfPeople);
             this.Controls.Add(this.label1);
@@ -163,5 +175,6 @@
         private System.Windows.Forms.ToolStripMenuItem addNewPersonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deletePersonToolStripMenuItem;
+        private System.Windows.Forms.Label LblManagePeopleFormTitle;
     }
 }

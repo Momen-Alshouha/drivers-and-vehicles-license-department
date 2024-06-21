@@ -54,7 +54,6 @@ namespace DVLD.Presentation.People
                 FrmAddEditPerson frmAddEditPerson = new FrmAddEditPerson(personId);
                 frmAddEditPerson.ShowDialog();
             }
-            LoadNumberOfPeople();
             LoadPeopleInDataGridView();
         }
 
@@ -74,10 +73,15 @@ namespace DVLD.Presentation.People
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAddEditPerson frmAddEditPerson = new FrmAddEditPerson();
+            //frmAddEditPerson.PersonAdded += FrmAddEditPerson_PersonAdded;
             frmAddEditPerson.ShowDialog();
-            LoadNumberOfPeople();
-            LoadPeopleInDataGridView();
         }
+
+        //private void FrmAddEditPerson_PersonAdded(object sender, EventArgs e)
+        //{
+        //    LoadPeopleInDataGridView();
+        //    LoadNumberOfPeople();
+        //}
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
