@@ -163,10 +163,10 @@ namespace DVLD.DataAccess
             bool isFound = false;
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
-                string query = "SELECT * FROM People WHERE NationalId = @NationalId";
+                string query = "SELECT * FROM People WHERE NationalNo = @NationalNo";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@NationalId", NationalNo);
+                    command.Parameters.AddWithValue("@NationalNo", NationalNo);
                     try
                     {
                         connection.Open();
@@ -174,18 +174,37 @@ namespace DVLD.DataAccess
                         if (reader.HasRows)
                         {
                             reader.Read();
-                            person.Id = reader["Id"] != DBNull.Value ? (int)reader["PersonId"] : 0;
+                            person.Id = reader["PersonId"] != DBNull.Value ? (int)reader["PersonId"] : 0;
                             person.NationalNo = NationalNo;
                             person.FirstName = reader["FirstName"] != DBNull.Value ? (string)reader["FirstName"] : string.Empty;
                             person.SecondName = reader["SecondName"] != DBNull.Value ? (string)reader["SecondName"] : string.Empty;
                             person.ThirdName = reader["ThirdName"] != DBNull.Value ? (string)reader["ThirdName"] : string.Empty;
                             person.LastName = reader["LastName"] != DBNull.Value ? (string)reader["LastName"] : string.Empty;
                             person.BirthDate = reader["BirthDate"] != DBNull.Value ? (DateTime)reader["BirthDate"] : DateTime.MinValue;
-                            person.Gender = reader["Gender"] != DBNull.Value ? (short)reader["Gender"] : (short)0;
+                            person.FullName = person.FirstName + " " + person.SecondName + " " + person.ThirdName + " " + person.LastName;
+                            person.NationalityCountryId = reader["NationalityCountryId"] != DBNull.Value ? (int)reader["NationalityCountryId"] : 0;
+                            person.CountryName = ClsCountry.GetCountryName(person.NationalityCountryId);
+                            try
+                            {
+                                var genderValue = reader["Gender"];
+                                if (genderValue != DBNull.Value)
+                                {
+                                    person.Gender = (short)(byte)reader["Gender"];
+                                }
+                                else
+                                {
+                                    person.Gender = 0;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Error casting Gender: {ex.Message}");
+                                throw;
+                            }
+
                             person.Address = reader["Address"] != DBNull.Value ? (string)reader["Address"] : string.Empty;
                             person.Phone = reader["Phone"] != DBNull.Value ? (string)reader["Phone"] : string.Empty;
                             person.Email = reader["Email"] != DBNull.Value ? (string)reader["Email"] : string.Empty;
-                            person.NationalityCountryId = reader["NationalityCountryId"] != DBNull.Value ? (int)reader["NationalityCountryId"] : 0;
                             person.ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : string.Empty;
 
                             isFound = true;

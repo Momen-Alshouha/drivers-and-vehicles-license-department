@@ -16,6 +16,12 @@ namespace DVLD.Presentation.People.Controls
     public partial class CtrlUserDetails : UserControl
     {
         StPerson? stPerson = new StPerson();
+
+        public StPerson? Person
+        {
+            get { return stPerson; }
+        }
+
         public CtrlUserDetails()
         {
             InitializeComponent();
@@ -29,7 +35,8 @@ namespace DVLD.Presentation.People.Controls
 
         public void LoadPersonInfo(string NationalNo)
         {
-            _FillPersonInfo(this.stPerson);
+            this.stPerson = BusinessLogic.ClsPerson.Find(NationalNo);
+            _FillPersonInfo(stPerson);
         }
 
         private void _LoadPersonImage()

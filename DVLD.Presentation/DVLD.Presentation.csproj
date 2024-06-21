@@ -60,6 +60,12 @@
     <Compile Include="People\Controls\CtrlUserDetails.Designer.cs">
       <DependentUpon>CtrlUserDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\Controls\CtrlUserDetailsWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\CtrlUserDetailsWithFilter.Designer.cs">
+      <DependentUpon>CtrlUserDetailsWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\FrmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\CtrlUserDetails.resx">
       <DependentUpon>CtrlUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\CtrlUserDetailsWithFilter.resx">
+      <DependentUpon>CtrlUserDetailsWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmAddEditPerson.resx">
       <DependentUpon>FrmAddEditPerson.cs</DependentUpon>
@@ -137,6 +146,11 @@
   <ItemGroup>
     <None Include="Resources\Add Person 72.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\SearchPerson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Person 40.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
