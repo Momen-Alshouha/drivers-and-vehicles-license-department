@@ -17,26 +17,29 @@ namespace DVLD.DataAccess
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
                 string query = @"
-            SELECT 
-                PersonID,
-                NationalNo,
-                FirstName,
-                SecondName,
-                ThirdName,
-                LastName,
-                BirthDate,
-                CASE 
-                    WHEN Gender = 0 THEN 'Male'
-                    WHEN Gender = 1 THEN 'Female'
-                    ELSE 'Unknown'
-                END AS Gender,
-                Address,
-                Phone,
-                Email,
-                NationalityCountryId,
-                ImagePath
-            FROM 
-                People";
+        SELECT 
+            p.PersonID,
+            p.NationalNo,
+            p.FirstName,
+            p.SecondName,
+            p.ThirdName,
+            p.LastName,
+            p.BirthDate,
+            CASE 
+                WHEN p.Gender = 0 THEN 'Male'
+                WHEN p.Gender = 1 THEN 'Female'
+                ELSE 'Unknown'
+            END AS Gender,
+            p.Address,
+            p.Phone,
+            p.Email,
+            c.CountryName,
+            p.ImagePath
+        FROM 
+            People p
+        LEFT JOIN 
+            Countries c ON p.NationalityCountryId = c.CountryId";
+
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     try
@@ -60,6 +63,7 @@ namespace DVLD.DataAccess
             }
             return result;
         }
+
         public static int GetNumberOfPeople()
         {
             int count = 0;
