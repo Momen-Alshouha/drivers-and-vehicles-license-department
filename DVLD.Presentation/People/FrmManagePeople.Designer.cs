@@ -37,10 +37,12 @@
             this.editPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBoxAddPerson = new System.Windows.Forms.PictureBox();
             this.LblManagePeopleFormTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAddPerson = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.contextMenuStripPeopleDataGridView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddPerson)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             this.dgvPeople.AllowUserToDeleteRows = false;
             this.dgvPeople.AllowUserToOrderColumns = true;
             this.dgvPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPeople.Location = new System.Drawing.Point(16, 204);
+            this.dgvPeople.Location = new System.Drawing.Point(17, 258);
             this.dgvPeople.Name = "dgvPeople";
             this.dgvPeople.ReadOnly = true;
             this.dgvPeople.RowHeadersWidth = 51;
@@ -65,7 +67,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 651);
+            this.label1.Location = new System.Drawing.Point(12, 689);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 25);
             this.label1.TabIndex = 1;
@@ -75,7 +77,7 @@
             // 
             this.LblNumberOfPeople.AutoSize = true;
             this.LblNumberOfPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNumberOfPeople.Location = new System.Drawing.Point(120, 651);
+            this.LblNumberOfPeople.Location = new System.Drawing.Point(120, 689);
             this.LblNumberOfPeople.Name = "LblNumberOfPeople";
             this.LblNumberOfPeople.Size = new System.Drawing.Size(23, 25);
             this.LblNumberOfPeople.TabIndex = 2;
@@ -120,11 +122,31 @@
             this.deletePersonToolStripMenuItem.Text = "Delete Person";
             this.deletePersonToolStripMenuItem.Click += new System.EventHandler(this.deletePersonToolStripMenuItem_Click);
             // 
+            // LblManagePeopleFormTitle
+            // 
+            this.LblManagePeopleFormTitle.AutoSize = true;
+            this.LblManagePeopleFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblManagePeopleFormTitle.Location = new System.Drawing.Point(543, 192);
+            this.LblManagePeopleFormTitle.Name = "LblManagePeopleFormTitle";
+            this.LblManagePeopleFormTitle.Size = new System.Drawing.Size(312, 46);
+            this.LblManagePeopleFormTitle.TabIndex = 4;
+            this.LblManagePeopleFormTitle.Text = "Manage People";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.People_400;
+            this.pictureBox1.Location = new System.Drawing.Point(608, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(196, 165);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // pictureBoxAddPerson
             // 
             this.pictureBoxAddPerson.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxAddPerson.Image = global::DVLD.Presentation.Properties.Resources.Add_Person_72;
-            this.pictureBoxAddPerson.Location = new System.Drawing.Point(1269, 147);
+            this.pictureBoxAddPerson.Location = new System.Drawing.Point(1271, 180);
             this.pictureBoxAddPerson.Name = "pictureBoxAddPerson";
             this.pictureBoxAddPerson.Size = new System.Drawing.Size(50, 51);
             this.pictureBoxAddPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -132,21 +154,12 @@
             this.pictureBoxAddPerson.TabStop = false;
             this.pictureBoxAddPerson.Click += new System.EventHandler(this.pictureBoxAddPerson_Click);
             // 
-            // LblManagePeopleFormTitle
-            // 
-            this.LblManagePeopleFormTitle.AutoSize = true;
-            this.LblManagePeopleFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblManagePeopleFormTitle.Location = new System.Drawing.Point(489, 83);
-            this.LblManagePeopleFormTitle.Name = "LblManagePeopleFormTitle";
-            this.LblManagePeopleFormTitle.Size = new System.Drawing.Size(312, 46);
-            this.LblManagePeopleFormTitle.TabIndex = 4;
-            this.LblManagePeopleFormTitle.Text = "Manage People";
-            // 
             // FrmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1387, 703);
+            this.ClientSize = new System.Drawing.Size(1387, 743);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.LblManagePeopleFormTitle);
             this.Controls.Add(this.pictureBoxAddPerson);
             this.Controls.Add(this.LblNumberOfPeople);
@@ -158,6 +171,7 @@
             this.Load += new System.EventHandler(this.FrmManagePeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).EndInit();
             this.contextMenuStripPeopleDataGridView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddPerson)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,5 +190,6 @@
         private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deletePersonToolStripMenuItem;
         private System.Windows.Forms.Label LblManagePeopleFormTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

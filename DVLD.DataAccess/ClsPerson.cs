@@ -33,8 +33,7 @@ namespace DVLD.DataAccess
             p.Address,
             p.Phone,
             p.Email,
-            c.CountryName,
-            p.ImagePath
+            c.CountryName
         FROM 
             People p
         LEFT JOIN 
