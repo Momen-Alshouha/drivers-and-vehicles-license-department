@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrlUserDetailsWithFilter1 = new DVLD.Presentation.People.Controls.CtrlUserDetailsWithFilter();
             this.ButtonCloseFindPersonForm = new System.Windows.Forms.Button();
+            this.ctrlUserDetailsWithFilter1 = new DVLD.Presentation.People.Controls.CtrlUserDetailsWithFilter();
+            this.ctrlUserDetailsWithFilter2 = new DVLD.Presentation.People.Controls.CtrlUserDetailsWithFilter();
             this.SuspendLayout();
             // 
             // label1
@@ -43,13 +44,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Find Person";
             // 
-            // ctrlUserDetailsWithFilter1
-            // 
-            this.ctrlUserDetailsWithFilter1.Location = new System.Drawing.Point(21, 75);
-            this.ctrlUserDetailsWithFilter1.Name = "ctrlUserDetailsWithFilter1";
-            this.ctrlUserDetailsWithFilter1.Size = new System.Drawing.Size(839, 427);
-            this.ctrlUserDetailsWithFilter1.TabIndex = 1;
-            // 
             // ButtonCloseFindPersonForm
             // 
             this.ButtonCloseFindPersonForm.Location = new System.Drawing.Point(726, 509);
@@ -60,11 +54,26 @@
             this.ButtonCloseFindPersonForm.UseVisualStyleBackColor = true;
             this.ButtonCloseFindPersonForm.Click += new System.EventHandler(this.ButtonCloseFindPersonForm_Click);
             // 
+            // ctrlUserDetailsWithFilter1
+            // 
+            this.ctrlUserDetailsWithFilter1.Location = new System.Drawing.Point(21, 75);
+            this.ctrlUserDetailsWithFilter1.Name = "ctrlUserDetailsWithFilter1";
+            this.ctrlUserDetailsWithFilter1.Size = new System.Drawing.Size(839, 427);
+            this.ctrlUserDetailsWithFilter1.TabIndex = 1;
+            // 
+            // ctrlUserDetailsWithFilter2
+            // 
+            this.ctrlUserDetailsWithFilter2.Location = new System.Drawing.Point(29, 83);
+            this.ctrlUserDetailsWithFilter2.Name = "ctrlUserDetailsWithFilter2";
+            this.ctrlUserDetailsWithFilter2.Size = new System.Drawing.Size(839, 427);
+            this.ctrlUserDetailsWithFilter2.TabIndex = 3;
+            // 
             // FrmFindPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 570);
+            this.Controls.Add(this.ctrlUserDetailsWithFilter2);
             this.Controls.Add(this.ButtonCloseFindPersonForm);
             this.Controls.Add(this.ctrlUserDetailsWithFilter1);
             this.Controls.Add(this.label1);
@@ -80,5 +89,6 @@
         private System.Windows.Forms.Label label1;
         private Controls.CtrlUserDetailsWithFilter ctrlUserDetailsWithFilter1;
         private System.Windows.Forms.Button ButtonCloseFindPersonForm;
+        private Controls.CtrlUserDetailsWithFilter ctrlUserDetailsWithFilter2;
     }
 }

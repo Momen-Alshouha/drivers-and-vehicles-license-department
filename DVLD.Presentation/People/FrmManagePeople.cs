@@ -1,4 +1,5 @@
-﻿using DVLD.Presentation.People.Controls;
+﻿using DVLD.BusinessLogic;
+using DVLD.Presentation.People.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,15 @@ namespace DVLD.Presentation.People
 {
      partial class FrmManagePeople : Form
     {
+        private static DataTable _dtAllPeople = ClsPerson.GetPeople();
+
+        //only select the columns that you want to show in the grid
+        private DataTable _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
+                                                         "FirstName", "SecondName", "ThirdName", "LastName",
+                                                         "Gender", "BirthDate", "CountryName",
+                                                         "Phone", "Email");
+
+
         public FrmManagePeople()
         {
             InitializeComponent();
@@ -27,7 +37,15 @@ namespace DVLD.Presentation.People
 
         public void LoadPeopleInDataGridView()
         {
-            dgvPeople.DataSource = DVLD.BusinessLogic.People.GetAllPeople();
+            _dtAllPeople = DVLD.BusinessLogic.People.GetAllPeople();
+            _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
+                                                       "FirstName", "SecondName", "ThirdName", "LastName",
+                                                       "BirthDate", "Gender", "Address",
+                                                       "Phone", "Email", "CountryName");
+
+            dgvPeople.DataSource = _dtPeople;
+            LblNumberOfPeople.Text = dgvPeople.Rows.Count.ToString();
+
         }
         public void LoadNumberOfPeople()
         {
@@ -36,10 +54,10 @@ namespace DVLD.Presentation.People
         }
         private void FrmManagePeople_Load(object sender, EventArgs e)
         {
-
+           
             LoadPeopleInDataGridView();
             LoadNumberOfPeople();
-
+            ComboBoxFilterByManagePeopleForm.SelectedItem = "None";
             if (dgvPeople.Rows.Count > 0)
             {
 
@@ -97,7 +115,7 @@ namespace DVLD.Presentation.People
         {
             if (dgvPeople.SelectedRows.Count>0)
             {
-                int personId = Convert.ToInt32(dgvPeople.SelectedRows[0].Cells["PersonID"].Value);
+                int personId = Convert.ToInt32(dgvPeople.SelectedRows[0].Cells[0].Value);
                 FrmAddEditPerson frmAddEditPerson = new FrmAddEditPerson(personId);
                 frmAddEditPerson.ShowDialog();
             }
@@ -134,7 +152,7 @@ namespace DVLD.Presentation.People
         {
             if (dgvPeople.SelectedRows.Count > 0)
             {
-                int personId = Convert.ToInt32(dgvPeople.SelectedRows[0].Cells["PersonID"].Value);
+                int personId = Convert.ToInt32(dgvPeople.SelectedRows[0].Cells[0].Value);
                 FrmPersonDetails frmPersonDetails = new FrmPersonDetails(personId);
                 frmPersonDetails.ShowDialog();
             }
@@ -143,7 +161,7 @@ namespace DVLD.Presentation.People
         {
             if (dgvPeople.SelectedRows.Count > 0)
             {
-                int personId = Convert.ToInt32(dgvPeople.SelectedRows[0].Cells["PersonID"].Value);
+                int personId = Convert.ToInt32(dgvPeople.SelectedRows[0].Cells[0].Value);
                 StPerson? person = BusinessLogic.ClsPerson.Find(personId);
 
                 if (person.HasValue)
@@ -173,5 +191,66 @@ namespace DVLD.Presentation.People
             }
         }
 
-     }
+        private void TextBoxFilterManagePeopleForm_TextChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "";
+            //Map Selected Filter to real Column name 
+            switch (ComboBoxFilterByManagePeopleForm.Text)
+            {
+                case "Person ID":
+                    FilterColumn = "PersonID";
+                    break;
+
+                case "National No.":
+                    FilterColumn = "NationalNo";
+                    break;
+
+                case "First Name":
+                    FilterColumn = "FirstName";
+                    break;
+
+                case "Country Name":
+                    FilterColumn = "CountryName";
+                    break;
+
+                case "Email":
+                    FilterColumn = "Email";
+                    break;
+
+                default:
+                    FilterColumn = "None";
+                    break;
+
+            }
+
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (TextBoxFilterManagePeopleForm.Text.Trim() == "" || FilterColumn == "None")
+            {
+                _dtPeople.DefaultView.RowFilter = "";
+                LblNumberOfPeople.Text = dgvPeople.Rows.Count.ToString();
+                return;
+            }
+
+
+            if (FilterColumn == "PersonID")
+                //in this case we deal with integer not string.
+
+                _dtPeople.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, TextBoxFilterManagePeopleForm.Text.Trim());
+            else
+                _dtPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, TextBoxFilterManagePeopleForm.Text.Trim());
+
+            LblNumberOfPeople.Text = dgvPeople.Rows.Count.ToString();
+        }
+
+        private void ComboBoxFilterByManagePeopleForm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboBoxFilterByManagePeopleForm.SelectedIndex != 0)
+            {
+                TextBoxFilterManagePeopleForm.Visible = true;
+            } else
+            {
+                TextBoxFilterManagePeopleForm.Visible = false;
+            }
+        }
+    }
 }
