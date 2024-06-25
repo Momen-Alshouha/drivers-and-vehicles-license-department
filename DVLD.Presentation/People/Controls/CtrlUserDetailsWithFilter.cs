@@ -7,11 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClsDataType;
 
 namespace DVLD.Presentation.People.Controls
 {
     public partial class CtrlUserDetailsWithFilter : UserControl
     {
+
+        public ClsDataType.ClsDataType.StPerson? SelectedPersonInfo
+        {
+            get { return ctrlUserDetails1.Person; }
+        }
+
+        public int PersonID
+        {
+            get
+            {
+                return ctrlUserDetails1.Person.Value.Id;
+            }
+        }
+
         public CtrlUserDetailsWithFilter()
         {
             InitializeComponent();

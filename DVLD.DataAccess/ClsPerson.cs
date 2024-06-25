@@ -157,7 +157,6 @@ namespace DVLD.DataAccess
             }
             return isFound;
         }
-
         public static bool GetPerson(string NationalNo, ref StPerson person)
         {
             bool isFound = false;

@@ -44,7 +44,7 @@ namespace DVLD.Presentation.People.Controls
 
         private void InitializePerson(int PersonId)
         {
-            _Mode = EnMode.Add;
+            _Mode = EnMode.Update;
             _Person = new ClsPerson();
             _Person.mode = ClsPerson.EnMode.Update;
             StPerson? foundPerson = BusinessLogic.ClsPerson.Find(PersonId);
@@ -117,6 +117,7 @@ namespace DVLD.Presentation.People.Controls
         }
         void _LoadPersonData()
         {
+            _LoadCountriesInComboBox();
             StPerson? person = BusinessLogic.ClsPerson.Find(_PersonId);
             if (person.HasValue)
             {
@@ -186,7 +187,6 @@ namespace DVLD.Presentation.People.Controls
             }
             return true;
         }
-
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
@@ -199,7 +199,7 @@ namespace DVLD.Presentation.People.Controls
             if (!_HandlePersonImage())
                 return;
 
-            _Person.Person.NationalityCountryId = BusinessLogic.ClsCountry.GetCountryID(ComboBoxCountries.SelectedItem.ToString());
+           _Person.Person.NationalityCountryId = BusinessLogic.ClsCountry.GetCountryID(ComboBoxCountries.SelectedItem.ToString());
 
             _Person.Person.FirstName = TxtFirstName.Text.Trim();
             _Person.Person.SecondName = TxtSecondName.Text.Trim();
@@ -250,7 +250,6 @@ namespace DVLD.Presentation.People.Controls
                 MessageBox.Show("An error occurred while saving the person data.");
             }
         }
-
         private void LinkLabelSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";

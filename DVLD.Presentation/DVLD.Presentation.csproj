@@ -72,6 +72,12 @@
     <Compile Include="People\FrmAddEditPerson.Designer.cs">
       <DependentUpon>FrmAddEditPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\FrmFindPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\FrmFindPerson.Designer.cs">
+      <DependentUpon>FrmFindPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\FrmManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmAddEditPerson.resx">
       <DependentUpon>FrmAddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\FrmFindPerson.resx">
+      <DependentUpon>FrmFindPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmManagePeople.resx">
       <DependentUpon>FrmManagePeople.cs</DependentUpon>

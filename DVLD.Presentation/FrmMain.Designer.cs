@@ -97,7 +97,6 @@
             this.drivingLiscenseServicesToolStripMenuItem.Name = "drivingLiscenseServicesToolStripMenuItem";
             this.drivingLiscenseServicesToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
             this.drivingLiscenseServicesToolStripMenuItem.Text = "Driving Licenses Services";
-            this.drivingLiscenseServicesToolStripMenuItem.Click += new System.EventHandler(this.drivingLiscenseServicesToolStripMenuItem_Click);
             // 
             // newDrivingLicenseToolStripMenuItem
             // 
@@ -278,7 +277,6 @@
             this.Name = "FrmMain";
             this.Text = "Drivers And Vehicles License Department";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.MenuStripMain.ResumeLayout(false);
             this.MenuStripMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

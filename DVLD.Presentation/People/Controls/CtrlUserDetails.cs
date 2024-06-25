@@ -15,7 +15,7 @@ namespace DVLD.Presentation.People.Controls
 {
     public partial class CtrlUserDetails : UserControl
     {
-        StPerson? stPerson = new StPerson();
+        public StPerson? stPerson = new StPerson();
 
         public StPerson? Person
         {

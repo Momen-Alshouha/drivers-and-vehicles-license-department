@@ -16,29 +16,8 @@ namespace DVLD.Presentation
     {
         public FrmMain()
         {
-            //InitializeComponent();
-            LoadCtrlUserDetailsWithFilter();
-        }
-
-        private void LoadCtrlUserDetailsWithFilter()
-        {
-            // Instantiate the user control
-            CtrlUserDetailsWithFilter myUserControl = new CtrlUserDetailsWithFilter();
-
-            // Optionally, set properties or handle events here
-            // myUserControl.SomeProperty = someValue;
-            // myUserControl.SomeEvent += SomeEventHandler;
-
-            // Set the size and location of the user control
-            myUserControl.Dock = DockStyle.Fill;
-
-            // Add the user control to the form
-            this.Controls.Add(myUserControl);
-
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            InitializeComponent();
+            
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,14 +27,5 @@ namespace DVLD.Presentation
             
         }
 
-        private void drivingLiscenseServicesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void manageApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
