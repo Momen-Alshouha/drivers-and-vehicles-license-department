@@ -8,7 +8,6 @@ namespace DVLD.DataAccess
 {
     public class ClsUser
     {
-
         private static bool _GetUserInternal(string query, SqlParameter parameter, ref ClsDataType.ClsDataType.StUser user)
         {
             bool isFound = false;
@@ -35,7 +34,6 @@ namespace DVLD.DataAccess
                     catch (Exception ex)
                     {
                         throw new DataAccessException("An error occurred while retrieving the user.", ex);
-
                     }
                 }
             }
@@ -70,7 +68,6 @@ namespace DVLD.DataAccess
                     catch (Exception ex)
                     {
                         throw new DataAccessException("An error occurred while retrieving the user.", ex);
-
                     }
                 }
             }
@@ -88,6 +85,7 @@ namespace DVLD.DataAccess
             var isActive = reader["IsActive"];
             user.IsActive = isActive != DBNull.Value ? (short)(byte)isActive : (short)0;
         }
+
         public static bool GetUser(string UserName, string Password, ref ClsDataType.ClsDataType.StUser user)
         {
             return _GetUserInternal("select * from users where UserName = @UserName and Password = @Password",
@@ -106,8 +104,10 @@ namespace DVLD.DataAccess
             return _GetUserInternal("select * from users where PersonID = @PersonID", new SqlParameter("@PersonID", PersonID), ref user);
         }
 
-        public static void AddNewUser(ClsDataType.ClsDataType.StUser user)
+        public static bool AddNewUser(ClsDataType.ClsDataType.StUser user)
         {
+            bool IsAdded = false;
+
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
                 string query = "INSERT INTO users (PersonID, UserName, Password, IsActive) VALUES (@PersonID, @UserName, @Password, @IsActive)";
@@ -123,6 +123,7 @@ namespace DVLD.DataAccess
                     {
                         connection.Open();
                         command.ExecuteNonQuery();
+                        IsAdded = true;
                     }
                     catch (Exception ex)
                     {
@@ -130,9 +131,11 @@ namespace DVLD.DataAccess
                     }
                 }
             }
+
+            return IsAdded;
         }
 
-        public bool IsUserExist(int UserID)
+        public static bool IsUserExist(int UserID)
         {
             StUser stUser = new StUser();
             return GetUser(UserID, ref stUser);
@@ -157,10 +160,7 @@ namespace DVLD.DataAccess
                             {
                                 usersTable.Load(reader);
                             }
-                            reader.Close();
                         }
-                        connection.Close();
-                        
                     }
                     catch (Exception ex)
                     {
@@ -190,7 +190,6 @@ namespace DVLD.DataAccess
                     {
                         connection.Open();
                         command.ExecuteNonQuery();
-                        connection.Close();
                     }
                     catch (Exception ex)
                     {
@@ -223,7 +222,6 @@ namespace DVLD.DataAccess
             }
         }
 
-
         public class DataAccessException : Exception
         {
             public DataAccessException(string message, Exception innerException)
@@ -231,6 +229,5 @@ namespace DVLD.DataAccess
             {
             }
         }
-
     }
 }
