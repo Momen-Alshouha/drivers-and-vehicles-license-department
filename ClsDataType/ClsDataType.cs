@@ -5,6 +5,16 @@ namespace ClsDataType
 {
     public class ClsDataType
     {
+
+        public struct StUser
+        {
+            public int UserID;
+            public int PersonID;
+            public string UserName;
+            public string Password;
+            public short IsActive;
+        }
+
         public struct StPerson
         {
             public int Id;
