@@ -83,7 +83,13 @@ namespace DVLD.DataAccess
             user.Password = reader["Password"] as string;
 
             var isActive = reader["IsActive"];
-            user.IsActive = isActive != DBNull.Value ? (short)(byte)isActive : (short)0;
+            if (isActive!=DBNull.Value)
+            {
+                user.IsActive= (bool)reader["IsActive"];
+            } else
+            {
+                user.IsActive = false;
+            }
         }
 
         public static bool GetUser(string UserName, string Password, ref ClsDataType.ClsDataType.StUser user)
@@ -141,13 +147,50 @@ namespace DVLD.DataAccess
             return GetUser(UserID, ref stUser);
         }
 
+
+        public static bool ChangePassword(int UserID,string NewPassword)
+        {
+            int RowEffected = 0;
+
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = @"update users set Password = @Password where UserID = @UserID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    command.Parameters.AddWithValue("@Password", NewPassword);
+                    try
+                    {
+                        connection.Open();
+                        RowEffected = command.ExecuteNonQuery();
+
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+            return RowEffected > 0;
+        }
+
         public static DataTable GetAllUsers()
         {
             DataTable usersTable = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
-                string query = "SELECT * FROM users";
+                string query = @"SELECT users.UserID,users.PersonID , 
+                    FullName = people.FirstName + ' ' + people.SecondName + ' ' + people.ThirdName + ' ' + people.LastName , users.IsActive
+                                FROM users inner join people 
+                                on users.PersonID = people.PersonID
+                                ";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -172,8 +215,9 @@ namespace DVLD.DataAccess
             return usersTable;
         }
 
-        public static void UpdateUser(ClsDataType.ClsDataType.StUser user)
+        public static bool UpdateUser(ClsDataType.ClsDataType.StUser user)
         {
+            int RowsEffected=0; 
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
                 string query = "UPDATE users SET PersonID = @PersonID, UserName = @UserName, Password = @Password, IsActive = @IsActive WHERE UserID = @UserID";
@@ -189,7 +233,7 @@ namespace DVLD.DataAccess
                     try
                     {
                         connection.Open();
-                        command.ExecuteNonQuery();
+                        RowsEffected = command.ExecuteNonQuery();
                     }
                     catch (Exception ex)
                     {
@@ -197,6 +241,7 @@ namespace DVLD.DataAccess
                     }
                 }
             }
+            return RowsEffected > 0;
         }
 
         public static void DeleteUser(int UserID)

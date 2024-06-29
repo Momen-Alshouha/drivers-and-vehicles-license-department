@@ -5,14 +5,17 @@ namespace ClsDataType
 {
     public class ClsDataType
     {
-
+        public enum EnMode
+        {
+            AddNew = 0 , Update =1
+        }
         public struct StUser
         {
             public int UserID;
             public int PersonID;
             public string UserName;
             public string Password;
-            public short IsActive;
+            public bool IsActive;
         }
 
         public struct StPerson

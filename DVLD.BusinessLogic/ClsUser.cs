@@ -35,14 +35,19 @@ namespace DVLD.BusinessLogic
             return DataAccess.ClsUser.GetAllUsers();
         }
 
-        public static void UpdateUser(ClsDataType.ClsDataType.StUser user)
+        public static bool UpdateUser(ClsDataType.ClsDataType.StUser user)
         {
-            DataAccess.ClsUser.UpdateUser(user);
+            return DataAccess.ClsUser.UpdateUser(user);
         }
 
         public static void DeleteUser(int UserID)
         {
             DataAccess.ClsUser.DeleteUser(UserID);
+        }
+
+        public static bool ChangePassword(int UserID,string NewPasssword)
+        {
+            return DataAccess.ClsUser.ChangePassword(UserID, NewPasssword);
         }
     }
 }

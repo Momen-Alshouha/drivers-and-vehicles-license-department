@@ -92,6 +92,11 @@ namespace DVLD.Presentation.People.Controls
         private void PictureBoxSearchPerson_Click(object sender, EventArgs e)
         {
             FindNow();
+
+            if (!SelectedPersonInfo.HasValue)
+            {
+                MessageBox.Show("Person Not Found!","Not Found !", MessageBoxButtons.OK, MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
+            }
         }
 
         private void CtrlUserDetailsWithFilter_Load(object sender, EventArgs e)

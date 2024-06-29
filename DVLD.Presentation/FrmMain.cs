@@ -24,7 +24,7 @@ namespace DVLD.Presentation
         {
             FrmManagePeople frmManagePeople = new FrmManagePeople();
             frmManagePeople.ShowDialog();
-            
+
         }
 
     }

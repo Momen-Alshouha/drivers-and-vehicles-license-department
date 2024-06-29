@@ -30,13 +30,19 @@ namespace DVLD.Presentation.People.Controls
         public void LoadPersonInfo(int PersonId)
         {
             this.stPerson = BusinessLogic.ClsPerson.Find(PersonId);
-            _FillPersonInfo(stPerson);
+            if (stPerson.HasValue)
+            {
+                _FillPersonInfo(stPerson);
+            }
         }
 
         public void LoadPersonInfo(string NationalNo)
         {
             this.stPerson = BusinessLogic.ClsPerson.Find(NationalNo);
-            _FillPersonInfo(stPerson);
+            if (stPerson.HasValue)
+            {
+                _FillPersonInfo(stPerson);
+            }
         }
 
         private void _LoadPersonImage()
