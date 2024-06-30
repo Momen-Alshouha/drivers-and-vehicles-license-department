@@ -1,5 +1,6 @@
 ﻿using DVLD.Presentation.People;
 using DVLD.Presentation.People.Controls;
+using DVLD.Presentation.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,5 +28,10 @@ namespace DVLD.Presentation
 
         }
 
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageUsers frmManageUsers = new FrmManageUsers();
+            frmManageUsers.ShowDialog();
+        }
     }
 }

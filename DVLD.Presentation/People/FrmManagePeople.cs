@@ -252,5 +252,10 @@ namespace DVLD.Presentation.People
                 TextBoxFilterManagePeopleForm.Visible = false;
             }
         }
+
+        private void contextMenuStripPeopleDataGridView_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

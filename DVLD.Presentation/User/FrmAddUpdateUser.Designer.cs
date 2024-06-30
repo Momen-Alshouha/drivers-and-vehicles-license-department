@@ -45,7 +45,7 @@
             this.ButtonCloseAddUserForm = new System.Windows.Forms.Button();
             this.ButtonSaveAddUserForm = new System.Windows.Forms.Button();
             this.LblAddNewUserFormTitle = new System.Windows.Forms.Label();
-            this.ctrlUserDetailsWithFilter2 = new DVLD.Presentation.People.Controls.CtrlUserDetailsWithFilter();
+            this.ctrlUserDetailsWithFilter2 = new DVLD.Presentation.People.Controls.CtrlPersonDetailsWithFilter();
             this.TabControlUser.SuspendLayout();
             this.TabPersonalInfo.SuspendLayout();
             this.TabLoginInfo.SuspendLayout();
@@ -273,14 +273,14 @@
         #endregion
 
         private System.Windows.Forms.TabControl TabControlUser;
-        private People.Controls.CtrlUserDetailsWithFilter ctrlUserDetailsWithFilter1;
+        private People.Controls.CtrlPersonDetailsWithFilter ctrlUserDetailsWithFilter1;
         private System.Windows.Forms.Button ButtonNextAddUserForm;
         private System.Windows.Forms.Button ButtonCloseAddUserForm;
         private System.Windows.Forms.Button ButtonSaveAddUserForm;
         private System.Windows.Forms.Label LblAddNewUserFormTitle;
         private System.Windows.Forms.TabPage TabPersonalInfo;
         private System.Windows.Forms.Button ButtonNextAddEditUser;
-        private People.Controls.CtrlUserDetailsWithFilter ctrlUserDetailsWithFilter2;
+        private People.Controls.CtrlPersonDetailsWithFilter ctrlUserDetailsWithFilter2;
         private System.Windows.Forms.TabPage TabLoginInfo;
         private System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.Label label4;

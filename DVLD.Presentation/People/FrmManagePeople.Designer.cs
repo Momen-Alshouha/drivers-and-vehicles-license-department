@@ -38,11 +38,11 @@
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LblManagePeopleFormTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxAddPerson = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ComboBoxFilterByManagePeopleForm = new System.Windows.Forms.ComboBox();
             this.TextBoxFilterManagePeopleForm = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAddPerson = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.contextMenuStripPeopleDataGridView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -96,6 +96,7 @@
             this.deletePersonToolStripMenuItem});
             this.contextMenuStripPeopleDataGridView.Name = "contextMenuStripPeopleDataGridView";
             this.contextMenuStripPeopleDataGridView.Size = new System.Drawing.Size(188, 100);
+            this.contextMenuStripPeopleDataGridView.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripPeopleDataGridView_Opening);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -135,28 +136,6 @@
             this.LblManagePeopleFormTitle.TabIndex = 4;
             this.LblManagePeopleFormTitle.Text = "Manage People";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.People_400;
-            this.pictureBox1.Location = new System.Drawing.Point(608, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 165);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBoxAddPerson
-            // 
-            this.pictureBoxAddPerson.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxAddPerson.Image = global::DVLD.Presentation.Properties.Resources.Add_Person_72;
-            this.pictureBoxAddPerson.Location = new System.Drawing.Point(1271, 180);
-            this.pictureBoxAddPerson.Name = "pictureBoxAddPerson";
-            this.pictureBoxAddPerson.Size = new System.Drawing.Size(50, 51);
-            this.pictureBoxAddPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAddPerson.TabIndex = 3;
-            this.pictureBoxAddPerson.TabStop = false;
-            this.pictureBoxAddPerson.Click += new System.EventHandler(this.pictureBoxAddPerson_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -195,6 +174,28 @@
             this.TextBoxFilterManagePeopleForm.TabIndex = 8;
             this.TextBoxFilterManagePeopleForm.Visible = false;
             this.TextBoxFilterManagePeopleForm.TextChanged += new System.EventHandler(this.TextBoxFilterManagePeopleForm_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.People_400;
+            this.pictureBox1.Location = new System.Drawing.Point(608, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(196, 165);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBoxAddPerson
+            // 
+            this.pictureBoxAddPerson.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAddPerson.Image = global::DVLD.Presentation.Properties.Resources.Add_Person_72;
+            this.pictureBoxAddPerson.Location = new System.Drawing.Point(1308, 178);
+            this.pictureBoxAddPerson.Name = "pictureBoxAddPerson";
+            this.pictureBoxAddPerson.Size = new System.Drawing.Size(67, 74);
+            this.pictureBoxAddPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxAddPerson.TabIndex = 3;
+            this.pictureBoxAddPerson.TabStop = false;
+            this.pictureBoxAddPerson.Click += new System.EventHandler(this.pictureBoxAddPerson_Click);
             // 
             // FrmManagePeople
             // 

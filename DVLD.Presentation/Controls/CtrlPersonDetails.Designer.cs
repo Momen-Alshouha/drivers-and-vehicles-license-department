@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Presentation.People.Controls
 {
-    partial class CtrlUserDetails
+    partial class CtrlPersonDetails
     {
         /// <summary> 
         /// Required designer variable.

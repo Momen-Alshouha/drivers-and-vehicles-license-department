@@ -59,7 +59,7 @@ namespace DVLD.Presentation.User
 
         private void ButtonNextAddEditUser_Click(object sender, EventArgs e)
         {
-            label5.Text = ctrlUserDetailsWithFilter2.PersonID.ToString();
+            
             if (_Mode == EnMode.Update)
             {
                 ButtonSaveAddUserForm.Enabled = true;

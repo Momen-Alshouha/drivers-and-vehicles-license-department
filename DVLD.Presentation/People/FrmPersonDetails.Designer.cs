@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlUserDetails1 = new DVLD.Presentation.People.Controls.CtrlUserDetails();
+            this.ctrlUserDetails1 = new DVLD.Presentation.People.Controls.CtrlPersonDetails();
             this.SuspendLayout();
             // 
             // ctrlUserDetails1
@@ -54,6 +54,6 @@
 
         #endregion
 
-        private Controls.CtrlUserDetails ctrlUserDetails1;
+        private Controls.CtrlPersonDetails ctrlUserDetails1;
     }
 }

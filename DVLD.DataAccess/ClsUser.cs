@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using ClsDataType;
 using static ClsDataType.ClsDataType;
 
 namespace DVLD.DataAccess
 {
     public class ClsUser
     {
-        private static bool _GetUserInternal(string query, SqlParameter parameter, ref ClsDataType.ClsDataType.StUser user)
+        private static bool _GetUserInternal(string query, SqlParameter parameter, ref StUser user)
         {
             bool isFound = false;
 
@@ -41,7 +40,7 @@ namespace DVLD.DataAccess
             return isFound;
         }
 
-        private static bool _GetUserInternal(string query, SqlParameter param1, SqlParameter param2, ref ClsDataType.ClsDataType.StUser user)
+        private static bool _GetUserInternal(string query, SqlParameter param1, SqlParameter param2, ref StUser user)
         {
             bool isFound = false;
 
@@ -75,7 +74,7 @@ namespace DVLD.DataAccess
             return isFound;
         }
 
-        private static void _FillUserFromReader(SqlDataReader reader, ref ClsDataType.ClsDataType.StUser user)
+        private static void _FillUserFromReader(SqlDataReader reader, ref StUser user)
         {
             user.UserID = (int)reader["UserID"];
             user.PersonID = (int)reader["PersonID"];
@@ -92,7 +91,7 @@ namespace DVLD.DataAccess
             }
         }
 
-        public static bool GetUser(string UserName, string Password, ref ClsDataType.ClsDataType.StUser user)
+        public static bool GetUser(string UserName, string Password, ref StUser user)
         {
             return _GetUserInternal("select * from users where UserName = @UserName and Password = @Password",
                                    new SqlParameter("@UserName", UserName),
@@ -100,17 +99,17 @@ namespace DVLD.DataAccess
                                    ref user);
         }
 
-        public static bool GetUser(int UserID, ref ClsDataType.ClsDataType.StUser user)
+        public static bool GetUser(int UserID, ref StUser user)
         {
             return _GetUserInternal("select * from users where UserID = @UserID", new SqlParameter("@UserID", UserID), ref user);
         }
 
-        public static bool GetUserByPersonID(int PersonID, ref ClsDataType.ClsDataType.StUser user)
+        public static bool GetUserByPersonID(int PersonID, ref StUser user)
         {
             return _GetUserInternal("select * from users where PersonID = @PersonID", new SqlParameter("@PersonID", PersonID), ref user);
         }
 
-        public static bool AddNewUser(ClsDataType.ClsDataType.StUser user)
+        public static bool AddNewUser(StUser user)
         {
             bool IsAdded = false;
 
@@ -146,7 +145,6 @@ namespace DVLD.DataAccess
             StUser stUser = new StUser();
             return GetUser(UserID, ref stUser);
         }
-
 
         public static bool ChangePassword(int UserID,string NewPassword)
         {
@@ -215,7 +213,7 @@ namespace DVLD.DataAccess
             return usersTable;
         }
 
-        public static bool UpdateUser(ClsDataType.ClsDataType.StUser user)
+        public static bool UpdateUser(StUser user)
         {
             int RowsEffected=0; 
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))

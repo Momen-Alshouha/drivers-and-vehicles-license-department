@@ -48,23 +48,29 @@
   <ItemGroup>
     <Compile Include="ClsUtil.cs" />
     <Compile Include="ClsValidation.cs" />
+    <Compile Include="Controls\CtrlUserCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CtrlUserCard.Designer.cs">
+      <DependentUpon>CtrlUserCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CtrlUserDetails.cs">
+    <Compile Include="Controls\CtrlPersonDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\CtrlUserDetails.Designer.cs">
-      <DependentUpon>CtrlUserDetails.cs</DependentUpon>
+    <Compile Include="Controls\CtrlPersonDetails.Designer.cs">
+      <DependentUpon>CtrlPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CtrlUserDetailsWithFilter.cs">
+    <Compile Include="Controls\CtrlPersonDetailsWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\CtrlUserDetailsWithFilter.Designer.cs">
-      <DependentUpon>CtrlUserDetailsWithFilter.cs</DependentUpon>
+    <Compile Include="Controls\CtrlPersonDetailsWithFilter.Designer.cs">
+      <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="People\FrmAddEditPerson.cs">
       <SubType>Form</SubType>
@@ -98,14 +104,35 @@
     <Compile Include="User\FrmAddUpdateUser.Designer.cs">
       <DependentUpon>FrmAddUpdateUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="User\FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\FrmManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FrmManageUsers.Designer.cs">
+      <DependentUpon>FrmManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\FrmUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FrmUserInfo.Designer.cs">
+      <DependentUpon>FrmUserInfo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\CtrlUserCard.resx">
+      <DependentUpon>CtrlUserCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\CtrlUserDetails.resx">
-      <DependentUpon>CtrlUserDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\CtrlPersonDetails.resx">
+      <DependentUpon>CtrlPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\CtrlUserDetailsWithFilter.resx">
-      <DependentUpon>CtrlUserDetailsWithFilter.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\CtrlPersonDetailsWithFilter.resx">
+      <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmAddEditPerson.resx">
       <DependentUpon>FrmAddEditPerson.cs</DependentUpon>
@@ -131,6 +158,15 @@
     </Compile>
     <EmbeddedResource Include="User\FrmAddUpdateUser.resx">
       <DependentUpon>FrmAddUpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\FrmManageUsers.resx">
+      <DependentUpon>FrmManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\FrmUserInfo.resx">
+      <DependentUpon>FrmUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

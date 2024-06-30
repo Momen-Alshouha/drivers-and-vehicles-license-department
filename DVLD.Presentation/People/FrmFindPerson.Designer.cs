@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.ButtonCloseFindPersonForm = new System.Windows.Forms.Button();
-            this.ctrlUserDetailsWithFilter1 = new DVLD.Presentation.People.Controls.CtrlUserDetailsWithFilter();
-            this.ctrlUserDetailsWithFilter2 = new DVLD.Presentation.People.Controls.CtrlUserDetailsWithFilter();
+            this.ctrlUserDetailsWithFilter1 = new DVLD.Presentation.People.Controls.CtrlPersonDetailsWithFilter();
+            this.ctrlUserDetailsWithFilter2 = new DVLD.Presentation.People.Controls.CtrlPersonDetailsWithFilter();
             this.SuspendLayout();
             // 
             // label1
@@ -87,8 +87,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Controls.CtrlUserDetailsWithFilter ctrlUserDetailsWithFilter1;
+        private Controls.CtrlPersonDetailsWithFilter ctrlUserDetailsWithFilter1;
         private System.Windows.Forms.Button ButtonCloseFindPersonForm;
-        private Controls.CtrlUserDetailsWithFilter ctrlUserDetailsWithFilter2;
+        private Controls.CtrlPersonDetailsWithFilter ctrlUserDetailsWithFilter2;
     }
 }

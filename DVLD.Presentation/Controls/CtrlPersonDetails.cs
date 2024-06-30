@@ -13,7 +13,7 @@ using static ClsDataType.ClsDataType;
 
 namespace DVLD.Presentation.People.Controls
 {
-    public partial class CtrlUserDetails : UserControl
+    public partial class CtrlPersonDetails : UserControl
     {
         public StPerson? stPerson = new StPerson();
 
@@ -22,7 +22,7 @@ namespace DVLD.Presentation.People.Controls
             get { return stPerson; }
         }
 
-        public CtrlUserDetails()
+        public CtrlPersonDetails()
         {
             InitializeComponent();
         }

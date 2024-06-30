@@ -11,7 +11,7 @@ using ClsDataType;
 
 namespace DVLD.Presentation.People.Controls
 {
-    public partial class CtrlUserDetailsWithFilter : UserControl
+    public partial class CtrlPersonDetailsWithFilter : UserControl
     {
 
         public ClsDataType.ClsDataType.StPerson? SelectedPersonInfo
@@ -27,7 +27,7 @@ namespace DVLD.Presentation.People.Controls
             }
         }
 
-        public CtrlUserDetailsWithFilter()
+        public CtrlPersonDetailsWithFilter()
         {
             InitializeComponent();
         }

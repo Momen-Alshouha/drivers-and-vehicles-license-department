@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Presentation.People.Controls
 {
-    partial class CtrlUserDetailsWithFilter
+    partial class CtrlPersonDetailsWithFilter
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,7 +34,7 @@
             this.TextBoxFilterValue = new System.Windows.Forms.TextBox();
             this.PictureBoxAddNewPerson = new System.Windows.Forms.PictureBox();
             this.PictureBoxSearchPerson = new System.Windows.Forms.PictureBox();
-            this.ctrlUserDetails1 = new DVLD.Presentation.People.Controls.CtrlUserDetails();
+            this.ctrlUserDetails1 = new DVLD.Presentation.People.Controls.CtrlPersonDetails();
             this.GroupBoxUserDetailsFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddNewPerson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxSearchPerson)).BeginInit();
@@ -135,7 +135,7 @@
 
         #endregion
 
-        private CtrlUserDetails ctrlUserDetails1;
+        private CtrlPersonDetails ctrlUserDetails1;
         private System.Windows.Forms.GroupBox GroupBoxUserDetailsFilter;
         private System.Windows.Forms.ComboBox ComboBoxFilterBy;
         private System.Windows.Forms.Label label1;

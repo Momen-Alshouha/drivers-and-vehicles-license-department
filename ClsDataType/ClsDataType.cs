@@ -15,7 +15,7 @@ namespace ClsDataType
             public int PersonID;
             public string UserName;
             public string Password;
-            public bool IsActive;
+            public bool IsActive; 
         }
 
         public struct StPerson
