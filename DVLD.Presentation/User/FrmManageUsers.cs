@@ -58,8 +58,8 @@ namespace DVLD.Presentation.User
         {
             if (DataGridViewManageUsers.SelectedRows.Count > 0)
             {
-                int UserID = Convert.ToInt32(DataGridViewManageUsers.SelectedRows[0].Cells[0].Value);
-                FrmAddUpdateUser frmAddEditUser = new FrmAddUpdateUser(UserID);
+                int PersonID = Convert.ToInt32(DataGridViewManageUsers.SelectedRows[0].Cells[1].Value);
+                FrmAddUpdateUser frmAddEditUser = new FrmAddUpdateUser(PersonID);
                 frmAddEditUser.ShowDialog();
             }
             _LoadUsersInDataGrid();

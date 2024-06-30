@@ -58,11 +58,11 @@
             this.TxtSecondName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtFirstName = new System.Windows.Forms.TextBox();
-            this.PictureBoxPersonImage = new System.Windows.Forms.PictureBox();
             this.BtnSave = new System.Windows.Forms.Button();
             this.LblPersonId = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.PictureBoxPersonImage = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPersonImage)).BeginInit();
             this.SuspendLayout();
@@ -236,6 +236,7 @@
             // 
             // BtnClose
             // 
+            this.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -398,21 +399,9 @@
             this.TxtFirstName.Size = new System.Drawing.Size(167, 22);
             this.TxtFirstName.TabIndex = 1;
             // 
-            // PictureBoxPersonImage
-            // 
-            this.PictureBoxPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PictureBoxPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PictureBoxPersonImage.InitialImage = null;
-            this.PictureBoxPersonImage.Location = new System.Drawing.Point(733, 97);
-            this.PictureBoxPersonImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureBoxPersonImage.Name = "PictureBoxPersonImage";
-            this.PictureBoxPersonImage.Size = new System.Drawing.Size(169, 167);
-            this.PictureBoxPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBoxPersonImage.TabIndex = 85;
-            this.PictureBoxPersonImage.TabStop = false;
-            // 
             // BtnSave
             // 
+            this.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSave.Location = new System.Drawing.Point(579, 314);
@@ -449,6 +438,19 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // PictureBoxPersonImage
+            // 
+            this.PictureBoxPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PictureBoxPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PictureBoxPersonImage.InitialImage = null;
+            this.PictureBoxPersonImage.Location = new System.Drawing.Point(733, 97);
+            this.PictureBoxPersonImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureBoxPersonImage.Name = "PictureBoxPersonImage";
+            this.PictureBoxPersonImage.Size = new System.Drawing.Size(169, 167);
+            this.PictureBoxPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxPersonImage.TabIndex = 85;
+            this.PictureBoxPersonImage.TabStop = false;
             // 
             // FrmAddEditPerson
             // 

@@ -17,19 +17,37 @@ namespace DVLD.Presentation.User
     {
         EnMode _Mode;
         StUser _User = new StUser();
-        int _UserID = -1;
+        StPerson? _Person = new StPerson();
+        int _PersonID = -1;
         public FrmAddUpdateUser()
         {
+            _Mode=EnMode.AddNew;
             InitializeComponent();
         }
 
-        public FrmAddUpdateUser(int UserID)
+        public FrmAddUpdateUser(int PersonID)
         {
-            _UserID = UserID;
+            _PersonID = PersonID;
+            BusinessLogic.ClsUser.GetUserByPersonID(PersonID,ref _User);
+            _Person = BusinessLogic.ClsPerson.Find(PersonID);
             _Mode = EnMode.Update;
             InitializeComponent();
+            _ResetDefualtValues();
+            _LoadPersonData();
+            _LoadUserData();
         }
 
+        private void _LoadPersonData()
+        {
+            ctrlUserDetailsWithFilter2.LoadPersonInfo(_PersonID);
+        }
+        private void _LoadUserData()
+        {
+            TextBoxUserName.Text = _User.UserName;
+            lblUserID.Text = _User.UserID.ToString();
+            TextBoxPassword.Text = _User.Password.ToString();
+            TextBoxConfirmPassword.Text = _User.Password.ToString();
+        }
         private void _ResetDefualtValues()
         {
             //this will initialize the reset the defaule values
@@ -99,7 +117,7 @@ namespace DVLD.Presentation.User
         private void ButtonSaveAddUserForm_Click(object sender, EventArgs e)
         {
             _User.PersonID = ctrlUserDetailsWithFilter2.PersonID;
-            _User.UserName = TextBoxConfirmPassword.Text;
+            _User.UserName = TextBoxUserName.Text;
             _User.Password= TextBoxPassword.Text;
             if (CheckBoxIsActive.Checked)
             {
@@ -108,7 +126,7 @@ namespace DVLD.Presentation.User
             {
                 _User.IsActive = false;
             }
-            if (_Mode == ClsDataType.ClsDataType.EnMode.Update)
+            if (_Mode == EnMode.Update)
             {
                 if (BusinessLogic.ClsUser.UpdateUser(_User))
                 {
