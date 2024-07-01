@@ -1,4 +1,5 @@
-﻿using DVLD.Presentation.Login;
+﻿using DVLD.Presentation.Application_Types;
+using DVLD.Presentation.Login;
 using DVLD.Presentation.User;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace DVLD.Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmMain());
         }
     }
 }

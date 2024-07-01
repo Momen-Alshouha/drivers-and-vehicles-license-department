@@ -64,6 +64,7 @@
             this.DataGridViewManageUsers.AllowUserToDeleteRows = false;
             this.DataGridViewManageUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewManageUsers.Location = new System.Drawing.Point(12, 236);
+            this.DataGridViewManageUsers.MultiSelect = false;
             this.DataGridViewManageUsers.Name = "DataGridViewManageUsers";
             this.DataGridViewManageUsers.ReadOnly = true;
             this.DataGridViewManageUsers.RowHeadersWidth = 51;

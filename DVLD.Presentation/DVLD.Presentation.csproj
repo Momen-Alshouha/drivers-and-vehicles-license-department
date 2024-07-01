@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\Application Types\FrmEditAppType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Application Types\FrmEditAppType.Designer.cs">
+      <DependentUpon>FrmEditAppType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Application Types\FrmManageAppTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Application Types\FrmManageAppTypes.Designer.cs">
+      <DependentUpon>FrmManageAppTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClsGlobal.cs" />
     <Compile Include="ClsUtil.cs" />
     <Compile Include="ClsValidation.cs" />
@@ -129,6 +141,12 @@
     <Compile Include="User\FrmUserInfo.Designer.cs">
       <DependentUpon>FrmUserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Applications\Application Types\FrmEditAppType.resx">
+      <DependentUpon>FrmEditAppType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Application Types\FrmManageAppTypes.resx">
+      <DependentUpon>FrmManageAppTypes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlUserCard.resx">
       <DependentUpon>CtrlUserCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +239,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CloseBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Application Types 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Application Types 512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

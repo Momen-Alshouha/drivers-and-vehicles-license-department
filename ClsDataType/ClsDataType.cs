@@ -5,6 +5,20 @@ namespace ClsDataType
 {
     public class ClsDataType
     {
+        public struct StApplicationType
+        {
+            public int id { get; set; }
+            public string title { get; set; }
+            public decimal fee { get; set; }
+
+            public StApplicationType()
+            {
+                id = -1;
+                title ="";
+                fee = 0;
+            }
+        }
+
         public enum EnMode
         {
             AddNew = 0 , Update =1

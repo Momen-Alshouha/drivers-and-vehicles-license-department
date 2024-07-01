@@ -1,4 +1,5 @@
-﻿using DVLD.Presentation.Login;
+﻿using DVLD.Presentation.Application_Types;
+using DVLD.Presentation.Login;
 using DVLD.Presentation.People;
 using DVLD.Presentation.People.Controls;
 using DVLD.Presentation.User;
@@ -52,6 +53,12 @@ namespace DVLD.Presentation
         {
             FrmChangePassword frmChangePassword = new FrmChangePassword(ClsGlobal.CurrentUser);
             frmChangePassword.ShowDialog();
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageAppTypes manageAppTypes = new FrmManageAppTypes();
+            manageAppTypes.ShowDialog();
         }
     }
 }
