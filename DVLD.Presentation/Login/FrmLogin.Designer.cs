@@ -34,7 +34,8 @@
             this.LblLogin = new System.Windows.Forms.Label();
             this.TextBoxLoginFormUserName = new System.Windows.Forms.TextBox();
             this.TextBoxLoginFormPassword = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonLoginFormSignIn = new System.Windows.Forms.Button();
+            this.CheckBoxLoginRememberMe = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFormLoginClose)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +75,7 @@
             // 
             this.LblLogin.AutoSize = true;
             this.LblLogin.Font = new System.Drawing.Font("Microsoft Tai Le", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLogin.Location = new System.Drawing.Point(1006, 132);
+            this.LblLogin.Location = new System.Drawing.Point(1006, 125);
             this.LblLogin.Name = "LblLogin";
             this.LblLogin.Size = new System.Drawing.Size(148, 60);
             this.LblLogin.TabIndex = 4;
@@ -82,35 +83,46 @@
             // 
             // TextBoxLoginFormUserName
             // 
-            this.TextBoxLoginFormUserName.Font = new System.Drawing.Font("Microsoft Tai Le", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxLoginFormUserName.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxLoginFormUserName.Location = new System.Drawing.Point(952, 211);
             this.TextBoxLoginFormUserName.Multiline = true;
             this.TextBoxLoginFormUserName.Name = "TextBoxLoginFormUserName";
             this.TextBoxLoginFormUserName.Size = new System.Drawing.Size(250, 52);
             this.TextBoxLoginFormUserName.TabIndex = 5;
             this.TextBoxLoginFormUserName.Text = "User Name";
-            this.TextBoxLoginFormUserName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // TextBoxLoginFormPassword
             // 
-            this.TextBoxLoginFormPassword.Font = new System.Drawing.Font("Microsoft Tai Le", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxLoginFormPassword.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxLoginFormPassword.Location = new System.Drawing.Point(952, 295);
             this.TextBoxLoginFormPassword.Multiline = true;
             this.TextBoxLoginFormPassword.Name = "TextBoxLoginFormPassword";
+            this.TextBoxLoginFormPassword.PasswordChar = '*';
             this.TextBoxLoginFormPassword.Size = new System.Drawing.Size(250, 52);
             this.TextBoxLoginFormPassword.TabIndex = 6;
             this.TextBoxLoginFormPassword.Text = "Password";
             // 
-            // button1
+            // ButtonLoginFormSignIn
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(952, 377);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 52);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Sign In";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ButtonLoginFormSignIn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonLoginFormSignIn.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonLoginFormSignIn.Location = new System.Drawing.Point(952, 388);
+            this.ButtonLoginFormSignIn.Name = "ButtonLoginFormSignIn";
+            this.ButtonLoginFormSignIn.Size = new System.Drawing.Size(130, 52);
+            this.ButtonLoginFormSignIn.TabIndex = 7;
+            this.ButtonLoginFormSignIn.Text = "Sign In";
+            this.ButtonLoginFormSignIn.UseVisualStyleBackColor = true;
+            this.ButtonLoginFormSignIn.Click += new System.EventHandler(this.ButtonLoginFormSignIn_Click);
+            // 
+            // CheckBoxLoginRememberMe
+            // 
+            this.CheckBoxLoginRememberMe.AutoSize = true;
+            this.CheckBoxLoginRememberMe.Location = new System.Drawing.Point(952, 354);
+            this.CheckBoxLoginRememberMe.Name = "CheckBoxLoginRememberMe";
+            this.CheckBoxLoginRememberMe.Size = new System.Drawing.Size(119, 20);
+            this.CheckBoxLoginRememberMe.TabIndex = 8;
+            this.CheckBoxLoginRememberMe.Text = "Remember Me";
+            this.CheckBoxLoginRememberMe.UseVisualStyleBackColor = true;
             // 
             // FrmLogin
             // 
@@ -118,7 +130,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1291, 580);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CheckBoxLoginRememberMe);
+            this.Controls.Add(this.ButtonLoginFormSignIn);
             this.Controls.Add(this.TextBoxLoginFormPassword);
             this.Controls.Add(this.TextBoxLoginFormUserName);
             this.Controls.Add(this.LblLogin);
@@ -146,6 +159,7 @@
         private System.Windows.Forms.Label LblLogin;
         private System.Windows.Forms.TextBox TextBoxLoginFormUserName;
         private System.Windows.Forms.TextBox TextBoxLoginFormPassword;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonLoginFormSignIn;
+        private System.Windows.Forms.CheckBox CheckBoxLoginRememberMe;
     }
 }

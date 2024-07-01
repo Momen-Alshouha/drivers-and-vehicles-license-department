@@ -40,5 +40,9 @@ namespace DVLD.Presentation
         {
             return (ValidateInteger(Number) || ValidateFloat(Number));
         }
+        public static bool AreStringsEqual(string str1, string str2)
+        {
+            return string.Equals(str1, str2, StringComparison.Ordinal);
+        }
     }
 }

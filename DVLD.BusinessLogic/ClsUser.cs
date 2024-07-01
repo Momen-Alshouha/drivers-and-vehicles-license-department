@@ -45,9 +45,9 @@ namespace DVLD.BusinessLogic
             DataAccess.ClsUser.DeleteUser(UserID);
         }
 
-        public static bool ChangePassword(int UserID,string NewPasssword)
+        public static bool ChangePassword(int UserID,string OldPassword,string NewPasssword)
         {
-            return DataAccess.ClsUser.ChangePassword(UserID, NewPasssword);
+            return DataAccess.ClsUser.ChangePassword(UserID, OldPassword, NewPasssword);
         }
     }
 }

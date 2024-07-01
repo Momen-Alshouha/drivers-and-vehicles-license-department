@@ -146,27 +146,48 @@ namespace DVLD.DataAccess
             return GetUser(UserID, ref stUser);
         }
 
-        public static bool ChangePassword(int UserID,string NewPassword)
+        public static bool ChangePassword(int userID, string oldPassword, string newPassword)
         {
-            int RowEffected = 0;
+            int rowsAffected = 0;
 
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
-                string query = @"update users set Password = @Password where UserID = @UserID";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                string retrieveQuery = "SELECT Password FROM users WHERE UserID = @UserID";
+                using (SqlCommand retrieveCommand = new SqlCommand(retrieveQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@UserID", UserID);
-                    command.Parameters.AddWithValue("@Password", NewPassword);
+                    retrieveCommand.Parameters.Add("@UserID", SqlDbType.Int).Value = userID;
+
                     try
                     {
                         connection.Open();
-                        RowEffected = command.ExecuteNonQuery();
+                        string currentPassword = (string)retrieveCommand.ExecuteScalar();
 
+                        if (currentPassword == null)
+                        {
+                            throw new ApplicationException("User not found.");
+                        }
+
+                        if (currentPassword != oldPassword)
+                        {
+                            throw new ApplicationException("The old password is incorrect.");
+                        }
+
+                        string updateQuery = "UPDATE users SET Password = @Password WHERE UserID = @UserID";
+                        using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                        {
+                            updateCommand.Parameters.Add("@UserID", SqlDbType.Int).Value = userID;
+                            updateCommand.Parameters.Add("@Password", SqlDbType.NVarChar).Value = newPassword;
+
+                            rowsAffected = updateCommand.ExecuteNonQuery();
+                        }
                     }
-                    catch (Exception)
+                    catch (SqlException ex)
                     {
-
-                        throw;
+                        throw new ApplicationException("An error occurred while updating the password.", ex);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ApplicationException("An unexpected error occurred.", ex);
                     }
                     finally
                     {
@@ -175,7 +196,7 @@ namespace DVLD.DataAccess
                 }
             }
 
-            return RowEffected > 0;
+            return rowsAffected > 0;
         }
 
         public static DataTable GetAllUsers()

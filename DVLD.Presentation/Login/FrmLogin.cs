@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ClsDataType.ClsDataType;
 
 namespace DVLD.Presentation.Login
 {
@@ -53,9 +54,26 @@ namespace DVLD.Presentation.Login
             this.Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void ButtonLoginFormSignIn_Click(object sender, EventArgs e)
         {
+            string UserName = TextBoxLoginFormUserName.Text;
+            string Password = TextBoxLoginFormPassword.Text;
 
+            if (BusinessLogic.ClsUser.GetUserByCredentials(UserName, Password, ref ClsGlobal.CurrentUser))
+            {
+                if (ClsGlobal.CurrentUser.IsActive)
+                {
+                    FrmMain frmMain = new FrmMain();
+                    frmMain.ShowDialog();
+                    this.Close();
+                } else
+                {
+                    MessageBox.Show("User Account Is Not Active! Please Contact Admin", "Login Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } else
+            {
+                MessageBox.Show("User Name Or Password Wrong!","Login Failed!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
     }
 }

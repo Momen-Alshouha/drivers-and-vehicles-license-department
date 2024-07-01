@@ -9,5 +9,7 @@ namespace DVLD.Presentation
     internal class ClsGlobal
     {
        public static StUser CurrentUser;
+
+
     }
 }
