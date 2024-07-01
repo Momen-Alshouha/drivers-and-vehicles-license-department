@@ -7,16 +7,11 @@ namespace DVLD.DataAccess
 {
     public class ClsTestType
     {
-        private readonly string connectionString;
-        public ClsTestType()
-        {
-            this.connectionString = Settings.ConnectionString;
-        }
-        public DataTable GetTestTypes()
+        public static DataTable GetTestTypes()
         {
             DataTable dt = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
                 string query = "SELECT * FROM TestTypes";
                 SqlCommand cmd = new SqlCommand(query, connection);
@@ -45,9 +40,9 @@ namespace DVLD.DataAccess
 
             return dt;
         }
-        public bool UpdateTestType(StTestType testType)
+        public static bool UpdateTestType(StTestType testType)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
             {
                 string query = "UPDATE TestTypes SET TestTypeTitle = @title, TestTypeDescription = @description, TestTypeFees = @fee WHERE TestTypeID = @id";
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -76,9 +71,9 @@ namespace DVLD.DataAccess
                 }
             }
         }
-        public StTestType GetTestType(int id)
+        public static StTestType GetTestType(int id)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
                 string query = "SELECT * FROM TestTypes WHERE TestTypeID = @id";
                 SqlCommand cmd = new SqlCommand(query, connection);
@@ -99,9 +94,9 @@ namespace DVLD.DataAccess
                 return testType;
             }
         }
-        public bool AddTestType(StTestType testType)
+        public static bool AddTestType(StTestType testType)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
             {
                 string query = "INSERT INTO TestTypes (TestTypeTitle, TestTypeDescription, TestTypeFees) VALUES (@title, @description, @fee)";
                 SqlCommand cmd = new SqlCommand(query, conn);
