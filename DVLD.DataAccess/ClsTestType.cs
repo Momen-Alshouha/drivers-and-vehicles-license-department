@@ -21,7 +21,7 @@ namespace DVLD.DataAccess
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (reader.HasRows)
                         {
                             dt.Load(reader);
                         }

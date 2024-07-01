@@ -6,7 +6,7 @@ using static ClsDataType.ClsDataType;
 namespace DVLD.DataAccess
 {
     public class ClsUser
-    {private read
+    {
         private static bool _GetUserInternal(string query, SqlParameter parameter, ref StUser user)
         {
             bool isFound = false;

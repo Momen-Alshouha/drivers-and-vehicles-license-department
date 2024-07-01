@@ -16,7 +16,7 @@ namespace DVLD.BusinessLogic
         }
         public static DataTable GetAllTestTypes()
         {
-            return  DataAccess.ClsTestType.GetTestTypes();
+            return DataAccess.ClsTestType.GetTestTypes();
         }
         public static bool AddNew(StTestType testType)
         {

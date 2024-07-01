@@ -26,19 +26,22 @@ namespace DVLD.Presentation.Application_Types
 
         private void _RefreshData()
         {
-            ModifyDataGridViewDesignAndLoadData();
+            _LoadDataInDataGridView();
+            ModifyDataGridViewDesign();
             RefreshNumberOfAppTypesRecords();
         }
 
-        private void ModifyDataGridViewDesignAndLoadData()
+        private void ModifyDataGridViewDesign()
         {
-            DataGridViewAppTypes.DataSource = _dtAppTypesDefaultView;
             DataGridViewAppTypes.Columns[0].HeaderText = "ID";
             DataGridViewAppTypes.Columns[1].HeaderText = "Title";
             DataGridViewAppTypes.Columns[1].Width = 240;
             DataGridViewAppTypes.Columns[2].HeaderText = "Fees";
         }
-
+        void _LoadDataInDataGridView()
+        {
+            DataGridViewAppTypes.DataSource = _dtAppTypesDefaultView;
+        }
         private void RefreshNumberOfAppTypesRecords()
         {
             LblAppTypesRecordsValue.Text = _dtAppTypesDefaultView.Rows.Count.ToString();

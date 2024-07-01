@@ -85,6 +85,12 @@
     <Compile Include="Controls\CtrlPersonDetailsWithFilter.Designer.cs">
       <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTestTypes.Designer.cs">
+      <DependentUpon>FrmTestTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlPersonDetailsWithFilter.resx">
       <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTestTypes.resx">
+      <DependentUpon>FrmTestTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -245,6 +254,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Application Types 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestType 512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
