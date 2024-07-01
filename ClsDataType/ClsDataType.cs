@@ -5,6 +5,15 @@ namespace ClsDataType
 {
     public class ClsDataType
     {
+
+        public struct StTestType
+        {
+            public int id { get; set; }
+            public string title { get; set; }
+            public string description { get; set; }
+            public decimal fee { get; set; }
+        }
+
         public struct StApplicationType
         {
             public int id { get; set; }
