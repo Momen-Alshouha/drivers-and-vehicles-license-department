@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DVLD.Presentation.Application_Types;
+using DVLD.Presentation.Tests.Test_Types;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ClsDataType.ClsDataType;
 
 namespace DVLD.Presentation
 {
@@ -15,8 +18,9 @@ namespace DVLD.Presentation
         DataTable _dtTestTypes;
         public FrmTestTypes()
         {
-            this._dtTestTypes = BusinessLogic.ClsTestType.GetAllTestTypes();
+           
             InitializeComponent();
+            DataGridViewTestTypes.ContextMenuStrip = ContextMenuTestTypes;
         }
         int _NumberOfRecords()
         {
@@ -36,6 +40,7 @@ namespace DVLD.Presentation
         }
         void _LoadTestTypesInDataGridView()
         {
+            this._dtTestTypes = BusinessLogic.ClsTestType.GetAllTestTypes();
             DataGridViewTestTypes.DataSource = _dtTestTypes;
         }
         private void FrmTestTypes_Load(object sender, EventArgs e)
@@ -48,6 +53,23 @@ namespace DVLD.Presentation
         private void ButtonCloseTestTypesForm_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ToolStripeMenuItemEditTestType_Click(object sender, EventArgs e)
+        {
+            
+
+            if (DataGridViewTestTypes.SelectedRows.Count > 0)
+            {
+                int TestTypeId = Convert.ToInt32(DataGridViewTestTypes.SelectedRows[0].Cells[0].Value);
+                StTestType TestType = BusinessLogic.ClsTestType.GetTestType(TestTypeId);
+
+                FrmEditTestType editForm = new FrmEditTestType(TestType.id);
+                editForm.ShowDialog();
+            }
+            _LoadTestTypesInDataGridView();
+            _ModifyDataGridViewDesign();
+            _RefreshNumberOfRecords();
         }
     }
 }
