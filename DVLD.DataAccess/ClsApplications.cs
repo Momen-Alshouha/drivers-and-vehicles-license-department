@@ -45,8 +45,9 @@ namespace DVLD.DataAccess
             }
             return dtApplications;
         }
-        public static bool GetAppInfoByID(int id, ref StApplicationData applicationData)
+        public static StApplicationData GetAppInfoByID(int id)
         {
+            StApplicationData applicationData= new StApplicationData();
             using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
             {
                 string query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
@@ -69,7 +70,7 @@ namespace DVLD.DataAccess
                                 applicationData.LastStatusDate = reader.GetDateTime(reader.GetOrdinal("LastStatusDate"));
                                 applicationData.PaidFees = reader.GetDecimal(reader.GetOrdinal("PaidFees"));
                                 applicationData.CreatedByUserID = reader.GetInt32(reader.GetOrdinal("CreatedByUserID"));
-                                return true;
+                                
                             }
                         }
                     }
@@ -78,9 +79,10 @@ namespace DVLD.DataAccess
                         throw new DataAccessException("An error occurred while fetching application information.", ex);
                     }
                 }
+              
             }
 
-            return false;
+            return applicationData;
         }
         public static int AddNewApplication(StApplicationData applicationData)
         {
