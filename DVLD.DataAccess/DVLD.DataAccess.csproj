@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="ClsApplications.cs" />
     <Compile Include="ClsApplicationType.cs" />
     <Compile Include="ClsCountry.cs" />
     <Compile Include="ClsPerson.cs" />

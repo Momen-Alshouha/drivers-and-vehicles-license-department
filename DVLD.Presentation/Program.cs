@@ -19,7 +19,7 @@ namespace DVLD.Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmTestTypes());
+            Application.Run(new FrmMain());
         }
     }
 }

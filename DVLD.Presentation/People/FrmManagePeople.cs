@@ -62,7 +62,7 @@ namespace DVLD.Presentation.People
             {
 
                 dgvPeople.Columns[0].HeaderText = "Person ID";
-                dgvPeople.Columns[0].Width = 110;
+                dgvPeople.Columns[0].Width = 50;
 
                 dgvPeople.Columns[1].HeaderText = "National No.";
                 dgvPeople.Columns[1].Width = 120;
@@ -85,7 +85,7 @@ namespace DVLD.Presentation.People
                 dgvPeople.Columns[6].Width = 120;
 
                 dgvPeople.Columns[7].HeaderText = "Gender";
-                dgvPeople.Columns[7].Width = 120;
+                dgvPeople.Columns[7].Width = 50;
 
                 dgvPeople.Columns[8].HeaderText = "Address";
                 dgvPeople.Columns[8].Width = 120;
