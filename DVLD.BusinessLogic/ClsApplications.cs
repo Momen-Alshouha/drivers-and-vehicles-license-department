@@ -9,18 +9,18 @@ namespace DVLD.BusinessLogic
 {
     public class ClsApplications
     {
-        public DataTable GetAllApplications()
+        public static DataTable GetAllApplications()
         {
             return DataAccess.ClsApplications.GetAllApplications();
         }
 
-        public StApplicationData GetApplicationByID(int applicationID)
+        public static StApplicationData GetApplicationByID(int applicationID)
         {
             return DataAccess.ClsApplications.GetAppInfoByID(applicationID);
            
         }
 
-        public int CreateApplication(StApplicationData applicationData)
+        public static int CreateApplication(StApplicationData applicationData)
         {
             if (!DVLD.DataAccess.ClsApplications.IsApplicationExistAndActive(applicationData))
             {
@@ -32,26 +32,26 @@ namespace DVLD.BusinessLogic
             }
         }
 
-        public bool UpdateApplication(StApplicationData applicationData)
+        public static bool UpdateApplication(StApplicationData applicationData)
         {
            
            return DataAccess.ClsApplications.UpdateApplication(applicationData);
             
         }
 
-        public bool DeleteApplication(int applicationID)
+        public static bool DeleteApplication(int applicationID)
         {
             return DataAccess.ClsApplications.DeleteApplication(applicationID);
         }
 
-        public bool UpdateApplicationStatus(int applicationID, int statusID)
+        public static bool UpdateApplicationStatus(int applicationID, int statusID)
         {
             
             return DataAccess.ClsApplications.UpdateStatus(applicationID, statusID);
            
         }
 
-        public int GetActiveApplicationIDForLicenseClass(StApplicationData applicationData, int licenseClassID)
+        public static int GetActiveApplicationIDForLicenseClass(StApplicationData applicationData, int licenseClassID)
         {
             return DataAccess.ClsApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(applicationData, licenseClassID);
         }
