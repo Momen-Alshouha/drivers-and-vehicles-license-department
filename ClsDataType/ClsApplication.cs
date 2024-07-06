@@ -1,4 +1,5 @@
 ﻿using System;
+using static ClsDataType.ClsDataType;
 
 namespace ClsDataType
 {
@@ -43,7 +44,7 @@ namespace ClsDataType
             public int CreatedByUserID { get; set; }
             public string StatusText;
             public string ApplicationType;
-
+            StUser CreatedByUser { get; set; }
             public StApplicationData() { }
 
             public StApplicationData(StApplicationData applicationData)
@@ -60,6 +61,7 @@ namespace ClsDataType
                 this.CreatedByUserID = applicationData.CreatedByUserID;
                 this.StatusText = _GetStatusText(applicationData.EnApplicationStatus);
                 this.ApplicationType = _GetApplicationTypeText(applicationData.EnApplicationType);
+                this.CreatedByUser = applicationData.CreatedByUser;
             }
             private EnApplicationStatus _GetEnAppStatus(int ApplicationStatus)
             {
