@@ -65,7 +65,7 @@ namespace DVLD.DataAccess
                                 applicationData.ApplicantPersonID = reader.GetInt32(reader.GetOrdinal("ApplicantPersonID"));
                                 applicationData.ApplicationDate = reader.GetDateTime(reader.GetOrdinal("ApplicationDate"));
                                 applicationData.ApplicationTypeID = reader.GetInt32(reader.GetOrdinal("ApplicationTypeID"));
-                                applicationData.ApplicationStatus = reader.GetString(reader.GetOrdinal("ApplicationStatus"));
+                                applicationData.ApplicationStatus = reader.GetInt32(reader.GetOrdinal("ApplicationStatus"));
                                 applicationData.LastStatusDate = reader.GetDateTime(reader.GetOrdinal("LastStatusDate"));
                                 applicationData.PaidFees = reader.GetDecimal(reader.GetOrdinal("PaidFees"));
                                 applicationData.CreatedByUserID = reader.GetInt32(reader.GetOrdinal("CreatedByUserID"));

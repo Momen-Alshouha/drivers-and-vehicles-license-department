@@ -458,5 +458,39 @@ namespace DVLD.DataAccess
             }
             return IsExisit;
         }
+        public static string GetPersonFullName(int PersonId)
+        {
+            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = "SELECT FirstName + ' ' + SecondName + ' ' + ThirdName + ' ' + LastName AS FullName FROM People WHERE PersonID = @PersonID";
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@PersonID", PersonId);
+
+                    try
+                    {
+                        conn.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return result.ToString();
+                        }
+                        else
+                        {
+                            return string.Empty;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ApplicationException("Error retrieving person's full name.", ex);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+        }
+
     }
 }
