@@ -51,7 +51,7 @@ namespace DVLD.BusinessLogic
            
         }
 
-        public static int GetActiveApplicationIDForLicenseClass(StApplicationData applicationData, int licenseClassID)
+        public static int GetActiveApplicationIDForLicenseClassForSpecificPerson(StApplicationData applicationData, int licenseClassID)
         {
             return DataAccess.ClsApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(applicationData, licenseClassID);
         }

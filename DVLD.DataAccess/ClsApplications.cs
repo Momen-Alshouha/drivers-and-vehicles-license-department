@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;   
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,13 +12,22 @@ namespace DVLD.DataAccess
 {
     public class ClsApplications
     {
+        private static SqlConnection _GetConnection()
+        {
+            return new SqlConnection(Settings.ConnectionString);
+        }
+        private static SqlCommand _CreateCommand(string query, SqlConnection connection)
+        {
+            return new SqlCommand(query, connection);
+        }
+        
         public static DataTable GetAllApplications()
         {
             DataTable dtApplications = new DataTable();
-            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection conn = _GetConnection())
             {
                 string query = "select * from Applications";
-                using (SqlCommand command = new SqlCommand(query, conn))
+                using (SqlCommand command = _CreateCommand(query,conn))
                 {
                     try
                     {
@@ -48,10 +57,10 @@ namespace DVLD.DataAccess
         public static StApplicationData GetAppInfoByID(int id)
         {
             StApplicationData applicationData= new StApplicationData();
-            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection conn = _GetConnection())
             {
                 string query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
-                using (SqlCommand command = new SqlCommand(query, conn))
+                using (SqlCommand command = _CreateCommand(query,conn))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", id);
 
@@ -88,7 +97,7 @@ namespace DVLD.DataAccess
         {
             int newApplicationID = 0;
 
-            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection conn = _GetConnection())
             {
                 string query = @"
                     INSERT INTO Applications 
@@ -97,7 +106,7 @@ namespace DVLD.DataAccess
                     (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
                     SELECT SCOPE_IDENTITY();";
 
-                using (SqlCommand command = new SqlCommand(query, conn))
+                using (SqlCommand command = _CreateCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.ApplicantPersonID);
                     command.Parameters.AddWithValue("@ApplicationDate", applicationData.ApplicationDate);
@@ -125,7 +134,7 @@ namespace DVLD.DataAccess
         {
             bool isUpdated = false;
 
-            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection conn = _GetConnection())
             {
                 string query = @"
                     UPDATE Applications
@@ -138,7 +147,7 @@ namespace DVLD.DataAccess
                         CreatedByUserID = @CreatedByUserID
                     WHERE ApplicationID = @ApplicationID";
 
-                using (SqlCommand command = new SqlCommand(query, conn))
+                using (SqlCommand command = _CreateCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", applicationData.ApplicationID);
                     command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.ApplicantPersonID);
@@ -168,7 +177,7 @@ namespace DVLD.DataAccess
         {
             bool isDeleted = false;
 
-            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection conn = _GetConnection())
             {
                 string query = "DELETE FROM Applications WHERE ApplicationID = @ApplicationID";
 
@@ -191,12 +200,12 @@ namespace DVLD.DataAccess
             return isDeleted;
         }
 
-        // checks if a person has an application with same app type and new status
+        // checks if a person has an application with same app type and "new" status
         public static bool IsApplicationExistAndActive(StApplicationData applicationData)
         {
             bool isExist = false;
 
-            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection conn = _GetConnection())
             {
                 string query = @"
                     SELECT COUNT(1)
@@ -205,7 +214,7 @@ namespace DVLD.DataAccess
                     AND ApplicationTypeID = @ApplicationTypeID 
                     AND ApplicationStatus = @ApplicationStatus";
 
-                using (SqlCommand command = new SqlCommand(query, conn))
+                using (SqlCommand command = _CreateCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.ApplicantPersonID);
                     command.Parameters.AddWithValue("@ApplicationTypeID", applicationData.ApplicationTypeID);
@@ -230,7 +239,7 @@ namespace DVLD.DataAccess
         {
             int activeAppID = 0;
 
-            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection conn = _GetConnection())
             {
                 string query = @"
                     SELECT Applications.ApplicationID
@@ -241,7 +250,7 @@ namespace DVLD.DataAccess
                         AND Applications.ApplicationStatus = @ApplicationStatus
                         AND Applications.ApplicantPersonID = @ApplicantPersonID";
 
-                using (SqlCommand command = new SqlCommand(query, conn))
+                using (SqlCommand command = _CreateCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
                     command.Parameters.AddWithValue("@ApplicationStatus", 1);
@@ -272,7 +281,7 @@ namespace DVLD.DataAccess
         {
             bool isUpdated = false;
 
-            using (SqlConnection conn = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection conn = _GetConnection())
             {
                 string query = @"
                     UPDATE Applications
@@ -280,7 +289,7 @@ namespace DVLD.DataAccess
                         LastStatusDate = @LastStatusDate
                     WHERE ApplicationID = @ApplicationID";
 
-                using (SqlCommand command = new SqlCommand(query, conn))
+                using (SqlCommand command = _CreateCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
                     command.Parameters.AddWithValue("@ApplicationStatus", StatusID);
