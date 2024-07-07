@@ -8,136 +8,124 @@ namespace ClsDataType
         public enum EnApplicationType
         {
             NewLocalDrivingLicenseService = 1,
-            RenewDrivingLicenseService = 2,
-            ReplacementForLostDrivingLicense = 3,
-            ReplacementForDamagedDrivingLicense = 4,
-            ReleaseDetainedDrivingLicense = 5,
-            NewInternationalLicense = 6,
-            RetakeTest = 7
+            RenewDrivingLicenseService,
+            ReplacementForLostDrivingLicense,
+            ReplacementForDamagedDrivingLicense,
+            ReleaseDetainedDrivingLicense,
+            NewInternationalLicense,
+            RetakeTest
         }
 
         public enum EnApplicationStatus
         {
             New = 1,
-            Canceled = 2,
-            Completed = 3
+            Canceled,
+            Completed
         }
+
         public struct StApplicationTypeInfo
         {
             public int ApplicationTypeID;
             public string ApplicationTypeTitle;
             public decimal ApplicationFees;
         }
+
         public struct StApplicationData
         {
-            EnApplicationType EnApplicationType;
-            EnApplicationStatus EnApplicationStatus;
-            StApplicationTypeInfo StApplicationTypeInfo;
+            public EnApplicationType EnApplicationType { get; set; }
+            public EnApplicationStatus EnApplicationStatus { get; set; }
+            public StApplicationTypeInfo StApplicationTypeInfo { get; set; }
             public int ApplicationID { get; set; }
             public int ApplicantPersonID { get; set; }
-            public string ApplicantFullName;
+            public string ApplicantFullName { get; set; }
             public DateTime ApplicationDate { get; set; }
             public int ApplicationTypeID { get; set; }
             public int ApplicationStatus { get; set; }
             public DateTime LastStatusDate { get; set; }
             public decimal PaidFees { get; set; }
             public int CreatedByUserID { get; set; }
-            public string StatusText;
-            public string ApplicationType;
-            StUser CreatedByUser { get; set; }
-            public StApplicationData() { }
+            public string StatusText { get; private set; }
+            public string ApplicationType { get; private set; }
+            public StUser CreatedByUser { get; set; }
+
+            public StApplicationData()
+            {
+                EnApplicationType = EnApplicationType.NewLocalDrivingLicenseService;
+                EnApplicationStatus = EnApplicationStatus.New;
+                StatusText = "NEW";
+                ApplicationType = "New Local Driving License Service";
+            }
 
             public StApplicationData(StApplicationData applicationData)
             {
-                this.StApplicationTypeInfo = applicationData.StApplicationTypeInfo;
-                this.ApplicationTypeID = applicationData.ApplicationTypeID;
-                this.ApplicationID = applicationData.ApplicationID;
-                this.ApplicationStatus = applicationData.ApplicationStatus;
-                this.EnApplicationType = _GetEnAppType(this.ApplicationTypeID);
-                this.EnApplicationStatus = _GetEnAppStatus(this.ApplicationStatus);
-                this.ApplicantPersonID = applicationData.ApplicantPersonID;
-                this.LastStatusDate = applicationData.LastStatusDate;
-                this.PaidFees = applicationData.PaidFees;
-                this.CreatedByUserID = applicationData.CreatedByUserID;
-                this.StatusText = _GetStatusText(applicationData.EnApplicationStatus);
-                this.ApplicationType = _GetApplicationTypeText(applicationData.EnApplicationType);
-                this.CreatedByUser = applicationData.CreatedByUser;
+                StApplicationTypeInfo = applicationData.StApplicationTypeInfo;
+                ApplicationTypeID = applicationData.ApplicationTypeID;
+                ApplicationID = applicationData.ApplicationID;
+                ApplicationStatus = applicationData.ApplicationStatus;
+                EnApplicationType = _GetEnAppType(applicationData.ApplicationTypeID);
+                EnApplicationStatus = _GetEnAppStatus(applicationData.ApplicationStatus);
+                ApplicantPersonID = applicationData.ApplicantPersonID;
+                ApplicantFullName = applicationData.ApplicantFullName;
+                ApplicationDate = applicationData.ApplicationDate;
+                LastStatusDate = applicationData.LastStatusDate;
+                PaidFees = applicationData.PaidFees;
+                CreatedByUserID = applicationData.CreatedByUserID;
+                StatusText = _GetApplicationStatusText(applicationData.EnApplicationStatus);
+                ApplicationType = _GetApplicationTypeText(applicationData.EnApplicationType);
+                CreatedByUser = applicationData.CreatedByUser;
             }
-            private EnApplicationStatus _GetEnAppStatus(int ApplicationStatus)
-            {
-                switch (ApplicationStatus)
-                {
-                    case 1:
-                        return EnApplicationStatus.New;
-                    case 2:
-                            return EnApplicationStatus.Canceled;
-                    case 3:
-                        return EnApplicationStatus.Completed;
-                    default:
-                        return EnApplicationStatus.New;
-                }
-            }
-            private EnApplicationType _GetEnAppType(int ApplicationTypeID)
-            {
 
-                switch (ApplicationTypeID)
-                {
-                    case 1:
-                        return EnApplicationType.NewLocalDrivingLicenseService;
-                    case 2:
-                        return EnApplicationType.RenewDrivingLicenseService;
-                    case 3:
-                        return EnApplicationType.ReplacementForLostDrivingLicense;
-                    case 4:
-                        return EnApplicationType.ReplacementForDamagedDrivingLicense;
-                    case 5:
-                        return EnApplicationType.ReleaseDetainedDrivingLicense;
-                    case 6:
-                        return EnApplicationType.NewInternationalLicense;
-                    case 7:
-                        return EnApplicationType.RetakeTest;
-                    default:
-                        return EnApplicationType.NewLocalDrivingLicenseService;
-                }
-            }
-            private string _GetStatusText(EnApplicationStatus applicationStatus)
+            private static EnApplicationStatus _GetEnAppStatus(int applicationStatus)
             {
-                switch (applicationStatus)
+                return applicationStatus switch
                 {
-                    case EnApplicationStatus.New:
-                        return "NEW";
-                    case EnApplicationStatus.Canceled:
-                        return "CANCLED";
-                    case EnApplicationStatus.Completed:
-                        return "COMPLETED";
-                    default:
-                        return "UNKNOWN";
-                }
+                    1 => EnApplicationStatus.New,
+                    2 => EnApplicationStatus.Canceled,
+                    3 => EnApplicationStatus.Completed,
+                    _ => throw new ArgumentOutOfRangeException(nameof(applicationStatus), "Invalid application status ID")
+                };
+            }
+
+            private static EnApplicationType _GetEnAppType(int applicationTypeID)
+            {
+                return applicationTypeID switch
+                {
+                    1 => EnApplicationType.NewLocalDrivingLicenseService,
+                    2 => EnApplicationType.RenewDrivingLicenseService,
+                    3 => EnApplicationType.ReplacementForLostDrivingLicense,
+                    4 => EnApplicationType.ReplacementForDamagedDrivingLicense,
+                    5 => EnApplicationType.ReleaseDetainedDrivingLicense,
+                    6 => EnApplicationType.NewInternationalLicense,
+                    7 => EnApplicationType.RetakeTest,
+                    _ => throw new ArgumentOutOfRangeException(nameof(applicationTypeID), "Invalid application type ID")
+                };
+            }
+
+            private static string _GetApplicationStatusText(EnApplicationStatus applicationStatus)
+            {
+                return applicationStatus switch
+                {
+                    EnApplicationStatus.New => "NEW",
+                    EnApplicationStatus.Canceled => "CANCELED",
+                    EnApplicationStatus.Completed => "COMPLETED",
+                    _ => "UNKNOWN"
+                };
             }
 
             private static string _GetApplicationTypeText(EnApplicationType applicationType)
             {
-                switch (applicationType)
+                return applicationType switch
                 {
-                    case EnApplicationType.NewLocalDrivingLicenseService:
-                        return "New Local Driving License Service";
-                    case EnApplicationType.RenewDrivingLicenseService:
-                        return "Renew Driving License Service";
-                    case EnApplicationType.ReplacementForLostDrivingLicense:
-                        return "Replacement for Lost Driving License";
-                    case EnApplicationType.ReplacementForDamagedDrivingLicense:
-                        return "Replacement for Damaged Driving License";
-                    case EnApplicationType.ReleaseDetainedDrivingLicense:
-                        return "Release Detained Driving License";
-                    case EnApplicationType.NewInternationalLicense:
-                        return "New International License";
-                    case EnApplicationType.RetakeTest:
-                        return "Retake Test";
-                    default:
-                        return "Unknown Application Type";
-                }
+                    EnApplicationType.NewLocalDrivingLicenseService => "New Local Driving License Service",
+                    EnApplicationType.RenewDrivingLicenseService => "Renew Driving License Service",
+                    EnApplicationType.ReplacementForLostDrivingLicense => "Replacement for Lost Driving License",
+                    EnApplicationType.ReplacementForDamagedDrivingLicense => "Replacement for Damaged Driving License",
+                    EnApplicationType.ReleaseDetainedDrivingLicense => "Release Detained Driving License",
+                    EnApplicationType.NewInternationalLicense => "New International License",
+                    EnApplicationType.RetakeTest => "Retake Test",
+                    _ => "Unknown Application Type"
+                };
             }
         }
-
     }
 }
