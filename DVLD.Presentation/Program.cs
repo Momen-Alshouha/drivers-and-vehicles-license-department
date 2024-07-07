@@ -1,4 +1,5 @@
 ﻿using DVLD.Presentation.Application_Types;
+using DVLD.Presentation.Applications.LocalDrivingLicenseApplication;
 using DVLD.Presentation.Login;
 using DVLD.Presentation.User;
 using System;
@@ -19,7 +20,7 @@ namespace DVLD.Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+            Application.Run(new FrmLocalDrivingLicenseApplication());
         }
     }
 }

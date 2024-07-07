@@ -1,4 +1,5 @@
 ﻿using DVLD.Presentation.Application_Types;
+using DVLD.Presentation.Applications.LocalDrivingLicenseApplication;
 using DVLD.Presentation.Login;
 using DVLD.Presentation.People;
 using DVLD.Presentation.People.Controls;
@@ -65,6 +66,12 @@ namespace DVLD.Presentation
         {
             FrmTestTypes testTypes = new FrmTestTypes();
             testTypes.ShowDialog();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLocalDrivingLicenseApplication frmLocalDrivingLicenseApplication = new FrmLocalDrivingLicenseApplication();
+            frmLocalDrivingLicenseApplication.ShowDialog();
         }
     }
 }

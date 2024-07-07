@@ -12,11 +12,11 @@ namespace DVLD.DataAccess
 {
     public class ClsApplications
     {
-        private static SqlConnection _GetConnection()
+        protected static SqlConnection _GetConnection()
         {
             return new SqlConnection(Settings.ConnectionString);
         }
-        private static SqlCommand _CreateCommand(string query, SqlConnection connection)
+        protected static SqlCommand _CreateCommand(string query, SqlConnection connection)
         {
             return new SqlCommand(query, connection);
         }

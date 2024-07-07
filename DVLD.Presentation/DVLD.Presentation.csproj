@@ -58,6 +58,12 @@
     <Compile Include="Applications\Application Types\FrmManageAppTypes.Designer.cs">
       <DependentUpon>FrmManageAppTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\LocalDrivingLicenseApplication\FrmLocalDrivingLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\LocalDrivingLicenseApplication\FrmLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>FrmLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClsGlobal.cs" />
     <Compile Include="ClsUtil.cs" />
     <Compile Include="ClsValidation.cs" />
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Application Types\FrmManageAppTypes.resx">
       <DependentUpon>FrmManageAppTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\LocalDrivingLicenseApplication\FrmLocalDrivingLicenseApplication.resx">
+      <DependentUpon>FrmLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlUserCard.resx">
       <DependentUpon>CtrlUserCard.cs</DependentUpon>
@@ -267,5 +276,6 @@
   <ItemGroup>
     <None Include="Resources\TestType 512.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

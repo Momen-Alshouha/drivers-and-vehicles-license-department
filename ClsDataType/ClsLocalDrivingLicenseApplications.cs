@@ -11,8 +11,7 @@ namespace ClsDataType
     {
         public struct StLocalDrivingLicenseApplication
         {
-            public int LocalDrivingLicenseApplicationID { get; set; }
-            public int ApplicationID { get; set; }
+            public int LocalDrivingLicenseApplicationID { get; private set; }
             public int LicenseClassID { get; set; }
             public StApplicationData ApplicationData { get; set; }
 
@@ -23,7 +22,6 @@ namespace ClsDataType
                 StApplicationData applicationData)
             {
                 LocalDrivingLicenseApplicationID = localDrivingLicenseApplicationID;
-                ApplicationID = applicationID;
                 LicenseClassID = licenseClassID;
                 ApplicationData = applicationData;
             }
