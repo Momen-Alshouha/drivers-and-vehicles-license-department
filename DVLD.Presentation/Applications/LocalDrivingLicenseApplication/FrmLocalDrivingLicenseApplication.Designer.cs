@@ -283,9 +283,9 @@
             this.LblLblAppIDLocalDrivingLicenseApplicationValue.Location = new System.Drawing.Point(148, 31);
             this.LblLblAppIDLocalDrivingLicenseApplicationValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblLblAppIDLocalDrivingLicenseApplicationValue.Name = "LblLblAppIDLocalDrivingLicenseApplicationValue";
-            this.LblLblAppIDLocalDrivingLicenseApplicationValue.Size = new System.Drawing.Size(24, 19);
+            this.LblLblAppIDLocalDrivingLicenseApplicationValue.Size = new System.Drawing.Size(53, 19);
             this.LblLblAppIDLocalDrivingLicenseApplicationValue.TabIndex = 13;
-            this.LblLblAppIDLocalDrivingLicenseApplicationValue.Text = "...";
+            this.LblLblAppIDLocalDrivingLicenseApplicationValue.Text = "[????]";
             // 
             // FrmLocalDrivingLicenseApplication
             // 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,46 @@ namespace DVLD.DataAccess
 {
     public class ClsLocalDrivingLicenseApplications : ClsApplications
     {
+        public static DataTable GetAllLocalDrivingLicenseApplications_View()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = _GetConnection())
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM LocalDrivingLicenseApplications_View";
+
+                    using (SqlCommand command = _CreateCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dt.Load(reader);
+                                reader.Close();
+                                connection.Close();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+              
+                throw new Exception("An error occurred while retrieving the local driving license applications.", sqlEx);
+            }
+            catch (Exception ex)
+            {
+               
+                throw new Exception("An unexpected error occurred.", ex);
+            }
+            
+
+            return dt;
+        }
         public static bool AddNewLocalDrivingLicenseApplication(int ApplicationID,int LicenseClassID)
         {
             using (SqlConnection connection = _GetConnection())
