@@ -5,6 +5,18 @@ namespace ClsDataType
 {
     public class ClsApplication
     {
+        public enum EnLicenseClass
+        {
+            SmallMotorcycle = 1,
+            HeavyMotorcycle,
+            OrdinaryDriving,
+            Commercial,
+            Agricultural,
+            SmallMediumBus,
+            TruckHeavyVehicle 
+        }
+    
+
         public enum EnApplicationType
         {
             NewLocalDrivingLicenseService = 1,
@@ -47,6 +59,8 @@ namespace ClsDataType
             public string StatusText { get; private set; }
             public string ApplicationType { get; private set; }
             public StUser CreatedByUser { get; set; }
+            public int LicenseClassID;
+            public EnLicenseClass enLicenseClass { get; set; }
 
             public StApplicationData()
             {
@@ -58,12 +72,14 @@ namespace ClsDataType
 
             public StApplicationData(StApplicationData applicationData)
             {
+                LicenseClassID = (int)applicationData.enLicenseClass;
+                LastStatusDate = DateTime.Now;
                 StApplicationTypeInfo = applicationData.StApplicationTypeInfo;
-                ApplicationTypeID = applicationData.ApplicationTypeID;
+                ApplicationTypeID = (int)applicationData.EnApplicationType;
                 ApplicationID = applicationData.ApplicationID;
-                ApplicationStatus = applicationData.ApplicationStatus;
-                EnApplicationType = _GetEnAppType(applicationData.ApplicationTypeID);
-                EnApplicationStatus = _GetEnAppStatus(applicationData.ApplicationStatus);
+                ApplicationStatus = (int)applicationData.EnApplicationStatus;
+                EnApplicationType = applicationData.EnApplicationType;
+                EnApplicationStatus = applicationData.EnApplicationStatus;
                 ApplicantPersonID = applicationData.ApplicantPersonID;
                 ApplicantFullName = applicationData.ApplicantFullName;
                 ApplicationDate = applicationData.ApplicationDate;
@@ -73,32 +89,6 @@ namespace ClsDataType
                 StatusText = _GetApplicationStatusText(applicationData.EnApplicationStatus);
                 ApplicationType = _GetApplicationTypeText(applicationData.EnApplicationType);
                 CreatedByUser = applicationData.CreatedByUser;
-            }
-
-            private static EnApplicationStatus _GetEnAppStatus(int applicationStatus)
-            {
-                return applicationStatus switch
-                {
-                    1 => EnApplicationStatus.New,
-                    2 => EnApplicationStatus.Canceled,
-                    3 => EnApplicationStatus.Completed,
-                    _ => throw new ArgumentOutOfRangeException(nameof(applicationStatus), "Invalid application status ID")
-                };
-            }
-
-            private static EnApplicationType _GetEnAppType(int applicationTypeID)
-            {
-                return applicationTypeID switch
-                {
-                    1 => EnApplicationType.NewLocalDrivingLicenseService,
-                    2 => EnApplicationType.RenewDrivingLicenseService,
-                    3 => EnApplicationType.ReplacementForLostDrivingLicense,
-                    4 => EnApplicationType.ReplacementForDamagedDrivingLicense,
-                    5 => EnApplicationType.ReleaseDetainedDrivingLicense,
-                    6 => EnApplicationType.NewInternationalLicense,
-                    7 => EnApplicationType.RetakeTest,
-                    _ => throw new ArgumentOutOfRangeException(nameof(applicationTypeID), "Invalid application type ID")
-                };
             }
 
             private static string _GetApplicationStatusText(EnApplicationStatus applicationStatus)

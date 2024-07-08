@@ -12,7 +12,7 @@ namespace DVLD.DataAccess
 {
     public class ClsLocalDrivingLicenseApplications : ClsApplications
     {
-        public static bool AddNewLocalDrivingLicenseApplication(StLocalDrivingLicenseApplication localDrivingLicenseApplication)
+        public static bool AddNewLocalDrivingLicenseApplication(int ApplicationID,int LicenseClassID)
         {
             using (SqlConnection connection = _GetConnection())
             {
@@ -20,8 +20,8 @@ namespace DVLD.DataAccess
 
                 using (SqlCommand command = _CreateCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ApplicationID", localDrivingLicenseApplication.ApplicationData.ApplicationID);
-                    command.Parameters.AddWithValue("@LicenseClassID", localDrivingLicenseApplication.LicenseClassID);
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                    command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
 
                     try
                     {
@@ -60,9 +60,6 @@ namespace DVLD.DataAccess
                 }
             }
         }
-
-
-
 
     }
 }
