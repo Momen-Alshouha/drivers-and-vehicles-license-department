@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using static ClsDataType.ClsApplication;
 
 namespace DVLD.BusinessLogic
@@ -29,6 +30,14 @@ namespace DVLD.BusinessLogic
                 }
             }
             return -1;
+        }
+        public static bool Update(StApplicationData applicationData)
+        {
+            if (DataAccess.ClsApplications.UpdateApplication(applicationData))
+            {
+                return DataAccess.ClsLocalDrivingLicenseApplications.UpdateLocalDrivingLicenseApplicationByLocalID(applicationData.ApplicationID, applicationData.LicenseClassID);
+            }
+            return false;
         }
 
     }

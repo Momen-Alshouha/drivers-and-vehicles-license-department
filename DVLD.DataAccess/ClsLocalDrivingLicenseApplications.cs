@@ -100,17 +100,17 @@ namespace DVLD.DataAccess
                 }
             }
         }
-        public static bool UpdateLocalDrivingLicenseApplicationByLocalID(int localDrivingLicenseApplicationID, int NewLicenseClassID)
+        public static bool UpdateLocalDrivingLicenseApplicationByLocalID(int ApplicationID, int NewLicenseClassID)
         {
             using (SqlConnection connection = _GetConnection())
             {
                 string query = @"UPDATE LocalDrivingLicenseApplications 
                          SET LicenseClassID = @LicenseClassID 
-                         WHERE localDrivingLicenseApplicationID = @localDrivingLicenseApplicationID";
+                         WHERE ApplicationID = @ApplicationID";
                 using (SqlCommand command = _CreateCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@LicenseClassID", NewLicenseClassID);
-                    command.Parameters.AddWithValue("@localDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 
                     try
                     {

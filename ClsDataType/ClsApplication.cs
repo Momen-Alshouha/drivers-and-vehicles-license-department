@@ -42,6 +42,13 @@ namespace ClsDataType
             public decimal ApplicationFees;
         }
 
+        public struct StLocalDrivindLicenseApplication
+        {
+            public int LocalDrivingLicenseApplicationID;
+            public int ApplicationID;
+            public decimal LicenseClassID;
+        }
+
         public struct StApplicationData
         {
             public EnApplicationType EnApplicationType { get; set; }
