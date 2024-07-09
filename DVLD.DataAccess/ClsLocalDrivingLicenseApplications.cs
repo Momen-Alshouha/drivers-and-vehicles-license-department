@@ -13,6 +13,35 @@ namespace DVLD.DataAccess
 {
     public class ClsLocalDrivingLicenseApplications : ClsApplications
     {
+        public static int GetApplicationIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
+        {
+            int ApplicationID = 0;
+            string query = "SELECT ApplicationID FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            using (SqlConnection connection = _GetConnection())
+            {
+                using (SqlCommand command = _CreateCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            ApplicationID = Convert.ToInt32(result);
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                }
+            }
+
+            return ApplicationID;
+        }
         public static DataTable GetAllLocalDrivingLicenseApplications_View()
         {
             DataTable dt = new DataTable();
@@ -77,15 +106,15 @@ namespace DVLD.DataAccess
                 }
             }
         }
-        public static bool DeleteLocalDrivingLicenseApplication(int localDrivingLicenseApplicationID)
+        public static bool DeleteLocalDrivingLicenseApplicationByApplicationID(int ApplicationID)
         {
             using (SqlConnection connection = _GetConnection())
             {
-                string query = "DELETE FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+                string query = "DELETE FROM LocalDrivingLicenseApplications WHERE ApplicationID = @ApplicationID";
 
                 using (SqlCommand command = _CreateCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 
                     try
                     {

@@ -11,11 +11,24 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         public FrmManageLocalDrivingLicenseApplication()
         {
             InitializeComponent();
+            this.ContextMenuStrip = ContextMenuStripManageLocalDrivingLicenseApplicationForm;
             _LoadDataInDataGridViewAndLoadNumberOfRecords();
             InitializeDataGridView();
             TextBoxFilterByManageLocalDrivingLicenseForm.TextChanged += TextBoxFilterByManageLocalDrivingLicenseForm_TextChanged;
         }
-
+        private int _GetSelectedLocalDrivingLicenseeApplicationID()
+        {
+            int selectedLocalDrivingLicenseeApplicationID = 0;
+            if (DataGridViewLocalDrivingLicenseApplications_View.SelectedRows.Count>0)
+            {
+                selectedLocalDrivingLicenseeApplicationID = int.Parse(DataGridViewLocalDrivingLicenseApplications_View.SelectedRows[0].Cells[0].Value.ToString());
+            }
+            return selectedLocalDrivingLicenseeApplicationID;
+        }
+        private int _GetApplicationID()
+        {
+            return BusinessLogic.ClsLocalDrivingLicenseApplication.GetApplicationIDByLocalDrivingLicenseAppID(_GetSelectedLocalDrivingLicenseeApplicationID());
+        }
         private void _LoadDataInDataGridViewAndLoadNumberOfRecords()
         {
             this.LocalDrivingLicenseApplicationsData_View = BusinessLogic.ClsLocalDrivingLicenseApplication.GetAllLocalDrivingLicenseApplications_View();
@@ -31,7 +44,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
 
         private void PictureBoxAddNewLocalDrivingLicenseApplication_Click(object sender, EventArgs e)
         {
-            FrmLocalDrivingLicenseApplication frmLocalDrivingLicenseApplication = new FrmLocalDrivingLicenseApplication();
+            FrmAddEditLocalDrivingLicenseApplication frmLocalDrivingLicenseApplication = new FrmAddEditLocalDrivingLicenseApplication();
             frmLocalDrivingLicenseApplication.ShowDialog();
             _LoadDataInDataGridViewAndLoadNumberOfRecords();
             ApplyFilter(); 
@@ -112,6 +125,22 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while applying the filter: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure do you want to delete this application ? ","Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                if (BusinessLogic.ClsLocalDrivingLicenseApplication.DeleteApplication(_GetApplicationID()))
+                {
+                    MessageBox.Show("Application Deleted Successfully!", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _LoadDataInDataGridViewAndLoadNumberOfRecords();
+                } else
+                {
+                    MessageBox.Show("Something wrong happened!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

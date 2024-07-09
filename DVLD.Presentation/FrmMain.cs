@@ -70,7 +70,7 @@ namespace DVLD.Presentation
 
         private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmLocalDrivingLicenseApplication frmLocalDrivingLicenseApplication = new FrmLocalDrivingLicenseApplication();
+            FrmAddEditLocalDrivingLicenseApplication frmLocalDrivingLicenseApplication = new FrmAddEditLocalDrivingLicenseApplication();
             frmLocalDrivingLicenseApplication.ShowDialog();
         }
 

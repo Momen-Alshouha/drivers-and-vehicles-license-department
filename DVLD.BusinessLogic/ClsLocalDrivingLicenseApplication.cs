@@ -39,6 +39,17 @@ namespace DVLD.BusinessLogic
             }
             return false;
         }
+        public static int GetApplicationIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseAppID)
+        {
+            return DataAccess.ClsLocalDrivingLicenseApplications.GetApplicationIDByLocalDrivingLicenseAppID(LocalDrivingLicenseAppID);
+        }
+        public static bool DeleteApplication(int ApplicationID)
+        {
+            bool isLocalApplicationDeleted = DataAccess.ClsLocalDrivingLicenseApplications.DeleteLocalDrivingLicenseApplicationByApplicationID(ApplicationID);
+            bool IsApplicationDeleted = DataAccess.ClsApplications.DeleteApplication(ApplicationID);
+            
+            return (IsApplicationDeleted && isLocalApplicationDeleted);
+        }
 
     }
 }

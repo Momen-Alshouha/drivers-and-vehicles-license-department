@@ -6,8 +6,11 @@ using static ClsDataType.ClsApplication;
 
 namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
 {
-    public partial class FrmLocalDrivingLicenseApplication : Form
+    public partial class FrmAddEditLocalDrivingLicenseApplication : Form
     {
+        /* to do: disable second tab if person not selected
+         * check minimun allow age for class license
+        */
         private ClsApplication.EnLicenseClass enLicenseClassSelected;
         private readonly ClsApplication.EnApplicationType applicationType = ClsApplication.EnApplicationType.NewLocalDrivingLicenseService;
         private readonly ClsApplication.EnApplicationStatus ApplicationStatus = ClsApplication.EnApplicationStatus.New;
@@ -16,7 +19,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         private ClsApplication.StApplicationData TempApplicationData;
         private ClsDataType.ClsDataType.StUser CreatedByUser;
 
-        public FrmLocalDrivingLicenseApplication()
+        public FrmAddEditLocalDrivingLicenseApplication()
         {
             InitializeComponent();
             // subscribe to the OnPersonSelected event
