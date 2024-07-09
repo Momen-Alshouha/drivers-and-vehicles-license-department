@@ -77,7 +77,6 @@ namespace DVLD.DataAccess
                 }
             }
         }
-
         public static bool DeleteLocalDrivingLicenseApplication(int localDrivingLicenseApplicationID)
         {
             using (SqlConnection connection = _GetConnection())
@@ -97,6 +96,35 @@ namespace DVLD.DataAccess
                     catch (Exception ex)
                     {
                         throw new DataAccessException("Error deleting from LocalDrivingLicenseApplications table.", ex);
+                    }
+                }
+            }
+        }
+        public static bool UpdateLocalDrivingLicenseApplicationByLocalID(int localDrivingLicenseApplicationID, int NewLicenseClassID)
+        {
+            using (SqlConnection connection = _GetConnection())
+            {
+                string query = @"UPDATE LocalDrivingLicenseApplications 
+                         SET LicenseClassID = @LicenseClassID 
+                         WHERE localDrivingLicenseApplicationID = @localDrivingLicenseApplicationID";
+                using (SqlCommand command = _CreateCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseClassID", NewLicenseClassID);
+                    command.Parameters.AddWithValue("@localDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        connection.Close();
                     }
                 }
             }
