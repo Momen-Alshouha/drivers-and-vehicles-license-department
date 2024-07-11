@@ -41,6 +41,9 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         {
             DataGridViewLocalDrivingLicenseApplications_View.Columns[0].HeaderText = "L.D.L.AppID";
             DataGridViewLocalDrivingLicenseApplications_View.Columns[0].Width = 50;
+            DataGridViewLocalDrivingLicenseApplications_View.Columns[2].Width = 100;
+            DataGridViewLocalDrivingLicenseApplications_View.Columns[1].Width = 200;
+            DataGridViewLocalDrivingLicenseApplications_View.Columns[3].Width = 250;
         }
 
         private void PictureBoxAddNewLocalDrivingLicenseApplication_Click(object sender, EventArgs e)

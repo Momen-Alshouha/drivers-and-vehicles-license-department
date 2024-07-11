@@ -61,7 +61,7 @@
             // 
             this.LblManageLocalTitle.AutoSize = true;
             this.LblManageLocalTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblManageLocalTitle.Location = new System.Drawing.Point(242, 136);
+            this.LblManageLocalTitle.Location = new System.Drawing.Point(466, 131);
             this.LblManageLocalTitle.Name = "LblManageLocalTitle";
             this.LblManageLocalTitle.Size = new System.Drawing.Size(612, 36);
             this.LblManageLocalTitle.TabIndex = 5;
@@ -79,7 +79,7 @@
             this.DataGridViewLocalDrivingLicenseApplications_View.ReadOnly = true;
             this.DataGridViewLocalDrivingLicenseApplications_View.RowHeadersWidth = 62;
             this.DataGridViewLocalDrivingLicenseApplications_View.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewLocalDrivingLicenseApplications_View.Size = new System.Drawing.Size(1036, 298);
+            this.DataGridViewLocalDrivingLicenseApplications_View.Size = new System.Drawing.Size(1415, 406);
             this.DataGridViewLocalDrivingLicenseApplications_View.TabIndex = 6;
             // 
             // label1
@@ -120,7 +120,7 @@
             // 
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Image = global::DVLD.Presentation.Properties.Resources.New_Application_64;
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Location = new System.Drawing.Point(975, 229);
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Location = new System.Drawing.Point(1353, 230);
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Margin = new System.Windows.Forms.Padding(4);
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Name = "PictureBoxAddNewLocalDrivingLicenseApplication";
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Size = new System.Drawing.Size(80, 89);
@@ -132,7 +132,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.Manage_Applications_64;
-            this.pictureBox1.Location = new System.Drawing.Point(478, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(702, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(165, 114);
@@ -154,7 +154,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 649);
+            this.label2.Location = new System.Drawing.Point(21, 755);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 29);
@@ -165,7 +165,7 @@
             // 
             this.LblNumberOfApplications.AutoSize = true;
             this.LblNumberOfApplications.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNumberOfApplications.Location = new System.Drawing.Point(144, 649);
+            this.LblNumberOfApplications.Location = new System.Drawing.Point(152, 755);
             this.LblNumberOfApplications.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblNumberOfApplications.Name = "LblNumberOfApplications";
             this.LblNumberOfApplications.Size = new System.Drawing.Size(37, 29);
@@ -186,7 +186,7 @@
             this.showLicensesToolStripMenuItem,
             this.showPersonLicenesHistoryToolStripMenuItem});
             this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Name = "ContextMenuStripManageLocalDrivingLicenseApplicationForm";
-            this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Size = new System.Drawing.Size(329, 325);
+            this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Size = new System.Drawing.Size(329, 292);
             // 
             // addNewApplicationToolStripMenuItem
             // 
@@ -271,7 +271,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 706);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1467, 808);
             this.Controls.Add(this.LblNumberOfApplications);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TextBoxFilterByManageLocalDrivingLicenseForm);
