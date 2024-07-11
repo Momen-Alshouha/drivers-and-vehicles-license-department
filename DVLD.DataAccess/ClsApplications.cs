@@ -59,7 +59,10 @@ namespace DVLD.DataAccess
             StApplicationData applicationData= new StApplicationData();
             using (SqlConnection conn = _GetConnection())
             {
-                string query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
+                string query = @"SELECT Applications.* , LocalDrivingLicenseApplications.* FROM Applications
+                                INNER JOIN LocalDrivingLicenseApplications 
+                                ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+                                   WHERE ApplicationID = @ApplicationID";
                 using (SqlCommand command = _CreateCommand(query,conn))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", id);
@@ -79,7 +82,8 @@ namespace DVLD.DataAccess
                                 applicationData.LastStatusDate = reader.GetDateTime(reader.GetOrdinal("LastStatusDate"));
                                 applicationData.PaidFees = reader.GetDecimal(reader.GetOrdinal("PaidFees"));
                                 applicationData.CreatedByUserID = reader.GetInt32(reader.GetOrdinal("CreatedByUserID"));
-                                
+                                applicationData.LicenseClassID = reader.GetInt32(reader.GetOrdinal("LicenseClassID"));
+                                applicationData.StApplicationTypeInfo = ClsApplicationType.GetAppType(applicationData.ApplicationTypeID);
                             }
                         }
                     }
@@ -91,7 +95,7 @@ namespace DVLD.DataAccess
               
             }
 
-            return applicationData;
+            return new StApplicationData(applicationData);
         }
         public static int AddNewApplication(StApplicationData applicationData)
         {

@@ -5,14 +5,15 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ClsDataType.ClsApplication;
 using static ClsDataType.ClsDataType;
 namespace DVLD.DataAccess
 {
     public class ClsApplicationType
     {
-        public static StApplicationType GetAppType(int ApplicationTypeID)
+        public static StApplicationTypeInfo GetAppType(int ApplicationTypeID)
         {
-            StApplicationType applicationType = new StApplicationType();
+            StApplicationTypeInfo applicationType = new StApplicationTypeInfo();
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
                 string query = "select * from ApplicationTypes where ApplicationTypeID = @ApplicationTypeID";
@@ -25,9 +26,9 @@ namespace DVLD.DataAccess
                         SqlDataReader reader = command.ExecuteReader();
                         if (reader.Read())
                         {
-                            applicationType.id = (int)reader["ApplicationTypeID"];
-                            applicationType.title = reader["ApplicationTypeTitle"].ToString();
-                            applicationType.fee = (decimal)reader["ApplicationFees"];
+                            applicationType.ApplicationTypeID = (int)reader["ApplicationTypeID"];
+                            applicationType.ApplicationTypeTitle = reader["ApplicationTypeTitle"].ToString();
+                            applicationType.ApplicationFees = (decimal)reader["ApplicationFees"];
                             reader.Close();
                         }
                     }
