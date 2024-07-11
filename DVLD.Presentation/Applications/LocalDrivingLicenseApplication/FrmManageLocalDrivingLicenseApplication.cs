@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using static ClsDataType.ClsApplication;
 
 namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
 {
@@ -154,5 +155,18 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                 frmLocalDrivingLicenseApplicationDetails.ShowDialog();
             }
         }
+
+        private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are You Sure You Want To Cancel This Application?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                if (BusinessLogic.ClsLocalDrivingLicenseApplication.UpdateApplicationStatus(_GetApplicationID(), (int)EnApplicationStatus.Canceled))
+                {
+                    MessageBox.Show("Application Canceled!", "Cancel", MessageBoxButtons.OK);
+                    _LoadDataInDataGridViewAndLoadNumberOfRecords();
+                }
+            }
+        }
+
     }
 }

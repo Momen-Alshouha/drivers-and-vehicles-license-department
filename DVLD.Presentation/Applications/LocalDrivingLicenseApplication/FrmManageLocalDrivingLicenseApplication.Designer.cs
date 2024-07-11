@@ -69,11 +69,14 @@
             // 
             // DataGridViewLocalDrivingLicenseApplications_View
             // 
+            this.DataGridViewLocalDrivingLicenseApplications_View.AllowUserToAddRows = false;
+            this.DataGridViewLocalDrivingLicenseApplications_View.AllowUserToDeleteRows = false;
             this.DataGridViewLocalDrivingLicenseApplications_View.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewLocalDrivingLicenseApplications_View.Location = new System.Drawing.Point(18, 327);
-            this.DataGridViewLocalDrivingLicenseApplications_View.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DataGridViewLocalDrivingLicenseApplications_View.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewLocalDrivingLicenseApplications_View.MultiSelect = false;
             this.DataGridViewLocalDrivingLicenseApplications_View.Name = "DataGridViewLocalDrivingLicenseApplications_View";
+            this.DataGridViewLocalDrivingLicenseApplications_View.ReadOnly = true;
             this.DataGridViewLocalDrivingLicenseApplications_View.RowHeadersWidth = 62;
             this.DataGridViewLocalDrivingLicenseApplications_View.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridViewLocalDrivingLicenseApplications_View.Size = new System.Drawing.Size(1036, 298);
@@ -107,7 +110,7 @@
             "Full Name",
             "Status"});
             this.ComboBoxFilterByManageLocalDrivingLicenseForm.Location = new System.Drawing.Point(182, 262);
-            this.ComboBoxFilterByManageLocalDrivingLicenseForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboBoxFilterByManageLocalDrivingLicenseForm.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxFilterByManageLocalDrivingLicenseForm.Name = "ComboBoxFilterByManageLocalDrivingLicenseForm";
             this.ComboBoxFilterByManageLocalDrivingLicenseForm.Size = new System.Drawing.Size(190, 27);
             this.ComboBoxFilterByManageLocalDrivingLicenseForm.TabIndex = 8;
@@ -118,7 +121,7 @@
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Image = global::DVLD.Presentation.Properties.Resources.New_Application_64;
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Location = new System.Drawing.Point(975, 229);
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Margin = new System.Windows.Forms.Padding(4);
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Name = "PictureBoxAddNewLocalDrivingLicenseApplication";
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Size = new System.Drawing.Size(80, 89);
             this.PictureBoxAddNewLocalDrivingLicenseApplication.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -130,7 +133,7 @@
             // 
             this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.Manage_Applications_64;
             this.pictureBox1.Location = new System.Drawing.Point(478, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(165, 114);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -140,7 +143,7 @@
             // TextBoxFilterByManageLocalDrivingLicenseForm
             // 
             this.TextBoxFilterByManageLocalDrivingLicenseForm.Location = new System.Drawing.Point(382, 262);
-            this.TextBoxFilterByManageLocalDrivingLicenseForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxFilterByManageLocalDrivingLicenseForm.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxFilterByManageLocalDrivingLicenseForm.Name = "TextBoxFilterByManageLocalDrivingLicenseForm";
             this.TextBoxFilterByManageLocalDrivingLicenseForm.Size = new System.Drawing.Size(217, 27);
             this.TextBoxFilterByManageLocalDrivingLicenseForm.TabIndex = 10;
@@ -216,6 +219,7 @@
             this.cancelApplicationToolStripMenuItem.Name = "cancelApplicationToolStripMenuItem";
             this.cancelApplicationToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
             this.cancelApplicationToolStripMenuItem.Text = "Cancel Application";
+            this.cancelApplicationToolStripMenuItem.Click += new System.EventHandler(this.cancelApplicationToolStripMenuItem_Click);
             // 
             // scheduleToolStripMenuItem
             // 
@@ -277,7 +281,7 @@
             this.Controls.Add(this.DataGridViewLocalDrivingLicenseApplications_View);
             this.Controls.Add(this.LblManageLocalTitle);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmManageLocalDrivingLicenseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Manage Local Driving License Application";
