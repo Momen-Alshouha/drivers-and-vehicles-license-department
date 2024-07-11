@@ -38,17 +38,11 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsPerson.UpdatePerson(this.Person);
         }
-        public static StPerson? Find(int PersonId)
+        public static StPerson Find(int PersonId)
         {
             StPerson person = new StPerson();
-            if (DataAccess.ClsPerson.GetPerson(PersonId,ref person))
-            {
-                if (person.Id!=-1)
-                {
-                    return person;
-                }
-            }
-            return null;
+            DataAccess.ClsPerson.GetPerson(PersonId, ref person);
+            return person;
         }
         public static StPerson? Find(string NationalNo)
         {

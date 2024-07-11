@@ -9,7 +9,7 @@ using static ClsDataType.ClsApplication;
 
 namespace DVLD.BusinessLogic
 {
-    public class ClsLocalDrivingLicenseApplication
+    public class ClsLocalDrivingLicenseApplication : ClsApplications
     {
         public static DataTable GetAllLocalDrivingLicenseApplications_View()
         {
@@ -43,13 +43,14 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsLocalDrivingLicenseApplications.GetApplicationIDByLocalDrivingLicenseAppID(LocalDrivingLicenseAppID);
         }
-        public static bool DeleteApplication(int ApplicationID)
-        {
-            bool isLocalApplicationDeleted = DataAccess.ClsLocalDrivingLicenseApplications.DeleteLocalDrivingLicenseApplicationByApplicationID(ApplicationID);
-            bool IsApplicationDeleted = DataAccess.ClsApplications.DeleteApplication(ApplicationID);
+
+        //public static bool DeleteApplication(int ApplicationID)
+        //{
+        //    bool isLocalApplicationDeleted = DataAccess.ClsLocalDrivingLicenseApplications.DeleteLocalDrivingLicenseApplicationByApplicationID(ApplicationID);
+        //    bool IsApplicationDeleted = DataAccess.ClsApplications.DeleteApplication(ApplicationID);
             
-            return (IsApplicationDeleted && isLocalApplicationDeleted);
-        }
+        //    return (IsApplicationDeleted && isLocalApplicationDeleted);
+        //}
 
     }
 }

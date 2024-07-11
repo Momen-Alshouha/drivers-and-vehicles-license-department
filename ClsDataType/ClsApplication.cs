@@ -1,4 +1,5 @@
 ﻿using System;
+using static ClsDataType.ClsApplication;
 using static ClsDataType.ClsDataType;
 
 namespace ClsDataType
@@ -35,13 +36,6 @@ namespace ClsDataType
             Completed
         }
 
-        public struct StApplicationTypeInfo
-        {
-            public int ApplicationTypeID;
-            public string ApplicationTypeTitle;
-            public decimal ApplicationFees;
-        }
-
         public struct StLocalDrivindLicenseApplication
         {
             public int LocalDrivingLicenseApplicationID;
@@ -51,27 +45,26 @@ namespace ClsDataType
 
         public struct StApplicationData
         {
-            public EnApplicationType EnApplicationType { get; set; }
+            public EnApplicationType enApplicationType { get; set; }
             public EnApplicationStatus EnApplicationStatus { get; set; }
-            public StApplicationTypeInfo StApplicationTypeInfo { get; set; }
+            public StApplicationType StApplicationTypeInfo { get; set; }
             public int ApplicationID { get; set; }
-            public int ApplicantPersonID { get; set; }
             public string ApplicantFullName { get; set; }
             public DateTime ApplicationDate { get; set; }
-            public int ApplicationTypeID { get; set; }
             public int ApplicationStatus { get; set; }
             public DateTime LastStatusDate { get; set; }
             public decimal PaidFees { get; set; }
-            public int CreatedByUserID { get; set; }
             public string StatusText { get; private set; }
             public string ApplicationType { get; private set; }
             public StUser CreatedByUser { get; set; }
+            public StPerson stPerson { get; set; }
             public int LicenseClassID;
             public EnLicenseClass enLicenseClass { get; set; }
+            public string LicenseClassText { get; set; }
 
             public StApplicationData()
             {
-                EnApplicationType = EnApplicationType.NewLocalDrivingLicenseService;
+                enApplicationType = EnApplicationType.NewLocalDrivingLicenseService;
                 EnApplicationStatus = EnApplicationStatus.New;
                 StatusText = "NEW";
                 ApplicationType = "New Local Driving License Service";
@@ -79,23 +72,31 @@ namespace ClsDataType
 
             public StApplicationData(StApplicationData applicationData)
             {
-                LicenseClassID = (int)applicationData.enLicenseClass;
+                LicenseClassID =applicationData.LicenseClassID;
+                enLicenseClass = (EnLicenseClass)applicationData.LicenseClassID;
+                LicenseClassText = _GetLicenseClassText(enLicenseClass);
+
+                ApplicationStatus = applicationData.ApplicationStatus;
+                EnApplicationStatus =(EnApplicationStatus)applicationData.ApplicationStatus;
+                StatusText = _GetApplicationStatusText(applicationData.EnApplicationStatus);
+
+                ApplicationType = applicationData.ApplicationType;
+                enApplicationType = (EnApplicationType)applicationData.StApplicationTypeInfo.id;
+                ApplicationType = _GetApplicationTypeText(applicationData.enApplicationType);
+
                 LastStatusDate = DateTime.Now;
                 StApplicationTypeInfo = applicationData.StApplicationTypeInfo;
-                ApplicationTypeID = (int)applicationData.EnApplicationType;
+               
                 ApplicationID = applicationData.ApplicationID;
-                ApplicationStatus = (int)applicationData.EnApplicationStatus;
-                EnApplicationType = applicationData.EnApplicationType;
-                EnApplicationStatus = applicationData.EnApplicationStatus;
-                ApplicantPersonID = applicationData.ApplicantPersonID;
-                ApplicantFullName = applicationData.ApplicantFullName;
+                stPerson = applicationData.stPerson;
+
+                CreatedByUser = applicationData.CreatedByUser;
+
                 ApplicationDate = applicationData.ApplicationDate;
                 LastStatusDate = applicationData.LastStatusDate;
                 PaidFees = applicationData.PaidFees;
-                CreatedByUserID = applicationData.CreatedByUserID;
-                StatusText = _GetApplicationStatusText(applicationData.EnApplicationStatus);
-                ApplicationType = _GetApplicationTypeText(applicationData.EnApplicationType);
-                CreatedByUser = applicationData.CreatedByUser;
+
+                
             }
 
             private static string _GetApplicationStatusText(EnApplicationStatus applicationStatus)
@@ -123,6 +124,22 @@ namespace ClsDataType
                     _ => "Unknown Application Type"
                 };
             }
+
+            private static string _GetLicenseClassText(EnLicenseClass licenseClass)
+            {
+                return licenseClass switch
+                {
+                    EnLicenseClass.SmallMotorcycle => "Small Motorcycle",
+                    EnLicenseClass.HeavyMotorcycle => "Heavy Motorcycle",
+                    EnLicenseClass.OrdinaryDriving => "Ordinary Driving",
+                    EnLicenseClass.Commercial => "Commercial",
+                    EnLicenseClass.Agricultural => "Agricultural",
+                    EnLicenseClass.SmallMediumBus => "Small/Medium Bus",
+                    EnLicenseClass.TruckHeavyVehicle => "Truck/Heavy Vehicle",
+                    _ => "Unknown License Class"
+                };
+            }
+
         }
     }
 }

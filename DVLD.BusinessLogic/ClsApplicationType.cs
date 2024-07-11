@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using static ClsDataType.ClsDataType;
+using static ClsDataType.ClsApplication;
 
 namespace DVLD.BusinessLogic
 {

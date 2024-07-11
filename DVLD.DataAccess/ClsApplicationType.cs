@@ -11,9 +11,9 @@ namespace DVLD.DataAccess
 {
     public class ClsApplicationType
     {
-        public static StApplicationTypeInfo GetAppType(int ApplicationTypeID)
+        public static StApplicationType GetAppType(int ApplicationTypeID)
         {
-            StApplicationTypeInfo applicationType = new StApplicationTypeInfo();
+            StApplicationType applicationType = new StApplicationType();
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
                 string query = "select * from ApplicationTypes where ApplicationTypeID = @ApplicationTypeID";
@@ -26,9 +26,9 @@ namespace DVLD.DataAccess
                         SqlDataReader reader = command.ExecuteReader();
                         if (reader.Read())
                         {
-                            applicationType.ApplicationTypeID = (int)reader["ApplicationTypeID"];
-                            applicationType.ApplicationTypeTitle = reader["ApplicationTypeTitle"].ToString();
-                            applicationType.ApplicationFees = (decimal)reader["ApplicationFees"];
+                            applicationType.id = (int)reader["ApplicationTypeID"];
+                            applicationType.title = reader["ApplicationTypeTitle"].ToString();
+                            applicationType.fee = (decimal)reader["ApplicationFees"];
                             reader.Close();
                         }
                     }

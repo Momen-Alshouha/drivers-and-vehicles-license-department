@@ -55,5 +55,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(applicationData, licenseClassID);
         }
+        public static StApplicationData GetApplicationData(int id)
+        {
+            return DataAccess.ClsApplications.GetAppInfoByID(id);
+        }
     }
 }

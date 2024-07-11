@@ -43,21 +43,21 @@ namespace ClsDataType
 
         public struct StPerson
         {
-            public int Id;
-            public string NationalNo;
-            public string FirstName;
-            public string SecondName;
-            public string ThirdName;
-            public string LastName;
-            public string FullName;
-            public DateTime BirthDate;
-            public short Gender;
-            public string Address;
-            public string Phone;
-            public string Email;
-            public int NationalityCountryId;
-            public string ImagePath;
-            public string CountryName;
+            public int Id { set; get; }
+            public string NationalNo { set; get; }
+            public string FirstName { set; get; }
+            public string SecondName { set; get; }
+            public string ThirdName { set; get; }
+            public string LastName { set; get; }
+            public string FullName { set; get; }
+            public DateTime BirthDate { set; get; }
+            public short Gender { set; get; }
+            public string Address { set; get; }
+            public string Phone { set; get; }
+            public string Email { set; get; }
+            public int NationalityCountryId { set; get; }
+            public string ImagePath { set; get; }
+            public string CountryName { set; get; }
 
 
             public StPerson()

@@ -143,5 +143,16 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                 }
             }
         }
+
+        private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewLocalDrivingLicenseApplications_View.SelectedRows.Count > 0)
+            {
+                int LDLappID = Convert.ToInt32(DataGridViewLocalDrivingLicenseApplications_View.SelectedRows[0].Cells[0].Value);
+
+                FrmLocalDrivingLicenseApplicationDetails frmLocalDrivingLicenseApplicationDetails = new FrmLocalDrivingLicenseApplicationDetails(LDLappID);
+                frmLocalDrivingLicenseApplicationDetails.ShowDialog();
+            }
+        }
     }
 }

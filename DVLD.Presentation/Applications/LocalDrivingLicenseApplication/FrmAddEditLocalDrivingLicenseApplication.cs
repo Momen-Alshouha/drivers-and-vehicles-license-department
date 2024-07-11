@@ -35,12 +35,12 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         {
          
             TempApplicationData.PaidFees = 15;
-            TempApplicationData.EnApplicationType = this.applicationType;
-            TempApplicationData.ApplicantPersonID = ctrlPersonDetailsWithFilter1.PersonID;
+            //TempApplicationData.EnApplicationType = this.applicationType;
+            //TempApplicationData.stPerson.Id = ctrlPersonDetailsWithFilter1.PersonID;
             TempApplicationData.LastStatusDate = DateTime.Now;
             TempApplicationData.ApplicationDate = DateTime.Now;
             TempApplicationData.EnApplicationStatus = this.ApplicationStatus;
-            TempApplicationData.CreatedByUserID = ClsGlobal.CurrentUser.UserID;
+            //TempApplicationData.CreatedByUser.UserID = ClsGlobal.CurrentUser.UserID;
             BusinessLogic.ClsUser.GetUserByUserID(ClsGlobal.CurrentUser.UserID, ref this.CreatedByUser);
 
             this.ApplicationData = new StApplicationData(this.TempApplicationData);

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static ClsDataType.ClsApplication;
 using static DVLD.DataAccess.ClsUser;
+using static ClsDataType.ClsDataType;
 
 namespace DVLD.DataAccess
 {
@@ -59,10 +60,11 @@ namespace DVLD.DataAccess
             StApplicationData applicationData= new StApplicationData();
             using (SqlConnection conn = _GetConnection())
             {
-                string query = @"SELECT Applications.* , LocalDrivingLicenseApplications.* FROM Applications
+                string query = @"SELECT Applications.* , LocalDrivingLicenseApplications.LicenseClassID,
+                        LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID FROM Applications
                                 INNER JOIN LocalDrivingLicenseApplications 
                                 ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
-                                   WHERE ApplicationID = @ApplicationID";
+                                   WHERE Applications.ApplicationID = @ApplicationID";
                 using (SqlCommand command = _CreateCommand(query,conn))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", id);
@@ -75,15 +77,18 @@ namespace DVLD.DataAccess
                             if (reader.Read())
                             {
                                 applicationData.ApplicationID = reader.GetInt32(reader.GetOrdinal("ApplicationID"));
-                                applicationData.ApplicantPersonID = reader.GetInt32(reader.GetOrdinal("ApplicantPersonID"));
                                 applicationData.ApplicationDate = reader.GetDateTime(reader.GetOrdinal("ApplicationDate"));
-                                applicationData.ApplicationTypeID = reader.GetInt32(reader.GetOrdinal("ApplicationTypeID"));
-                                applicationData.ApplicationStatus = reader.GetInt32(reader.GetOrdinal("ApplicationStatus"));
+                                applicationData.ApplicationStatus = reader.GetByte(reader.GetOrdinal("ApplicationStatus"));
                                 applicationData.LastStatusDate = reader.GetDateTime(reader.GetOrdinal("LastStatusDate"));
                                 applicationData.PaidFees = reader.GetDecimal(reader.GetOrdinal("PaidFees"));
-                                applicationData.CreatedByUserID = reader.GetInt32(reader.GetOrdinal("CreatedByUserID"));
+                                StUser user = new StUser();
+                                if (ClsUser.GetUser((int)reader.GetInt32(reader.GetOrdinal("CreatedByUserID")),ref user))
+                                {
+                                    applicationData.CreatedByUser = user;
+                                }
+
                                 applicationData.LicenseClassID = reader.GetInt32(reader.GetOrdinal("LicenseClassID"));
-                                applicationData.StApplicationTypeInfo = ClsApplicationType.GetAppType(applicationData.ApplicationTypeID);
+                                applicationData.StApplicationTypeInfo = ClsApplicationType.GetAppType(applicationData.StApplicationTypeInfo.id);
                             }
                         }
                     }
@@ -112,13 +117,13 @@ namespace DVLD.DataAccess
 
                 using (SqlCommand command = _CreateCommand(query, conn))
                 {
-                    command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.ApplicantPersonID);
+                    command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.stPerson.Id);
                     command.Parameters.AddWithValue("@ApplicationDate", applicationData.ApplicationDate);
-                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationData.ApplicationTypeID);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationData.StApplicationTypeInfo.id);
                     command.Parameters.AddWithValue("@ApplicationStatus", applicationData.ApplicationStatus);
                     command.Parameters.AddWithValue("@LastStatusDate", applicationData.LastStatusDate);
                     command.Parameters.AddWithValue("@PaidFees", applicationData.PaidFees);
-                    command.Parameters.AddWithValue("@CreatedByUserID", applicationData.CreatedByUserID);
+                    command.Parameters.AddWithValue("@CreatedByUserID", applicationData.CreatedByUser.PersonID);
 
                     try
                     {
@@ -154,13 +159,13 @@ namespace DVLD.DataAccess
                 using (SqlCommand command = _CreateCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", applicationData.ApplicationID);
-                    command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.ApplicantPersonID);
+                    command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.stPerson.Id);
                     command.Parameters.AddWithValue("@ApplicationDate", applicationData.ApplicationDate);
-                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationData.ApplicationTypeID);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationData.StApplicationTypeInfo.id);
                     command.Parameters.AddWithValue("@ApplicationStatus", applicationData.ApplicationStatus);
                     command.Parameters.AddWithValue("@LastStatusDate", applicationData.LastStatusDate);
                     command.Parameters.AddWithValue("@PaidFees", applicationData.PaidFees);
-                    command.Parameters.AddWithValue("@CreatedByUserID", applicationData.CreatedByUserID);
+                    command.Parameters.AddWithValue("@CreatedByUserID", applicationData.CreatedByUser.UserID);
 
                     try
                     {
@@ -220,8 +225,8 @@ namespace DVLD.DataAccess
 
                 using (SqlCommand command = _CreateCommand(query, conn))
                 {
-                    command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.ApplicantPersonID);
-                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationData.ApplicationTypeID);
+                    command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.stPerson.Id);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", applicationData.StApplicationTypeInfo.id);
                     command.Parameters.AddWithValue("@ApplicationStatus", 1); 
 
                     try
@@ -258,7 +263,7 @@ namespace DVLD.DataAccess
                 {
                     command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
                     command.Parameters.AddWithValue("@ApplicationStatus", 1);
-                    command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.ApplicantPersonID);
+                    command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.stPerson.Id);
 
 
                     try
