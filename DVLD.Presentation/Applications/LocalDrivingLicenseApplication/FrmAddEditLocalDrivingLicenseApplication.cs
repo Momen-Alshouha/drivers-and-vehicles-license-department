@@ -3,21 +3,19 @@ using System.Windows.Forms;
 using ClsDataType;
 using DVLD.Presentation.People.Controls;
 using static ClsDataType.ClsApplication;
-
+using static ClsDataType.ClsDataType;
 namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
 {
     public partial class FrmAddEditLocalDrivingLicenseApplication : Form
     {
-        /* to do: disable second tab if person not selected
+        /* to do:
          * check minimun allow age for class license
         */
-        private ClsApplication.EnLicenseClass enLicenseClassSelected;
-        private readonly ClsApplication.EnApplicationType applicationType = ClsApplication.EnApplicationType.NewLocalDrivingLicenseService;
         private readonly ClsApplication.EnApplicationStatus ApplicationStatus = ClsApplication.EnApplicationStatus.New;
-        private ClsDataType.ClsDataType.StPerson StApplicantPerson { get; set; }
         private ClsApplication.StApplicationData ApplicationData;
         private ClsApplication.StApplicationData TempApplicationData;
-        private ClsDataType.ClsDataType.StUser CreatedByUser;
+        private bool TabPageNewLocalLicenseApplicationInfoEnabled = false; // Flag to track the enablement state for TabPageNewLocalLicenseApplicationInfo
+        private EnMode enMode;
 
         public FrmAddEditLocalDrivingLicenseApplication()
         {
@@ -33,23 +31,32 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         }
         private void _SetApplicationDataValues()
         {
-         
+            //TempApplicationData.stPerson.Id = ctrlPersonDetailsWithFilter1.PersonID; this will cause compliation error
+
+            var person = TempApplicationData.stPerson; // to avoid "Cannot modify the return value of 'expression' because it is not a variable" Compiler Error CS1612
+            person.Id = ctrlPersonDetailsWithFilter1.PersonID;
+            
+            TempApplicationData.stPerson = person;
+
+            TempApplicationData.CreatedByUser = ClsGlobal.CurrentUser;
+
             TempApplicationData.PaidFees = 15;
-            //TempApplicationData.EnApplicationType = this.applicationType;
-            //TempApplicationData.stPerson.Id = ctrlPersonDetailsWithFilter1.PersonID;
             TempApplicationData.LastStatusDate = DateTime.Now;
             TempApplicationData.ApplicationDate = DateTime.Now;
-            TempApplicationData.EnApplicationStatus = this.ApplicationStatus;
-            //TempApplicationData.CreatedByUser.UserID = ClsGlobal.CurrentUser.UserID;
-            BusinessLogic.ClsUser.GetUserByUserID(ClsGlobal.CurrentUser.UserID, ref this.CreatedByUser);
+            TempApplicationData.ApplicationStatus = 1;
+            TempApplicationData.StApplicationTypeInfo = BusinessLogic.ClsApplicationType.GetAppType(1);
 
             this.ApplicationData = new StApplicationData(this.TempApplicationData);
         }
         private void CtrlPersonDetailsWithFilter_OnPersonSelected(int personID)
         {
             // enable the button when a person is selected
+            TabPageNewLocalLicenseApplicationInfoEnabled = true;
             BtnNextLocalDrivingLicenseApplicationForm.Enabled = true;
             ApplicationData.ApplicantFullName = ctrlPersonDetailsWithFilter1.SelectedPersonInfo.Value.FullName.ToString();
+
+            TabControlLocalDrivingLicenseApplication_Selecting(TabControlLocalDrivingLicenseApplication, new TabControlCancelEventArgs(TabPageNewLocalLicenseApplicationInfo, 1,false, TabControlAction.Selecting));
+
             _SetApplicationDataValues();
         }
         private void BtnCloseLocalDrivingLicenseApplicationForm_Click(object sender, EventArgs e)
@@ -109,6 +116,15 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             BtnSavetLocalDrivingLicenseApplicationForm.Enabled = true;
             ApplicationData.enLicenseClass = _GetSelectedLicenseClass();
             ApplicationData.LicenseClassID = (int)ApplicationData.enLicenseClass;
+        }
+
+        private void TabControlLocalDrivingLicenseApplication_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (e.TabPage == TabPageNewLocalLicenseApplicationInfo && !TabPageNewLocalLicenseApplicationInfoEnabled)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Please Select a Person First!", "Select A Person!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

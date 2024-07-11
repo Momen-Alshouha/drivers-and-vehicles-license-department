@@ -80,11 +80,13 @@ namespace ClsDataType
                 EnApplicationStatus =(EnApplicationStatus)applicationData.ApplicationStatus;
                 StatusText = _GetApplicationStatusText(applicationData.EnApplicationStatus);
 
+
                 ApplicationType = applicationData.ApplicationType;
                 enApplicationType = (EnApplicationType)applicationData.StApplicationTypeInfo.id;
                 ApplicationType = _GetApplicationTypeText(applicationData.enApplicationType);
 
                 LastStatusDate = DateTime.Now;
+                
                 StApplicationTypeInfo = applicationData.StApplicationTypeInfo;
                
                 ApplicationID = applicationData.ApplicationID;

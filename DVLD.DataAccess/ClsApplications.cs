@@ -123,7 +123,7 @@ namespace DVLD.DataAccess
                     command.Parameters.AddWithValue("@ApplicationStatus", applicationData.ApplicationStatus);
                     command.Parameters.AddWithValue("@LastStatusDate", applicationData.LastStatusDate);
                     command.Parameters.AddWithValue("@PaidFees", applicationData.PaidFees);
-                    command.Parameters.AddWithValue("@CreatedByUserID", applicationData.CreatedByUser.PersonID);
+                    command.Parameters.AddWithValue("@CreatedByUserID", applicationData.CreatedByUser.UserID);
 
                     try
                     {
@@ -269,13 +269,12 @@ namespace DVLD.DataAccess
                     try
                     {
                         conn.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
+                        object result = command.ExecuteScalar();
+                            if (result!=null)
                             {
-                                activeAppID = (int)reader["ApplicationID"];
+                            activeAppID = (int)result;
                             }
-                        }
+                        
                     }
                     catch (Exception ex)
                     {
