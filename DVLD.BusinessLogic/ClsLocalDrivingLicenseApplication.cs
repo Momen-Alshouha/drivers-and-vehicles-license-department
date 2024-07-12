@@ -17,7 +17,7 @@ namespace DVLD.BusinessLogic
         }
         public static int AddNew(StApplicationData applicationData)
         {
-            if (DataAccess.ClsLocalDrivingLicenseApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(applicationData, applicationData.LicenseClassID) == 0)
+            if (DataAccess.ClsLocalDrivingLicenseApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(applicationData, applicationData.LicenseClassID) == -1)
             {
                 int applicationID = DataAccess.ClsApplications.AddNewApplication(applicationData);
 
@@ -43,14 +43,6 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsLocalDrivingLicenseApplications.GetApplicationIDByLocalDrivingLicenseAppID(LocalDrivingLicenseAppID);
         }
-
-        //public static bool DeleteApplication(int ApplicationID)
-        //{
-        //    bool isLocalApplicationDeleted = DataAccess.ClsLocalDrivingLicenseApplications.DeleteLocalDrivingLicenseApplicationByApplicationID(ApplicationID);
-        //    bool IsApplicationDeleted = DataAccess.ClsApplications.DeleteApplication(ApplicationID);
-            
-        //    return (IsApplicationDeleted && isLocalApplicationDeleted);
-        //}
 
     }
 }

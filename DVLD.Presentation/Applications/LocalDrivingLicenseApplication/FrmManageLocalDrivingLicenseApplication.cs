@@ -137,7 +137,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             DialogResult result = MessageBox.Show("Are you sure do you want to delete this application ? ","Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
-                if (BusinessLogic.ClsLocalDrivingLicenseApplication.DeleteApplication(_GetApplicationID()))
+                if (BusinessLogic.ClsApplications.DeleteApplication(_GetApplicationID()))
                 {
                     MessageBox.Show("Application Deleted Successfully!", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _LoadDataInDataGridViewAndLoadNumberOfRecords();

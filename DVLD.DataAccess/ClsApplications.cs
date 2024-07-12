@@ -17,11 +17,18 @@ namespace DVLD.DataAccess
         {
             return new SqlConnection(Settings.ConnectionString);
         }
-        protected static SqlCommand _CreateCommand(string query, SqlConnection connection)
+
+        protected static SqlCommand _CreateCommand(string query, SqlConnection connection, SqlTransaction transaction = null)
         {
-            return new SqlCommand(query, connection);
+            SqlCommand command = new SqlCommand(query, connection);
+            if (transaction != null)
+            {
+                command.Transaction = transaction;
+            }
+            return command;
         }
-        
+
+
         public static DataTable GetAllApplications()
         {
             DataTable dtApplications = new DataTable();
@@ -246,35 +253,35 @@ namespace DVLD.DataAccess
         }
         public static int GetActiveApplicationIDForLicenseClassForSpcificPerson(StApplicationData applicationData, int LicenseClassID)
         {
-            int activeAppID = 0;
+
+            int activeAppID = -1;
 
             using (SqlConnection conn = _GetConnection())
             {
                 string query = @"
-                    SELECT Applications.ApplicationID
-                    FROM Applications 
-                    INNER JOIN LocalDrivingLicenseApplications
-                        ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
-                    WHERE LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
-                        AND Applications.ApplicationStatus = @ApplicationStatus
-                        AND Applications.ApplicantPersonID = @ApplicantPersonID";
+            SELECT Applications.ApplicationID
+            FROM Applications 
+            INNER JOIN LocalDrivingLicenseApplications
+                ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+            WHERE LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
+                AND (Applications.ApplicationStatus = @NewStatus OR Applications.ApplicationStatus = @CompletedStatus)
+                AND Applications.ApplicantPersonID = @ApplicantPersonID";
 
                 using (SqlCommand command = _CreateCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
-                    command.Parameters.AddWithValue("@ApplicationStatus", 1);
+                    command.Parameters.AddWithValue("@NewStatus", (int)EnApplicationStatus.New);
+                    command.Parameters.AddWithValue("@CompletedStatus", (int)EnApplicationStatus.Completed);
                     command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.stPerson.Id);
-
 
                     try
                     {
                         conn.Open();
                         object result = command.ExecuteScalar();
-                            if (result!=null)
-                            {
+                        if (result != null)
+                        {
                             activeAppID = (int)result;
-                            }
-                        
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -285,6 +292,7 @@ namespace DVLD.DataAccess
 
             return activeAppID;
         }
+
         public static bool UpdateStatus(int ApplicationID, int StatusID)
         {
             bool isUpdated = false;

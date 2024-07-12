@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using DVLD.DataAccess;
+using static System.Net.Mime.MediaTypeNames;
 using static ClsDataType.ClsApplication;
 using static ClsDataType.ClsDataType;
 
@@ -39,9 +40,20 @@ namespace DVLD.BusinessLogic
             
         }
 
-        public static bool DeleteApplication(int applicationID)
+        public static bool DeleteApplication(int ApplicationID)
         {
-            return DataAccess.ClsApplications.DeleteApplication(applicationID);
+            bool isLocalApplicationDeleted=false;
+            bool IsApplicationDeleted = false;
+
+            if (isLocalApplicationDeleted = DataAccess.ClsLocalDrivingLicenseApplications.DeleteLocalDrivingLicenseApplicationByApplicationID(ApplicationID))
+            {
+                if (IsApplicationDeleted = DataAccess.ClsApplications.DeleteApplication(ApplicationID))
+                {
+                    return true;
+                }
+            }
+
+            return (IsApplicationDeleted && isLocalApplicationDeleted);
         }
 
         public static bool UpdateApplicationStatus(int applicationID, int statusID)
