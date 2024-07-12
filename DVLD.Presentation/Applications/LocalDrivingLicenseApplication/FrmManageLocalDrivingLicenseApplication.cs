@@ -77,7 +77,13 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
 
         private void ApplyFilter()
         {
+
+            if (ComboBoxFilterByManageLocalDrivingLicenseForm.SelectedItem == null) // to avoid NullReferenceException
+            {
+                return;
+            }
             string filterColumn = string.Empty;
+
             switch (ComboBoxFilterByManageLocalDrivingLicenseForm.SelectedItem.ToString())
             {
                 case "L.D.L App ID":
