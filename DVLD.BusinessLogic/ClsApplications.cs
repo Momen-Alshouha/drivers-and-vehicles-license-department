@@ -10,17 +10,19 @@ namespace DVLD.BusinessLogic
 {
     public class ClsApplications
     {
+        public static int GetApplicationIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseAppID)
+        {
+            return DataAccess.ClsLocalDrivingLicenseApplications.GetApplicationIDByLocalDrivingLicenseAppID(LocalDrivingLicenseAppID);
+        }
         public static DataTable GetAllApplications()
         {
             return DataAccess.ClsApplications.GetAllApplications();
         }
-
         public static StApplicationData GetApplicationByID(int applicationID)
         {
             return DataAccess.ClsApplications.GetAppInfoByID(applicationID);
            
         }
-
         public static int CreateApplication(StApplicationData applicationData)
         {
             if (!DVLD.DataAccess.ClsApplications.IsApplicationExistAndActive(applicationData))
@@ -32,37 +34,33 @@ namespace DVLD.BusinessLogic
                 throw new Exception("An active application already exists for this person and application type.");
             }
         }
-
         public static bool UpdateApplication(StApplicationData applicationData)
         {
            
            return DataAccess.ClsApplications.UpdateApplication(applicationData);
-            
         }
-
-        public static bool DeleteApplication(int ApplicationID)
+        public static bool DeleteApplication(int LocalApplicationID)
         {
-            bool isLocalApplicationDeleted=false;
-            bool IsApplicationDeleted = false;
-
-            if (isLocalApplicationDeleted = DataAccess.ClsLocalDrivingLicenseApplications.DeleteLocalDrivingLicenseApplicationByApplicationID(ApplicationID))
+            int ApplicationID = GetApplicationIDByLocalDrivingLicenseAppID(LocalApplicationID);
+            // Check if a local driving license application has any appointments first
+            if (!DataAccess.ClsLocalDrivingLicenseApplications.IsThereAnyTestAppointmentsForAnApplication(LocalApplicationID))
             {
-                if (IsApplicationDeleted = DataAccess.ClsApplications.DeleteApplication(ApplicationID))
+                if (DataAccess.ClsLocalDrivingLicenseApplications.DeleteLocalDrivingLicenseApplicationByLocalApplicationID(LocalApplicationID))
                 {
-                    return true;
+                    if (DataAccess.ClsApplications.DeleteApplication(ApplicationID))
+                    {
+                        return true;
+                    }
                 }
             }
-
-            return (IsApplicationDeleted && isLocalApplicationDeleted);
+            return false;
         }
-
         public static bool UpdateApplicationStatus(int applicationID, int statusID)
         {
             
             return DataAccess.ClsApplications.UpdateStatus(applicationID, statusID);
            
         }
-
         public static int GetActiveApplicationIDForLicenseClassForSpecificPerson(StApplicationData applicationData, int licenseClassID)
         {
             return DataAccess.ClsApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(applicationData, licenseClassID);

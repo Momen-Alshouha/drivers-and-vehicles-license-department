@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using static ClsDataType.ClsApplication;
 using static DVLD.DataAccess.ClsUser;
 using static ClsDataType.ClsDataType;
+using System.ComponentModel.Design;
 
 namespace DVLD.DataAccess
 {
@@ -17,7 +18,6 @@ namespace DVLD.DataAccess
         {
             return new SqlConnection(Settings.ConnectionString);
         }
-
         protected static SqlCommand _CreateCommand(string query, SqlConnection connection, SqlTransaction transaction = null)
         {
             SqlCommand command = new SqlCommand(query, connection);
@@ -27,8 +27,6 @@ namespace DVLD.DataAccess
             }
             return command;
         }
-
-
         public static DataTable GetAllApplications()
         {
             DataTable dtApplications = new DataTable();
@@ -215,10 +213,10 @@ namespace DVLD.DataAccess
 
             return isDeleted;
         }
-
-        // checks if a person has an application with same app type and "new" status
         public static bool IsApplicationExistAndActive(StApplicationData applicationData)
         {
+            // this method is to checks if a person has an application with same app type and "new" status
+
             bool isExist = false;
 
             using (SqlConnection conn = _GetConnection())
@@ -292,7 +290,6 @@ namespace DVLD.DataAccess
 
             return activeAppID;
         }
-
         public static bool UpdateStatus(int ApplicationID, int StatusID)
         {
             bool isUpdated = false;
@@ -327,6 +324,37 @@ namespace DVLD.DataAccess
             return isUpdated;
         
     }
+        public static EnApplicationStatus CheckApplicationStatus(int ApplicationID)
+        {
+            int ApplicationStatus = 0;
+            string query = "SELECT ApplicationStatus FROM Applications WHERE ApplicationID = @ApplicationID";
 
-}
+            using (SqlConnection conn = _GetConnection())
+            {
+                using (SqlCommand command = _CreateCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+                    try
+                    {
+                        conn.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            ApplicationStatus = (int)result;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new DataAccessException("Error checking application status.", ex);
+                    }
+                }
+            }
+
+            return (EnApplicationStatus)ApplicationStatus;
+        }
+       
+
+
+    }
 }

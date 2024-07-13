@@ -13,6 +13,7 @@ namespace DVLD.DataAccess
 {
     public class ClsLocalDrivingLicenseApplications : ClsApplications
     {
+        // TODO: implement method to perform transaction to delete from application and local application related
         public static int GetApplicationIDByLocalDrivingLicenseAppID(int LocalDrivingLicenseApplicationID)
         {
             int ApplicationID = 0;
@@ -129,6 +130,29 @@ namespace DVLD.DataAccess
                 }
             }
         }
+        public static bool DeleteLocalDrivingLicenseApplicationByLocalApplicationID(int LocalApplicationID)
+        {
+            using (SqlConnection connection = _GetConnection())
+            {
+                string query = "DELETE FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+                using (SqlCommand command = _CreateCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new DataAccessException("Error deleting from LocalDrivingLicenseApplications table.", ex);
+                    }
+                }
+            }
+        }
         public static bool UpdateLocalDrivingLicenseApplicationByLocalID(int ApplicationID, int NewLicenseClassID)
         {
             using (SqlConnection connection = _GetConnection())
@@ -158,6 +182,34 @@ namespace DVLD.DataAccess
                 }
             }
         }
+        public static bool IsThereAnyTestAppointmentsForAnApplication(int ApplicationID)
+        {
+            // This method checks if a local driving license application has any appointments regardless of the test result.
+            // The application should not be deleted if it has any appointments.
 
+            bool hasAppointments = false;
+            string query = "SELECT 1 FROM TestAppointments WHERE LocalDrivingLicenseApplicationID = @ApplicationID";
+
+            using (SqlConnection connection = _GetConnection())
+            {
+                using (SqlCommand command = _CreateCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        hasAppointments = result != null;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new DataAccessException("Error checking for test appointments for the application.", ex);
+                    }
+                }
+            }
+
+            return hasAppointments;
+        }
     }
 }

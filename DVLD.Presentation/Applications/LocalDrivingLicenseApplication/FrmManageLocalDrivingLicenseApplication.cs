@@ -8,6 +8,8 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
     public partial class FrmManageLocalDrivingLicenseApplication : Form
     {
         DataTable LocalDrivingLicenseApplicationsData_View;
+        EnApplicationStatus applicationStatus; 
+        // TODO: use this to enable and disable menu items based on application status
 
         public FrmManageLocalDrivingLicenseApplication()
         {
@@ -143,13 +145,13 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             DialogResult result = MessageBox.Show("Are you sure do you want to delete this application ? ","Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
-                if (BusinessLogic.ClsApplications.DeleteApplication(_GetApplicationID()))
+                if (BusinessLogic.ClsLocalDrivingLicenseApplication.DeleteApplication(_GetSelectedLocalDrivingLicenseeApplicationID()))
                 {
                     MessageBox.Show("Application Deleted Successfully!", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _LoadDataInDataGridViewAndLoadNumberOfRecords();
                 } else
                 {
-                    MessageBox.Show("Something wrong happened!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("You can't delete an application if has any tests or test appointmenets!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
