@@ -81,6 +81,7 @@
             this.DataGridViewLocalDrivingLicenseApplications_View.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridViewLocalDrivingLicenseApplications_View.Size = new System.Drawing.Size(1415, 406);
             this.DataGridViewLocalDrivingLicenseApplications_View.TabIndex = 6;
+            this.DataGridViewLocalDrivingLicenseApplications_View.SelectionChanged += new System.EventHandler(this.DataGridViewLocalDrivingLicenseApplications_View_SelectionChanged);
             // 
             // label1
             // 
@@ -206,6 +207,7 @@
             this.editApplicationToolStripMenuItem.Name = "editApplicationToolStripMenuItem";
             this.editApplicationToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
             this.editApplicationToolStripMenuItem.Text = "Edit Application";
+            this.editApplicationToolStripMenuItem.Click += new System.EventHandler(this.editApplicationToolStripMenuItem_Click);
             // 
             // deleteApplicationToolStripMenuItem
             // 

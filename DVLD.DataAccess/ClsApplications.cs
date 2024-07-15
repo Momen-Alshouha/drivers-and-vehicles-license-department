@@ -341,7 +341,7 @@ namespace DVLD.DataAccess
                         object result = command.ExecuteScalar();
                         if (result != null)
                         {
-                            ApplicationStatus = (int)result;
+                            ApplicationStatus = (byte)result;
                         }
                     }
                     catch (Exception ex)
@@ -353,8 +353,6 @@ namespace DVLD.DataAccess
 
             return (EnApplicationStatus)ApplicationStatus;
         }
-       
-
 
     }
 }

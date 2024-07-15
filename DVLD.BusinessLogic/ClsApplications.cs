@@ -69,5 +69,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsApplications.GetAppInfoByID(id);
         }
+        public static EnApplicationStatus GetApplicationStatus(int id)
+        {
+            return DataAccess.ClsApplications.CheckApplicationStatus(id);
+        }
     }
 }

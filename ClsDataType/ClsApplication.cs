@@ -32,6 +32,7 @@ namespace ClsDataType
         public enum EnApplicationStatus
         {
             New = 1,
+            InProgress,
             Canceled,
             Completed
         }
@@ -106,6 +107,7 @@ namespace ClsDataType
                 return applicationStatus switch
                 {
                     EnApplicationStatus.New => "NEW",
+                    EnApplicationStatus.InProgress => "In Progress",
                     EnApplicationStatus.Canceled => "CANCELED",
                     EnApplicationStatus.Completed => "COMPLETED",
                     _ => "UNKNOWN"

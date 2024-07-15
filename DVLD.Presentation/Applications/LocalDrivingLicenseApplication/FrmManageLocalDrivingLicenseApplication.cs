@@ -8,9 +8,35 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
     public partial class FrmManageLocalDrivingLicenseApplication : Form
     {
         DataTable LocalDrivingLicenseApplicationsData_View;
+        int ApplicationId;
         EnApplicationStatus applicationStatus; 
         // TODO: use this to enable and disable menu items based on application status
-
+        private void _EnableDisableScheduleTestsToolStripsMenu(EnApplicationStatus ApplicationStatus)
+        {
+            switch (ApplicationStatus)
+            {
+                case EnApplicationStatus.New:
+                    visionTestToolStripMenuItem.Enabled = true;
+                    practicalStreetTestToolStripMenuItem.Enabled = false;
+                    writtenTheoryTestToolStripMenuItem.Enabled = false;
+                    break;
+                case EnApplicationStatus.InProgress:
+                    // TODO : Will enable and disable Tool Menu Stipes based on scheduled tests
+                    break;
+                case EnApplicationStatus.Canceled:
+                    visionTestToolStripMenuItem.Enabled = false;
+                    practicalStreetTestToolStripMenuItem.Enabled = false;
+                    writtenTheoryTestToolStripMenuItem.Enabled = false;
+                    break;
+                case EnApplicationStatus.Completed:
+                    visionTestToolStripMenuItem.Enabled = false;
+                    practicalStreetTestToolStripMenuItem.Enabled = false;
+                    writtenTheoryTestToolStripMenuItem.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
+        }
         public FrmManageLocalDrivingLicenseApplication()
         {
             InitializeComponent();
@@ -179,5 +205,16 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             }
         }
 
+        private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO : This will open AddEditLocalDrivingLicenseApplicationForm to edit the application
+        }
+
+        private void DataGridViewLocalDrivingLicenseApplications_View_SelectionChanged(object sender, EventArgs e)
+        {
+            int ApplicationId = _GetApplicationID();
+            EnApplicationStatus applicationStatus = BusinessLogic.ClsApplications.GetApplicationStatus(ApplicationId);
+            _EnableDisableScheduleTestsToolStripsMenu(applicationStatus);
+        }
     }
 }
