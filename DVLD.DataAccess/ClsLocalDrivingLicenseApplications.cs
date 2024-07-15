@@ -5,9 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static ClsDataType.ClsLocalDrivingLicenseApplications;
+using static ClsDataType.ClsApplication;
 using static DVLD.DataAccess.ClsUser;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD.DataAccess
 {
@@ -211,5 +210,60 @@ namespace DVLD.DataAccess
 
             return hasAppointments;
         }
+        public static bool UpdateLocalApplicationLicenseClass(int LocalDrivingLicenseApplicationID, EnLicenseClass licenseClass)
+        {
+            string query = "UPDATE LocalDrivingLicenseApplications SET LicenseClassID = @LicenseClassID WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            using (SqlConnection connection = _GetConnection())
+            {
+                using (SqlCommand command = _CreateCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseClassID", (byte)licenseClass);
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new DataAccessException("Error updating the license class for the local application.", ex);
+                    }
+                }
+            }
+        }
+        public static int GetLicenseClassId(int ApplicationID)
+        {
+            int licenseClassId = 0;
+            string query = "SELECT LicenseClassID FROM LocalDrivingLicenseApplications WHERE ApplicationID = @ApplicationID";
+
+            using (SqlConnection connection = _GetConnection())
+            {
+                using (SqlCommand command = _CreateCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            licenseClassId = (int)result;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new DataAccessException("Error fetching LicenseClassID from the LocalDrivingLicenseApplications table.", ex);
+                    }
+                }
+            }
+
+            return licenseClassId;
+        }
+
+
     }
 }

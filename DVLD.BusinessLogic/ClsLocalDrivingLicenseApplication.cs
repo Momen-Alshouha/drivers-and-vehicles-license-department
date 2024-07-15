@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using static ClsDataType.ClsApplication;
+using static ClsDataType.ClsLocalDrivingLicenseApplications;
+
 
 namespace DVLD.BusinessLogic
 {
@@ -17,7 +19,7 @@ namespace DVLD.BusinessLogic
         }
         public static int AddNew(StApplicationData applicationData)
         {
-            if (DataAccess.ClsLocalDrivingLicenseApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(applicationData, applicationData.LicenseClassID) == -1)
+            if (DataAccess.ClsLocalDrivingLicenseApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(applicationData.stPerson.Id, applicationData.enLicenseClass) == -1)
             {
                 int applicationID = DataAccess.ClsApplications.AddNewApplication(applicationData);
 
@@ -42,6 +44,19 @@ namespace DVLD.BusinessLogic
         public static bool IsThereAnyTestAppointmentsForAnApplication(int ApplicationID)
         {
             return DataAccess.ClsLocalDrivingLicenseApplications.IsThereAnyTestAppointmentsForAnApplication(ApplicationID);
+        }
+        public static bool UpdateApplicationLicenseClass(int PersonId,int LocalApplicationID,EnLicenseClass licenseClass)
+        {
+            int AppId = DataAccess.ClsApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(PersonId, licenseClass);
+            if (AppId>0)
+            {
+                return false;
+            }
+            return DataAccess.ClsLocalDrivingLicenseApplications.UpdateLocalApplicationLicenseClass(LocalApplicationID, licenseClass);
+        }
+        public static int GetLicenseClassId(int LocalApplicationID)
+        {
+            return DataAccess.ClsLocalDrivingLicenseApplications.GetLicenseClassId(LocalApplicationID);
         }
     }
 }

@@ -96,5 +96,9 @@ namespace DVLD.BusinessLogic
         {
             return (DataAccess.ClsPerson.DeletePerson(PersonId));
         }
+        public static int GetPersonId(int ApplicationID)
+        {
+            return DataAccess.ClsPerson.GetPersonId(ApplicationID);
+        }
     }
 }

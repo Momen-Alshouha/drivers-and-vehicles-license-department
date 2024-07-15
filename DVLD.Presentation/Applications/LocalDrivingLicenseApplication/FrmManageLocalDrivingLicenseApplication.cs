@@ -64,7 +64,6 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             LblNumberOfApplications.Text = LocalDrivingLicenseApplicationsData_View.Rows.Count.ToString();
             DataGridViewLocalDrivingLicenseApplications_View.DataSource = LocalDrivingLicenseApplicationsData_View;
         }
-
         private void InitializeDataGridView()
         {
             DataGridViewLocalDrivingLicenseApplications_View.Columns[0].HeaderText = "L.D.L.AppID";
@@ -73,7 +72,6 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             DataGridViewLocalDrivingLicenseApplications_View.Columns[1].Width = 200;
             DataGridViewLocalDrivingLicenseApplications_View.Columns[3].Width = 250;
         }
-
         private void PictureBoxAddNewLocalDrivingLicenseApplication_Click(object sender, EventArgs e)
         {
             FrmAddEditLocalDrivingLicenseApplication frmLocalDrivingLicenseApplication = new FrmAddEditLocalDrivingLicenseApplication();
@@ -81,7 +79,6 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             _LoadDataInDataGridViewAndLoadNumberOfRecords();
             ApplyFilter(); 
         }
-
         private void ComboBoxFilterByManageLocalDrivingLicenseForm_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ComboBoxFilterByManageLocalDrivingLicenseForm.SelectedIndex != 0)
@@ -97,12 +94,10 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                 LblNumberOfApplications.Text = LocalDrivingLicenseApplicationsData_View.Rows.Count.ToString();
             }
         }
-
         private void TextBoxFilterByManageLocalDrivingLicenseForm_TextChanged(object sender, EventArgs e)
         {
             ApplyFilter();
         }
-
         private void ApplyFilter()
         {
 
@@ -165,7 +160,6 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                 MessageBox.Show("An error occurred while applying the filter: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure do you want to delete this application ? ","Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
@@ -181,7 +175,6 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                 }
             }
         }
-
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (DataGridViewLocalDrivingLicenseApplications_View.SelectedRows.Count > 0)
@@ -192,7 +185,6 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                 frmLocalDrivingLicenseApplicationDetails.ShowDialog();
             }
         }
-
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are You Sure You Want To Cancel This Application?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -204,17 +196,29 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                 }
             }
         }
-
         private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO : This will open AddEditLocalDrivingLicenseApplicationForm to edit the application
-        }
 
+            EnApplicationStatus enApplicationStatus = BusinessLogic.ClsApplications.GetApplicationStatus(this._GetApplicationID());
+
+            switch (enApplicationStatus)
+            {
+                case EnApplicationStatus.New:
+                    FrmAddEditLocalDrivingLicenseApplication frmAddEditLocalDrivingLicenseApplication = new FrmAddEditLocalDrivingLicenseApplication(ApplicationId,this._GetSelectedLocalDrivingLicenseeApplicationID());
+                    frmAddEditLocalDrivingLicenseApplication.ShowDialog();
+                    _LoadDataInDataGridViewAndLoadNumberOfRecords();
+                        break;
+
+                default:
+                    MessageBox.Show("Can't Edit This Application , Not A New Application!","",MessageBoxButtons.OK,MessageBoxIcon.Stop,MessageBoxDefaultButton.Button1);
+                     break;
+                }
+        }
         private void DataGridViewLocalDrivingLicenseApplications_View_SelectionChanged(object sender, EventArgs e)
         {
-            int ApplicationId = _GetApplicationID();
+            ApplicationId = _GetApplicationID();
             EnApplicationStatus applicationStatus = BusinessLogic.ClsApplications.GetApplicationStatus(ApplicationId);
             _EnableDisableScheduleTestsToolStripsMenu(applicationStatus);
         }
-    }
+    }   
 }

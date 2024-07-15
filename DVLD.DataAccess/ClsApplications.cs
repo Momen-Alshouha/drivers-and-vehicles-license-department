@@ -249,9 +249,9 @@ namespace DVLD.DataAccess
 
             return isExist;
         }
-        public static int GetActiveApplicationIDForLicenseClassForSpcificPerson(StApplicationData applicationData, int LicenseClassID)
+        public static int GetActiveApplicationIDForLicenseClassForSpcificPerson(int PersonId, EnLicenseClass licenseClass)
         {
-
+            int LicenseClassID = (byte)licenseClass;
             int activeAppID = -1;
 
             using (SqlConnection conn = _GetConnection())
@@ -262,7 +262,7 @@ namespace DVLD.DataAccess
             INNER JOIN LocalDrivingLicenseApplications
                 ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
             WHERE LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
-                AND (Applications.ApplicationStatus = @NewStatus OR Applications.ApplicationStatus = @CompletedStatus)
+                AND (Applications.ApplicationStatus = @NewStatus OR Applications.ApplicationStatus = @CompletedStatus OR Applications.ApplicationStatus = @InProgress)
                 AND Applications.ApplicantPersonID = @ApplicantPersonID";
 
                 using (SqlCommand command = _CreateCommand(query, conn))
@@ -270,7 +270,8 @@ namespace DVLD.DataAccess
                     command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
                     command.Parameters.AddWithValue("@NewStatus", (int)EnApplicationStatus.New);
                     command.Parameters.AddWithValue("@CompletedStatus", (int)EnApplicationStatus.Completed);
-                    command.Parameters.AddWithValue("@ApplicantPersonID", applicationData.stPerson.Id);
+                    command.Parameters.AddWithValue("@InProgress", (int)EnApplicationStatus.InProgress);
+                    command.Parameters.AddWithValue("@ApplicantPersonID", PersonId);
 
                     try
                     {

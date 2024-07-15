@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static ClsDataType.ClsDataType;
+using static DVLD.DataAccess.ClsUser;
 
 namespace DVLD.DataAccess
 {
@@ -62,7 +63,6 @@ namespace DVLD.DataAccess
             }
             return result;
         }
-
         public static int GetNumberOfPeople()
         {
             int count = 0;
@@ -491,6 +491,36 @@ namespace DVLD.DataAccess
                 }
             }
         }
+        public static int GetPersonId(int ApplicationID)
+        {
+            int personId = 0;
+            string query = "SELECT ApplicantPersonID FROM Applications WHERE ApplicationID = @ApplicationID";
+
+            using (SqlConnection connection =new SqlConnection(Settings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query,connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            personId = (int)result;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new DataAccessException("Error fetching ApplicantPersonID from the Applications table.", ex);
+                    }
+                }
+            }
+
+            return personId;
+        }
+
 
     }
 }

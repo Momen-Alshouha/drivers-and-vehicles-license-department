@@ -31,6 +31,7 @@
             this.LblLocalDrivingLicenseApplicationTitle = new System.Windows.Forms.Label();
             this.TabControlLocalDrivingLicenseApplication = new System.Windows.Forms.TabControl();
             this.TabPageNewLocalLicensePersonalInfo = new System.Windows.Forms.TabPage();
+            this.ctrlPersonDetailsWithFilter1 = new DVLD.Presentation.People.Controls.CtrlPersonDetailsWithFilter();
             this.BtnBackLocalDrivingLicenseApplicationForm = new System.Windows.Forms.Button();
             this.BtnNextLocalDrivingLicenseApplicationForm = new System.Windows.Forms.Button();
             this.TabPageNewLocalLicenseApplicationInfo = new System.Windows.Forms.TabPage();
@@ -46,7 +47,6 @@
             this.BtnBack2LocalDrivingLicenseApplicationForm = new System.Windows.Forms.Button();
             this.BtnSavetLocalDrivingLicenseApplicationForm = new System.Windows.Forms.Button();
             this.BtnCloseLocalDrivingLicenseApplicationForm = new System.Windows.Forms.Button();
-            this.ctrlPersonDetailsWithFilter1 = new DVLD.Presentation.People.Controls.CtrlPersonDetailsWithFilter();
             this.TabControlLocalDrivingLicenseApplication.SuspendLayout();
             this.TabPageNewLocalLicensePersonalInfo.SuspendLayout();
             this.TabPageNewLocalLicenseApplicationInfo.SuspendLayout();
@@ -85,6 +85,15 @@
             this.TabPageNewLocalLicensePersonalInfo.TabIndex = 0;
             this.TabPageNewLocalLicensePersonalInfo.Text = "Personal Info";
             this.TabPageNewLocalLicensePersonalInfo.UseVisualStyleBackColor = true;
+            // 
+            // ctrlPersonDetailsWithFilter1
+            // 
+            this.ctrlPersonDetailsWithFilter1.Location = new System.Drawing.Point(6, 4);
+            this.ctrlPersonDetailsWithFilter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ctrlPersonDetailsWithFilter1.Name = "ctrlPersonDetailsWithFilter1";
+            this.ctrlPersonDetailsWithFilter1.Size = new System.Drawing.Size(944, 507);
+            this.ctrlPersonDetailsWithFilter1.TabIndex = 4;
+            this.ctrlPersonDetailsWithFilter1.Load += new System.EventHandler(this.ctrlPersonDetailsWithFilter1_Load);
             // 
             // BtnBackLocalDrivingLicenseApplicationForm
             // 
@@ -260,15 +269,6 @@
             this.BtnCloseLocalDrivingLicenseApplicationForm.Text = "Close";
             this.BtnCloseLocalDrivingLicenseApplicationForm.UseVisualStyleBackColor = true;
             this.BtnCloseLocalDrivingLicenseApplicationForm.Click += new System.EventHandler(this.BtnCloseLocalDrivingLicenseApplicationForm_Click);
-            // 
-            // ctrlPersonDetailsWithFilter1
-            // 
-            this.ctrlPersonDetailsWithFilter1.Location = new System.Drawing.Point(6, 4);
-            this.ctrlPersonDetailsWithFilter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ctrlPersonDetailsWithFilter1.Name = "ctrlPersonDetailsWithFilter1";
-            this.ctrlPersonDetailsWithFilter1.Size = new System.Drawing.Size(944, 507);
-            this.ctrlPersonDetailsWithFilter1.TabIndex = 4;
-            this.ctrlPersonDetailsWithFilter1.Load += new System.EventHandler(this.ctrlPersonDetailsWithFilter1_Load);
             // 
             // FrmAddEditLocalDrivingLicenseApplication
             // 

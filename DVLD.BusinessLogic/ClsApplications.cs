@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Net;
 using DVLD.DataAccess;
 using static System.Net.Mime.MediaTypeNames;
 using static ClsDataType.ClsApplication;
@@ -61,9 +62,9 @@ namespace DVLD.BusinessLogic
             return DataAccess.ClsApplications.UpdateStatus(applicationID, statusID);
            
         }
-        public static int GetActiveApplicationIDForLicenseClassForSpecificPerson(StApplicationData applicationData, int licenseClassID)
+        public static int GetActiveApplicationIDForLicenseClassForSpecificPerson(int PersonId, EnLicenseClass enLicenseClass)
         {
-            return DataAccess.ClsApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(applicationData, licenseClassID);
+            return DataAccess.ClsApplications.GetActiveApplicationIDForLicenseClassForSpcificPerson(PersonId, enLicenseClass);
         }
         public static StApplicationData GetApplicationData(int id)
         {

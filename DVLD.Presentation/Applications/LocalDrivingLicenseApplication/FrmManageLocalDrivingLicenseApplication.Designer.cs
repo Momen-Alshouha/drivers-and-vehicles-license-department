@@ -51,6 +51,7 @@
             this.issueDrivingLicenseFirstTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonLicenesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnCloseManageLocalApplicationsForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewLocalDrivingLicenseApplications_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddNewLocalDrivingLicenseApplication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -155,8 +156,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 755);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(13, 759);
+            this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 29);
             this.label2.TabIndex = 11;
@@ -166,7 +167,7 @@
             // 
             this.LblNumberOfApplications.AutoSize = true;
             this.LblNumberOfApplications.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNumberOfApplications.Location = new System.Drawing.Point(152, 755);
+            this.LblNumberOfApplications.Location = new System.Drawing.Point(144, 759);
             this.LblNumberOfApplications.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblNumberOfApplications.Name = "LblNumberOfApplications";
             this.LblNumberOfApplications.Size = new System.Drawing.Size(37, 29);
@@ -269,12 +270,23 @@
             this.showPersonLicenesHistoryToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
             this.showPersonLicenesHistoryToolStripMenuItem.Text = "Show Person Licenes History";
             // 
+            // BtnCloseManageLocalApplicationsForm
+            // 
+            this.BtnCloseManageLocalApplicationsForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCloseManageLocalApplicationsForm.Location = new System.Drawing.Point(1263, 743);
+            this.BtnCloseManageLocalApplicationsForm.Name = "BtnCloseManageLocalApplicationsForm";
+            this.BtnCloseManageLocalApplicationsForm.Size = new System.Drawing.Size(170, 67);
+            this.BtnCloseManageLocalApplicationsForm.TabIndex = 13;
+            this.BtnCloseManageLocalApplicationsForm.Text = "Close";
+            this.BtnCloseManageLocalApplicationsForm.UseVisualStyleBackColor = true;
+            // 
             // FrmManageLocalDrivingLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1467, 808);
+            this.ClientSize = new System.Drawing.Size(1467, 836);
+            this.Controls.Add(this.BtnCloseManageLocalApplicationsForm);
             this.Controls.Add(this.LblNumberOfApplications);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TextBoxFilterByManageLocalDrivingLicenseForm);
@@ -321,5 +333,6 @@
         private System.Windows.Forms.ToolStripMenuItem showLicensesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showPersonLicenesHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewApplicationToolStripMenuItem;
+        private System.Windows.Forms.Button BtnCloseManageLocalApplicationsForm;
     }
 }
