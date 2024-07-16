@@ -16,6 +16,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             switch (ApplicationStatus)
             {
                 case EnApplicationStatus.New:
+                    scheduleToolStripMenuItem.Enabled = true;
                     visionTestToolStripMenuItem.Enabled = true;
                     practicalStreetTestToolStripMenuItem.Enabled = false;
                     writtenTheoryTestToolStripMenuItem.Enabled = false;
@@ -24,14 +25,8 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                     // TODO : Will enable and disable Tool Menu Stipes based on scheduled tests
                     break;
                 case EnApplicationStatus.Canceled:
-                    visionTestToolStripMenuItem.Enabled = false;
-                    practicalStreetTestToolStripMenuItem.Enabled = false;
-                    writtenTheoryTestToolStripMenuItem.Enabled = false;
-                    break;
                 case EnApplicationStatus.Completed:
-                    visionTestToolStripMenuItem.Enabled = false;
-                    practicalStreetTestToolStripMenuItem.Enabled = false;
-                    writtenTheoryTestToolStripMenuItem.Enabled = false;
+                    scheduleToolStripMenuItem.Enabled= false;
                     break;
                 default:
                     break;
