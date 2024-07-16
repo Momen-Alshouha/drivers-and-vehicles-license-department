@@ -10,12 +10,15 @@ using System.Windows.Forms;
 using static ClsDataType.ClsApplication;
 using static ClsDataType.ClsLocalDrivingLicenseApplications;
 using static ClsDataType.ClsDataType;
+using DVLD.Presentation.People;
+using DVLD.Presentation.People.Controls;
 
 namespace DVLD.Presentation.Controls
 {
     public partial class CtrlLocalDrivingLicenseApplication : UserControl
     {
         StApplicationData _applicationData;
+        int PersonID;
         int DrivingLicenseApplicationID = 0;
         int ApplicationID;
         int LicenseID;
@@ -23,7 +26,6 @@ namespace DVLD.Presentation.Controls
         {
             InitializeComponent();
         }
-
         private int GetApplicationIDByLDLid() {
             return BusinessLogic.ClsLocalDrivingLicenseApplication.GetApplicationIDByLocalDrivingLicenseAppID(DrivingLicenseApplicationID);
         }
@@ -35,6 +37,10 @@ namespace DVLD.Presentation.Controls
         public StPerson GetPersonData(int PersonID)
         {
             return BusinessLogic.ClsPerson.Find(PersonID);
+        }
+        private int GetPersonIDByApplicationID()
+        {
+            return BusinessLogic.ClsPerson.GetPersonId(ApplicationID);
         }
         public StUser GetUserInfo()
         {
@@ -55,13 +61,21 @@ namespace DVLD.Presentation.Controls
 
         public void LoadApplicationInfoByLocalDrivingApplicationID(int LocalDrivingApplicationID)
         {
+            
             this.DrivingLicenseApplicationID = LocalDrivingApplicationID;
             this.ApplicationID = GetApplicationIDByLDLid();
             this._applicationData = BusinessLogic.ClsLocalDrivingLicenseApplication.GetApplicationData(ApplicationID);
-            this._applicationData.stPerson = GetPersonData(ApplicationID);
+            this.PersonID = GetPersonIDByApplicationID();
+            this._applicationData.stPerson = GetPersonData(PersonID);
             this._applicationData.CreatedByUser = GetUserInfo();
             SetApplicationInfoInCTRL(this._applicationData);
         }
 
+        private void LinkLabelShowPersonInfoCTRL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            FrmPersonDetails frmPersonDetails = new FrmPersonDetails(PersonID);
+            frmPersonDetails.ShowDialog();  
+        }
     }
 }

@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             this.GroupBoxD_L_A_Info1_CTRL = new System.Windows.Forms.GroupBox();
+            this.LblDLAInfo_PassedTests = new System.Windows.Forms.Label();
+            this.LblDLAInfo_Class = new System.Windows.Forms.Label();
+            this.LblDLAInfo_ID = new System.Windows.Forms.Label();
             this.LinkLabelShowLicenseInfoCTRL = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.GroupBoxD_L_A_Info_CTRL = new System.Windows.Forms.GroupBox();
+            this.LinkLabelShowPersonInfoCTRL = new System.Windows.Forms.LinkLabel();
+            this.LblApp_info_createdbyValue = new System.Windows.Forms.Label();
+            this.LblApp_info_lastValue = new System.Windows.Forms.Label();
+            this.LblApp_info_dateValue = new System.Windows.Forms.Label();
+            this.LblApp_info_applicantValue = new System.Windows.Forms.Label();
+            this.LblApp_info_typeValue = new System.Windows.Forms.Label();
+            this.LblApp_info_feesValue = new System.Windows.Forms.Label();
+            this.LblApp_info_statusValue = new System.Windows.Forms.Label();
+            this.LblApp_info_idValue = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.LblApp_info_idValue = new System.Windows.Forms.Label();
-            this.LblApp_info_statusValue = new System.Windows.Forms.Label();
-            this.LblApp_info_feesValue = new System.Windows.Forms.Label();
-            this.LblApp_info_typeValue = new System.Windows.Forms.Label();
-            this.LblApp_info_applicantValue = new System.Windows.Forms.Label();
-            this.LblApp_info_dateValue = new System.Windows.Forms.Label();
-            this.LblApp_info_lastValue = new System.Windows.Forms.Label();
-            this.LblApp_info_createdbyValue = new System.Windows.Forms.Label();
-            this.LblDLAInfo_ID = new System.Windows.Forms.Label();
-            this.LblDLAInfo_Class = new System.Windows.Forms.Label();
-            this.LblDLAInfo_PassedTests = new System.Windows.Forms.Label();
-            this.LinkLabelShowPersonInfoCTRL = new System.Windows.Forms.LinkLabel();
             this.GroupBoxD_L_A_Info1_CTRL.SuspendLayout();
             this.GroupBoxD_L_A_Info_CTRL.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,36 @@
             this.GroupBoxD_L_A_Info1_CTRL.TabIndex = 0;
             this.GroupBoxD_L_A_Info1_CTRL.TabStop = false;
             this.GroupBoxD_L_A_Info1_CTRL.Text = "Driving Lisense Application Info";
+            // 
+            // LblDLAInfo_PassedTests
+            // 
+            this.LblDLAInfo_PassedTests.AutoSize = true;
+            this.LblDLAInfo_PassedTests.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDLAInfo_PassedTests.Location = new System.Drawing.Point(436, 83);
+            this.LblDLAInfo_PassedTests.Name = "LblDLAInfo_PassedTests";
+            this.LblDLAInfo_PassedTests.Size = new System.Drawing.Size(30, 22);
+            this.LblDLAInfo_PassedTests.TabIndex = 18;
+            this.LblDLAInfo_PassedTests.Text = "....";
+            // 
+            // LblDLAInfo_Class
+            // 
+            this.LblDLAInfo_Class.AutoSize = true;
+            this.LblDLAInfo_Class.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDLAInfo_Class.Location = new System.Drawing.Point(436, 43);
+            this.LblDLAInfo_Class.Name = "LblDLAInfo_Class";
+            this.LblDLAInfo_Class.Size = new System.Drawing.Size(30, 22);
+            this.LblDLAInfo_Class.TabIndex = 17;
+            this.LblDLAInfo_Class.Text = "....";
+            // 
+            // LblDLAInfo_ID
+            // 
+            this.LblDLAInfo_ID.AutoSize = true;
+            this.LblDLAInfo_ID.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDLAInfo_ID.Location = new System.Drawing.Point(178, 43);
+            this.LblDLAInfo_ID.Name = "LblDLAInfo_ID";
+            this.LblDLAInfo_ID.Size = new System.Drawing.Size(30, 22);
+            this.LblDLAInfo_ID.TabIndex = 16;
+            this.LblDLAInfo_ID.Text = "....";
             // 
             // LinkLabelShowLicenseInfoCTRL
             // 
@@ -142,6 +172,127 @@
             this.GroupBoxD_L_A_Info_CTRL.TabStop = false;
             this.GroupBoxD_L_A_Info_CTRL.Text = "Application Basic Info";
             // 
+            // LinkLabelShowPersonInfoCTRL
+            // 
+            this.LinkLabelShowPersonInfoCTRL.AutoSize = true;
+            this.LinkLabelShowPersonInfoCTRL.Location = new System.Drawing.Point(498, 241);
+            this.LinkLabelShowPersonInfoCTRL.Name = "LinkLabelShowPersonInfoCTRL";
+            this.LinkLabelShowPersonInfoCTRL.Size = new System.Drawing.Size(190, 24);
+            this.LinkLabelShowPersonInfoCTRL.TabIndex = 18;
+            this.LinkLabelShowPersonInfoCTRL.TabStop = true;
+            this.LinkLabelShowPersonInfoCTRL.Text = "Show Person Info";
+            this.LinkLabelShowPersonInfoCTRL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelShowPersonInfoCTRL_LinkClicked);
+            // 
+            // LblApp_info_createdbyValue
+            // 
+            this.LblApp_info_createdbyValue.AutoSize = true;
+            this.LblApp_info_createdbyValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApp_info_createdbyValue.Location = new System.Drawing.Point(498, 134);
+            this.LblApp_info_createdbyValue.Name = "LblApp_info_createdbyValue";
+            this.LblApp_info_createdbyValue.Size = new System.Drawing.Size(30, 22);
+            this.LblApp_info_createdbyValue.TabIndex = 17;
+            this.LblApp_info_createdbyValue.Text = "....";
+            // 
+            // LblApp_info_lastValue
+            // 
+            this.LblApp_info_lastValue.AutoSize = true;
+            this.LblApp_info_lastValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApp_info_lastValue.Location = new System.Drawing.Point(498, 95);
+            this.LblApp_info_lastValue.Name = "LblApp_info_lastValue";
+            this.LblApp_info_lastValue.Size = new System.Drawing.Size(30, 22);
+            this.LblApp_info_lastValue.TabIndex = 16;
+            this.LblApp_info_lastValue.Text = "....";
+            // 
+            // LblApp_info_dateValue
+            // 
+            this.LblApp_info_dateValue.AutoSize = true;
+            this.LblApp_info_dateValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApp_info_dateValue.Location = new System.Drawing.Point(498, 55);
+            this.LblApp_info_dateValue.Name = "LblApp_info_dateValue";
+            this.LblApp_info_dateValue.Size = new System.Drawing.Size(30, 22);
+            this.LblApp_info_dateValue.TabIndex = 15;
+            this.LblApp_info_dateValue.Text = "....";
+            // 
+            // LblApp_info_applicantValue
+            // 
+            this.LblApp_info_applicantValue.AutoSize = true;
+            this.LblApp_info_applicantValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApp_info_applicantValue.Location = new System.Drawing.Point(120, 217);
+            this.LblApp_info_applicantValue.Name = "LblApp_info_applicantValue";
+            this.LblApp_info_applicantValue.Size = new System.Drawing.Size(30, 22);
+            this.LblApp_info_applicantValue.TabIndex = 14;
+            this.LblApp_info_applicantValue.Text = "....";
+            // 
+            // LblApp_info_typeValue
+            // 
+            this.LblApp_info_typeValue.AutoSize = true;
+            this.LblApp_info_typeValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApp_info_typeValue.Location = new System.Drawing.Point(120, 176);
+            this.LblApp_info_typeValue.Name = "LblApp_info_typeValue";
+            this.LblApp_info_typeValue.Size = new System.Drawing.Size(30, 22);
+            this.LblApp_info_typeValue.TabIndex = 13;
+            this.LblApp_info_typeValue.Text = "....";
+            // 
+            // LblApp_info_feesValue
+            // 
+            this.LblApp_info_feesValue.AutoSize = true;
+            this.LblApp_info_feesValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApp_info_feesValue.Location = new System.Drawing.Point(120, 134);
+            this.LblApp_info_feesValue.Name = "LblApp_info_feesValue";
+            this.LblApp_info_feesValue.Size = new System.Drawing.Size(30, 22);
+            this.LblApp_info_feesValue.TabIndex = 12;
+            this.LblApp_info_feesValue.Text = "....";
+            // 
+            // LblApp_info_statusValue
+            // 
+            this.LblApp_info_statusValue.AutoSize = true;
+            this.LblApp_info_statusValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApp_info_statusValue.Location = new System.Drawing.Point(120, 95);
+            this.LblApp_info_statusValue.Name = "LblApp_info_statusValue";
+            this.LblApp_info_statusValue.Size = new System.Drawing.Size(30, 22);
+            this.LblApp_info_statusValue.TabIndex = 11;
+            this.LblApp_info_statusValue.Text = "....";
+            // 
+            // LblApp_info_idValue
+            // 
+            this.LblApp_info_idValue.AutoSize = true;
+            this.LblApp_info_idValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApp_info_idValue.Location = new System.Drawing.Point(120, 55);
+            this.LblApp_info_idValue.Name = "LblApp_info_idValue";
+            this.LblApp_info_idValue.Size = new System.Drawing.Size(30, 22);
+            this.LblApp_info_idValue.TabIndex = 10;
+            this.LblApp_info_idValue.Text = "....";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(384, 134);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(108, 22);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Created By :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(376, 95);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 22);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Last Update :";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(434, 55);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 22);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Date :";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -191,156 +342,6 @@
             this.label1.Size = new System.Drawing.Size(47, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "ID : ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(434, 55);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 22);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Date :";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(376, 95);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 22);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Last Update :";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(384, 134);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 22);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Created By :";
-            // 
-            // LblApp_info_idValue
-            // 
-            this.LblApp_info_idValue.AutoSize = true;
-            this.LblApp_info_idValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApp_info_idValue.Location = new System.Drawing.Point(120, 55);
-            this.LblApp_info_idValue.Name = "LblApp_info_idValue";
-            this.LblApp_info_idValue.Size = new System.Drawing.Size(30, 22);
-            this.LblApp_info_idValue.TabIndex = 10;
-            this.LblApp_info_idValue.Text = "....";
-            // 
-            // LblApp_info_statusValue
-            // 
-            this.LblApp_info_statusValue.AutoSize = true;
-            this.LblApp_info_statusValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApp_info_statusValue.Location = new System.Drawing.Point(120, 95);
-            this.LblApp_info_statusValue.Name = "LblApp_info_statusValue";
-            this.LblApp_info_statusValue.Size = new System.Drawing.Size(30, 22);
-            this.LblApp_info_statusValue.TabIndex = 11;
-            this.LblApp_info_statusValue.Text = "....";
-            // 
-            // LblApp_info_feesValue
-            // 
-            this.LblApp_info_feesValue.AutoSize = true;
-            this.LblApp_info_feesValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApp_info_feesValue.Location = new System.Drawing.Point(120, 134);
-            this.LblApp_info_feesValue.Name = "LblApp_info_feesValue";
-            this.LblApp_info_feesValue.Size = new System.Drawing.Size(30, 22);
-            this.LblApp_info_feesValue.TabIndex = 12;
-            this.LblApp_info_feesValue.Text = "....";
-            // 
-            // LblApp_info_typeValue
-            // 
-            this.LblApp_info_typeValue.AutoSize = true;
-            this.LblApp_info_typeValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApp_info_typeValue.Location = new System.Drawing.Point(120, 176);
-            this.LblApp_info_typeValue.Name = "LblApp_info_typeValue";
-            this.LblApp_info_typeValue.Size = new System.Drawing.Size(30, 22);
-            this.LblApp_info_typeValue.TabIndex = 13;
-            this.LblApp_info_typeValue.Text = "....";
-            // 
-            // LblApp_info_applicantValue
-            // 
-            this.LblApp_info_applicantValue.AutoSize = true;
-            this.LblApp_info_applicantValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApp_info_applicantValue.Location = new System.Drawing.Point(120, 217);
-            this.LblApp_info_applicantValue.Name = "LblApp_info_applicantValue";
-            this.LblApp_info_applicantValue.Size = new System.Drawing.Size(30, 22);
-            this.LblApp_info_applicantValue.TabIndex = 14;
-            this.LblApp_info_applicantValue.Text = "....";
-            // 
-            // LblApp_info_dateValue
-            // 
-            this.LblApp_info_dateValue.AutoSize = true;
-            this.LblApp_info_dateValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApp_info_dateValue.Location = new System.Drawing.Point(498, 55);
-            this.LblApp_info_dateValue.Name = "LblApp_info_dateValue";
-            this.LblApp_info_dateValue.Size = new System.Drawing.Size(30, 22);
-            this.LblApp_info_dateValue.TabIndex = 15;
-            this.LblApp_info_dateValue.Text = "....";
-            // 
-            // LblApp_info_lastValue
-            // 
-            this.LblApp_info_lastValue.AutoSize = true;
-            this.LblApp_info_lastValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApp_info_lastValue.Location = new System.Drawing.Point(498, 95);
-            this.LblApp_info_lastValue.Name = "LblApp_info_lastValue";
-            this.LblApp_info_lastValue.Size = new System.Drawing.Size(30, 22);
-            this.LblApp_info_lastValue.TabIndex = 16;
-            this.LblApp_info_lastValue.Text = "....";
-            // 
-            // LblApp_info_createdbyValue
-            // 
-            this.LblApp_info_createdbyValue.AutoSize = true;
-            this.LblApp_info_createdbyValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApp_info_createdbyValue.Location = new System.Drawing.Point(498, 134);
-            this.LblApp_info_createdbyValue.Name = "LblApp_info_createdbyValue";
-            this.LblApp_info_createdbyValue.Size = new System.Drawing.Size(30, 22);
-            this.LblApp_info_createdbyValue.TabIndex = 17;
-            this.LblApp_info_createdbyValue.Text = "....";
-            // 
-            // LblDLAInfo_ID
-            // 
-            this.LblDLAInfo_ID.AutoSize = true;
-            this.LblDLAInfo_ID.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDLAInfo_ID.Location = new System.Drawing.Point(178, 43);
-            this.LblDLAInfo_ID.Name = "LblDLAInfo_ID";
-            this.LblDLAInfo_ID.Size = new System.Drawing.Size(30, 22);
-            this.LblDLAInfo_ID.TabIndex = 16;
-            this.LblDLAInfo_ID.Text = "....";
-            // 
-            // LblDLAInfo_Class
-            // 
-            this.LblDLAInfo_Class.AutoSize = true;
-            this.LblDLAInfo_Class.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDLAInfo_Class.Location = new System.Drawing.Point(436, 43);
-            this.LblDLAInfo_Class.Name = "LblDLAInfo_Class";
-            this.LblDLAInfo_Class.Size = new System.Drawing.Size(30, 22);
-            this.LblDLAInfo_Class.TabIndex = 17;
-            this.LblDLAInfo_Class.Text = "....";
-            // 
-            // LblDLAInfo_PassedTests
-            // 
-            this.LblDLAInfo_PassedTests.AutoSize = true;
-            this.LblDLAInfo_PassedTests.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDLAInfo_PassedTests.Location = new System.Drawing.Point(436, 83);
-            this.LblDLAInfo_PassedTests.Name = "LblDLAInfo_PassedTests";
-            this.LblDLAInfo_PassedTests.Size = new System.Drawing.Size(30, 22);
-            this.LblDLAInfo_PassedTests.TabIndex = 18;
-            this.LblDLAInfo_PassedTests.Text = "....";
-            // 
-            // LinkLabelShowPersonInfoCTRL
-            // 
-            this.LinkLabelShowPersonInfoCTRL.AutoSize = true;
-            this.LinkLabelShowPersonInfoCTRL.Location = new System.Drawing.Point(498, 241);
-            this.LinkLabelShowPersonInfoCTRL.Name = "LinkLabelShowPersonInfoCTRL";
-            this.LinkLabelShowPersonInfoCTRL.Size = new System.Drawing.Size(190, 24);
-            this.LinkLabelShowPersonInfoCTRL.TabIndex = 18;
-            this.LinkLabelShowPersonInfoCTRL.TabStop = true;
-            this.LinkLabelShowPersonInfoCTRL.Text = "Show Person Info";
             // 
             // CtrlLocalDrivingLicenseApplication
             // 
