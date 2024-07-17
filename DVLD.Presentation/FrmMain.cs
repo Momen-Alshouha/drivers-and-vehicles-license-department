@@ -82,5 +82,9 @@ namespace DVLD.Presentation
             frmManageLocalDrivingLicenseApplication.ShowDialog(); 
         }
 
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

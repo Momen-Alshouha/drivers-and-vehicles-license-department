@@ -30,7 +30,6 @@
         {
             this.MenuStripMain = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drivingLiscenseServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +56,6 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStripMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuStripMain
@@ -84,20 +82,6 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(33, 68);
             this.toolStripMenuItem1.Text = " ";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.dvld;
-            this.pictureBox1.InitialImage = global::DVLD.Presentation.Properties.Resources.dvld;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 70);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(900, 463);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // applicationToolStripMenuItem
             // 
             this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -111,7 +95,6 @@
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
             this.applicationToolStripMenuItem.Size = new System.Drawing.Size(190, 68);
             this.applicationToolStripMenuItem.Text = "Applications";
-            this.applicationToolStripMenuItem.Click += new System.EventHandler(this.applicationToolStripMenuItem_Click);
             // 
             // drivingLiscenseServicesToolStripMenuItem
             // 
@@ -121,8 +104,9 @@
             this.replacmentsForDamagedOrLostDrivingLicenseToolStripMenuItem,
             this.releaseDetainedDrivingLicenseToolStripMenuItem,
             this.retakeTestToolStripMenuItem});
+            this.drivingLiscenseServicesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.drivingLiscenseServicesToolStripMenuItem.Name = "drivingLiscenseServicesToolStripMenuItem";
-            this.drivingLiscenseServicesToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+            this.drivingLiscenseServicesToolStripMenuItem.Size = new System.Drawing.Size(331, 42);
             this.drivingLiscenseServicesToolStripMenuItem.Text = "Driving Licenses Services";
             // 
             // newDrivingLicenseToolStripMenuItem
@@ -176,8 +160,10 @@
             this.manageApplicationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.localDrivingLicenseApplicationsToolStripMenuItem,
             this.internationalDrivingLicenseApplicationToolStripMenuItem});
+            this.manageApplicationsToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Manage_Applications_32;
+            this.manageApplicationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
-            this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+            this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(331, 42);
             this.manageApplicationsToolStripMenuItem.Text = "Manage Applications";
             // 
             // localDrivingLicenseApplicationsToolStripMenuItem
@@ -199,9 +185,12 @@
             this.manageDetainedLicensesToolStripMenuItem,
             this.detainLicenseToolStripMenuItem1,
             this.releaseDetainLicenseToolStripMenuItem});
+            this.detainLicenseToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Detained_Driving_License_32;
+            this.detainLicenseToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.detainLicenseToolStripMenuItem.Name = "detainLicenseToolStripMenuItem";
-            this.detainLicenseToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+            this.detainLicenseToolStripMenuItem.Size = new System.Drawing.Size(331, 42);
             this.detainLicenseToolStripMenuItem.Text = "Detain License";
+            this.detainLicenseToolStripMenuItem.Click += new System.EventHandler(this.detainLicenseToolStripMenuItem_Click);
             // 
             // manageDetainedLicensesToolStripMenuItem
             // 
@@ -223,15 +212,19 @@
             // 
             // manageApplicationTypesToolStripMenuItem
             // 
+            this.manageApplicationTypesToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.ApplicationType;
+            this.manageApplicationTypesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
-            this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+            this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(331, 42);
             this.manageApplicationTypesToolStripMenuItem.Text = "Manage Application Types";
             this.manageApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationTypesToolStripMenuItem_Click);
             // 
             // manageTestTypesToolStripMenuItem
             // 
+            this.manageTestTypesToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.TestType_32;
+            this.manageTestTypesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
-            this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+            this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(331, 42);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
             this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.manageTestTypesToolStripMenuItem_Click);
             // 
@@ -276,21 +269,21 @@
             // currnetUserInfoToolStripMenuItem
             // 
             this.currnetUserInfoToolStripMenuItem.Name = "currnetUserInfoToolStripMenuItem";
-            this.currnetUserInfoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.currnetUserInfoToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.currnetUserInfoToolStripMenuItem.Text = "Currnet User Info";
             this.currnetUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currnetUserInfoToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
@@ -300,7 +293,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(900, 533);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.MenuStripMain);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MenuStripMain;
@@ -310,7 +302,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MenuStripMain.ResumeLayout(false);
             this.MenuStripMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,7 +315,6 @@
         private System.Windows.Forms.ToolStripMenuItem driversToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem drivingLiscenseServicesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detainLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageApplicationTypesToolStripMenuItem;
