@@ -188,13 +188,14 @@
             this.showLicensesToolStripMenuItem,
             this.showPersonLicenesHistoryToolStripMenuItem});
             this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Name = "ContextMenuStripManageLocalDrivingLicenseApplicationForm";
-            this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Size = new System.Drawing.Size(329, 292);
+            this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Size = new System.Drawing.Size(339, 325);
             // 
             // addNewApplicationToolStripMenuItem
             // 
             this.addNewApplicationToolStripMenuItem.Name = "addNewApplicationToolStripMenuItem";
             this.addNewApplicationToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
             this.addNewApplicationToolStripMenuItem.Text = "Add New Application";
+            this.addNewApplicationToolStripMenuItem.Click += new System.EventHandler(this.addNewApplicationToolStripMenuItem_Click);
             // 
             // showApplicationDetailsToolStripMenuItem
             // 
@@ -255,8 +256,8 @@
             // issueDrivingLicenseFirstTimeToolStripMenuItem
             // 
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Name = "issueDrivingLicenseFirstTimeToolStripMenuItem";
-            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
-            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Text = "Issue Driving License First Time";
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Size = new System.Drawing.Size(338, 32);
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Text = "Issue Driving License (First Time)";
             // 
             // showLicensesToolStripMenuItem
             // 

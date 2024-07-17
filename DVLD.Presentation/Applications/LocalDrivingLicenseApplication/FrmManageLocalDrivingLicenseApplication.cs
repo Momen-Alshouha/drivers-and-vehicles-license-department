@@ -32,6 +32,12 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                     break;
             }
         }
+        private void _EnableDisableContextMenuToolsStripe(EnApplicationStatus ApplicationStatus)
+        {
+            _EnableDisableScheduleTestsToolStripsMenu(ApplicationStatus);
+            //TODO:
+
+        }
         public FrmManageLocalDrivingLicenseApplication()
         {
             InitializeComponent();
@@ -214,6 +220,12 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             ApplicationId = _GetApplicationID();
             EnApplicationStatus applicationStatus = BusinessLogic.ClsApplications.GetApplicationStatus(ApplicationId);
             _EnableDisableScheduleTestsToolStripsMenu(applicationStatus);
+        }
+
+        private void addNewApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddEditLocalDrivingLicenseApplication frmAddEditLocalDrivingLicenseApplication = new FrmAddEditLocalDrivingLicenseApplication();
+            frmAddEditLocalDrivingLicenseApplication.ShowDialog();
         }
     }   
 }

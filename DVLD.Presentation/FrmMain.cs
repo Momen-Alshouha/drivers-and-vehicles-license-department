@@ -21,6 +21,8 @@ namespace DVLD.Presentation
         public FrmMain()
         {
             InitializeComponent();
+
+            applicationToolStripMenuItem.Size = new System.Drawing.Size(100, 100);
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,5 +81,6 @@ namespace DVLD.Presentation
             FrmManageLocalDrivingLicenseApplication frmManageLocalDrivingLicenseApplication = new FrmManageLocalDrivingLicenseApplication();
             frmManageLocalDrivingLicenseApplication.ShowDialog(); 
         }
+
     }
 }
