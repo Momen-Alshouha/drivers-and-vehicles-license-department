@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,13 @@ namespace DVLD.DataAccess
 
                     connection.Open();
                     object result = command.ExecuteScalar();
+
+
+                    if (result != null && int.TryParse(result.ToString(), out NewDriverID))
+                    {
+                        // set the DriverID in the StDriver struct
+                        driver.DriverID= NewDriverID;
+                    }
                 }
             }
 
