@@ -193,35 +193,35 @@
             // addNewApplicationToolStripMenuItem
             // 
             this.addNewApplicationToolStripMenuItem.Name = "addNewApplicationToolStripMenuItem";
-            this.addNewApplicationToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
+            this.addNewApplicationToolStripMenuItem.Size = new System.Drawing.Size(338, 32);
             this.addNewApplicationToolStripMenuItem.Text = "Add New Application";
             this.addNewApplicationToolStripMenuItem.Click += new System.EventHandler(this.addNewApplicationToolStripMenuItem_Click);
             // 
             // showApplicationDetailsToolStripMenuItem
             // 
             this.showApplicationDetailsToolStripMenuItem.Name = "showApplicationDetailsToolStripMenuItem";
-            this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
+            this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(338, 32);
             this.showApplicationDetailsToolStripMenuItem.Text = "Show Application Details";
             this.showApplicationDetailsToolStripMenuItem.Click += new System.EventHandler(this.showApplicationDetailsToolStripMenuItem_Click);
             // 
             // editApplicationToolStripMenuItem
             // 
             this.editApplicationToolStripMenuItem.Name = "editApplicationToolStripMenuItem";
-            this.editApplicationToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
+            this.editApplicationToolStripMenuItem.Size = new System.Drawing.Size(338, 32);
             this.editApplicationToolStripMenuItem.Text = "Edit Application";
             this.editApplicationToolStripMenuItem.Click += new System.EventHandler(this.editApplicationToolStripMenuItem_Click);
             // 
             // deleteApplicationToolStripMenuItem
             // 
             this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
-            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
+            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(338, 32);
             this.deleteApplicationToolStripMenuItem.Text = "Delete Application";
             this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
             // 
             // cancelApplicationToolStripMenuItem
             // 
             this.cancelApplicationToolStripMenuItem.Name = "cancelApplicationToolStripMenuItem";
-            this.cancelApplicationToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
+            this.cancelApplicationToolStripMenuItem.Size = new System.Drawing.Size(338, 32);
             this.cancelApplicationToolStripMenuItem.Text = "Cancel Application";
             this.cancelApplicationToolStripMenuItem.Click += new System.EventHandler(this.cancelApplicationToolStripMenuItem_Click);
             // 
@@ -232,7 +232,7 @@
             this.writtenTheoryTestToolStripMenuItem,
             this.practicalStreetTestToolStripMenuItem});
             this.scheduleToolStripMenuItem.Name = "scheduleToolStripMenuItem";
-            this.scheduleToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
+            this.scheduleToolStripMenuItem.Size = new System.Drawing.Size(338, 32);
             this.scheduleToolStripMenuItem.Text = "Schedule Tests";
             // 
             // visionTestToolStripMenuItem
@@ -240,6 +240,7 @@
             this.visionTestToolStripMenuItem.Name = "visionTestToolStripMenuItem";
             this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
             this.visionTestToolStripMenuItem.Text = "Vision Test";
+            this.visionTestToolStripMenuItem.Click += new System.EventHandler(this.visionTestToolStripMenuItem_Click);
             // 
             // writtenTheoryTestToolStripMenuItem
             // 
@@ -262,13 +263,13 @@
             // showLicensesToolStripMenuItem
             // 
             this.showLicensesToolStripMenuItem.Name = "showLicensesToolStripMenuItem";
-            this.showLicensesToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
+            this.showLicensesToolStripMenuItem.Size = new System.Drawing.Size(338, 32);
             this.showLicensesToolStripMenuItem.Text = "Show Licenses";
             // 
             // showPersonLicenesHistoryToolStripMenuItem
             // 
             this.showPersonLicenesHistoryToolStripMenuItem.Name = "showPersonLicenesHistoryToolStripMenuItem";
-            this.showPersonLicenesHistoryToolStripMenuItem.Size = new System.Drawing.Size(328, 32);
+            this.showPersonLicenesHistoryToolStripMenuItem.Size = new System.Drawing.Size(338, 32);
             this.showPersonLicenesHistoryToolStripMenuItem.Text = "Show Person Licenes History";
             // 
             // BtnCloseManageLocalApplicationsForm

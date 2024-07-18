@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.Presentation.Tests.Test_Appointments;
+using System;
 using System.Data;
 using System.Windows.Forms;
 using static ClsDataType.ClsApplication;
@@ -226,6 +227,12 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         {
             FrmAddEditLocalDrivingLicenseApplication frmAddEditLocalDrivingLicenseApplication = new FrmAddEditLocalDrivingLicenseApplication();
             frmAddEditLocalDrivingLicenseApplication.ShowDialog();
+        }
+
+        private void visionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageVisionTest frmManageVisionTest = new FrmManageVisionTest(_GetSelectedLocalDrivingLicenseeApplicationID());
+            frmManageVisionTest.ShowDialog();
         }
     }   
 }
