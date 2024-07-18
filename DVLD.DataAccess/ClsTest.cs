@@ -208,5 +208,29 @@ namespace DVLD.DataAccess
                 }
             }
         }
+        public static bool HasPassedTestForSpecificTestType(int TestAppointmentID, EnTestType enTestType)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = @"
+                    SELECT COUNT(1)
+                    FROM TestAppointments
+                    JOIN Tests ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID
+                    WHERE TestAppointments.TestAppointmentID = @TestAppointmentID
+                    AND TestAppointments.TestTypeID = @TestTypeID
+                    AND Tests.TestResult = 1"; // 1 represents 'Passed'
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+                    command.Parameters.AddWithValue("@TestTypeID", (int)enTestType);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
     }
 }
