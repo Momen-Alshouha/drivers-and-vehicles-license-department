@@ -7,10 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using static ClsDataType.ClsDataType;
 using static ClsDataType.ClsTestAppintment;
+using static ClsDataType.ClsTakenTest;
 
 namespace DVLD.DataAccess
 {
-    public class ClsTestAppointment
+    public class ClsTest
     {
         public static bool AddTestAppointment(StTestAppointment stTestAppointment)
         {
@@ -27,10 +28,10 @@ namespace DVLD.DataAccess
                     command.Parameters.AddWithValue("@AppointmentDate", stTestAppointment.AppointmentDate);
                     command.Parameters.AddWithValue("@PaidFees", stTestAppointment.PaidFees);
                     command.Parameters.AddWithValue("@CreatedByUserID", stTestAppointment.CreatedByUserID);
-                    command.Parameters.AddWithValue("@IsLocked", stTestAppointment.IsLocked ? 1 : 0); 
+                    command.Parameters.AddWithValue("@IsLocked", stTestAppointment.IsLocked ? 1 : 0);
 
                     // Handle RetakeTestApplicationID which is null in add test appointment case
-                    SqlParameter retakeParam = new SqlParameter("@RetakeTestApplicationID",DBNull.Value);
+                    SqlParameter retakeParam = new SqlParameter("@RetakeTestApplicationID", DBNull.Value);
                     command.Parameters.Add(retakeParam);
 
                     connection.Open();
@@ -140,6 +141,70 @@ namespace DVLD.DataAccess
                     int rowsAffected = command.ExecuteNonQuery();
 
                     return rowsAffected > 0;
+                }
+            }
+        }
+        public static void TakeTest(StTakenTest stTakenTest)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = @"
+                    INSERT INTO Tests (TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID)
+                    VALUES (@TestID, @TestAppointmentID, @TestResult, @Notes, @CreatedByUserID)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestID", stTakenTest.TestID);
+                    command.Parameters.AddWithValue("@TestAppointmentID", stTakenTest.TestAppointmentID);
+                    command.Parameters.AddWithValue("@TestResult", stTakenTest.TestResult ? 1 : 0); // mapping from bool to bit
+                    command.Parameters.AddWithValue("@Notes", stTakenTest.Notes ?? (object)DBNull.Value); // handle null case
+                    command.Parameters.AddWithValue("@CreatedByUserID", stTakenTest.CreatedByUserID);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+
+        }
+        public static bool UpdateTestAppointmentToBeLocked(int TestAppointmentID)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = @"
+                    UPDATE TestAppointments
+                    SET IsLocked = 1
+                    WHERE TestAppointmentID = @TestAppointmentID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+        }
+        public static bool IsTestTaken_SpecificTestAppointmentAndTestType(int TestAppointmentID, EnTestType enTestType)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = @"
+                    SELECT COUNT(1)
+                    FROM Tests
+                    WHERE TestAppointmentID = @TestAppointmentID
+                    AND TestTypeID = @TestTypeID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+                    command.Parameters.AddWithValue("@TestTypeID", (int)enTestType);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
                 }
             }
         }
