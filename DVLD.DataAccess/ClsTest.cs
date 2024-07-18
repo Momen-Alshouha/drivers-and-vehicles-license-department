@@ -232,5 +232,27 @@ namespace DVLD.DataAccess
                 }
             }
         }
+
+        public static int GetNumberOfPassedTests(int TestAppointmentID)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = @"
+                    SELECT COUNT(*)
+                    FROM Tests
+                    WHERE TestAppointmentID = @TestAppointmentID
+                    AND TestResult = 1"; // 1 represents 'Passed'
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count;
+                }
+            }
+        }
     }
 }
