@@ -46,6 +46,7 @@
     <Compile Include="ClsApplication.cs" />
     <Compile Include="ClsDataType.cs" />
     <Compile Include="ClsLocalDrivingLicenseApplications.cs" />
+    <Compile Include="ClsTestAppintment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
