@@ -10,8 +10,8 @@ This project is currently under active development. Certain features may be inco
 
 ## Some Screenshots
 
-![Main Screen](/DVLD.presentation/main.png)
+![Main Screen](DVLD.presentation/main.png)
 
-![Main Screen](/DVLD.presentation/main2.png)
+![Main Screen](DVLD.presentation/main2.png)
 
-![Login Screen](/DVLD.presentation/login.png)
+![Login Screen](DVLD.presentation/login.png)
