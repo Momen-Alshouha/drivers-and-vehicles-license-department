@@ -23,12 +23,12 @@ namespace DVLD.DataAccess
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@TestTypeID", stTestAppointment.enTestType);
+                    command.Parameters.AddWithValue("@TestTypeID", (int)stTestAppointment.enTestType);
                     command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", stTestAppointment.LocalDrivingLicenseApplicationID);
                     command.Parameters.AddWithValue("@AppointmentDate", stTestAppointment.AppointmentDate);
                     command.Parameters.AddWithValue("@PaidFees", stTestAppointment.PaidFees);
                     command.Parameters.AddWithValue("@CreatedByUserID", stTestAppointment.CreatedByUserID);
-                    command.Parameters.AddWithValue("@IsLocked", stTestAppointment.IsLocked ? 1 : 0);
+                    command.Parameters.AddWithValue("@IsLocked", 0);
 
                     // Handle RetakeTestApplicationID which is null in add test appointment case
                     SqlParameter retakeParam = new SqlParameter("@RetakeTestApplicationID", DBNull.Value);
@@ -41,7 +41,7 @@ namespace DVLD.DataAccess
                 }
             }
         }
-        private static bool HasUnlockedTest(int localDrivingLicenseApplicationID, EnTestType enTestType)
+        public static bool HasUnlockedTest(int localDrivingLicenseApplicationID, EnTestType enTestType)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
@@ -63,7 +63,7 @@ namespace DVLD.DataAccess
                 }
             }
         }
-        public static DataTable GetVisionTestAppointments(int localDrivingLicenseApplicationID)
+        public static DataTable GetTestAppointments(int localDrivingLicenseApplicationID,EnTestType enTestType)
         {
             DataTable dtVisionTestAppointments = new DataTable();
 
@@ -73,12 +73,12 @@ namespace DVLD.DataAccess
                     SELECT *
                     FROM TestAppointments
                     WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
-                    AND TestTypeID = @VisionTest";
+                    AND TestTypeID = @TestType";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
-                    command.Parameters.AddWithValue("@VisionTest", (int)EnTestType.VisionTest);
+                    command.Parameters.AddWithValue("@TestType", (int)enTestType);
 
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -208,7 +208,7 @@ namespace DVLD.DataAccess
                 }
             }
         }
-        public static bool HasPassedTestForSpecificTestType(int TestAppointmentID, EnTestType enTestType)
+        public static bool DoesLocalAppPassedTestForSpecificTestType(int LocalAppID, EnTestType enTestType)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
@@ -216,13 +216,13 @@ namespace DVLD.DataAccess
                     SELECT COUNT(1)
                     FROM TestAppointments
                     JOIN Tests ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID
-                    WHERE TestAppointments.TestAppointmentID = @TestAppointmentID
+                    WHERE TestAppointments.LocalDrivingLicenseApplicationID = @LocalAppID
                     AND TestAppointments.TestTypeID = @TestTypeID
                     AND Tests.TestResult = 1"; // 1 represents 'Passed'
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+                    command.Parameters.AddWithValue("@LocalAppID", LocalAppID);
                     command.Parameters.AddWithValue("@TestTypeID", (int)enTestType);
 
                     connection.Open();
@@ -232,7 +232,6 @@ namespace DVLD.DataAccess
                 }
             }
         }
-
         public static int GetNumberOfPassedTests(int TestAppointmentID)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))

@@ -17,5 +17,10 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             InitializeComponent();
             ctrlLocalDrivingLicenseApplication1.LoadApplicationInfoByLocalDrivingApplicationID(LDLappID);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

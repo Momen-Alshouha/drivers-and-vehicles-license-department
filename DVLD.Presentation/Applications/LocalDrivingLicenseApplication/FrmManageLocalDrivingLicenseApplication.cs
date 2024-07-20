@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using static ClsDataType.ClsApplication;
+using static ClsDataType.ClsTestAppintment;
 
 namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
 {
@@ -10,6 +11,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
     {
         DataTable LocalDrivingLicenseApplicationsData_View;
         int ApplicationId;
+        int LocalApplicationID;
         EnApplicationStatus applicationStatus; 
         // TODO: use this to enable and disable menu items based on application status
         private void _EnableDisableScheduleTestsToolStripsMenu(EnApplicationStatus ApplicationStatus)
@@ -36,7 +38,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         private void _EnableDisableContextMenuToolsStripe(EnApplicationStatus ApplicationStatus)
         {
             _EnableDisableScheduleTestsToolStripsMenu(ApplicationStatus);
-            //TODO:
+            
 
         }
         public FrmManageLocalDrivingLicenseApplication()
@@ -219,20 +221,35 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         private void DataGridViewLocalDrivingLicenseApplications_View_SelectionChanged(object sender, EventArgs e)
         {
             ApplicationId = _GetApplicationID();
+            LocalApplicationID = _GetSelectedLocalDrivingLicenseeApplicationID();
             EnApplicationStatus applicationStatus = BusinessLogic.ClsApplications.GetApplicationStatus(ApplicationId);
             _EnableDisableScheduleTestsToolStripsMenu(applicationStatus);
         }
-
         private void addNewApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAddEditLocalDrivingLicenseApplication frmAddEditLocalDrivingLicenseApplication = new FrmAddEditLocalDrivingLicenseApplication();
             frmAddEditLocalDrivingLicenseApplication.ShowDialog();
         }
-
+        private void writtenTheoryTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(EnTestType.WrittenTheoryTest);
+        }
+        private void practicalStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(EnTestType.PracticalStreetTest);
+        }
+        private void BtnCloseManageLocalApplicationsForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void _ScheduleTest(EnTestType enTestType)
+        {
+            FrmManageTest frmManageTest = new FrmManageTest(ApplicationId,LocalApplicationID,enTestType);
+            frmManageTest.ShowDialog();
+        }
         private void visionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmManageVisionTest frmManageVisionTest = new FrmManageVisionTest(_GetSelectedLocalDrivingLicenseeApplicationID());
-            frmManageVisionTest.ShowDialog();
+            _ScheduleTest(EnTestType.VisionTest);
         }
     }   
 }

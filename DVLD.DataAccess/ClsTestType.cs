@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using static ClsDataType.ClsDataType;
-
+using static ClsDataType.ClsTestAppintment;
 namespace DVLD.DataAccess
 {
     public class ClsTestType
@@ -109,5 +109,25 @@ namespace DVLD.DataAccess
                 return result > 0;
             }
         }
+        public static decimal GetTestFees(EnTestType testType)
+        {
+            decimal fee = 0;
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = @"SELECT TestTypeFees FROM TestTypes WHERE TestTypeID = @TestTypeID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestTypeID", (int)testType);
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        fee = Convert.ToDecimal(result);
+                    }
+                }
+            }
+            return fee;
+        }
+
     }
 }

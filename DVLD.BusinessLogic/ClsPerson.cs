@@ -100,5 +100,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsPerson.GetPersonId(ApplicationID);
         }
+        public static string GetApplicantFullName(int PersonID)
+        {
+            return DataAccess.ClsPerson.GetPersonFullName(PersonID);
+        }
     }
 }

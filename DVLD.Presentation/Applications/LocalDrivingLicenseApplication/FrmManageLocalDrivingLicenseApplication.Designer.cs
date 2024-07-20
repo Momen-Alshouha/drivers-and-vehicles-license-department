@@ -38,9 +38,6 @@
             this.LblNumberOfApplications = new System.Windows.Forms.Label();
             this.ContextMenuStripManageLocalDrivingLicenseApplicationForm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addNewApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BtnCloseManageLocalApplicationsForm = new System.Windows.Forms.Button();
-            this.PictureBoxAddNewLocalDrivingLicenseApplication = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.showApplicationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +49,9 @@
             this.issueDrivingLicenseFirstTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonLicenesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnCloseManageLocalApplicationsForm = new System.Windows.Forms.Button();
+            this.PictureBoxAddNewLocalDrivingLicenseApplication = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewLocalDrivingLicenseApplications_View)).BeginInit();
             this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddNewLocalDrivingLicenseApplication)).BeginInit();
@@ -164,7 +164,7 @@
             this.showLicensesToolStripMenuItem,
             this.showPersonLicenesHistoryToolStripMenuItem});
             this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Name = "ContextMenuStripManageLocalDrivingLicenseApplicationForm";
-            this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Size = new System.Drawing.Size(355, 364);
+            this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Size = new System.Drawing.Size(355, 397);
             // 
             // addNewApplicationToolStripMenuItem
             // 
@@ -174,40 +174,6 @@
             this.addNewApplicationToolStripMenuItem.Size = new System.Drawing.Size(354, 40);
             this.addNewApplicationToolStripMenuItem.Text = "Add New Application";
             this.addNewApplicationToolStripMenuItem.Click += new System.EventHandler(this.addNewApplicationToolStripMenuItem_Click);
-            // 
-            // BtnCloseManageLocalApplicationsForm
-            // 
-            this.BtnCloseManageLocalApplicationsForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCloseManageLocalApplicationsForm.Location = new System.Drawing.Point(1263, 743);
-            this.BtnCloseManageLocalApplicationsForm.Name = "BtnCloseManageLocalApplicationsForm";
-            this.BtnCloseManageLocalApplicationsForm.Size = new System.Drawing.Size(170, 67);
-            this.BtnCloseManageLocalApplicationsForm.TabIndex = 13;
-            this.BtnCloseManageLocalApplicationsForm.Text = "Close";
-            this.BtnCloseManageLocalApplicationsForm.UseVisualStyleBackColor = true;
-            // 
-            // PictureBoxAddNewLocalDrivingLicenseApplication
-            // 
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Image = global::DVLD.Presentation.Properties.Resources.New_Application_64;
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Location = new System.Drawing.Point(1353, 230);
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Margin = new System.Windows.Forms.Padding(4);
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Name = "PictureBoxAddNewLocalDrivingLicenseApplication";
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Size = new System.Drawing.Size(80, 89);
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.TabIndex = 9;
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.TabStop = false;
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Click += new System.EventHandler(this.PictureBoxAddNewLocalDrivingLicenseApplication_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.Manage_Applications_64;
-            this.pictureBox1.Location = new System.Drawing.Point(702, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 114);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // showApplicationDetailsToolStripMenuItem
             // 
@@ -273,6 +239,7 @@
             this.writtenTheoryTestToolStripMenuItem.Name = "writtenTheoryTestToolStripMenuItem";
             this.writtenTheoryTestToolStripMenuItem.Size = new System.Drawing.Size(284, 42);
             this.writtenTheoryTestToolStripMenuItem.Text = "Written (Theory) Test";
+            this.writtenTheoryTestToolStripMenuItem.Click += new System.EventHandler(this.writtenTheoryTestToolStripMenuItem_Click);
             // 
             // practicalStreetTestToolStripMenuItem
             // 
@@ -281,6 +248,7 @@
             this.practicalStreetTestToolStripMenuItem.Name = "practicalStreetTestToolStripMenuItem";
             this.practicalStreetTestToolStripMenuItem.Size = new System.Drawing.Size(284, 42);
             this.practicalStreetTestToolStripMenuItem.Text = "Practical (Street) Test";
+            this.practicalStreetTestToolStripMenuItem.Click += new System.EventHandler(this.practicalStreetTestToolStripMenuItem_Click);
             // 
             // issueDrivingLicenseFirstTimeToolStripMenuItem
             // 
@@ -304,6 +272,41 @@
             this.showPersonLicenesHistoryToolStripMenuItem.Name = "showPersonLicenesHistoryToolStripMenuItem";
             this.showPersonLicenesHistoryToolStripMenuItem.Size = new System.Drawing.Size(354, 40);
             this.showPersonLicenesHistoryToolStripMenuItem.Text = "Show Person Licenes History";
+            // 
+            // BtnCloseManageLocalApplicationsForm
+            // 
+            this.BtnCloseManageLocalApplicationsForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCloseManageLocalApplicationsForm.Location = new System.Drawing.Point(1263, 743);
+            this.BtnCloseManageLocalApplicationsForm.Name = "BtnCloseManageLocalApplicationsForm";
+            this.BtnCloseManageLocalApplicationsForm.Size = new System.Drawing.Size(170, 67);
+            this.BtnCloseManageLocalApplicationsForm.TabIndex = 13;
+            this.BtnCloseManageLocalApplicationsForm.Text = "Close";
+            this.BtnCloseManageLocalApplicationsForm.UseVisualStyleBackColor = true;
+            this.BtnCloseManageLocalApplicationsForm.Click += new System.EventHandler(this.BtnCloseManageLocalApplicationsForm_Click);
+            // 
+            // PictureBoxAddNewLocalDrivingLicenseApplication
+            // 
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Image = global::DVLD.Presentation.Properties.Resources.New_Application_64;
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Location = new System.Drawing.Point(1353, 230);
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Margin = new System.Windows.Forms.Padding(4);
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Name = "PictureBoxAddNewLocalDrivingLicenseApplication";
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Size = new System.Drawing.Size(80, 89);
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.TabIndex = 9;
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.TabStop = false;
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Click += new System.EventHandler(this.PictureBoxAddNewLocalDrivingLicenseApplication_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.Manage_Applications_64;
+            this.pictureBox1.Location = new System.Drawing.Point(702, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(165, 114);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmManageLocalDrivingLicenseApplication
             // 

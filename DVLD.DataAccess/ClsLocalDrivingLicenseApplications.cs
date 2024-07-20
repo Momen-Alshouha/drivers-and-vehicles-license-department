@@ -234,16 +234,16 @@ namespace DVLD.DataAccess
                 }
             }
         }
-        public static int GetLicenseClassId(int ApplicationID)
+        public static int GetLicenseClassId(int LocalApplicationID)
         {
             int licenseClassId = 0;
-            string query = "SELECT LicenseClassID FROM LocalDrivingLicenseApplications WHERE ApplicationID = @ApplicationID";
+            string query = "SELECT LicenseClassID FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID = @LocalApplicationID";
 
             using (SqlConnection connection = _GetConnection())
             {
                 using (SqlCommand command = _CreateCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                    command.Parameters.AddWithValue("@LocalApplicationID", LocalApplicationID);
 
                     try
                     {

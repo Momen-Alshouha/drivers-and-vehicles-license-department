@@ -47,6 +47,7 @@
     <Compile Include="ClsCountry.cs" />
     <Compile Include="ClsLocalDrivingLicenseApplication.cs" />
     <Compile Include="ClsPerson.cs" />
+    <Compile Include="ClsTests.cs" />
     <Compile Include="ClsTestType.cs" />
     <Compile Include="ClsUser.cs" />
     <Compile Include="People.cs" />

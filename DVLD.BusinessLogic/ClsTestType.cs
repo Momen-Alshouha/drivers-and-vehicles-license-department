@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static ClsDataType.ClsDataType;
+using static ClsDataType.ClsTestAppintment;
 
 namespace DVLD.BusinessLogic
 {
@@ -26,6 +27,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsTestType.UpdateTestType(testType);
         }
-
+        public static decimal GetTestFees(EnTestType testType)
+        {
+            return DataAccess.ClsTestType.GetTestFees(testType);
+        }
     }
 }
