@@ -11,7 +11,7 @@ using static ClsDataType.ClsApplication;
 using static ClsDataType.ClsLocalDrivingLicenseApplications;
 using static ClsDataType.ClsDataType;
 using DVLD.Presentation.People;
-using DVLD.Presentation.People.Controls;
+using DVLD.Presentation.People.Controls;    
 
 namespace DVLD.Presentation.Controls
 {
@@ -50,6 +50,10 @@ namespace DVLD.Presentation.Controls
         }
         public void SetApplicationInfoInCTRL(StApplicationData applicationData)
         {
+            // TODO: present number of passed test value
+            LblApp_info_lastUpdateValue.Text = applicationData.LastStatusDate.ToString();
+            LblApp_info_dateValue.Text=applicationData.ApplicationDate.ToString();
+            LblApp_info_typeValue.Text = applicationData.ApplicationType;
             LblApp_info_feesValue.Text = _applicationData.StApplicationTypeInfo.fee.ToString();
             LblApp_info_applicantValue.Text = _applicationData.stPerson.FullName;
             LblDLAInfo_ID.Text = DrivingLicenseApplicationID.ToString();
@@ -73,7 +77,9 @@ namespace DVLD.Presentation.Controls
             this.PersonID = GetPersonIDByApplicationID();
             this._applicationData.stPerson = GetPersonData(PersonID);
             this._applicationData.CreatedByUser = GetUserInfo();
-            SetApplicationInfoInCTRL(this._applicationData);
+            this._applicationData.enApplicationType = EnApplicationType.NewLocalDrivingLicenseService;
+            StApplicationData applicationData = new StApplicationData(this._applicationData);
+            SetApplicationInfoInCTRL(applicationData);
         }
         private void LinkLabelShowPersonInfoCTRL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
