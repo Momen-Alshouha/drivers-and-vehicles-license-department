@@ -39,7 +39,7 @@
             this.GroupBoxD_L_A_Info_CTRL = new System.Windows.Forms.GroupBox();
             this.LinkLabelShowPersonInfoCTRL = new System.Windows.Forms.LinkLabel();
             this.LblApp_info_createdbyValue = new System.Windows.Forms.Label();
-            this.LblApp_info_lastValue = new System.Windows.Forms.Label();
+            this.LblApp_info_lastUpdateValue = new System.Windows.Forms.Label();
             this.LblApp_info_dateValue = new System.Windows.Forms.Label();
             this.LblApp_info_applicantValue = new System.Windows.Forms.Label();
             this.LblApp_info_typeValue = new System.Windows.Forms.Label();
@@ -149,7 +149,7 @@
             // 
             this.GroupBoxD_L_A_Info_CTRL.Controls.Add(this.LinkLabelShowPersonInfoCTRL);
             this.GroupBoxD_L_A_Info_CTRL.Controls.Add(this.LblApp_info_createdbyValue);
-            this.GroupBoxD_L_A_Info_CTRL.Controls.Add(this.LblApp_info_lastValue);
+            this.GroupBoxD_L_A_Info_CTRL.Controls.Add(this.LblApp_info_lastUpdateValue);
             this.GroupBoxD_L_A_Info_CTRL.Controls.Add(this.LblApp_info_dateValue);
             this.GroupBoxD_L_A_Info_CTRL.Controls.Add(this.LblApp_info_applicantValue);
             this.GroupBoxD_L_A_Info_CTRL.Controls.Add(this.LblApp_info_typeValue);
@@ -193,15 +193,15 @@
             this.LblApp_info_createdbyValue.TabIndex = 17;
             this.LblApp_info_createdbyValue.Text = "....";
             // 
-            // LblApp_info_lastValue
+            // LblApp_info_lastUpdateValue
             // 
-            this.LblApp_info_lastValue.AutoSize = true;
-            this.LblApp_info_lastValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApp_info_lastValue.Location = new System.Drawing.Point(498, 95);
-            this.LblApp_info_lastValue.Name = "LblApp_info_lastValue";
-            this.LblApp_info_lastValue.Size = new System.Drawing.Size(30, 22);
-            this.LblApp_info_lastValue.TabIndex = 16;
-            this.LblApp_info_lastValue.Text = "....";
+            this.LblApp_info_lastUpdateValue.AutoSize = true;
+            this.LblApp_info_lastUpdateValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApp_info_lastUpdateValue.Location = new System.Drawing.Point(498, 95);
+            this.LblApp_info_lastUpdateValue.Name = "LblApp_info_lastUpdateValue";
+            this.LblApp_info_lastUpdateValue.Size = new System.Drawing.Size(30, 22);
+            this.LblApp_info_lastUpdateValue.TabIndex = 16;
+            this.LblApp_info_lastUpdateValue.Text = "....";
             // 
             // LblApp_info_dateValue
             // 
@@ -381,7 +381,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label LblApp_info_createdbyValue;
-        private System.Windows.Forms.Label LblApp_info_lastValue;
+        private System.Windows.Forms.Label LblApp_info_lastUpdateValue;
         private System.Windows.Forms.Label LblApp_info_dateValue;
         private System.Windows.Forms.Label LblDLAInfo_PassedTests;
         private System.Windows.Forms.Label LblDLAInfo_Class;

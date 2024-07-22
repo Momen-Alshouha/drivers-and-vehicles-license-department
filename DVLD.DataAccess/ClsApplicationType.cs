@@ -140,5 +140,32 @@ namespace DVLD.DataAccess
 
             return rowsEffected > 0;
         }
+        public static int GetApplicationTypeIDByApplicationID(int ApplicationID)
+        {
+            int ApplicationTypeID = 0;
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = "SELECT ApplicationTypeID FROM Applications WHERE ApplicationID = @ApplicationID";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        ApplicationTypeID = Convert.ToInt32(result);
+                    }
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return ApplicationTypeID;
+        }
+
     }
 }

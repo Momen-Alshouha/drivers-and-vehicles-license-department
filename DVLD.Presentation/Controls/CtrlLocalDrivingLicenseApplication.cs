@@ -50,6 +50,8 @@ namespace DVLD.Presentation.Controls
         }
         public void SetApplicationInfoInCTRL(StApplicationData applicationData)
         {
+            LblApp_info_feesValue.Text = _applicationData.StApplicationTypeInfo.fee.ToString();
+            LblApp_info_applicantValue.Text = _applicationData.stPerson.FullName;
             LblDLAInfo_ID.Text = DrivingLicenseApplicationID.ToString();
             LblApp_info_idValue.Text = ApplicationID.ToString();
             LblApp_info_statusValue.Text = applicationData.StatusText;
@@ -58,19 +60,21 @@ namespace DVLD.Presentation.Controls
             LblApp_info_createdbyValue.Text = applicationData.CreatedByUser.UserName;
             LblApp_info_feesValue.Text = applicationData.StApplicationTypeInfo.fee.ToString();
         }
-
         public void LoadApplicationInfoByLocalDrivingApplicationID(int LocalDrivingApplicationID)
         {
-            
+            StApplicationType stApplicationType = new StApplicationType();
             this.DrivingLicenseApplicationID = LocalDrivingApplicationID;
             this.ApplicationID = GetApplicationIDByLDLid();
+            int appTypeID =BusinessLogic.ClsApplicationType.GetApplicationTypeIDByApplicationID(this.ApplicationID);
+            stApplicationType = BusinessLogic.ClsApplicationType.GetAppType(appTypeID);
+            this._applicationData.StApplicationTypeInfo = stApplicationType;
             this._applicationData = BusinessLogic.ClsLocalDrivingLicenseApplication.GetApplicationData(ApplicationID);
+            this._applicationData.StApplicationTypeInfo = stApplicationType;
             this.PersonID = GetPersonIDByApplicationID();
             this._applicationData.stPerson = GetPersonData(PersonID);
             this._applicationData.CreatedByUser = GetUserInfo();
             SetApplicationInfoInCTRL(this._applicationData);
         }
-
         private void LinkLabelShowPersonInfoCTRL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
