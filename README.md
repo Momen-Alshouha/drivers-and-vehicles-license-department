@@ -16,8 +16,8 @@ This project is currently under active development. Certain features may be inco
 
 ![Main Screen](./DVLD.Presentation/screenshoots/main2.png)
 
-![Main Screen](./DVLD.Presentation/screenshoots/manage_users.png)
+![Manage Users](./DVLD.Presentation/screenshoots/manage_users.png)
 
-![Main Screen](./DVLD.Presentation/screenshoots/user_information.png)
+![User Information](./DVLD.Presentation/screenshoots/user_information.png)
 
 
