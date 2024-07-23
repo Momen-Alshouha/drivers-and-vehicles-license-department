@@ -149,12 +149,11 @@ namespace DVLD.DataAccess
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
                 string query = @"
-                    INSERT INTO Tests (TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID)
-                    VALUES (@TestID, @TestAppointmentID, @TestResult, @Notes, @CreatedByUserID)";
+                    INSERT INTO Tests (TestAppointmentID, TestResult, Notes, CreatedByUserID)
+                    VALUES (@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@TestID", stTakenTest.TestID);
                     command.Parameters.AddWithValue("@TestAppointmentID", stTakenTest.TestAppointmentID);
                     command.Parameters.AddWithValue("@TestResult", stTakenTest.TestResult ? 1 : 0); // mapping from bool to bit
                     command.Parameters.AddWithValue("@Notes", stTakenTest.Notes ?? (object)DBNull.Value); // handle null case
@@ -253,5 +252,35 @@ namespace DVLD.DataAccess
                 }
             }
         }
+        public static int CheckTestResultForTestAppointment(int TestAppointmentID)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = @"
+            SELECT TOP 1 TestResult
+            FROM Tests
+            WHERE TestAppointmentID = @TestAppointmentID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+                    connection.Open();
+
+                    object result = command.ExecuteScalar();
+
+                    // Check if result is null
+                    if (result == null || result == DBNull.Value)
+                    {
+                        return -1; // No record found
+                    }
+
+                    // Convert result to integer and interpret the test result
+                    int testResult = Convert.ToInt32(result);
+
+                    return testResult; // Returns 0 or 1 based on the test result
+                }
+            }
+        }
+
     }
 }

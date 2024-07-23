@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ClsDataType.ClsTakenTest;
 using static ClsDataType.ClsTestAppintment;
 namespace DVLD.BusinessLogic
 {
@@ -25,5 +26,18 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsTest.AddTestAppointment(stTestAppointment);   
         }
+        public static void TakeTest(StTakenTest stTakenTest)
+        {
+            DataAccess.ClsTest.TakeTest(stTakenTest);
+        }
+        public static bool UpdateTestAppointmentToBeLocked(int TestAppointmentID)
+        {
+            return DataAccess.ClsTest.UpdateTestAppointmentToBeLocked(TestAppointmentID);
+        }
+        public static int CheckTestResultForTestAppointment(int TestAppointmentID)
+        {
+            return DataAccess.ClsTest.CheckTestResultForTestAppointment(TestAppointmentID);
+        }
+
     }
 }

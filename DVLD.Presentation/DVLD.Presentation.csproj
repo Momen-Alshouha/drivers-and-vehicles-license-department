@@ -109,16 +109,22 @@
     <Compile Include="Controls\CtrlPersonDetailsWithFilter.Designer.cs">
       <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Test Appointments\vision tests\FrmScheduleTest.cs">
+    <Compile Include="Tests\FrmTakeTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tests\Test Appointments\vision tests\FrmScheduleTest.Designer.cs">
+    <Compile Include="Tests\FrmTakeTest.Designer.cs">
+      <DependentUpon>FrmTakeTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\Test Appointments\Mange Schedule Tests\FrmScheduleTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\Test Appointments\Mange Schedule Tests\FrmScheduleTest.Designer.cs">
       <DependentUpon>FrmScheduleTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Test Appointments\vision tests\FrmManageTest.cs">
+    <Compile Include="Tests\Test Appointments\Mange Schedule Tests\FrmManageTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tests\Test Appointments\vision tests\FrmManageTest.Designer.cs">
+    <Compile Include="Tests\Test Appointments\Mange Schedule Tests\FrmManageTest.Designer.cs">
       <DependentUpon>FrmManageTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Tests\Test Types\FrmEditTestType.cs">
@@ -219,10 +225,13 @@
     <EmbeddedResource Include="Controls\CtrlPersonDetailsWithFilter.resx">
       <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tests\Test Appointments\vision tests\FrmScheduleTest.resx">
+    <EmbeddedResource Include="Tests\FrmTakeTest.resx">
+      <DependentUpon>FrmTakeTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Test Appointments\Mange Schedule Tests\FrmScheduleTest.resx">
       <DependentUpon>FrmScheduleTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tests\Test Appointments\vision tests\FrmManageTest.resx">
+    <EmbeddedResource Include="Tests\Test Appointments\Mange Schedule Tests\FrmManageTest.resx">
       <DependentUpon>FrmManageTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tests\Test Types\FrmEditTestType.resx">

@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ClsDataType.ClsLocalDrivingLicenseApplications;
 using static ClsDataType.ClsTestAppintment;
+using static ClsDataType.ClsApplication;
+
 namespace DVLD.Presentation.Tests.Test_Appointments
 {
     public partial class FrmManageTest : Form
@@ -32,15 +34,11 @@ namespace DVLD.Presentation.Tests.Test_Appointments
             _LoadTestAppintmentsInDataGridView();
             _FillFormTextAndTitleBasedOnTestType(enTestType);
             DataGridViewManageTestAppointments.ContextMenuStrip = ContextMenuStripTestAppintments;
-            _EnableDisableDataGridTestAppointmentsContextMenu(enTestType, StTestAppointment.LocalDrivingLicenseApplicationID);
         }
-        private void _EnableDisableDataGridTestAppointmentsContextMenu(EnTestType enTestType,int LocalAppID)
+        private void _EnableDisableDataGridTestAppointmentsContextMenu()
         {
-            if (BusinessLogic.ClsTests.DoesLocalAppPassedTestForSpecificTestType(LocalAppID,enTestType))
-            {
-                editToolStripMenuItem.Enabled = false;
-                takeTestToolStripMenuItem.Enabled = false;
-            }
+            int testAppointmentID = _GetSelectedTestAppintmentID();
+            
         }
         private void _FillFormTextAndTitleBasedOnTestType(EnTestType enTestType)
         {
@@ -71,6 +69,8 @@ namespace DVLD.Presentation.Tests.Test_Appointments
         }
         private void _LoadTestAppintmentsInDataGridView()
         {
+            _EnableDisableDataGridTestAppointmentsContextMenu();
+            dtTestAppintments = BusinessLogic.ClsTests.GetTestAppointments(LocalApplicationID, enTestType);
             DataGridViewManageTestAppointments.DataSource = _GetFilteredTestAppointments();
         }
         private void BtnCloseManageVisionTestAppointmentForm_Click(object sender, EventArgs e)
@@ -96,11 +96,45 @@ namespace DVLD.Presentation.Tests.Test_Appointments
         }
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: TAKE TEST
+            int checkResult = BusinessLogic.ClsTests.CheckTestResultForTestAppointment(_GetSelectedTestAppintmentID());
+            switch (checkResult)
+            {
+                case 0: // Test taken and result failed
+                    MessageBox.Show("Test already taken and failed.", "Test Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 1: // Test taken and result passed
+                    MessageBox.Show("Test already taken and passed.", "Test Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                default: // Test not taken yet
+                    FrmTakeTest frmTakeTest = new FrmTakeTest(StTestAppointment.TestAppointmentID, LocalApplicationID);
+                    frmTakeTest.OnTestTaken += () => _LoadTestAppintmentsInDataGridView();
+                    frmTakeTest.ShowDialog();
+                    break;
+            }
         }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // TODO: Edit Test Appointments
         }
+        private void DataGridViewManageTestAppointments_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DataGridViewManageTestAppointments.SelectedRows.Count >0)
+            {
+                var selectedRow = DataGridViewManageTestAppointments.SelectedRows[0];
+                int testAppointmentID = Convert.ToInt32(selectedRow.Cells["TestAppointmentID"].Value);
+                StTestAppointment.TestAppointmentID = testAppointmentID;
+            }
+        }
+        private int _GetSelectedTestAppintmentID()
+        {
+            int testAppointmentID = 0;
+            if (DataGridViewManageTestAppointments.SelectedRows.Count > 0)
+            {
+                var selectedRow = DataGridViewManageTestAppointments.SelectedRows[0];
+                testAppointmentID = Convert.ToInt32(selectedRow.Cells["TestAppointmentID"].Value);
+                return testAppointmentID;
+            }
+            return testAppointmentID;
+        }
     }
-}
+}   

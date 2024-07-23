@@ -15,6 +15,12 @@ namespace ClsDataType
             public bool TestResult { get; set; }
             public string Notes { get; set; }
             public int CreatedByUserID { get; set; }
+
+            public StTakenTest()
+            {
+                TestResult = false;
+                Notes = string.Empty;
+            }
         }
 
     }

@@ -35,9 +35,9 @@
             this.PictureBoxAddTestAppointment = new System.Windows.Forms.PictureBox();
             this.BtnCloseManageVisionTestAppointmentForm = new System.Windows.Forms.Button();
             this.ContextMenuStripTestAppintments = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ctrlLocalDrivingLicenseApplication1 = new DVLD.Presentation.Controls.CtrlLocalDrivingLicenseApplication();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlLocalDrivingLicenseApplication1 = new DVLD.Presentation.Controls.CtrlLocalDrivingLicenseApplication();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewManageTestAppointments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddTestAppointment)).BeginInit();
             this.ContextMenuStripTestAppintments.SuspendLayout();
@@ -67,6 +67,7 @@
             this.DataGridViewManageTestAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridViewManageTestAppointments.Size = new System.Drawing.Size(728, 150);
             this.DataGridViewManageTestAppointments.TabIndex = 2;
+            this.DataGridViewManageTestAppointments.SelectionChanged += new System.EventHandler(this.DataGridViewManageTestAppointments_SelectionChanged);
             // 
             // label2
             // 
@@ -108,21 +109,14 @@
             this.editToolStripMenuItem,
             this.takeTestToolStripMenuItem});
             this.ContextMenuStripTestAppintments.Name = "contextMenuStrip1";
-            this.ContextMenuStripTestAppintments.Size = new System.Drawing.Size(257, 117);
-            // 
-            // ctrlLocalDrivingLicenseApplication1
-            // 
-            this.ctrlLocalDrivingLicenseApplication1.Location = new System.Drawing.Point(12, 130);
-            this.ctrlLocalDrivingLicenseApplication1.Name = "ctrlLocalDrivingLicenseApplication1";
-            this.ctrlLocalDrivingLicenseApplication1.Size = new System.Drawing.Size(722, 450);
-            this.ctrlLocalDrivingLicenseApplication1.TabIndex = 0;
+            this.ContextMenuStripTestAppintments.Size = new System.Drawing.Size(170, 84);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.edit_32;
             this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(256, 40);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(169, 40);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -131,9 +125,16 @@
             this.takeTestToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Test_32;
             this.takeTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
-            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(256, 40);
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(169, 40);
             this.takeTestToolStripMenuItem.Text = "Take Test";
             this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
+            // 
+            // ctrlLocalDrivingLicenseApplication1
+            // 
+            this.ctrlLocalDrivingLicenseApplication1.Location = new System.Drawing.Point(12, 130);
+            this.ctrlLocalDrivingLicenseApplication1.Name = "ctrlLocalDrivingLicenseApplication1";
+            this.ctrlLocalDrivingLicenseApplication1.Size = new System.Drawing.Size(722, 450);
+            this.ctrlLocalDrivingLicenseApplication1.TabIndex = 0;
             // 
             // FrmManageTest
             // 
