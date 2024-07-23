@@ -24,7 +24,6 @@ namespace DVLD.Presentation.Tests.Test_Appointments
         public FrmManageTest(int ApplicationID, int LocalApplicationID, EnTestType enTestType)
         {
             InitializeComponent();
-            
             this.LocalApplicationID = LocalApplicationID;
             this.enTestType = enTestType;
             dtTestAppintments = BusinessLogic.ClsTests.GetTestAppointments(LocalApplicationID, enTestType);
@@ -32,6 +31,7 @@ namespace DVLD.Presentation.Tests.Test_Appointments
             ctrlLocalDrivingLicenseApplication1.LoadApplicationInfoByLocalDrivingApplicationID(LocalApplicationID);
             _LoadTestAppintmentsInDataGridView();
             _FillFormTextAndTitleBasedOnTestType(enTestType);
+            DataGridViewManageTestAppointments.ContextMenuStrip = ContextMenuStripTestAppintments;
         }
         private void _FillFormTextAndTitleBasedOnTestType(EnTestType enTestType)
         {
@@ -62,14 +62,12 @@ namespace DVLD.Presentation.Tests.Test_Appointments
         }
         private void _LoadTestAppintmentsInDataGridView()
         {
-            DataGridViewTestVisionAppointments.DataSource = _GetFilteredTestAppointments();
+            DataGridViewManageTestAppointments.DataSource = _GetFilteredTestAppointments();
         }
-
         private void BtnCloseManageVisionTestAppointmentForm_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void PictureBoxAddTestAppointment_Click(object sender, EventArgs e)
         {
             if (BusinessLogic.ClsTests.HasActiveTestAppointment(LocalApplicationID,enTestType))

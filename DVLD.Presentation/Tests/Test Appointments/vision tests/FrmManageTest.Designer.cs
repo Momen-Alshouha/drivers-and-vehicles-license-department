@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LblManageTestAppointmentsFrmTitle = new System.Windows.Forms.Label();
-            this.DataGridViewTestVisionAppointments = new System.Windows.Forms.DataGridView();
+            this.DataGridViewManageTestAppointments = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.PictureBoxAddTestAppointment = new System.Windows.Forms.PictureBox();
             this.BtnCloseManageVisionTestAppointmentForm = new System.Windows.Forms.Button();
+            this.ContextMenuStripTestAppintments = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ctrlLocalDrivingLicenseApplication1 = new DVLD.Presentation.Controls.CtrlLocalDrivingLicenseApplication();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTestVisionAppointments)).BeginInit();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewManageTestAppointments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddTestAppointment)).BeginInit();
+            this.ContextMenuStripTestAppintments.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblManageTestAppointmentsFrmTitle
@@ -48,20 +53,20 @@
             this.LblManageTestAppointmentsFrmTitle.TabIndex = 1;
             this.LblManageTestAppointmentsFrmTitle.Text = "Vision Test Appointment";
             // 
-            // DataGridViewTestVisionAppointments
+            // DataGridViewManageTestAppointments
             // 
-            this.DataGridViewTestVisionAppointments.AllowUserToAddRows = false;
-            this.DataGridViewTestVisionAppointments.AllowUserToDeleteRows = false;
-            this.DataGridViewTestVisionAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewTestVisionAppointments.Location = new System.Drawing.Point(12, 621);
-            this.DataGridViewTestVisionAppointments.MultiSelect = false;
-            this.DataGridViewTestVisionAppointments.Name = "DataGridViewTestVisionAppointments";
-            this.DataGridViewTestVisionAppointments.ReadOnly = true;
-            this.DataGridViewTestVisionAppointments.RowHeadersWidth = 62;
-            this.DataGridViewTestVisionAppointments.RowTemplate.Height = 29;
-            this.DataGridViewTestVisionAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewTestVisionAppointments.Size = new System.Drawing.Size(728, 150);
-            this.DataGridViewTestVisionAppointments.TabIndex = 2;
+            this.DataGridViewManageTestAppointments.AllowUserToAddRows = false;
+            this.DataGridViewManageTestAppointments.AllowUserToDeleteRows = false;
+            this.DataGridViewManageTestAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewManageTestAppointments.Location = new System.Drawing.Point(12, 621);
+            this.DataGridViewManageTestAppointments.MultiSelect = false;
+            this.DataGridViewManageTestAppointments.Name = "DataGridViewManageTestAppointments";
+            this.DataGridViewManageTestAppointments.ReadOnly = true;
+            this.DataGridViewManageTestAppointments.RowHeadersWidth = 62;
+            this.DataGridViewManageTestAppointments.RowTemplate.Height = 29;
+            this.DataGridViewManageTestAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewManageTestAppointments.Size = new System.Drawing.Size(728, 150);
+            this.DataGridViewManageTestAppointments.TabIndex = 2;
             // 
             // label2
             // 
@@ -87,6 +92,7 @@
             // 
             // BtnCloseManageVisionTestAppointmentForm
             // 
+            this.BtnCloseManageVisionTestAppointmentForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCloseManageVisionTestAppointmentForm.Location = new System.Drawing.Point(593, 797);
             this.BtnCloseManageVisionTestAppointmentForm.Name = "BtnCloseManageVisionTestAppointmentForm";
             this.BtnCloseManageVisionTestAppointmentForm.Size = new System.Drawing.Size(141, 53);
@@ -95,12 +101,37 @@
             this.BtnCloseManageVisionTestAppointmentForm.UseVisualStyleBackColor = true;
             this.BtnCloseManageVisionTestAppointmentForm.Click += new System.EventHandler(this.BtnCloseManageVisionTestAppointmentForm_Click);
             // 
+            // ContextMenuStripTestAppintments
+            // 
+            this.ContextMenuStripTestAppintments.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.ContextMenuStripTestAppintments.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.takeTestToolStripMenuItem});
+            this.ContextMenuStripTestAppintments.Name = "contextMenuStrip1";
+            this.ContextMenuStripTestAppintments.Size = new System.Drawing.Size(257, 117);
+            // 
             // ctrlLocalDrivingLicenseApplication1
             // 
             this.ctrlLocalDrivingLicenseApplication1.Location = new System.Drawing.Point(12, 130);
             this.ctrlLocalDrivingLicenseApplication1.Name = "ctrlLocalDrivingLicenseApplication1";
             this.ctrlLocalDrivingLicenseApplication1.Size = new System.Drawing.Size(722, 450);
             this.ctrlLocalDrivingLicenseApplication1.TabIndex = 0;
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.edit_32;
+            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(256, 40);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // takeTestToolStripMenuItem
+            // 
+            this.takeTestToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Test_32;
+            this.takeTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(256, 40);
+            this.takeTestToolStripMenuItem.Text = "Take Test";
             // 
             // FrmManageTest
             // 
@@ -111,14 +142,15 @@
             this.Controls.Add(this.BtnCloseManageVisionTestAppointmentForm);
             this.Controls.Add(this.PictureBoxAddTestAppointment);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.DataGridViewTestVisionAppointments);
+            this.Controls.Add(this.DataGridViewManageTestAppointments);
             this.Controls.Add(this.LblManageTestAppointmentsFrmTitle);
             this.Controls.Add(this.ctrlLocalDrivingLicenseApplication1);
             this.Name = "FrmManageTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Manage Vision Test Appointment";
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTestVisionAppointments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewManageTestAppointments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddTestAppointment)).EndInit();
+            this.ContextMenuStripTestAppintments.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,9 +160,12 @@
 
         private Controls.CtrlLocalDrivingLicenseApplication ctrlLocalDrivingLicenseApplication1;
         private System.Windows.Forms.Label LblManageTestAppointmentsFrmTitle;
-        private System.Windows.Forms.DataGridView DataGridViewTestVisionAppointments;
+        private System.Windows.Forms.DataGridView DataGridViewManageTestAppointments;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox PictureBoxAddTestAppointment;
         private System.Windows.Forms.Button BtnCloseManageVisionTestAppointmentForm;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuStripTestAppintments;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem takeTestToolStripMenuItem;
     }
 }
