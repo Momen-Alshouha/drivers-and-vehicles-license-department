@@ -281,6 +281,57 @@ namespace DVLD.DataAccess
                 }
             }
         }
+        public static DateTime GetTestAppointmentDateByID(int TestAppointmentID)
+        {
+            DateTime appointmentDate = DateTime.MinValue;
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = "SELECT AppointmentDate FROM TestAppointments WHERE TestAppointmentID = @TestAppointmentID";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        appointmentDate = Convert.ToDateTime(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle exception (e.g., log error)
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return appointmentDate;
+        }
+        public static bool UpdateTestAppointmentDate(int TestAppointmentID, DateTime newDate)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = "UPDATE TestAppointments SET AppointmentDate = @NewDate WHERE TestAppointmentID = @TestAppointmentID";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@NewDate", newDate);
+                command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    // Handle exception (e.g., log error)
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
+            }
+        }
 
     }
 }

@@ -14,14 +14,30 @@ namespace DVLD.Presentation.Tests.Test_Appointments.vision_tests
 {
     public partial class FrmScheduleTest : Form
     {
+        bool isUpdateDate = false;
         StTestAppointment StTestAppointment;
         EnLicenseClass EnLicenseClass;
         string ApplicantFullName="";
         short trial=0;
+        int TestAppointmentID = 0;
         StLocalDrivingLicenseApplication StLocalDrivingLicenseApplication;
-        
+        public FrmScheduleTest(string ApplicationFullName, int LocalDrivingLicenseApplicationID, EnTestType enTestType,int TestAppointmentID)
+        {
+            isUpdateDate = true;
+            this.TestAppointmentID = TestAppointmentID;
+            InitializeComponent();
+            DatePickerScheduleTest.Value = BusinessLogic.ClsTests.GetTestAppintmentDateByID(TestAppointmentID);
+            DatePickerScheduleTest.MinDate = DateTime.Today.AddDays(1); // only allows selecting future dates
+            StTestAppointment.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            StTestAppointment.enTestType = enTestType;
+            StTestAppointment.PaidFees = BusinessLogic.ClsTestType.GetTestFees(enTestType);
+            this.EnLicenseClass = (EnLicenseClass)BusinessLogic.ClsLocalDrivingLicenseApplication.GetLicenseClassId(LocalDrivingLicenseApplicationID);
+            this.ApplicantFullName = ApplicationFullName;
+        }
+
         public FrmScheduleTest(string ApplicationFullName,int LocalDrivingLicenseApplicationID,EnTestType enTestType)
         {
+            isUpdateDate = false;
             InitializeComponent();
             DatePickerScheduleTest.MinDate = DateTime.Today.AddDays(1); // only allows selecting future dates
             StTestAppointment.LocalDrivingLicenseApplicationID=LocalDrivingLicenseApplicationID;
@@ -91,9 +107,18 @@ namespace DVLD.Presentation.Tests.Test_Appointments.vision_tests
         {
             StTestAppointment.AppointmentDate = DatePickerScheduleTest.Value;
             StTestAppointment.CreatedByUserID = ClsGlobal.CurrentUser.UserID;
-            if (BusinessLogic.ClsTests.AddNewTestAppointment(StTestAppointment))
+            if (isUpdateDate)
             {
-                MessageBox.Show("Test Appointment Added Successfully!", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (BusinessLogic.ClsTests.UpdateTestAppointmentDate(TestAppointmentID,StTestAppointment.AppointmentDate))
+                {
+                    MessageBox.Show("Test Appointment Updated Successfully!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            } else
+            {
+                if (BusinessLogic.ClsTests.AddNewTestAppointment(StTestAppointment))
+                {
+                    MessageBox.Show("Test Appointment Added Successfully!", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             this.Close();
         }

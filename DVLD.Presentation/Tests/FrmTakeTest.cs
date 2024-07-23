@@ -13,7 +13,8 @@ namespace DVLD.Presentation.Tests
 {
     public partial class FrmTakeTest : Form
     {
-        public Action OnTestTaken;
+        // TODO: present application data in this form
+        public Action OnTestTaken; // event-like delegate   
 
         StTakenTest StTakenTest;
         int TestAppintmentID = 0;

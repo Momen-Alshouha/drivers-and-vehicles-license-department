@@ -107,7 +107,7 @@ namespace DVLD.Presentation.Tests.Test_Appointments
                     break;
                 default: // Test not taken yet
                     FrmTakeTest frmTakeTest = new FrmTakeTest(StTestAppointment.TestAppointmentID, LocalApplicationID);
-                    frmTakeTest.OnTestTaken += () => _LoadTestAppintmentsInDataGridView();
+                    frmTakeTest.OnTestTaken += () => _LoadTestAppintmentsInDataGridView(); // method subscription
                     frmTakeTest.ShowDialog();
                     break;
             }
@@ -115,6 +115,23 @@ namespace DVLD.Presentation.Tests.Test_Appointments
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // TODO: Edit Test Appointments
+            int checkResult = BusinessLogic.ClsTests.CheckTestResultForTestAppointment(_GetSelectedTestAppintmentID());
+            switch (checkResult)
+            {
+                case 0: // Test taken and result failed
+                    MessageBox.Show("Test already taken and failed.", "Test Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 1: // Test taken and result passed
+                    MessageBox.Show("Test already taken and passed.", "Test Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                default: // Test not taken yet so we can edit test appointment
+                    int personId = BusinessLogic.ClsPerson.GetPersonId(applicationID);
+                    FrmScheduleTest frmScheduleTest = new FrmScheduleTest(BusinessLogic.ClsPerson.GetApplicantFullName(personId), LocalApplicationID, enTestType, _GetSelectedTestAppintmentID());
+                    frmScheduleTest.ShowDialog();
+                    _LoadTestAppintmentsInDataGridView();
+
+                    break;
+            }
         }
         private void DataGridViewManageTestAppointments_SelectionChanged(object sender, EventArgs e)
         {

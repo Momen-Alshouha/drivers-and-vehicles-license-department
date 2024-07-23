@@ -14,6 +14,10 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsTest.GetTestAppointments(localDrivingLicenseApplication, enTestType);
         }
+        public static DateTime GetTestAppintmentDateByID(int TestAppointmentID)
+        {
+            return DataAccess.ClsTest.GetTestAppointmentDateByID(TestAppointmentID);
+        }
         public static bool HasActiveTestAppointment(int localDrivingLicenseApplication, EnTestType enTestType)
         {
             return DataAccess.ClsTest.HasUnlockedTest(localDrivingLicenseApplication, enTestType);
@@ -38,6 +42,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsTest.CheckTestResultForTestAppointment(TestAppointmentID);
         }
-
+        public static bool UpdateTestAppointmentDate(int TestAppointmentID, DateTime NewDate)
+        {
+            return DataAccess.ClsTest.UpdateTestAppointmentDate(TestAppointmentID, NewDate);
+        }
     }
 }
