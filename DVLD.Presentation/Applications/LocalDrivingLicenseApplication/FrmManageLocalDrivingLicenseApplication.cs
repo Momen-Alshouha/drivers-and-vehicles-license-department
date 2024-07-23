@@ -16,16 +16,35 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         // TODO: use this to enable and disable menu items based on application status
         private void _EnableDisableScheduleTestsToolStripsMenu(EnApplicationStatus ApplicationStatus)
         {
+            scheduleToolStripMenuItem.Enabled = false;
+            visionTestToolStripMenuItem.Enabled = false;
+            practicalStreetTestToolStripMenuItem.Enabled = false;
+            writtenTheoryTestToolStripMenuItem.Enabled = false;
+
             switch (ApplicationStatus)
             {
                 case EnApplicationStatus.New:
                     scheduleToolStripMenuItem.Enabled = true;
                     visionTestToolStripMenuItem.Enabled = true;
-                    practicalStreetTestToolStripMenuItem.Enabled = false;
-                    writtenTheoryTestToolStripMenuItem.Enabled = false;
                     break;
                 case EnApplicationStatus.InProgress:
                     // TODO : Will enable and disable Tool Menu Stipes based on scheduled tests
+                    visionTestToolStripMenuItem.Enabled = true;
+                    scheduleToolStripMenuItem.Enabled = true;
+                    if (BusinessLogic.ClsTests.DoesLocalAppPassedTestForSpecificTestType(LocalApplicationID,EnTestType.VisionTest))
+                    {
+                        visionTestToolStripMenuItem.Enabled = false;
+                        writtenTheoryTestToolStripMenuItem.Enabled= true;
+                        if (BusinessLogic.ClsTests.DoesLocalAppPassedTestForSpecificTestType(LocalApplicationID, EnTestType.WrittenTheoryTest))
+                        {
+                            writtenTheoryTestToolStripMenuItem.Enabled = false;
+                            practicalStreetTestToolStripMenuItem.Enabled = true;
+                            if (BusinessLogic.ClsTests.DoesLocalAppPassedTestForSpecificTestType(LocalApplicationID, EnTestType.PracticalStreetTest))
+                            {
+                               scheduleToolStripMenuItem.Enabled = false;
+                            }
+                        }
+                    }
                     break;
                 case EnApplicationStatus.Canceled:
                 case EnApplicationStatus.Completed:
