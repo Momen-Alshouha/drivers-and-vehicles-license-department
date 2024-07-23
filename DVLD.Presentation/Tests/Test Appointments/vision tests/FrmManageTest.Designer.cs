@@ -124,6 +124,7 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(256, 40);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // takeTestToolStripMenuItem
             // 
@@ -132,6 +133,7 @@
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
             this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(256, 40);
             this.takeTestToolStripMenuItem.Text = "Take Test";
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
             // FrmManageTest
             // 

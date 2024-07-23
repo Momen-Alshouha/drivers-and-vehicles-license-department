@@ -32,6 +32,15 @@ namespace DVLD.Presentation.Tests.Test_Appointments
             _LoadTestAppintmentsInDataGridView();
             _FillFormTextAndTitleBasedOnTestType(enTestType);
             DataGridViewManageTestAppointments.ContextMenuStrip = ContextMenuStripTestAppintments;
+            _EnableDisableDataGridTestAppointmentsContextMenu(enTestType, StTestAppointment.LocalDrivingLicenseApplicationID);
+        }
+        private void _EnableDisableDataGridTestAppointmentsContextMenu(EnTestType enTestType,int LocalAppID)
+        {
+            if (BusinessLogic.ClsTests.DoesLocalAppPassedTestForSpecificTestType(LocalAppID,enTestType))
+            {
+                editToolStripMenuItem.Enabled = false;
+                takeTestToolStripMenuItem.Enabled = false;
+            }
         }
         private void _FillFormTextAndTitleBasedOnTestType(EnTestType enTestType)
         {
@@ -84,6 +93,14 @@ namespace DVLD.Presentation.Tests.Test_Appointments
             FrmScheduleTest frmScheduleTest = new FrmScheduleTest(BusinessLogic.ClsPerson.GetApplicantFullName(personId),LocalApplicationID,enTestType);
                 frmScheduleTest.ShowDialog();
             _LoadTestAppintmentsInDataGridView();
+        }
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO: TAKE TEST
+        }
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO: Edit Test Appointments
         }
     }
 }
