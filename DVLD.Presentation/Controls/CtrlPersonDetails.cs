@@ -50,9 +50,25 @@ namespace DVLD.Presentation.People.Controls
 
             string ImagePath = stPerson.Value.ImagePath;
             if (ImagePath != "")
+            {
                 if (File.Exists(ImagePath))
+                {
                     PictureBoxPersonInfo.ImageLocation = ImagePath;
+                }
+            } else
+            {
+                switch (stPerson.Value.Gender)
+                {
+                    case 0:
+                        PictureBoxPersonInfo.Image = Properties.Resources.Male;
+                        break;
+                    
+                    default:
+                        PictureBoxPersonInfo.Image = Properties.Resources.Female;
+                        break;
+                }
 
+            }
         }
 
         private void _FillPersonInfo(StPerson? stPerson)

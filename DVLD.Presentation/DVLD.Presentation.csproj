@@ -451,6 +451,8 @@
     <None Include="Resources\Vision 512.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Male.png" />
+    <None Include="Resources\Female.png" />
     <Content Include="Resources\Written Test 512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
