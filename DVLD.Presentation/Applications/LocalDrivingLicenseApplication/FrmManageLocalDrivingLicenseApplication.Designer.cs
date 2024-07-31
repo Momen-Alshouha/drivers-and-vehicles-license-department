@@ -164,7 +164,7 @@
             this.showLicensesToolStripMenuItem,
             this.showPersonLicenesHistoryToolStripMenuItem});
             this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Name = "ContextMenuStripManageLocalDrivingLicenseApplicationForm";
-            this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Size = new System.Drawing.Size(355, 397);
+            this.ContextMenuStripManageLocalDrivingLicenseApplicationForm.Size = new System.Drawing.Size(355, 364);
             // 
             // addNewApplicationToolStripMenuItem
             // 
@@ -288,7 +288,7 @@
             // 
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Image = global::DVLD.Presentation.Properties.Resources.New_Application_64;
-            this.PictureBoxAddNewLocalDrivingLicenseApplication.Location = new System.Drawing.Point(1353, 230);
+            this.PictureBoxAddNewLocalDrivingLicenseApplication.Location = new System.Drawing.Point(1334, 230);
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Margin = new System.Windows.Forms.Padding(4);
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Name = "PictureBoxAddNewLocalDrivingLicenseApplication";
             this.PictureBoxAddNewLocalDrivingLicenseApplication.Size = new System.Drawing.Size(80, 89);

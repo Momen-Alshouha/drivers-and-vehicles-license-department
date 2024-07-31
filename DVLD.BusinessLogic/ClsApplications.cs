@@ -56,10 +56,10 @@ namespace DVLD.BusinessLogic
             }
             return false;
         }
-        public static bool UpdateApplicationStatus(int applicationID, int statusID)
+        public static bool UpdateApplicationStatus(int applicationID,EnApplicationStatus enApplicationStatus)
         {
             
-            return DataAccess.ClsApplications.UpdateStatus(applicationID, statusID);
+            return DataAccess.ClsApplications.UpdateStatus(applicationID, enApplicationStatus);
            
         }
         public static int GetActiveApplicationIDForLicenseClassForSpecificPerson(int PersonId, EnLicenseClass enLicenseClass)

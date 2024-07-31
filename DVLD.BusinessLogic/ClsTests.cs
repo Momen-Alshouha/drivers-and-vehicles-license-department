@@ -46,5 +46,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsTest.UpdateTestAppointmentDate(TestAppointmentID, NewDate);
         }
+        public static bool DoesLocalAppPassedAllTests(int LocalAppID)
+        {
+            return DataAccess.ClsTest.DoesLocalAppPassedAllTests(LocalAppID);
+        }
     }
 }

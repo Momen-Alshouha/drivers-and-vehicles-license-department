@@ -16,7 +16,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         // TODO: use this to enable and disable menu items based on application status
         private void _EnableDisableScheduleTestsToolStripsMenu(EnApplicationStatus ApplicationStatus)
         {
-            scheduleToolStripMenuItem.Enabled = false;
+            scheduleToolStripMenuItem.Enabled = true;
             visionTestToolStripMenuItem.Enabled = false;
             practicalStreetTestToolStripMenuItem.Enabled = false;
             writtenTheoryTestToolStripMenuItem.Enabled = false;
@@ -24,13 +24,11 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             switch (ApplicationStatus)
             {
                 case EnApplicationStatus.New:
-                    scheduleToolStripMenuItem.Enabled = true;
                     visionTestToolStripMenuItem.Enabled = true;
                     break;
                 case EnApplicationStatus.InProgress:
                     // TODO : Will enable and disable Tool Menu Stipes based on scheduled tests
                     visionTestToolStripMenuItem.Enabled = true;
-                    scheduleToolStripMenuItem.Enabled = true;
                     if (BusinessLogic.ClsTests.DoesLocalAppPassedTestForSpecificTestType(LocalApplicationID,EnTestType.VisionTest))
                     {
                         visionTestToolStripMenuItem.Enabled = false;
@@ -56,8 +54,16 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         }
         private void _EnableDisableContextMenuToolsStripe(EnApplicationStatus ApplicationStatus)
         {
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
             _EnableDisableScheduleTestsToolStripsMenu(ApplicationStatus);
-            
+            if (BusinessLogic.ClsTests.DoesLocalAppPassedAllTests(_GetSelectedLocalDrivingLicenseeApplicationID()))
+            {
+                issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
+            }
+            //if (EnApplicationStatus.Canceled==ApplicationStatus)
+            //{
+            //    cancelApplicationToolStripMenuItem.Enabled = false;
+            //}
 
         }
         public FrmManageLocalDrivingLicenseApplication()
@@ -212,7 +218,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         {
             if (MessageBox.Show("Are You Sure You Want To Cancel This Application?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                if (BusinessLogic.ClsLocalDrivingLicenseApplication.UpdateApplicationStatus(_GetApplicationID(), (int)EnApplicationStatus.Canceled))
+                if (BusinessLogic.ClsLocalDrivingLicenseApplication.UpdateApplicationStatus(_GetApplicationID(), EnApplicationStatus.Canceled))
                 {
                     MessageBox.Show("Application Canceled!", "Cancel", MessageBoxButtons.OK);
                     _LoadDataInDataGridViewAndLoadNumberOfRecords();
@@ -242,7 +248,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             ApplicationId = _GetApplicationID();
             LocalApplicationID = _GetSelectedLocalDrivingLicenseeApplicationID();
             EnApplicationStatus applicationStatus = BusinessLogic.ClsApplications.GetApplicationStatus(ApplicationId);
-            _EnableDisableScheduleTestsToolStripsMenu(applicationStatus);
+            _EnableDisableContextMenuToolsStripe(applicationStatus);
         }
         private void addNewApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {

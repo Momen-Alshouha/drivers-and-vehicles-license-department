@@ -291,7 +291,7 @@ namespace DVLD.DataAccess
 
             return activeAppID;
         }
-        public static bool UpdateStatus(int ApplicationID, int StatusID)
+        public static bool UpdateStatus(int ApplicationID, EnApplicationStatus enApplicationStatus)
         {
             bool isUpdated = false;
 
@@ -306,7 +306,7 @@ namespace DVLD.DataAccess
                 using (SqlCommand command = _CreateCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
-                    command.Parameters.AddWithValue("@ApplicationStatus", StatusID);
+                    command.Parameters.AddWithValue("@ApplicationStatus", (int)enApplicationStatus);
                     command.Parameters.AddWithValue("@LastStatusDate", DateTime.Now);
 
                     try

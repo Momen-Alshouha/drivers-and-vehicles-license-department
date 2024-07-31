@@ -14,36 +14,40 @@ namespace DVLD.Presentation.Tests.Test_Appointments.vision_tests
 {
     public partial class FrmScheduleTest : Form
     {
+        int LocalAppID = 0;
+        int AppID = 0;
         bool isUpdateDate = false;
+        EnApplicationStatus enApplicationStatus;
         StTestAppointment StTestAppointment;
         EnLicenseClass EnLicenseClass;
         string ApplicantFullName="";
         short trial=0;
         int TestAppointmentID = 0;
         StLocalDrivingLicenseApplication StLocalDrivingLicenseApplication;
-        public FrmScheduleTest(string ApplicationFullName, int LocalDrivingLicenseApplicationID, EnTestType enTestType,int TestAppointmentID)
+        public FrmScheduleTest(string ApplicationFullName, int LocalDrivingLicenseApplicationID, EnTestType enTestType, int TestAppointmentID)
         {
             isUpdateDate = true;
             this.TestAppointmentID = TestAppointmentID;
             InitializeComponent();
+            InitializeForm(ApplicationFullName, LocalDrivingLicenseApplicationID, enTestType);
             DatePickerScheduleTest.Value = BusinessLogic.ClsTests.GetTestAppintmentDateByID(TestAppointmentID);
+        }
+        public FrmScheduleTest(string ApplicationFullName, int LocalDrivingLicenseApplicationID, EnTestType enTestType)
+        {
+            isUpdateDate = false;
+            InitializeComponent();
+            InitializeForm(ApplicationFullName, LocalDrivingLicenseApplicationID, enTestType);
+        }
+        private void InitializeForm(string ApplicationFullName, int LocalDrivingLicenseApplicationID, EnTestType enTestType)
+        {
+            LocalAppID = LocalDrivingLicenseApplicationID;
+            AppID = BusinessLogic.ClsApplications.GetApplicationIDByLocalDrivingLicenseAppID(LocalDrivingLicenseApplicationID);
+            enApplicationStatus = BusinessLogic.ClsApplications.GetApplicationStatus(AppID);
             DatePickerScheduleTest.MinDate = DateTime.Today.AddDays(1); // only allows selecting future dates
             StTestAppointment.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             StTestAppointment.enTestType = enTestType;
             StTestAppointment.PaidFees = BusinessLogic.ClsTestType.GetTestFees(enTestType);
             this.EnLicenseClass = (EnLicenseClass)BusinessLogic.ClsLocalDrivingLicenseApplication.GetLicenseClassId(LocalDrivingLicenseApplicationID);
-            this.ApplicantFullName = ApplicationFullName;
-        }
-
-        public FrmScheduleTest(string ApplicationFullName,int LocalDrivingLicenseApplicationID,EnTestType enTestType)
-        {
-            isUpdateDate = false;
-            InitializeComponent();
-            DatePickerScheduleTest.MinDate = DateTime.Today.AddDays(1); // only allows selecting future dates
-            StTestAppointment.LocalDrivingLicenseApplicationID=LocalDrivingLicenseApplicationID;
-           StTestAppointment.enTestType=enTestType;
-            StTestAppointment.PaidFees= BusinessLogic.ClsTestType.GetTestFees(enTestType);
-            this.EnLicenseClass= (EnLicenseClass)BusinessLogic.ClsLocalDrivingLicenseApplication.GetLicenseClassId(LocalDrivingLicenseApplicationID);
             this.ApplicantFullName = ApplicationFullName;
         }
         private string _GetLicenseClassText(EnLicenseClass licenseClass)
@@ -105,6 +109,10 @@ namespace DVLD.Presentation.Tests.Test_Appointments.vision_tests
         }
         private void BtnScheduleTestFormSave_Click(object sender, EventArgs e)
         {
+            if (enApplicationStatus == EnApplicationStatus.New)
+            {
+                BusinessLogic.ClsApplications.UpdateApplicationStatus(AppID, EnApplicationStatus.InProgress);
+            }
             StTestAppointment.AppointmentDate = DatePickerScheduleTest.Value;
             StTestAppointment.CreatedByUserID = ClsGlobal.CurrentUser.UserID;
             if (isUpdateDate)
@@ -117,6 +125,7 @@ namespace DVLD.Presentation.Tests.Test_Appointments.vision_tests
             {
                 if (BusinessLogic.ClsTests.AddNewTestAppointment(StTestAppointment))
                 {
+
                     MessageBox.Show("Test Appointment Added Successfully!", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

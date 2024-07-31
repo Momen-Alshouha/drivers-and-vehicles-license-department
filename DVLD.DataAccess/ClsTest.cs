@@ -332,6 +332,21 @@ namespace DVLD.DataAccess
                 }
             }
         }
+        public static bool DoesLocalAppPassedAllTests(int LocalAppID)
+        {
+
+            if (DoesLocalAppPassedTestForSpecificTestType(LocalAppID, EnTestType.PracticalStreetTest))
+            {
+                if (DoesLocalAppPassedTestForSpecificTestType(LocalAppID, EnTestType.VisionTest))
+                {
+                    if (DoesLocalAppPassedTestForSpecificTestType(LocalAppID, EnTestType.WrittenTheoryTest))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
     }
 }
