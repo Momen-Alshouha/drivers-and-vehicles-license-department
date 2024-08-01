@@ -17,6 +17,7 @@ namespace DVLD.Presentation.Tests.Test_Appointments
 {
     public partial class FrmManageTest : Form
     {
+        // TODO: retake test functionality if failed in the test
         bool DoesPasTest;
         int applicationID = 0;
         int LocalApplicationID;
