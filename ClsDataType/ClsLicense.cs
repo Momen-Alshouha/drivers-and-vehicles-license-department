@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static ClsDataType.ClsApplication;
-
+using static ClsDataType.ClsDataType;
 namespace ClsDataType
 {
     public class ClsLicense
@@ -19,6 +19,7 @@ namespace ClsDataType
 
         public struct StLicense
         {
+
             public int LicenseID { get; set; }
             public int ApplicationID { get; set; }
             public int DriverID { get; set; }
@@ -30,6 +31,7 @@ namespace ClsDataType
             public bool IsActive { get; set; }
             public EnIssueReason IssueReason { get; set; }
             public int CreatedByUserID { get; set; }
+            public StPerson DriverPersonDetails { get; set; }
         }
     }
 }

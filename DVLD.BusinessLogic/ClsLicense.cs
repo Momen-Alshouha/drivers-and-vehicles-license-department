@@ -27,5 +27,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsLicense.GetFees(licenseClass);
         }
+        public static StLicense GetLicenseInfo(int ApplicationID)
+        {
+            return DataAccess.ClsLicense.GetLicenseInfo(ApplicationID);
+        }
     }
 }

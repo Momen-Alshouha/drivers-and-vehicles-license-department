@@ -79,6 +79,12 @@
     <Compile Include="ClsGlobal.cs" />
     <Compile Include="ClsUtil.cs" />
     <Compile Include="ClsValidation.cs" />
+    <Compile Include="Controls\CtrlLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CtrlLicenseInfo.Designer.cs">
+      <DependentUpon>CtrlLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CtrlLocalDrivingLicenseApplication.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,6 +120,12 @@
     </Compile>
     <Compile Include="Controls\CtrlPersonDetailsWithFilter.Designer.cs">
       <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\FrmLicenseInfoDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\FrmLicenseInfoDetails.Designer.cs">
+      <DependentUpon>FrmLicenseInfoDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\IssueLicense\FrmIssueDrivingLicense.cs">
       <SubType>Form</SubType>
@@ -222,6 +234,9 @@
     <EmbeddedResource Include="Applications\LocalDrivingLicenseApplication\FrmManageLocalDrivingLicenseApplication.resx">
       <DependentUpon>FrmManageLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CtrlLicenseInfo.resx">
+      <DependentUpon>CtrlLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlLocalDrivingLicenseApplication.resx">
       <DependentUpon>CtrlLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlPersonDetailsWithFilter.resx">
       <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\FrmLicenseInfoDetails.resx">
+      <DependentUpon>FrmLicenseInfoDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\IssueLicense\FrmIssueDrivingLicense.resx">
       <DependentUpon>FrmIssueDrivingLicense.cs</DependentUpon>
@@ -468,6 +486,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Driver Main.png" />
+    <None Include="Resources\LicenseView 400.png" />
     <Content Include="screenshoots\manage_users.PNG" />
     <Content Include="screenshoots\user_information.PNG" />
     <None Include="Resources\Male.png" />

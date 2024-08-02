@@ -7,6 +7,7 @@ using static ClsDataType.ClsApplication;
 using static ClsDataType.ClsTestAppintment;
 using static ClsDataType.ClsLicense;
 using ClsDataType;
+using DVLD.Presentation.Licenses;
 
 namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
 {
@@ -57,6 +58,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         }
         private void _EnableDisableContextMenuToolsStripe(EnApplicationStatus ApplicationStatus)
         {
+            showLicensesToolStripMenuItem.Enabled= false;
             bool HasLocalDrivingLicense=BusinessLogic.ClsLicense.HasLicenseForApplication(ApplicationId);
             _EnableDisableScheduleTestsToolStripsMenu(ApplicationStatus);
             if (BusinessLogic.ClsTests.DoesLocalAppPassedAllTests(_GetSelectedLocalDrivingLicenseeApplicationID()))
@@ -72,6 +74,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             if (HasLocalDrivingLicense)
             {
                 issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
+                showLicensesToolStripMenuItem.Enabled = true;
             }
             //if (EnApplicationStatus.Canceled==ApplicationStatus)
             //{
@@ -297,7 +300,8 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         }
         private void showLicensesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: implement show license functionality
+            FrmLicenseInfoDetails frmLicense = new FrmLicenseInfoDetails(ApplicationId);
+            frmLicense.ShowDialog();
         }
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {

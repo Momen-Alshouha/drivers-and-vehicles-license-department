@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static ClsDataType.ClsLicense;
 using static ClsDataType.ClsApplication;
+using static ClsDataType.ClsDataType;
 namespace DVLD.DataAccess
 {
     public class ClsLicense
@@ -119,6 +120,82 @@ namespace DVLD.DataAccess
             }
 
             return fees; // return 0 if not found or in case of error
+        }
+        public static StLicense GetLicenseInfo(int ApplicationID)
+        {
+            StLicense license = new StLicense
+            {
+                DriverPersonDetails = new StPerson()
+            };
+
+            string query = @"
+        SELECT Licenses.LicenseID, Licenses.ApplicationID, Licenses.DriverID, Licenses.IssueReason, Licenses.IsActive, Licenses.Notes, Licenses.ExpirationDate, Licenses.IssueDate, Licenses.LicenseClass,
+               People.NationalNo, People.FirstName, People.SecondName, People.ThirdName, People.LastName, People.BirthDate, People.Gender, People.ImagePath
+        FROM Licenses
+        INNER JOIN Drivers ON Drivers.DriverID = Licenses.DriverID
+        INNER JOIN People ON Drivers.PersonID = People.PersonID
+        WHERE Licenses.ApplicationID = @ApplicationID";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                license.LicenseID = reader.GetInt32(reader.GetOrdinal("LicenseID"));
+                                license.ApplicationID = reader.GetInt32(reader.GetOrdinal("ApplicationID"));
+                                license.DriverID = reader.GetInt32(reader.GetOrdinal("DriverID"));
+
+                                // Handle tinyint as EnIssueReason
+                                license.IssueReason = (EnIssueReason)reader.GetByte(reader.GetOrdinal("IssueReason"));
+
+                                // Handle bit as boolean
+                                license.IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive"));
+
+                                license.Notes = reader.IsDBNull(reader.GetOrdinal("Notes")) ? null : reader.GetString(reader.GetOrdinal("Notes"));
+                                license.ExpirationDate = reader.GetDateTime(reader.GetOrdinal("ExpirationDate"));
+                                license.IssueDate = reader.GetDateTime(reader.GetOrdinal("IssueDate"));
+
+                                license.EnLicenseClass = (EnLicenseClass)reader.GetInt32(reader.GetOrdinal("LicenseClass"));
+
+
+                                license.DriverPersonDetails = new StPerson
+                                {
+                                    NationalNo = reader.IsDBNull(reader.GetOrdinal("NationalNo")) ? null : reader.GetString(reader.GetOrdinal("NationalNo")),
+                                    FirstName = reader.IsDBNull(reader.GetOrdinal("FirstName")) ? null : reader.GetString(reader.GetOrdinal("FirstName")),
+                                    SecondName = reader.IsDBNull(reader.GetOrdinal("SecondName")) ? null : reader.GetString(reader.GetOrdinal("SecondName")),
+                                    ThirdName = reader.IsDBNull(reader.GetOrdinal("ThirdName")) ? null : reader.GetString(reader.GetOrdinal("ThirdName")),
+                                    LastName = reader.IsDBNull(reader.GetOrdinal("LastName")) ? null : reader.GetString(reader.GetOrdinal("LastName")),
+                                    BirthDate = reader.IsDBNull(reader.GetOrdinal("BirthDate")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                                    Gender = reader.IsDBNull(reader.GetOrdinal("Gender")) ? (short)0 : reader.GetByte(reader.GetOrdinal("Gender")),
+                                    ImagePath = reader.IsDBNull(reader.GetOrdinal("ImagePath")) ? null : reader.GetString(reader.GetOrdinal("ImagePath"))
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+                // Display SQL exception using a message box
+                //MessageBox.Show($"SQL Exception: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                // Display general exception using a message box
+                //MessageBox.Show($"General Exception: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return license;
         }
     }
 }
