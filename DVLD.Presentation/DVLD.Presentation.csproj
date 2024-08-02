@@ -91,6 +91,12 @@
     <Compile Include="Controls\CtrlUserCard.Designer.cs">
       <DependentUpon>CtrlUserCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Drivers\FrmDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drivers\FrmDrivers.Designer.cs">
+      <DependentUpon>FrmDrivers.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlUserCard.resx">
       <DependentUpon>CtrlUserCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\FrmDrivers.resx">
+      <DependentUpon>FrmDrivers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -458,6 +467,7 @@
     <None Include="Resources\Vision 512.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Driver Main.png" />
     <Content Include="screenshoots\manage_users.PNG" />
     <Content Include="screenshoots\user_information.PNG" />
     <None Include="Resources\Male.png" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,63 @@ namespace DVLD.DataAccess
 {
     public class ClsDriver
     {
+        public static DataTable GetAllDriversInfo()
+        {
+            DataTable dtDrivers = new DataTable();
+            SqlConnection connection = new SqlConnection(Settings.ConnectionString);
+
+            try
+            {
+                string query = @"
+                    SELECT 
+                        D.DriverID,
+                        D.PersonID, 
+                        P.NationalNo,
+                        P.FirstName + ' ' + P.SecondName + ' ' + P.ThirdName + ' ' + P.LastName AS FullName,
+                        D.CreatedDate,
+                        COUNT(L.DriverID) AS ActiveLicenses
+                    FROM 
+                        Licenses L
+                    INNER JOIN 
+                        Drivers D ON D.DriverID = L.DriverID
+                    INNER JOIN 
+                        People P ON P.PersonID = D.PersonID
+                    WHERE 
+                        L.IsActive = 1
+                    GROUP BY 
+                        D.DriverID, 
+                        D.PersonID, 
+                        P.NationalNo, 
+                        P.FirstName, 
+                        P.SecondName, 
+                        P.ThirdName, 
+                        P.LastName, 
+                        D.CreatedDate;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dtDrivers.Load(reader);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception (e.g., log it)
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dtDrivers;
+        }
         public static int AddNewDriver(StDriver driver)
         {
             int NewDriverID = -1; // if returns -1 means driver not added

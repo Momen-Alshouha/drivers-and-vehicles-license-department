@@ -1,5 +1,6 @@
 ﻿using DVLD.Presentation.Application_Types;
 using DVLD.Presentation.Applications.LocalDrivingLicenseApplication;
+using DVLD.Presentation.Drivers;
 using DVLD.Presentation.Login;
 using DVLD.Presentation.People;
 using DVLD.Presentation.People.Controls;
@@ -85,6 +86,12 @@ namespace DVLD.Presentation
         private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDrivers frmDrivers = new FrmDrivers();
+            frmDrivers.ShowDialog();
         }
     }
 }

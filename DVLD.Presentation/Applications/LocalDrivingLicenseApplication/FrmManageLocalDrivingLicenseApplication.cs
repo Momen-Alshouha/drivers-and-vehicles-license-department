@@ -297,7 +297,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         }
         private void showLicensesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+            // TODO: implement show license functionality
         }
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -305,6 +305,11 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             FrmIssueDrivingLicense license = new FrmIssueDrivingLicense(LocalApplicationID, enIssueReason);
             license.ShowDialog();
             _LoadDataInDataGridViewAndLoadNumberOfRecords();
+        }
+
+        private void showPersonLicenesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO: implement person license history functionality
         }
     }   
 }

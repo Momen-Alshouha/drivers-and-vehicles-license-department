@@ -260,6 +260,7 @@
             this.driversToolStripMenuItem.Name = "driversToolStripMenuItem";
             this.driversToolStripMenuItem.Size = new System.Drawing.Size(147, 68);
             this.driversToolStripMenuItem.Text = "Drivers";
+            this.driversToolStripMenuItem.Click += new System.EventHandler(this.driversToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
@@ -287,7 +288,7 @@
             this.currnetUserInfoToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.User_32__2;
             this.currnetUserInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.currnetUserInfoToolStripMenuItem.Name = "currnetUserInfoToolStripMenuItem";
-            this.currnetUserInfoToolStripMenuItem.Size = new System.Drawing.Size(278, 42);
+            this.currnetUserInfoToolStripMenuItem.Size = new System.Drawing.Size(262, 42);
             this.currnetUserInfoToolStripMenuItem.Text = "Currnet User Info";
             this.currnetUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currnetUserInfoToolStripMenuItem_Click);
             // 
@@ -296,7 +297,7 @@
             this.changePasswordToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Password_32;
             this.changePasswordToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(278, 42);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(262, 42);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
@@ -305,7 +306,7 @@
             this.signOutToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Sign_Out_32;
             this.signOutToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(278, 42);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(262, 42);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 

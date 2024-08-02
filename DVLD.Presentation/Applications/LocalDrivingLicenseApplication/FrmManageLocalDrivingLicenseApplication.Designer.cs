@@ -274,6 +274,7 @@
             this.showPersonLicenesHistoryToolStripMenuItem.Name = "showPersonLicenesHistoryToolStripMenuItem";
             this.showPersonLicenesHistoryToolStripMenuItem.Size = new System.Drawing.Size(354, 40);
             this.showPersonLicenesHistoryToolStripMenuItem.Text = "Show Person Licenes History";
+            this.showPersonLicenesHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenesHistoryToolStripMenuItem_Click);
             // 
             // BtnCloseManageLocalApplicationsForm
             // 
