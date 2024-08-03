@@ -36,6 +36,10 @@
             this.BtnInternationalApplicationsClose = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.LblInternationalLicenseApplicationsRecordsCountValues = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxFilterInternationalLicenses = new System.Windows.Forms.ComboBox();
+            this.textBoxFilterInternationalLicenseIDValue = new System.Windows.Forms.TextBox();
+            this.LblValidateInputLicenseAppList = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewInternationalApplication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -135,12 +139,60 @@
             this.LblInternationalLicenseApplicationsRecordsCountValues.TabIndex = 8;
             this.LblInternationalLicenseApplicationsRecordsCountValues.Text = "000";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Firebrick;
+            this.label2.Location = new System.Drawing.Point(12, 284);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 34);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Filter By: ";
+            // 
+            // comboBoxFilterInternationalLicenses
+            // 
+            this.comboBoxFilterInternationalLicenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFilterInternationalLicenses.FormattingEnabled = true;
+            this.comboBoxFilterInternationalLicenses.Items.AddRange(new object[] {
+            "Driver ID",
+            "International License ID"});
+            this.comboBoxFilterInternationalLicenses.Location = new System.Drawing.Point(152, 290);
+            this.comboBoxFilterInternationalLicenses.Name = "comboBoxFilterInternationalLicenses";
+            this.comboBoxFilterInternationalLicenses.Size = new System.Drawing.Size(220, 27);
+            this.comboBoxFilterInternationalLicenses.TabIndex = 10;
+            this.comboBoxFilterInternationalLicenses.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterInternationalLicenses_SelectedIndexChanged);
+            // 
+            // textBoxFilterInternationalLicenseIDValue
+            // 
+            this.textBoxFilterInternationalLicenseIDValue.Location = new System.Drawing.Point(378, 290);
+            this.textBoxFilterInternationalLicenseIDValue.Name = "textBoxFilterInternationalLicenseIDValue";
+            this.textBoxFilterInternationalLicenseIDValue.Size = new System.Drawing.Size(100, 27);
+            this.textBoxFilterInternationalLicenseIDValue.TabIndex = 11;
+            this.textBoxFilterInternationalLicenseIDValue.TextChanged += new System.EventHandler(this.textBoxFilterInternationalLicenseIDValue_TextChanged);
+            // 
+            // LblValidateInputLicenseAppList
+            // 
+            this.LblValidateInputLicenseAppList.AutoSize = true;
+            this.LblValidateInputLicenseAppList.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.LblValidateInputLicenseAppList.ForeColor = System.Drawing.Color.Firebrick;
+            this.LblValidateInputLicenseAppList.Location = new System.Drawing.Point(484, 300);
+            this.LblValidateInputLicenseAppList.Name = "LblValidateInputLicenseAppList";
+            this.LblValidateInputLicenseAppList.Size = new System.Drawing.Size(151, 17);
+            this.LblValidateInputLicenseAppList.TabIndex = 12;
+            this.LblValidateInputLicenseAppList.Text = "Enter valid number...";
+            this.LblValidateInputLicenseAppList.Visible = false;
+            // 
             // FrmListInternationalLicenseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(923, 683);
+            this.Controls.Add(this.LblValidateInputLicenseAppList);
+            this.Controls.Add(this.textBoxFilterInternationalLicenseIDValue);
+            this.Controls.Add(this.comboBoxFilterInternationalLicenses);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.LblInternationalLicenseApplicationsRecordsCountValues);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnInternationalApplicationsClose);
@@ -171,5 +223,9 @@
         private System.Windows.Forms.Button BtnInternationalApplicationsClose;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblInternationalLicenseApplicationsRecordsCountValues;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxFilterInternationalLicenses;
+        private System.Windows.Forms.TextBox textBoxFilterInternationalLicenseIDValue;
+        private System.Windows.Forms.Label LblValidateInputLicenseAppList;
     }
 }

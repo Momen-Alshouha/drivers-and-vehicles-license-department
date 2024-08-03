@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows.Forms;
+using System;
 
 namespace DVLD.Presentation.Applications.International
 {
@@ -15,19 +8,25 @@ namespace DVLD.Presentation.Applications.International
     {
         DataTable DataTableInternationalLicense;
         DataTable _dtView;
-        int RowsCounts=0;
+        int RowsCounts = 0;
+
         public FrmListInternationalLicenseApplications()
         {
             InitializeComponent();
+            textBoxFilterInternationalLicenseIDValue.Visible = false;
+            comboBoxFilterInternationalLicenses.Items.AddRange(new object[] { "Driver ID", "International License ID" });
+            comboBoxFilterInternationalLicenses.SelectedIndex = 0;
             RefreshDataGridRecordsAndCount();
             ModifyDataGridViewDesign();
         }
+
         private void RefreshDataGridRecordsAndCount()
         {
             DataTableInternationalLicense = BusinessLogic.ClsInternationalLicenseApplication.GetInternationalLicenses(ref RowsCounts);
             dataGridViewInternationalApplications.DataSource = DataTableInternationalLicense;
             LblInternationalLicenseApplicationsRecordsCountValues.Text = RowsCounts.ToString();
         }
+
         private void ModifyDataGridViewDesign()
         {
             dataGridViewInternationalApplications.Columns[0].HeaderText = "I.L ID";
@@ -43,6 +42,7 @@ namespace DVLD.Presentation.Applications.International
             dataGridViewInternationalApplications.Columns[6].HeaderText = "Is Active";
             dataGridViewInternationalApplications.Columns[6].Width = 70;
         }
+
         private void BtnInternationalApplicationsClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -51,6 +51,45 @@ namespace DVLD.Presentation.Applications.International
         private void pictureBoxNewInternationalApplication_Click(object sender, EventArgs e)
         {
             // TODO: 
+        }
+
+        private void comboBoxFilterInternationalLicenses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxFilterInternationalLicenseIDValue.Visible = true;
+            textBoxFilterInternationalLicenseIDValue.Text = string.Empty;
+            ApplyFilter();
+        }
+
+        private void textBoxFilterInternationalLicenseIDValue_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void ApplyFilter()
+        {
+            LblValidateInputLicenseAppList.Visible = false;
+            string filterText = textBoxFilterInternationalLicenseIDValue.Text;
+            string filterColumn = comboBoxFilterInternationalLicenses.SelectedItem.ToString() == "Driver ID" ? "DriverID" : "InternationalLicenseID";
+
+            if (string.IsNullOrEmpty(filterText))
+            {
+                dataGridViewInternationalApplications.DataSource = DataTableInternationalLicense;
+            }
+            else
+            {
+                if (int.TryParse(filterText, out int filterValue))
+                {
+                    DataView dv = new DataView(DataTableInternationalLicense);
+                    dv.RowFilter = string.Format("{0} = {1}", filterColumn, filterValue);
+                    dataGridViewInternationalApplications.DataSource = dv;
+                }
+                else
+                {
+                   LblValidateInputLicenseAppList.Visible = true;
+                }
+            }
+
+            LblInternationalLicenseApplicationsRecordsCountValues.Text = dataGridViewInternationalApplications.Rows.Count.ToString();
         }
     }
 }
