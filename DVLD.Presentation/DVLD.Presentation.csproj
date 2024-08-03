@@ -85,6 +85,12 @@
     <Compile Include="Controls\CtrlLicenseInfo.Designer.cs">
       <DependentUpon>CtrlLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CtrlLicenseInfoDetailsWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CtrlLicenseInfoDetailsWithFilter.Designer.cs">
+      <DependentUpon>CtrlLicenseInfoDetailsWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CtrlLocalDrivingLicenseApplication.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlLicenseInfo.resx">
       <DependentUpon>CtrlLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CtrlLicenseInfoDetailsWithFilter.resx">
+      <DependentUpon>CtrlLicenseInfoDetailsWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlLocalDrivingLicenseApplication.resx">
       <DependentUpon>CtrlLocalDrivingLicenseApplication.cs</DependentUpon>
@@ -497,6 +506,7 @@
     <None Include="Resources\Driver Main.png" />
     <None Include="Resources\LicenseView 400.png" />
     <None Include="Resources\PersonLicenseHistory 512.png" />
+    <None Include="Resources\License View 322.png" />
     <Content Include="screenshoots\manage_users.PNG" />
     <Content Include="screenshoots\user_information.PNG" />
     <None Include="Resources\Male.png" />

@@ -198,6 +198,78 @@ namespace DVLD.DataAccess
 
             return license;
         }
+        public static StLicense GetLicenseInfoByLicenseID(int LicenseID)
+        {
+            StLicense license = new StLicense
+            {
+                DriverPersonDetails = new StPerson()
+            };
+
+            string query = @"
+                SELECT Licenses.LicenseID, Licenses.ApplicationID, Licenses.DriverID, Licenses.IssueReason, Licenses.IsActive, Licenses.Notes, Licenses.ExpirationDate, Licenses.IssueDate, Licenses.LicenseClass,
+                       People.NationalNo, People.FirstName, People.SecondName, People.ThirdName, People.LastName, People.BirthDate, People.Gender, People.ImagePath
+                FROM Licenses
+                INNER JOIN Drivers ON Drivers.DriverID = Licenses.DriverID
+                INNER JOIN People ON Drivers.PersonID = People.PersonID
+                WHERE Licenses.LicenseID = @LicenseID";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                license.LicenseID = reader.GetInt32(reader.GetOrdinal("LicenseID"));
+                                license.ApplicationID = reader.GetInt32(reader.GetOrdinal("ApplicationID"));
+                                license.DriverID = reader.GetInt32(reader.GetOrdinal("DriverID"));
+
+                                // Handle tinyint as EnIssueReason
+                                license.IssueReason = (EnIssueReason)reader.GetByte(reader.GetOrdinal("IssueReason"));
+
+                                // Handle bit as boolean
+                                license.IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive"));
+
+                                license.Notes = reader.IsDBNull(reader.GetOrdinal("Notes")) ? null : reader.GetString(reader.GetOrdinal("Notes"));
+                                license.ExpirationDate = reader.GetDateTime(reader.GetOrdinal("ExpirationDate"));
+                                license.IssueDate = reader.GetDateTime(reader.GetOrdinal("IssueDate"));
+
+                                license.EnLicenseClass = (EnLicenseClass)reader.GetInt32(reader.GetOrdinal("LicenseClass"));
+
+                                license.DriverPersonDetails = new StPerson
+                                {
+                                    NationalNo = reader.IsDBNull(reader.GetOrdinal("NationalNo")) ? null : reader.GetString(reader.GetOrdinal("NationalNo")),
+                                    FirstName = reader.IsDBNull(reader.GetOrdinal("FirstName")) ? null : reader.GetString(reader.GetOrdinal("FirstName")),
+                                    SecondName = reader.IsDBNull(reader.GetOrdinal("SecondName")) ? null : reader.GetString(reader.GetOrdinal("SecondName")),
+                                    ThirdName = reader.IsDBNull(reader.GetOrdinal("ThirdName")) ? null : reader.GetString(reader.GetOrdinal("ThirdName")),
+                                    LastName = reader.IsDBNull(reader.GetOrdinal("LastName")) ? null : reader.GetString(reader.GetOrdinal("LastName")),
+                                    BirthDate = reader.IsDBNull(reader.GetOrdinal("BirthDate")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                                    Gender = reader.IsDBNull(reader.GetOrdinal("Gender")) ? (short)0 : reader.GetByte(reader.GetOrdinal("Gender")),
+                                    ImagePath = reader.IsDBNull(reader.GetOrdinal("ImagePath")) ? null : reader.GetString(reader.GetOrdinal("ImagePath"))
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("SQL Exception: " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("General Exception: " + ex.Message, ex);
+            }
+
+            return license;
+        }
+
         public static DataTable GetLocalLicenseHistoryForPerson(int personID)
         {
             DataTable dataTable = new DataTable();
@@ -357,5 +429,77 @@ namespace DVLD.DataAccess
                 throw new ApplicationException("An unexpected error occurred.", ex);
             }
         }
+        public static bool IsLicenseDetained(int LicenseID)
+        {
+            bool isDetained = false;
+            string query = @"
+                SELECT COUNT(*)
+                FROM DetainedLicenses
+                WHERE LicenseID = @LicenseID AND IsReleased = 0";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+                        connection.Open();
+                        int count = (int)command.ExecuteScalar();
+
+                        isDetained = count > 0;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("An error occurred while checking if the license is detained.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An unexpected error occurred.", ex);
+            }
+
+            return isDetained;
+        }
+        public static bool IsLicenseExpired(int LicenseID)
+        {
+            bool isExpired = false;
+            string query = @"
+        SELECT ExpirationDate
+        FROM Licenses
+        WHERE LicenseID = @LicenseID";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && DateTime.TryParse(result.ToString(), out DateTime expirationDate))
+                        {
+                            isExpired = DateTime.Now > expirationDate;
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("An error occurred while checking if the license is expired.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An unexpected error occurred.", ex);
+            }
+
+            return isExpired;
+        }
+        //TODO RenewLicense , DetainLicense, ReleaseLicense , Replace methods.
     }
 }

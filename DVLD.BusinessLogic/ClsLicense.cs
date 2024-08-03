@@ -32,6 +32,10 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsLicense.GetLicenseInfo(ApplicationID);
         }
+        public static StLicense GetLicenseInfoByLicenseID(int LicenseID)
+        {
+            return DataAccess.ClsLicense.GetLicenseInfoByLicenseID(LicenseID);
+        }
         public static DataTable GetLocalLicenseHistoryForPerson(int PersonID)
         {
             return DataAccess.ClsLicense.GetLocalLicenseHistoryForPerson(PersonID);
@@ -47,6 +51,14 @@ namespace DVLD.BusinessLogic
         public static void DeactivateLicense(int LicenseID)
         {
             DataAccess.ClsLicense.DeactivateLicense(LicenseID);
+        }
+        public static bool IsLicenseDetained(int LicenseID)
+        {
+            return DataAccess.ClsLicense.IsLicenseDetained(LicenseID);
+        }
+        public static bool IsLicenseExpired(int LicenseID)
+        {
+            return DataAccess.ClsLicense.IsLicenseExpired(LicenseID);
         }
     }
 }
