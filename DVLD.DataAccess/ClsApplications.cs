@@ -354,6 +354,5 @@ namespace DVLD.DataAccess
 
             return (EnApplicationStatus)ApplicationStatus;
         }
-
     }
 }

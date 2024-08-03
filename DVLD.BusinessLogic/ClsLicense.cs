@@ -60,5 +60,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsLicense.IsLicenseExpired(LicenseID);
         }
+        public static bool HasInternationalLicense(int LicenseID)
+        {
+            return DataAccess.ClsLicense.HasInternationalLicense(LicenseID);
+        }
     }
 }

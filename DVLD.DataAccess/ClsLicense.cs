@@ -269,7 +269,6 @@ namespace DVLD.DataAccess
 
             return license;
         }
-
         public static DataTable GetLocalLicenseHistoryForPerson(int personID)
         {
             DataTable dataTable = new DataTable();
@@ -501,5 +500,41 @@ namespace DVLD.DataAccess
             return isExpired;
         }
         //TODO RenewLicense , DetainLicense, ReleaseLicense , Replace methods.
+        public static bool HasInternationalLicense(int LicenseID)
+        {
+            bool hasInternationalLicense = false;
+
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = "SELECT 1 FROM InternationalLicenses WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID";
+
+                try
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", LicenseID);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            hasInternationalLicense = true;
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    throw new ApplicationException("SQL Exception: " + ex.Message, ex);
+                }
+                catch (Exception ex)
+                {
+                    throw new ApplicationException("General Exception: " + ex.Message, ex);
+                }
+            }
+
+            return hasInternationalLicense;
+        }
+
     }
 }

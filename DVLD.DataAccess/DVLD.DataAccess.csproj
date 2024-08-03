@@ -52,6 +52,7 @@
     <Compile Include="ClsTest.cs" />
     <Compile Include="ClsTestType.cs" />
     <Compile Include="ClsUser.cs" />
+    <Compile Include="ClsInternationalLicenseApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>

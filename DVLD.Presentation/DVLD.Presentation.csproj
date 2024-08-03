@@ -58,6 +58,12 @@
     <Compile Include="Applications\Application Types\FrmManageAppTypes.Designer.cs">
       <DependentUpon>FrmManageAppTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\International\FrmListInternationalLicenseApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\International\FrmListInternationalLicenseApplications.Designer.cs">
+      <DependentUpon>FrmListInternationalLicenseApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\LocalDrivingLicenseApplication\FrmAddEditLocalDrivingLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Application Types\FrmManageAppTypes.resx">
       <DependentUpon>FrmManageAppTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\International\FrmListInternationalLicenseApplications.resx">
+      <DependentUpon>FrmListInternationalLicenseApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\LocalDrivingLicenseApplication\FrmAddEditLocalDrivingLicenseApplication.resx">
       <DependentUpon>FrmAddEditLocalDrivingLicenseApplication.cs</DependentUpon>
@@ -507,6 +516,8 @@
     <None Include="Resources\LicenseView 400.png" />
     <None Include="Resources\PersonLicenseHistory 512.png" />
     <None Include="Resources\License View 322.png" />
+    <None Include="Resources\Applications1.png" />
+    <None Include="Resources\New Application 641.png" />
     <Content Include="screenshoots\manage_users.PNG" />
     <Content Include="screenshoots\user_information.PNG" />
     <None Include="Resources\Male.png" />

@@ -1,4 +1,5 @@
 ﻿using DVLD.Presentation.Application_Types;
+using DVLD.Presentation.Applications.International;
 using DVLD.Presentation.Applications.LocalDrivingLicenseApplication;
 using DVLD.Presentation.Drivers;
 using DVLD.Presentation.Login;
@@ -92,6 +93,11 @@ namespace DVLD.Presentation
         {
             FrmDrivers frmDrivers = new FrmDrivers();
             frmDrivers.ShowDialog();
+        }
+        private void internationalDrivingLicenseApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListInternationalLicenseApplications frmListInternationalLicenseApplications = new FrmListInternationalLicenseApplications();
+            frmListInternationalLicenseApplications.ShowDialog();
         }
     }
 }
