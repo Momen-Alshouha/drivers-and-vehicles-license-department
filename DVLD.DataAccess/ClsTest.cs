@@ -146,6 +146,7 @@ namespace DVLD.DataAccess
         }
         public static void TakeTest(StTakenTest stTakenTest)
         {
+            // TODO: handle test appointment to be locked after add test record
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
                 string query = @"

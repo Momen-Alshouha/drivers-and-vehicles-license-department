@@ -326,6 +326,36 @@ namespace DVLD.DataAccess
 
             return hasLicense;
         }
+        public static void DeactivateLicense(int LicenseID)
+        {
+            string query = "UPDATE Licenses SET IsActive = 0 WHERE LicenseID = @LicenseID";
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected == 0)
+                        {
+                            throw new ApplicationException("No license found with the specified LicenseID.");
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("An error occurred while deactivating the license.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An unexpected error occurred.", ex);
+            }
+        }
     }
 }

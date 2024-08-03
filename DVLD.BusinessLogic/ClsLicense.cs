@@ -44,5 +44,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsLicense.HasAnyLicense(PersonID);
         }
+        public static void DeactivateLicense(int LicenseID)
+        {
+            DataAccess.ClsLicense.DeactivateLicense(LicenseID);
+        }
     }
 }

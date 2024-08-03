@@ -14,6 +14,8 @@ namespace DVLD.Presentation.Tests.Test_Appointments.vision_tests
 {
     public partial class FrmScheduleTest : Form
     {
+        // TODO: test date must be date and time
+        // TODO: Get Trails
         int LocalAppID = 0;
         int AppID = 0;
         bool isUpdateDate = false;

@@ -53,6 +53,7 @@ namespace DVLD.Presentation.Licenses.IssueLicense
         }
         private void BtnIssueLicense_Click(object sender, EventArgs e)
         {
+            // TODO: Check if already a driver befor add new driver
             int NewDriverId = BusinessLogic.ClsDriver.AddNewDriver(driver);
             license.DriverID = NewDriverId;
             InitialLicenseData(ref license);
