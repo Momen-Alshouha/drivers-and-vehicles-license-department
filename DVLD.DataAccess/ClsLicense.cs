@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using static ClsDataType.ClsLicense;
 using static ClsDataType.ClsApplication;
 using static ClsDataType.ClsDataType;
+using System.Data;
 namespace DVLD.DataAccess
 {
     public class ClsLicense
@@ -197,5 +198,134 @@ namespace DVLD.DataAccess
 
             return license;
         }
+        public static DataTable GetLocalLicenseHistoryForPerson(int personID)
+        {
+            DataTable dataTable = new DataTable();
+
+            string query = @"
+                SELECT L.LicenseID, L.ApplicationID, L.LicenseClass, L.IssueDate, L.ExpirationDate, L.IsActive
+                FROM Licenses L
+                INNER JOIN Drivers D ON L.DriverID = D.DriverID
+                INNER JOIN People P ON P.PersonID = D.PersonID
+                WHERE P.PersonID = @PersonID";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@PersonID", personID);
+
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            dataTable.Load(reader);
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("An error occurred while retrieving license history.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An unexpected error occurred.", ex);
+            }
+
+            return dataTable;
+        }
+        public static DataTable GetInternationalLicenseHistoryForPerson(int personID)
+        {
+            DataTable dataTable = new DataTable();
+
+            string query = @"
+        SELECT L.InternationalLicenseID, L.ApplicationID, L.IssueDate, L.ExpirationDate, L.IsActive
+        FROM InternationalLicenses L
+        INNER JOIN Drivers D ON L.DriverID = D.DriverID
+        INNER JOIN People P ON P.PersonID = D.PersonID
+        WHERE P.PersonID = @PersonID";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@PersonID", personID);
+
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            dataTable.Load(reader);
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("An error occurred while retrieving international license history.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An unexpected error occurred.", ex);
+            }
+
+            return dataTable;
+        }
+        public static bool HasAnyLicense(int personID)
+        {
+            bool hasLicense = false;
+
+            string query = @"
+        SELECT CASE 
+                   WHEN EXISTS (
+                       SELECT 1 
+                       FROM Licenses L
+                       INNER JOIN Drivers D ON L.DriverID = D.DriverID
+                       INNER JOIN People P ON P.PersonID = D.PersonID
+                       WHERE P.PersonID = @PersonID
+                   ) THEN 1
+                   WHEN EXISTS (
+                       SELECT 1 
+                       FROM InternationalLicenses IL
+                       INNER JOIN Drivers D ON IL.DriverID = D.DriverID
+                       INNER JOIN People P ON P.PersonID = D.PersonID
+                       WHERE P.PersonID = @PersonID
+                   ) THEN 1
+                   ELSE 0
+               END AS HasLicense";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@PersonID", personID);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int hasLicenseValue))
+                        {
+                            hasLicense = hasLicenseValue == 1;
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("An error occurred while checking for licenses.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An unexpected error occurred.", ex);
+            }
+
+            return hasLicense;
+        }
+
     }
 }

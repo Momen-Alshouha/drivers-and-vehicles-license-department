@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.BtnLicenseDetailsFrmClose = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ctrlLicenseInfo1 = new DVLD.Presentation.Controls.CtrlLicenseInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,16 +44,7 @@
             this.BtnLicenseDetailsFrmClose.TabIndex = 1;
             this.BtnLicenseDetailsFrmClose.Text = "Close";
             this.BtnLicenseDetailsFrmClose.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.LicenseView_400;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(288, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.BtnLicenseDetailsFrmClose.Click += new System.EventHandler(this.BtnLicenseDetailsFrmClose_Click);
             // 
             // label1
             // 
@@ -66,6 +57,16 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Driver License Info ";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.LicenseView_400;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(288, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // ctrlLicenseInfo1
             // 
             this.ctrlLicenseInfo1.Location = new System.Drawing.Point(12, 162);
@@ -77,6 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1128, 802);
             this.Controls.Add(this.ctrlLicenseInfo1);
             this.Controls.Add(this.label1);

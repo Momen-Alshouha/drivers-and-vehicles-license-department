@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime;
@@ -30,6 +31,18 @@ namespace DVLD.BusinessLogic
         public static StLicense GetLicenseInfo(int ApplicationID)
         {
             return DataAccess.ClsLicense.GetLicenseInfo(ApplicationID);
+        }
+        public static DataTable GetLocalLicenseHistoryForPerson(int PersonID)
+        {
+            return DataAccess.ClsLicense.GetLocalLicenseHistoryForPerson(PersonID);
+        }
+        public static DataTable GetInternationalLicenseHistoryForPerson(int PersonID)
+        {
+            return DataAccess.ClsLicense.GetInternationalLicenseHistoryForPerson(PersonID);
+        }
+        public static bool HasAnyLicense(int PersonID)
+        {
+            return DataAccess.ClsLicense.HasAnyLicense(PersonID);
         }
     }
 }

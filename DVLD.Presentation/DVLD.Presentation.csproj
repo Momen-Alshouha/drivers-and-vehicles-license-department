@@ -127,6 +127,12 @@
     <Compile Include="Licenses\FrmLicenseInfoDetails.Designer.cs">
       <DependentUpon>FrmLicenseInfoDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Licenses\FrmLicensesHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\FrmLicensesHistory.Designer.cs">
+      <DependentUpon>FrmLicensesHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Licenses\IssueLicense\FrmIssueDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\FrmLicenseInfoDetails.resx">
       <DependentUpon>FrmLicenseInfoDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\FrmLicensesHistory.resx">
+      <DependentUpon>FrmLicensesHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\IssueLicense\FrmIssueDrivingLicense.resx">
       <DependentUpon>FrmIssueDrivingLicense.cs</DependentUpon>
@@ -487,6 +496,7 @@
   <ItemGroup>
     <None Include="Resources\Driver Main.png" />
     <None Include="Resources\LicenseView 400.png" />
+    <None Include="Resources\PersonLicenseHistory 512.png" />
     <Content Include="screenshoots\manage_users.PNG" />
     <Content Include="screenshoots\user_information.PNG" />
     <None Include="Resources\Male.png" />

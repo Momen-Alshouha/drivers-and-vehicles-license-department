@@ -112,6 +112,7 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         }
         private void BtnSavetLocalDrivingLicenseApplicationForm_Click(object sender, EventArgs e)
         {
+            
             if (FormMode == EnMode.Update)
             {
                 if (BusinessLogic.ClsLocalDrivingLicenseApplication.UpdateApplicationLicenseClass(PersonId, LocalApplicationID, _GetSelectedLicenseClass()))

@@ -8,6 +8,7 @@ using static ClsDataType.ClsTestAppintment;
 using static ClsDataType.ClsLicense;
 using ClsDataType;
 using DVLD.Presentation.Licenses;
+using DVLD.BusinessLogic;
 
 namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
 {
@@ -59,7 +60,10 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
         private void _EnableDisableContextMenuToolsStripe(EnApplicationStatus ApplicationStatus)
         {
             showLicensesToolStripMenuItem.Enabled= false;
+            showPersonLicenesHistoryToolStripMenuItem.Enabled= false;
+
             bool HasLocalDrivingLicense=BusinessLogic.ClsLicense.HasLicenseForApplication(ApplicationId);
+            bool HasAnyLicense = BusinessLogic.ClsLicense.HasAnyLicense(BusinessLogic.ClsPerson.GetPersonId(ApplicationId));
             _EnableDisableScheduleTestsToolStripsMenu(ApplicationStatus);
             if (BusinessLogic.ClsTests.DoesLocalAppPassedAllTests(_GetSelectedLocalDrivingLicenseeApplicationID()))
             {
@@ -76,11 +80,14 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
                 issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
                 showLicensesToolStripMenuItem.Enabled = true;
             }
+            if (HasAnyLicense)
+            {
+                showPersonLicenesHistoryToolStripMenuItem.Enabled = true;
+            }
             //if (EnApplicationStatus.Canceled==ApplicationStatus)
             //{
             //    cancelApplicationToolStripMenuItem.Enabled = false;
             //}
-
         }
         public FrmManageLocalDrivingLicenseApplication()
         {
@@ -310,10 +317,11 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             license.ShowDialog();
             _LoadDataInDataGridViewAndLoadNumberOfRecords();
         }
-
         private void showPersonLicenesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: implement person license history functionality
+            int PersonId = ClsPerson.GetPersonId(ApplicationId);
+            FrmLicensesHistory frmLicensesHistory = new FrmLicensesHistory(PersonId);
+            frmLicensesHistory.ShowDialog();
         }
     }   
 }
