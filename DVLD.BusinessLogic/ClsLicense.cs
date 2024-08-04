@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static ClsDataType.ClsApplication;
 using static ClsDataType.ClsLicense;
+using static ClsDataType.ClsInternationaLicenseInfo;
 namespace DVLD.BusinessLogic
 {
     public class ClsLicense
@@ -63,6 +64,10 @@ namespace DVLD.BusinessLogic
         public static bool HasInternationalLicense(int LicenseID)
         {
             return DataAccess.ClsLicense.HasInternationalLicense(LicenseID);
+        }
+        public static StInternationalLicense GetInternationalLicense(int InternationalLicenseID)
+        {
+            return DataAccess.ClsLicense.GetInternationalLicenseInfo(InternationalLicenseID);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System;
 using DVLD.Presentation.Licenses;
 using DVLD.Presentation.People;
+using DVLD.Presentation.Licenses.International;
 
 namespace DVLD.Presentation.Applications.International
 {
@@ -13,7 +14,8 @@ namespace DVLD.Presentation.Applications.International
         int RowsCounts = 0;
         int SelectedPersonID;
         int SelectedApplicationID;
-
+        int SelectedDriverID;
+        int SelectedInternationalLicenseID;
         public FrmListInternationalLicenseApplications()
         {
             InitializeComponent();
@@ -104,6 +106,25 @@ namespace DVLD.Presentation.Applications.International
             }
             return SelectedApplicationID;
         }
+        private int _GetSelectedInternationalLicenseID()
+        {
+            int SelectedApplicationID = 0;
+            if (dataGridViewInternationalApplications.SelectedRows.Count > 0)
+            {
+                SelectedApplicationID = Convert.ToInt32(dataGridViewInternationalApplications.SelectedRows[0].Cells[0].Value);
+            }
+            return SelectedApplicationID;
+        }
+
+        private int _GetSelectedDriverID()
+        {
+            int SelectedApplicationID = 0;
+            if (dataGridViewInternationalApplications.SelectedRows.Count > 0)
+            {
+                SelectedApplicationID = Convert.ToInt32(dataGridViewInternationalApplications.SelectedRows[0].Cells[2].Value);
+            }
+            return SelectedApplicationID;
+        }
         private int _GetSelectedPersonID()
         {
             int PersonID = BusinessLogic.ClsPerson.GetPersonId(_GetSelectedApplicationID());
@@ -112,7 +133,8 @@ namespace DVLD.Presentation.Applications.International
 
         private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: show international license details
+            FrmInternationalLicenseInfo frmInternationalLicenseInfo = new FrmInternationalLicenseInfo(this.SelectedDriverID,this.SelectedInternationalLicenseID);
+            frmInternationalLicenseInfo.ShowDialog();
         }
 
         private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,6 +153,8 @@ namespace DVLD.Presentation.Applications.International
         {
             this.SelectedApplicationID = _GetSelectedApplicationID();
             this.SelectedPersonID = _GetSelectedPersonID();
+            this.SelectedDriverID = _GetSelectedDriverID();
+            this.SelectedInternationalLicenseID = _GetSelectedInternationalLicenseID();
         }
     }
 }

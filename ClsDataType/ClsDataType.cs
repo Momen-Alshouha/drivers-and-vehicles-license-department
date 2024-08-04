@@ -59,7 +59,6 @@ namespace ClsDataType
             public string ImagePath { set; get; }
             public string CountryName { set; get; }
 
-
             public StPerson()
             {
                 Id = -1;

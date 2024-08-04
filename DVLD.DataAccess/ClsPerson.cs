@@ -520,6 +520,35 @@ namespace DVLD.DataAccess
 
             return personId;
         }
+        public static int GetPersonIdByDriverId(int DriverID)
+        {
+            int personId = 0;
+            string query = "SELECT PersonID FROM Drivers WHERE DriverID = @DriverID";
+
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DriverID", DriverID);
+
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            personId = (int)result;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new DataAccessException("Error fetching ApplicantPersonID from the Applications table.", ex);
+                    }
+                }
+            }
+
+            return personId;
+        }
 
 
     }

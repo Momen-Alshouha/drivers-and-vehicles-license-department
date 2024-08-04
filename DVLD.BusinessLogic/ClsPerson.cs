@@ -104,5 +104,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsPerson.GetPersonFullName(PersonID);
         }
+        public static int GetPersonIdByDriverId(int DriverID)
+        {
+            return DataAccess.ClsPerson.GetPersonIdByDriverId(DriverID);
+        }
     }
 }

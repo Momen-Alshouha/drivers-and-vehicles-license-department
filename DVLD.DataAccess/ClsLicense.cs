@@ -8,6 +8,7 @@ using static ClsDataType.ClsLicense;
 using static ClsDataType.ClsApplication;
 using static ClsDataType.ClsDataType;
 using System.Data;
+using static ClsDataType.ClsInternationaLicenseInfo;
 namespace DVLD.DataAccess
 {
     public class ClsLicense
@@ -534,6 +535,53 @@ namespace DVLD.DataAccess
             }
 
             return hasInternationalLicense;
+        }
+        public static StInternationalLicense GetInternationalLicenseInfo(int internationalLicenseID)
+        {
+            StInternationalLicense licenseInfo = new StInternationalLicense();
+
+            string query = @"
+                SELECT InternationalLicenseID, ApplicationID, DriverID, IssuedUsingLocalLicenseID, 
+                       IssueDate, ExpirationDate, IsActive, CreatedByUserID 
+                FROM InternationalLicenses 
+                WHERE InternationalLicenseID = @InternationalLicenseID";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@InternationalLicenseID", internationalLicenseID);
+
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                licenseInfo = new StInternationalLicense
+                                {
+                                    InternationalLicenseID = reader.GetInt32(reader.GetOrdinal("InternationalLicenseID")),
+                                    ApplicationID = reader.GetInt32(reader.GetOrdinal("ApplicationID")),
+                                    DriverID = reader.GetInt32(reader.GetOrdinal("DriverID")),
+                                    LocalLicenseID = reader.GetInt32(reader.GetOrdinal("IssuedUsingLocalLicenseID")),
+                                    IssueDate = reader.GetDateTime(reader.GetOrdinal("IssueDate")),
+                                    ExpirationDate = reader.GetDateTime(reader.GetOrdinal("ExpirationDate")),
+                                    IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive")),
+                                    CreatedByUserID = reader.GetInt32(reader.GetOrdinal("CreatedByUserID"))
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception (log it, rethrow it, or show a message to the user)
+                throw new Exception("An error occurred while fetching the international license info", ex);
+            }
+
+            return licenseInfo;
         }
 
     }
