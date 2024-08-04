@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnLicenseHistoryCloseForm = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageLocalLicenseHistory = new System.Windows.Forms.TabPage();
-            this.tabPageInternationalLicenseHistory = new System.Windows.Forms.TabPage();
             this.dataGridViewLocalLicensesHistory = new System.Windows.Forms.DataGridView();
+            this.tabPageInternationalLicenseHistory = new System.Windows.Forms.TabPage();
             this.dataGridViewInternationalLicensesHistory = new System.Windows.Forms.DataGridView();
             this.ctrlPersonDetails1 = new DVLD.Presentation.People.Controls.CtrlPersonDetails();
+            this.contextMenuStripLicensesHistoryFormShowLicense = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageLocalLicenseHistory.SuspendLayout();
-            this.tabPageInternationalLicenseHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocalLicensesHistory)).BeginInit();
+            this.tabPageInternationalLicenseHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInternationalLicensesHistory)).BeginInit();
+            this.contextMenuStripLicensesHistoryFormShowLicense.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -68,6 +72,7 @@
             // 
             // BtnLicenseHistoryCloseForm
             // 
+            this.BtnLicenseHistoryCloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLicenseHistoryCloseForm.Location = new System.Drawing.Point(1184, 719);
             this.BtnLicenseHistoryCloseForm.Name = "BtnLicenseHistoryCloseForm";
             this.BtnLicenseHistoryCloseForm.Size = new System.Drawing.Size(139, 69);
@@ -97,6 +102,21 @@
             this.tabPageLocalLicenseHistory.Text = "Local";
             this.tabPageLocalLicenseHistory.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewLocalLicensesHistory
+            // 
+            this.dataGridViewLocalLicensesHistory.AllowUserToAddRows = false;
+            this.dataGridViewLocalLicensesHistory.AllowUserToDeleteRows = false;
+            this.dataGridViewLocalLicensesHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLocalLicensesHistory.Location = new System.Drawing.Point(6, 4);
+            this.dataGridViewLocalLicensesHistory.Name = "dataGridViewLocalLicensesHistory";
+            this.dataGridViewLocalLicensesHistory.ReadOnly = true;
+            this.dataGridViewLocalLicensesHistory.RowHeadersWidth = 62;
+            this.dataGridViewLocalLicensesHistory.RowTemplate.Height = 29;
+            this.dataGridViewLocalLicensesHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewLocalLicensesHistory.Size = new System.Drawing.Size(1076, 276);
+            this.dataGridViewLocalLicensesHistory.TabIndex = 0;
+            this.dataGridViewLocalLicensesHistory.SelectionChanged += new System.EventHandler(this.dataGridViewLocalLicensesHistory_SelectionChanged);
+            // 
             // tabPageInternationalLicenseHistory
             // 
             this.tabPageInternationalLicenseHistory.Controls.Add(this.dataGridViewInternationalLicensesHistory);
@@ -108,19 +128,6 @@
             this.tabPageInternationalLicenseHistory.Text = "International";
             this.tabPageInternationalLicenseHistory.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewLocalLicensesHistory
-            // 
-            this.dataGridViewLocalLicensesHistory.AllowUserToAddRows = false;
-            this.dataGridViewLocalLicensesHistory.AllowUserToDeleteRows = false;
-            this.dataGridViewLocalLicensesHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLocalLicensesHistory.Location = new System.Drawing.Point(6, 4);
-            this.dataGridViewLocalLicensesHistory.Name = "dataGridViewLocalLicensesHistory";
-            this.dataGridViewLocalLicensesHistory.ReadOnly = true;
-            this.dataGridViewLocalLicensesHistory.RowHeadersWidth = 62;
-            this.dataGridViewLocalLicensesHistory.RowTemplate.Height = 29;
-            this.dataGridViewLocalLicensesHistory.Size = new System.Drawing.Size(1076, 276);
-            this.dataGridViewLocalLicensesHistory.TabIndex = 0;
-            // 
             // dataGridViewInternationalLicensesHistory
             // 
             this.dataGridViewInternationalLicensesHistory.AllowUserToAddRows = false;
@@ -131,6 +138,7 @@
             this.dataGridViewInternationalLicensesHistory.ReadOnly = true;
             this.dataGridViewInternationalLicensesHistory.RowHeadersWidth = 62;
             this.dataGridViewInternationalLicensesHistory.RowTemplate.Height = 29;
+            this.dataGridViewInternationalLicensesHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewInternationalLicensesHistory.Size = new System.Drawing.Size(1076, 273);
             this.dataGridViewInternationalLicensesHistory.TabIndex = 0;
             // 
@@ -141,6 +149,23 @@
             this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
             this.ctrlPersonDetails1.Size = new System.Drawing.Size(936, 360);
             this.ctrlPersonDetails1.TabIndex = 0;
+            // 
+            // contextMenuStripLicensesHistoryFormShowLicense
+            // 
+            this.contextMenuStripLicensesHistoryFormShowLicense.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStripLicensesHistoryFormShowLicense.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showLicenseInfoToolStripMenuItem});
+            this.contextMenuStripLicensesHistoryFormShowLicense.Name = "contextMenuStripLicensesHistoryFormShowLicense";
+            this.contextMenuStripLicensesHistoryFormShowLicense.Size = new System.Drawing.Size(243, 44);
+            // 
+            // showLicenseInfoToolStripMenuItem
+            // 
+            this.showLicenseInfoToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.License_View_32;
+            this.showLicenseInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.showLicenseInfoToolStripMenuItem.Name = "showLicenseInfoToolStripMenuItem";
+            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(256, 40);
+            this.showLicenseInfoToolStripMenuItem.Text = "Show License Info";
+            this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
             // 
             // FrmLicensesHistory
             // 
@@ -160,9 +185,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPageLocalLicenseHistory.ResumeLayout(false);
-            this.tabPageInternationalLicenseHistory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocalLicensesHistory)).EndInit();
+            this.tabPageInternationalLicenseHistory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInternationalLicensesHistory)).EndInit();
+            this.contextMenuStripLicensesHistoryFormShowLicense.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +205,7 @@
         private System.Windows.Forms.DataGridView dataGridViewLocalLicensesHistory;
         private System.Windows.Forms.TabPage tabPageInternationalLicenseHistory;
         private System.Windows.Forms.DataGridView dataGridViewInternationalLicensesHistory;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripLicensesHistoryFormShowLicense;
+        private System.Windows.Forms.ToolStripMenuItem showLicenseInfoToolStripMenuItem;
     }
 }
