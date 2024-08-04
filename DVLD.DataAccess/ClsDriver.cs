@@ -56,7 +56,6 @@ namespace DVLD.DataAccess
             }
             catch (Exception ex)
             {
-                // Handle the exception (e.g., log it)
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
             finally
