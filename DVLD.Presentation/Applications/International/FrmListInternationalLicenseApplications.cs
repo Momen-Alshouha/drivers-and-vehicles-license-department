@@ -1,6 +1,8 @@
 ﻿using System.Data;
 using System.Windows.Forms;
 using System;
+using DVLD.Presentation.Licenses;
+using DVLD.Presentation.People;
 
 namespace DVLD.Presentation.Applications.International
 {
@@ -9,15 +11,17 @@ namespace DVLD.Presentation.Applications.International
         DataTable DataTableInternationalLicense;
         DataTable _dtView;
         int RowsCounts = 0;
+        int SelectedPersonID;
+        int SelectedApplicationID;
 
         public FrmListInternationalLicenseApplications()
         {
             InitializeComponent();
             textBoxFilterInternationalLicenseIDValue.Visible = false;
-            comboBoxFilterInternationalLicenses.Items.AddRange(new object[] { "Driver ID", "International License ID" });
             comboBoxFilterInternationalLicenses.SelectedIndex = 0;
             RefreshDataGridRecordsAndCount();
             ModifyDataGridViewDesign();
+            dataGridViewInternationalApplications.ContextMenuStrip = contextMenuStripListInternationalLicenseForm;
         }
 
         private void RefreshDataGridRecordsAndCount()
@@ -90,6 +94,43 @@ namespace DVLD.Presentation.Applications.International
             }
 
             LblInternationalLicenseApplicationsRecordsCountValues.Text = dataGridViewInternationalApplications.Rows.Count.ToString();
+        }
+        private int _GetSelectedApplicationID()
+        {
+            int SelectedApplicationID = 0;
+            if (dataGridViewInternationalApplications.SelectedRows.Count > 0)
+            {
+                SelectedApplicationID= Convert.ToInt32(dataGridViewInternationalApplications.SelectedRows[0].Cells[1].Value);
+            }
+            return SelectedApplicationID;
+        }
+        private int _GetSelectedPersonID()
+        {
+            int PersonID = BusinessLogic.ClsPerson.GetPersonId(_GetSelectedApplicationID());
+            return PersonID;
+        }
+
+        private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO: show international license details
+        }
+
+        private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPersonDetails frmPersonDetails = new FrmPersonDetails(_GetSelectedPersonID());
+            frmPersonDetails.ShowDialog();
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLicensesHistory frmLicensesHistory = new FrmLicensesHistory(this.SelectedPersonID);
+            frmLicensesHistory.ShowDialog();
+        }
+
+        private void dataGridViewInternationalApplications_SelectionChanged(object sender, EventArgs e)
+        {
+            this.SelectedApplicationID = _GetSelectedApplicationID();
+            this.SelectedPersonID = _GetSelectedPersonID();
         }
     }
 }

@@ -593,6 +593,16 @@ namespace DVLD.Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap User_32__21 {
+            get {
+                object obj = ResourceManager.GetObject("User 32 -21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap users_64 {
             get {
                 object obj = ResourceManager.GetObject("users 64", resourceCulture);
