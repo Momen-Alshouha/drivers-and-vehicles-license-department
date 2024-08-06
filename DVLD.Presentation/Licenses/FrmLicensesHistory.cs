@@ -16,17 +16,21 @@ namespace DVLD.Presentation.Licenses
         int PersonID;
         public FrmLicensesHistory()
         {
+            // default constructor in case we want to add filters in this form
+            // filters on person CTRLpersonDetailsWithFilter
             InitializeComponent();
-           // default constructor in case we want to add filters in this form
-           // filters on person CTRLpersonDetailsWithFilter
+            dataGridViewInternationalLicensesHistory.ContextMenuStrip = contextMenuStripLicensesHistoryFormShowLicense;
+            dataGridViewLocalLicensesHistory.ContextMenuStrip = contextMenuStripLicensesHistoryFormShowLicense;
+            ctrlPersonDetailsWithFilter1.LoadPersonInfo(PersonID);
         }
         public FrmLicensesHistory(int PersonID)
         {
             this.PersonID = PersonID;
             InitializeComponent();
+            ctrlPersonDetailsWithFilter1.GroupBoxUserDetailsFilterVisible = false;
             dataGridViewInternationalLicensesHistory.ContextMenuStrip = contextMenuStripLicensesHistoryFormShowLicense;
             dataGridViewLocalLicensesHistory.ContextMenuStrip = contextMenuStripLicensesHistoryFormShowLicense;
-            ctrlPersonDetails1.LoadPersonInfo(PersonID);
+            ctrlPersonDetailsWithFilter1.LoadPersonInfo(PersonID);
         }
         private void BtnLicenseHistoryCloseForm_Click(object sender, EventArgs e)
         {

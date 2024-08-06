@@ -13,7 +13,18 @@ namespace DVLD.Presentation.People.Controls
 {
     public partial class CtrlPersonDetailsWithFilter : UserControl
     {
-
+        // property to control the visibility of GroupBoxUserDetailsFilter
+        public bool GroupBoxUserDetailsFilterVisible
+        {
+            get
+            {
+                return GroupBoxUserDetailsFilter.Visible;
+            }
+            set
+            {
+                GroupBoxUserDetailsFilter.Enabled = value;
+            }
+        }
         public ClsDataType.ClsDataType.StPerson? SelectedPersonInfo
         {
             get { return ctrlUserDetails1.Person; }

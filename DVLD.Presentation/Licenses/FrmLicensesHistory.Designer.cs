@@ -37,9 +37,9 @@
             this.dataGridViewLocalLicensesHistory = new System.Windows.Forms.DataGridView();
             this.tabPageInternationalLicenseHistory = new System.Windows.Forms.TabPage();
             this.dataGridViewInternationalLicensesHistory = new System.Windows.Forms.DataGridView();
-            this.ctrlPersonDetails1 = new DVLD.Presentation.People.Controls.CtrlPersonDetails();
             this.contextMenuStripLicensesHistoryFormShowLicense = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlPersonDetailsWithFilter1 = new DVLD.Presentation.People.Controls.CtrlPersonDetailsWithFilter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageLocalLicenseHistory.SuspendLayout();
@@ -63,9 +63,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.PersonLicenseHistory_512;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 118);
+            this.pictureBox1.Location = new System.Drawing.Point(41, 112);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 299);
+            this.pictureBox1.Size = new System.Drawing.Size(260, 453);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -73,7 +73,7 @@
             // BtnLicenseHistoryCloseForm
             // 
             this.BtnLicenseHistoryCloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLicenseHistoryCloseForm.Location = new System.Drawing.Point(1184, 719);
+            this.BtnLicenseHistoryCloseForm.Location = new System.Drawing.Point(1184, 818);
             this.BtnLicenseHistoryCloseForm.Name = "BtnLicenseHistoryCloseForm";
             this.BtnLicenseHistoryCloseForm.Size = new System.Drawing.Size(139, 69);
             this.BtnLicenseHistoryCloseForm.TabIndex = 3;
@@ -85,7 +85,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPageLocalLicenseHistory);
             this.tabControl1.Controls.Add(this.tabPageInternationalLicenseHistory);
-            this.tabControl1.Location = new System.Drawing.Point(41, 470);
+            this.tabControl1.Location = new System.Drawing.Point(41, 569);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1096, 317);
@@ -142,14 +142,6 @@
             this.dataGridViewInternationalLicensesHistory.Size = new System.Drawing.Size(1076, 273);
             this.dataGridViewInternationalLicensesHistory.TabIndex = 0;
             // 
-            // ctrlPersonDetails1
-            // 
-            this.ctrlPersonDetails1.Location = new System.Drawing.Point(387, 97);
-            this.ctrlPersonDetails1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
-            this.ctrlPersonDetails1.Size = new System.Drawing.Size(936, 360);
-            this.ctrlPersonDetails1.TabIndex = 0;
-            // 
             // contextMenuStripLicensesHistoryFormShowLicense
             // 
             this.contextMenuStripLicensesHistoryFormShowLicense.ImageScalingSize = new System.Drawing.Size(24, 24);
@@ -167,17 +159,25 @@
             this.showLicenseInfoToolStripMenuItem.Text = "Show License Info";
             this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
             // 
+            // ctrlPersonDetailsWithFilter1
+            // 
+            this.ctrlPersonDetailsWithFilter1.Location = new System.Drawing.Point(324, 94);
+            this.ctrlPersonDetailsWithFilter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ctrlPersonDetailsWithFilter1.Name = "ctrlPersonDetailsWithFilter1";
+            this.ctrlPersonDetailsWithFilter1.Size = new System.Drawing.Size(942, 471);
+            this.ctrlPersonDetailsWithFilter1.TabIndex = 6;
+            // 
             // FrmLicensesHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1335, 830);
+            this.ClientSize = new System.Drawing.Size(1335, 956);
+            this.Controls.Add(this.ctrlPersonDetailsWithFilter1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.BtnLicenseHistoryCloseForm);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ctrlPersonDetails1);
             this.Name = "FrmLicensesHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Licenses History";
@@ -195,8 +195,6 @@
         }
 
         #endregion
-
-        private People.Controls.CtrlPersonDetails ctrlPersonDetails1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnLicenseHistoryCloseForm;
@@ -207,5 +205,6 @@
         private System.Windows.Forms.DataGridView dataGridViewInternationalLicensesHistory;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripLicensesHistoryFormShowLicense;
         private System.Windows.Forms.ToolStripMenuItem showLicenseInfoToolStripMenuItem;
+        private People.Controls.CtrlPersonDetailsWithFilter ctrlPersonDetailsWithFilter1;
     }
 }
