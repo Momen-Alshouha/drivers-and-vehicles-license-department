@@ -208,23 +208,26 @@
             // 
             // manageDetainedLicensesToolStripMenuItem
             // 
+            this.manageDetainedLicensesToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Detain_32;
             this.manageDetainedLicensesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageDetainedLicensesToolStripMenuItem.Name = "manageDetainedLicensesToolStripMenuItem";
-            this.manageDetainedLicensesToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+            this.manageDetainedLicensesToolStripMenuItem.Size = new System.Drawing.Size(332, 42);
             this.manageDetainedLicensesToolStripMenuItem.Text = "Manage Detained Licenses";
             // 
             // detainLicenseToolStripMenuItem1
             // 
+            this.detainLicenseToolStripMenuItem1.Image = global::DVLD.Presentation.Properties.Resources.Detain_32;
             this.detainLicenseToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.detainLicenseToolStripMenuItem1.Name = "detainLicenseToolStripMenuItem1";
-            this.detainLicenseToolStripMenuItem1.Size = new System.Drawing.Size(323, 34);
+            this.detainLicenseToolStripMenuItem1.Size = new System.Drawing.Size(332, 42);
             this.detainLicenseToolStripMenuItem1.Text = "Detain License";
             // 
             // releaseDetainLicenseToolStripMenuItem
             // 
+            this.releaseDetainLicenseToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Release_Detained_License_321;
             this.releaseDetainLicenseToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.releaseDetainLicenseToolStripMenuItem.Name = "releaseDetainLicenseToolStripMenuItem";
-            this.releaseDetainLicenseToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+            this.releaseDetainLicenseToolStripMenuItem.Size = new System.Drawing.Size(332, 42);
             this.releaseDetainLicenseToolStripMenuItem.Text = "Release Detain License";
             // 
             // manageApplicationTypesToolStripMenuItem
