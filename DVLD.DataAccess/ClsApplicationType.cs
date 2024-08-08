@@ -166,6 +166,55 @@ namespace DVLD.DataAccess
             }
             return ApplicationTypeID;
         }
+        public static decimal GetApplicationFeesByApplicationTypeID(EnApplicationType enApplicationType)
+        {
+            decimal applicationFees = 0;
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                string query = "SELECT ApplicationFees FROM ApplicationTypes WHERE ApplicationTypeID = @ApplicationTypeID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationTypeID", (int)enApplicationType);
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            applicationFees = Convert.ToDecimal(result);
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        // Log the exception
+                        throw new ApplicationException("An error occurred while retrieving the application fees.", ex);
+                    }
+                }
+            }
+            return applicationFees;
+        }
+        public static string GetApplicationTypeText(EnApplicationType applicationType)
+        {
+            switch (applicationType)
+            {
+                case EnApplicationType.NewLocalDrivingLicenseService:
+                    return "New Local Driving License Service";
+                case EnApplicationType.RenewDrivingLicenseService:
+                    return "Renew Driving License Service";
+                case EnApplicationType.ReplacementForLostDrivingLicense:
+                    return "Replacement for Lost Driving License";
+                case EnApplicationType.ReplacementForDamagedDrivingLicense:
+                    return "Replacement for Damaged Driving License";
+                case EnApplicationType.ReleaseDetainedDrivingLicense:
+                    return "Release Detained Driving License";
+                case EnApplicationType.NewInternationalLicense:
+                    return "New International License";
+                case EnApplicationType.RetakeTest:
+                    return "Retake Test";
+                default:
+                    return "Unknown Application Type";
+            }
+        }
 
     }
 }

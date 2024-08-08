@@ -1,6 +1,7 @@
 ﻿using DVLD.Presentation.Application_Types;
 using DVLD.Presentation.Applications.International;
 using DVLD.Presentation.Applications.LocalDrivingLicenseApplication;
+using DVLD.Presentation.Applications.Renew_Local_Driving_License_Application;
 using DVLD.Presentation.Drivers;
 using DVLD.Presentation.Login;
 using DVLD.Presentation.People;
@@ -98,6 +99,12 @@ namespace DVLD.Presentation
         {
             FrmListInternationalLicenseApplications frmListInternationalLicenseApplications = new FrmListInternationalLicenseApplications();
             frmListInternationalLicenseApplications.ShowDialog();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var RenewForm = new FrmRenewLocalDrivingLicenseApplication();
+            RenewForm.ShowDialog();
         }
     }
 }

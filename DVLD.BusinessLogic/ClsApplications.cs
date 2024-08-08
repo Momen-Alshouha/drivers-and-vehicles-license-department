@@ -74,5 +74,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsApplications.CheckApplicationStatus(id);
         }
+        public static int GetLastInsertedApplicationID()
+        {
+            return DataAccess.ClsApplications.GetLastInsertedApplicationID();
+        }
     }
 }

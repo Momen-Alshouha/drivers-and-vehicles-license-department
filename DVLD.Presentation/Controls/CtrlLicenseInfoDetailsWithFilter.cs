@@ -20,19 +20,36 @@ namespace DVLD.Presentation.Controls
             else
             {
                 int licenseID = Convert.ToInt32(textBoxLicenseIDFilterValue.Text);
+                bool LicenseFound=true;
                 if (licenseID <= 0)
                 {
                     MessageBox.Show("Enter Valid License ID!", "Not Valid!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                OnLicenseIDSelected(licenseID);
-                ctrlLicenseInfo1.SetLicenseDataInCTRL(licenseID);
+                OnLicenseIDSelected(licenseID, LicenseFound);
+                ctrlLicenseInfo1.SetLicenseDataInCTRLByLicenseID(licenseID);
             }
         }
         // Method to raise the custom event
-        protected virtual void OnLicenseIDSelected(int licenseID)
+        protected virtual void OnLicenseIDSelected(int licenseID, bool LicenseFound)
         {
             LicenseIDSelected?.Invoke(this, licenseID);
+        }
+
+        private void textBoxLicenseIDFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Prevent the character from being entered
+                e.Handled = true;
+            }
+
+            // Enter pressed case
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                pictureBoxSearchFilterLicenseID_Click(sender, e);
+            }
         }
     }
 }

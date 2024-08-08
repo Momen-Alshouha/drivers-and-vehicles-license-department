@@ -61,7 +61,6 @@ namespace DVLD.Presentation.People.Controls
             ComboBoxFilterBy.SelectedIndex = 1;
             TextBoxFilterValue.Text = PersonID.ToString();
             FindNow();
-
         }
 
         private void FindNow()

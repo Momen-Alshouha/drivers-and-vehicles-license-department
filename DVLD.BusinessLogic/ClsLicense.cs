@@ -69,5 +69,9 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsLicense.GetInternationalLicenseInfo(InternationalLicenseID);
         }
+        public static string GetLicenseClassText(EnLicenseClass enLicenseClass)
+        {
+            return DataAccess.ClsLicense.GetLicenseClassText(enLicenseClass);
+        }
     }
 }

@@ -82,9 +82,21 @@
     <Compile Include="Applications\LocalDrivingLicenseApplication\FrmManageLocalDrivingLicenseApplication.Designer.cs">
       <DependentUpon>FrmManageLocalDrivingLicenseApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Renew Local Driving License Application\FrmRenewLocalDrivingLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Renew Local Driving License Application\FrmRenewLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>FrmRenewLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClsGlobal.cs" />
     <Compile Include="ClsUtil.cs" />
     <Compile Include="ClsValidation.cs" />
+    <Compile Include="Controls\CtrlApplicationNewLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CtrlApplicationNewLicenseInfo.Designer.cs">
+      <DependentUpon>CtrlApplicationNewLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CtrlInternationalLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -266,6 +278,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\LocalDrivingLicenseApplication\FrmManageLocalDrivingLicenseApplication.resx">
       <DependentUpon>FrmManageLocalDrivingLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Renew Local Driving License Application\FrmRenewLocalDrivingLicenseApplication.resx">
+      <DependentUpon>FrmRenewLocalDrivingLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CtrlApplicationNewLicenseInfo.resx">
+      <DependentUpon>CtrlApplicationNewLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlInternationalLicenseInfo.resx">
       <DependentUpon>CtrlInternationalLicenseInfo.cs</DependentUpon>

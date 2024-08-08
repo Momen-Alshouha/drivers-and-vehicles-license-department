@@ -207,7 +207,7 @@ namespace DVLD.DataAccess
             };
 
             string query = @"
-                SELECT Licenses.LicenseID, Licenses.ApplicationID, Licenses.DriverID, Licenses.IssueReason, Licenses.IsActive, Licenses.Notes, Licenses.ExpirationDate, Licenses.IssueDate, Licenses.LicenseClass,
+                SELECT Drivers.PersonID,Licenses.LicenseID, Licenses.ApplicationID, Licenses.DriverID, Licenses.IssueReason, Licenses.IsActive, Licenses.Notes, Licenses.ExpirationDate, Licenses.IssueDate, Licenses.LicenseClass,
                        People.NationalNo, People.FirstName, People.SecondName, People.ThirdName, People.LastName, People.BirthDate, People.Gender, People.ImagePath
                 FROM Licenses
                 INNER JOIN Drivers ON Drivers.DriverID = Licenses.DriverID
@@ -245,6 +245,7 @@ namespace DVLD.DataAccess
 
                                 license.DriverPersonDetails = new StPerson
                                 {
+                                    Id = reader.GetInt32(reader.GetOrdinal("PersonID")),
                                     NationalNo = reader.IsDBNull(reader.GetOrdinal("NationalNo")) ? null : reader.GetString(reader.GetOrdinal("NationalNo")),
                                     FirstName = reader.IsDBNull(reader.GetOrdinal("FirstName")) ? null : reader.GetString(reader.GetOrdinal("FirstName")),
                                     SecondName = reader.IsDBNull(reader.GetOrdinal("SecondName")) ? null : reader.GetString(reader.GetOrdinal("SecondName")),
@@ -582,6 +583,28 @@ namespace DVLD.DataAccess
             }
 
             return licenseInfo;
+        }
+        public static string GetLicenseClassText(EnLicenseClass licenseClass)
+        {
+            switch (licenseClass)
+            {
+                case EnLicenseClass.SmallMotorcycle:
+                    return "Small Motorcycle";
+                case EnLicenseClass.HeavyMotorcycle:
+                    return "Heavy Motorcycle";
+                case EnLicenseClass.OrdinaryDriving:
+                    return "Ordinary Driving";
+                case EnLicenseClass.Commercial:
+                    return "Commercial";
+                case EnLicenseClass.Agricultural:
+                    return "Agricultural";
+                case EnLicenseClass.SmallMediumBus:
+                    return "Small/Medium Bus";
+                case EnLicenseClass.TruckHeavyVehicle:
+                    return "Truck/Heavy Vehicle";
+                default:
+                    return "Unknown License Class";
+            }
         }
 
     }

@@ -29,5 +29,13 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsApplicationType.GetApplicationTypeIDByApplicationID(ApplicationID);
         }
+        public static decimal GetApplicationFeesByApplicationTypeID(EnApplicationType applicationType)
+        {
+            return DataAccess.ClsApplicationType.GetApplicationFeesByApplicationTypeID(applicationType);
+        }
+        public static string GetApplicationTypeText(EnApplicationType applicationType)
+        {
+            return DataAccess.ClsApplicationType.GetApplicationTypeText(applicationType);
+        }
     }
 }

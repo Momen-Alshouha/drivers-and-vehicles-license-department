@@ -38,7 +38,7 @@
             // BtnLicenseDetailsFrmClose
             // 
             this.BtnLicenseDetailsFrmClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLicenseDetailsFrmClose.Location = new System.Drawing.Point(980, 718);
+            this.BtnLicenseDetailsFrmClose.Location = new System.Drawing.Point(946, 527);
             this.BtnLicenseDetailsFrmClose.Name = "BtnLicenseDetailsFrmClose";
             this.BtnLicenseDetailsFrmClose.Size = new System.Drawing.Size(136, 72);
             this.BtnLicenseDetailsFrmClose.TabIndex = 1;
@@ -71,7 +71,7 @@
             // 
             this.ctrlLicenseInfo1.Location = new System.Drawing.Point(12, 162);
             this.ctrlLicenseInfo1.Name = "ctrlLicenseInfo1";
-            this.ctrlLicenseInfo1.Size = new System.Drawing.Size(1104, 550);
+            this.ctrlLicenseInfo1.Size = new System.Drawing.Size(1070, 367);
             this.ctrlLicenseInfo1.TabIndex = 4;
             // 
             // FrmLicenseInfoDetails
@@ -79,7 +79,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1128, 802);
+            this.ClientSize = new System.Drawing.Size(1128, 610);
             this.Controls.Add(this.ctrlLicenseInfo1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);

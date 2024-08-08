@@ -15,7 +15,7 @@ namespace DVLD.Presentation.Licenses
         public FrmLicenseInfoDetails(int ApplicationID)
         {
             InitializeComponent();
-            ctrlLicenseInfo1.SetLicenseDataInCTRL(ApplicationID);
+            ctrlLicenseInfo1.SetLicenseDataInCTRLByApplicationID(ApplicationID);
         }
         private void BtnLicenseDetailsFrmClose_Click(object sender, EventArgs e)
         {

@@ -32,6 +32,10 @@ namespace ClsDataType
             public EnIssueReason IssueReason { get; set; }
             public int CreatedByUserID { get; set; }
             public StPerson DriverPersonDetails { get; set; }
+            public StLicense()
+            {
+                LicenseID = 0;
+            }
         }
     }
 }

@@ -89,297 +89,299 @@
             this.GroupBoxDriverLicenseInfo.Controls.Add(this.LblLicenseInfoLicenseID);
             this.GroupBoxDriverLicenseInfo.Controls.Add(this.LblLicenseInfoPersonName);
             this.GroupBoxDriverLicenseInfo.Controls.Add(this.PictureBoxDriverPhotoLicenseInfo);
-            this.GroupBoxDriverLicenseInfo.Location = new System.Drawing.Point(3, 15);
+            this.GroupBoxDriverLicenseInfo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupBoxDriverLicenseInfo.Location = new System.Drawing.Point(3, 3);
             this.GroupBoxDriverLicenseInfo.Name = "GroupBoxDriverLicenseInfo";
-            this.GroupBoxDriverLicenseInfo.Size = new System.Drawing.Size(1065, 524);
+            this.GroupBoxDriverLicenseInfo.Size = new System.Drawing.Size(1065, 345);
             this.GroupBoxDriverLicenseInfo.TabIndex = 0;
             this.GroupBoxDriverLicenseInfo.TabStop = false;
             this.GroupBoxDriverLicenseInfo.Text = "Driver License Info";
+            this.GroupBoxDriverLicenseInfo.Enter += new System.EventHandler(this.GroupBoxDriverLicenseInfo_Enter);
             // 
             // LblLicenseDetailsIsDetainedValue
             // 
             this.LblLicenseDetailsIsDetainedValue.AutoSize = true;
-            this.LblLicenseDetailsIsDetainedValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsIsDetainedValue.Location = new System.Drawing.Point(793, 450);
+            this.LblLicenseDetailsIsDetainedValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsIsDetainedValue.Location = new System.Drawing.Point(730, 276);
             this.LblLicenseDetailsIsDetainedValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsIsDetainedValue.Name = "LblLicenseDetailsIsDetainedValue";
-            this.LblLicenseDetailsIsDetainedValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsIsDetainedValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsIsDetainedValue.TabIndex = 167;
             this.LblLicenseDetailsIsDetainedValue.Text = "[????]";
             // 
             // LblLicenseDetailsExpirationDateValue
             // 
             this.LblLicenseDetailsExpirationDateValue.AutoSize = true;
-            this.LblLicenseDetailsExpirationDateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsExpirationDateValue.Location = new System.Drawing.Point(793, 403);
+            this.LblLicenseDetailsExpirationDateValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsExpirationDateValue.Location = new System.Drawing.Point(726, 241);
             this.LblLicenseDetailsExpirationDateValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsExpirationDateValue.Name = "LblLicenseDetailsExpirationDateValue";
-            this.LblLicenseDetailsExpirationDateValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsExpirationDateValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsExpirationDateValue.TabIndex = 166;
             this.LblLicenseDetailsExpirationDateValue.Text = "[????]";
             // 
             // LblIsDetainedLicenseInfo
             // 
             this.LblIsDetainedLicenseInfo.AutoSize = true;
-            this.LblIsDetainedLicenseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblIsDetainedLicenseInfo.Location = new System.Drawing.Point(575, 455);
+            this.LblIsDetainedLicenseInfo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIsDetainedLicenseInfo.Location = new System.Drawing.Point(512, 276);
             this.LblIsDetainedLicenseInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblIsDetainedLicenseInfo.Name = "LblIsDetainedLicenseInfo";
-            this.LblIsDetainedLicenseInfo.Size = new System.Drawing.Size(159, 29);
+            this.LblIsDetainedLicenseInfo.Size = new System.Drawing.Size(116, 24);
             this.LblIsDetainedLicenseInfo.TabIndex = 165;
             this.LblIsDetainedLicenseInfo.Text = "Is Detained :";
             // 
             // LblExpirationDateLicense
             // 
             this.LblExpirationDateLicense.AutoSize = true;
-            this.LblExpirationDateLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblExpirationDateLicense.Location = new System.Drawing.Point(575, 408);
+            this.LblExpirationDateLicense.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblExpirationDateLicense.Location = new System.Drawing.Point(508, 241);
             this.LblExpirationDateLicense.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblExpirationDateLicense.Name = "LblExpirationDateLicense";
-            this.LblExpirationDateLicense.Size = new System.Drawing.Size(205, 29);
+            this.LblExpirationDateLicense.Size = new System.Drawing.Size(152, 24);
             this.LblExpirationDateLicense.TabIndex = 164;
             this.LblExpirationDateLicense.Text = "Expiration Date :";
             // 
             // LblLicenseDetailsNotesValue
             // 
             this.LblLicenseDetailsNotesValue.AutoSize = true;
-            this.LblLicenseDetailsNotesValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsNotesValue.Location = new System.Drawing.Point(199, 450);
+            this.LblLicenseDetailsNotesValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsNotesValue.Location = new System.Drawing.Point(199, 298);
             this.LblLicenseDetailsNotesValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsNotesValue.Name = "LblLicenseDetailsNotesValue";
-            this.LblLicenseDetailsNotesValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsNotesValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsNotesValue.TabIndex = 163;
             this.LblLicenseDetailsNotesValue.Text = "[????]";
             // 
             // LblLicenseDetailsIssueReasonValue
             // 
             this.LblLicenseDetailsIssueReasonValue.AutoSize = true;
-            this.LblLicenseDetailsIssueReasonValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsIssueReasonValue.Location = new System.Drawing.Point(199, 394);
+            this.LblLicenseDetailsIssueReasonValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsIssueReasonValue.Location = new System.Drawing.Point(199, 262);
             this.LblLicenseDetailsIssueReasonValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsIssueReasonValue.Name = "LblLicenseDetailsIssueReasonValue";
-            this.LblLicenseDetailsIssueReasonValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsIssueReasonValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsIssueReasonValue.TabIndex = 162;
             this.LblLicenseDetailsIssueReasonValue.Text = "[????]";
             // 
             // LblLicenseInfoNotes
             // 
             this.LblLicenseInfoNotes.AutoSize = true;
-            this.LblLicenseInfoNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseInfoNotes.Location = new System.Drawing.Point(7, 450);
+            this.LblLicenseInfoNotes.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseInfoNotes.Location = new System.Drawing.Point(7, 298);
             this.LblLicenseInfoNotes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseInfoNotes.Name = "LblLicenseInfoNotes";
-            this.LblLicenseInfoNotes.Size = new System.Drawing.Size(103, 29);
+            this.LblLicenseInfoNotes.Size = new System.Drawing.Size(75, 24);
             this.LblLicenseInfoNotes.TabIndex = 161;
             this.LblLicenseInfoNotes.Text = "Notes : ";
             // 
             // LblLicenseInfoIssueReason
             // 
             this.LblLicenseInfoIssueReason.AutoSize = true;
-            this.LblLicenseInfoIssueReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseInfoIssueReason.Location = new System.Drawing.Point(7, 394);
+            this.LblLicenseInfoIssueReason.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseInfoIssueReason.Location = new System.Drawing.Point(7, 262);
             this.LblLicenseInfoIssueReason.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseInfoIssueReason.Name = "LblLicenseInfoIssueReason";
-            this.LblLicenseInfoIssueReason.Size = new System.Drawing.Size(192, 29);
+            this.LblLicenseInfoIssueReason.Size = new System.Drawing.Size(135, 24);
             this.LblLicenseInfoIssueReason.TabIndex = 160;
             this.LblLicenseInfoIssueReason.Text = "Issue Reason : ";
             // 
             // LblLicenseDetailsDriverIDValue
             // 
             this.LblLicenseDetailsDriverIDValue.AutoSize = true;
-            this.LblLicenseDetailsDriverIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsDriverIDValue.Location = new System.Drawing.Point(793, 359);
+            this.LblLicenseDetailsDriverIDValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsDriverIDValue.Location = new System.Drawing.Point(726, 206);
             this.LblLicenseDetailsDriverIDValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsDriverIDValue.Name = "LblLicenseDetailsDriverIDValue";
-            this.LblLicenseDetailsDriverIDValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsDriverIDValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsDriverIDValue.TabIndex = 158;
             this.LblLicenseDetailsDriverIDValue.Text = "[????]";
             // 
             // LblLicenseDetailsBirthDateValue
             // 
             this.LblLicenseDetailsBirthDateValue.AutoSize = true;
-            this.LblLicenseDetailsBirthDateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsBirthDateValue.Location = new System.Drawing.Point(793, 320);
+            this.LblLicenseDetailsBirthDateValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsBirthDateValue.Location = new System.Drawing.Point(726, 172);
             this.LblLicenseDetailsBirthDateValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsBirthDateValue.Name = "LblLicenseDetailsBirthDateValue";
-            this.LblLicenseDetailsBirthDateValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsBirthDateValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsBirthDateValue.TabIndex = 157;
             this.LblLicenseDetailsBirthDateValue.Text = "[????]";
             // 
             // LblLicenseDetailsIsActiveValue
             // 
             this.LblLicenseDetailsIsActiveValue.AutoSize = true;
-            this.LblLicenseDetailsIsActiveValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsIsActiveValue.Location = new System.Drawing.Point(793, 279);
+            this.LblLicenseDetailsIsActiveValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsIsActiveValue.Location = new System.Drawing.Point(726, 137);
             this.LblLicenseDetailsIsActiveValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsIsActiveValue.Name = "LblLicenseDetailsIsActiveValue";
-            this.LblLicenseDetailsIsActiveValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsIsActiveValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsIsActiveValue.TabIndex = 156;
             this.LblLicenseDetailsIsActiveValue.Text = "[????]";
             // 
             // LblLicenseDetailsNationalNoValue
             // 
             this.LblLicenseDetailsNationalNoValue.AutoSize = true;
-            this.LblLicenseDetailsNationalNoValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsNationalNoValue.Location = new System.Drawing.Point(200, 235);
+            this.LblLicenseDetailsNationalNoValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsNationalNoValue.Location = new System.Drawing.Point(200, 146);
             this.LblLicenseDetailsNationalNoValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsNationalNoValue.Name = "LblLicenseDetailsNationalNoValue";
-            this.LblLicenseDetailsNationalNoValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsNationalNoValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsNationalNoValue.TabIndex = 155;
             this.LblLicenseDetailsNationalNoValue.Text = "[????]";
             // 
             // LblLicenseDetailsIssueDateValue
             // 
             this.LblLicenseDetailsIssueDateValue.AutoSize = true;
-            this.LblLicenseDetailsIssueDateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsIssueDateValue.Location = new System.Drawing.Point(199, 345);
+            this.LblLicenseDetailsIssueDateValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsIssueDateValue.Location = new System.Drawing.Point(199, 222);
             this.LblLicenseDetailsIssueDateValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsIssueDateValue.Name = "LblLicenseDetailsIssueDateValue";
-            this.LblLicenseDetailsIssueDateValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsIssueDateValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsIssueDateValue.TabIndex = 154;
             this.LblLicenseDetailsIssueDateValue.Text = "[????]";
             // 
             // LblLicenseDetailsGenderValue
             // 
             this.LblLicenseDetailsGenderValue.AutoSize = true;
-            this.LblLicenseDetailsGenderValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsGenderValue.Location = new System.Drawing.Point(199, 292);
+            this.LblLicenseDetailsGenderValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsGenderValue.Location = new System.Drawing.Point(199, 184);
             this.LblLicenseDetailsGenderValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsGenderValue.Name = "LblLicenseDetailsGenderValue";
-            this.LblLicenseDetailsGenderValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsGenderValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsGenderValue.TabIndex = 153;
             this.LblLicenseDetailsGenderValue.Text = "[????]";
             // 
             // lblLicenseDetailsLicenseIDValue
             // 
             this.lblLicenseDetailsLicenseIDValue.AutoSize = true;
-            this.lblLicenseDetailsLicenseIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLicenseDetailsLicenseIDValue.Location = new System.Drawing.Point(200, 182);
+            this.lblLicenseDetailsLicenseIDValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicenseDetailsLicenseIDValue.Location = new System.Drawing.Point(200, 109);
             this.lblLicenseDetailsLicenseIDValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLicenseDetailsLicenseIDValue.Name = "lblLicenseDetailsLicenseIDValue";
-            this.lblLicenseDetailsLicenseIDValue.Size = new System.Drawing.Size(75, 29);
+            this.lblLicenseDetailsLicenseIDValue.Size = new System.Drawing.Size(52, 24);
             this.lblLicenseDetailsLicenseIDValue.TabIndex = 152;
             this.lblLicenseDetailsLicenseIDValue.Text = "[????]";
             // 
             // LblLicenseDetailsFullNameValue
             // 
             this.LblLicenseDetailsFullNameValue.AutoSize = true;
-            this.LblLicenseDetailsFullNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsFullNameValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblLicenseDetailsFullNameValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblLicenseDetailsFullNameValue.Location = new System.Drawing.Point(202, 135);
+            this.LblLicenseDetailsFullNameValue.Location = new System.Drawing.Point(202, 72);
             this.LblLicenseDetailsFullNameValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsFullNameValue.Name = "LblLicenseDetailsFullNameValue";
-            this.LblLicenseDetailsFullNameValue.Size = new System.Drawing.Size(81, 29);
+            this.LblLicenseDetailsFullNameValue.Size = new System.Drawing.Size(56, 24);
             this.LblLicenseDetailsFullNameValue.TabIndex = 151;
             this.LblLicenseDetailsFullNameValue.Text = "[????]";
             // 
             // LblLicenseInfoPersonID
             // 
             this.LblLicenseInfoPersonID.AutoSize = true;
-            this.LblLicenseInfoPersonID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseInfoPersonID.Location = new System.Drawing.Point(10, 78);
+            this.LblLicenseInfoPersonID.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseInfoPersonID.Location = new System.Drawing.Point(10, 39);
             this.LblLicenseInfoPersonID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseInfoPersonID.Name = "LblLicenseInfoPersonID";
-            this.LblLicenseInfoPersonID.Size = new System.Drawing.Size(92, 29);
+            this.LblLicenseInfoPersonID.Size = new System.Drawing.Size(62, 24);
             this.LblLicenseInfoPersonID.TabIndex = 141;
             this.LblLicenseInfoPersonID.Text = "Class :";
             // 
             // LblLicenseInfoPersonNationalNo
             // 
             this.LblLicenseInfoPersonNationalNo.AutoSize = true;
-            this.LblLicenseInfoPersonNationalNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseInfoPersonNationalNo.Location = new System.Drawing.Point(8, 235);
+            this.LblLicenseInfoPersonNationalNo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseInfoPersonNationalNo.Location = new System.Drawing.Point(8, 146);
             this.LblLicenseInfoPersonNationalNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseInfoPersonNationalNo.Name = "LblLicenseInfoPersonNationalNo";
-            this.LblLicenseInfoPersonNationalNo.Size = new System.Drawing.Size(172, 29);
+            this.LblLicenseInfoPersonNationalNo.Size = new System.Drawing.Size(128, 24);
             this.LblLicenseInfoPersonNationalNo.TabIndex = 150;
             this.LblLicenseInfoPersonNationalNo.Text = "National No. :";
             // 
             // LblLicenseDetailsLicenseClassValue
             // 
             this.LblLicenseDetailsLicenseClassValue.AutoSize = true;
-            this.LblLicenseDetailsLicenseClassValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseDetailsLicenseClassValue.Location = new System.Drawing.Point(203, 78);
+            this.LblLicenseDetailsLicenseClassValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseDetailsLicenseClassValue.Location = new System.Drawing.Point(203, 39);
             this.LblLicenseDetailsLicenseClassValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseDetailsLicenseClassValue.Name = "LblLicenseDetailsLicenseClassValue";
-            this.LblLicenseDetailsLicenseClassValue.Size = new System.Drawing.Size(75, 29);
+            this.LblLicenseDetailsLicenseClassValue.Size = new System.Drawing.Size(52, 24);
             this.LblLicenseDetailsLicenseClassValue.TabIndex = 149;
             this.LblLicenseDetailsLicenseClassValue.Text = "[????]";
             // 
             // LblDriverIdLicenseInfo
             // 
             this.LblDriverIdLicenseInfo.AutoSize = true;
-            this.LblDriverIdLicenseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDriverIdLicenseInfo.Location = new System.Drawing.Point(575, 364);
+            this.LblDriverIdLicenseInfo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDriverIdLicenseInfo.Location = new System.Drawing.Point(508, 206);
             this.LblDriverIdLicenseInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblDriverIdLicenseInfo.Name = "LblDriverIdLicenseInfo";
-            this.LblDriverIdLicenseInfo.Size = new System.Drawing.Size(129, 29);
+            this.LblDriverIdLicenseInfo.Size = new System.Drawing.Size(96, 24);
             this.LblDriverIdLicenseInfo.TabIndex = 148;
             this.LblDriverIdLicenseInfo.Text = "Driver ID :";
             // 
             // LblLicenseInfoIssueDate
             // 
             this.LblLicenseInfoIssueDate.AutoSize = true;
-            this.LblLicenseInfoIssueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseInfoIssueDate.Location = new System.Drawing.Point(7, 345);
+            this.LblLicenseInfoIssueDate.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseInfoIssueDate.Location = new System.Drawing.Point(7, 222);
             this.LblLicenseInfoIssueDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseInfoIssueDate.Name = "LblLicenseInfoIssueDate";
-            this.LblLicenseInfoIssueDate.Size = new System.Drawing.Size(150, 29);
+            this.LblLicenseInfoIssueDate.Size = new System.Drawing.Size(108, 24);
             this.LblLicenseInfoIssueDate.TabIndex = 147;
             this.LblLicenseInfoIssueDate.Text = "Issue Date :";
             // 
             // LblLicenseInfoPersonGender
             // 
             this.LblLicenseInfoPersonGender.AutoSize = true;
-            this.LblLicenseInfoPersonGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseInfoPersonGender.Location = new System.Drawing.Point(7, 292);
+            this.LblLicenseInfoPersonGender.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseInfoPersonGender.Location = new System.Drawing.Point(7, 184);
             this.LblLicenseInfoPersonGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseInfoPersonGender.Name = "LblLicenseInfoPersonGender";
-            this.LblLicenseInfoPersonGender.Size = new System.Drawing.Size(121, 29);
+            this.LblLicenseInfoPersonGender.Size = new System.Drawing.Size(87, 24);
             this.LblLicenseInfoPersonGender.TabIndex = 146;
             this.LblLicenseInfoPersonGender.Text = "Gender : ";
             // 
             // LblBirthDateLicenseInfo
             // 
             this.LblBirthDateLicenseInfo.AutoSize = true;
-            this.LblBirthDateLicenseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblBirthDateLicenseInfo.Location = new System.Drawing.Point(575, 320);
+            this.LblBirthDateLicenseInfo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblBirthDateLicenseInfo.Location = new System.Drawing.Point(508, 172);
             this.LblBirthDateLicenseInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblBirthDateLicenseInfo.Name = "LblBirthDateLicenseInfo";
-            this.LblBirthDateLicenseInfo.Size = new System.Drawing.Size(176, 29);
+            this.LblBirthDateLicenseInfo.Size = new System.Drawing.Size(133, 24);
             this.LblBirthDateLicenseInfo.TabIndex = 145;
             this.LblBirthDateLicenseInfo.Text = "Date Of Birth :";
             // 
             // LblIsActive
             // 
             this.LblIsActive.AutoSize = true;
-            this.LblIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblIsActive.Location = new System.Drawing.Point(575, 279);
+            this.LblIsActive.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIsActive.Location = new System.Drawing.Point(508, 137);
             this.LblIsActive.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblIsActive.Name = "LblIsActive";
-            this.LblIsActive.Size = new System.Drawing.Size(131, 29);
+            this.LblIsActive.Size = new System.Drawing.Size(98, 24);
             this.LblIsActive.TabIndex = 144;
             this.LblIsActive.Text = "Is Active : ";
             // 
             // LblLicenseInfoLicenseID
             // 
             this.LblLicenseInfoLicenseID.AutoSize = true;
-            this.LblLicenseInfoLicenseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseInfoLicenseID.Location = new System.Drawing.Point(8, 182);
+            this.LblLicenseInfoLicenseID.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseInfoLicenseID.Location = new System.Drawing.Point(8, 109);
             this.LblLicenseInfoLicenseID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseInfoLicenseID.Name = "LblLicenseInfoLicenseID";
-            this.LblLicenseInfoLicenseID.Size = new System.Drawing.Size(150, 29);
+            this.LblLicenseInfoLicenseID.Size = new System.Drawing.Size(106, 24);
             this.LblLicenseInfoLicenseID.TabIndex = 143;
             this.LblLicenseInfoLicenseID.Text = "License ID :";
             // 
             // LblLicenseInfoPersonName
             // 
             this.LblLicenseInfoPersonName.AutoSize = true;
-            this.LblLicenseInfoPersonName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLicenseInfoPersonName.Location = new System.Drawing.Point(10, 135);
+            this.LblLicenseInfoPersonName.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLicenseInfoPersonName.Location = new System.Drawing.Point(10, 72);
             this.LblLicenseInfoPersonName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLicenseInfoPersonName.Name = "LblLicenseInfoPersonName";
-            this.LblLicenseInfoPersonName.Size = new System.Drawing.Size(89, 29);
+            this.LblLicenseInfoPersonName.Size = new System.Drawing.Size(65, 24);
             this.LblLicenseInfoPersonName.TabIndex = 142;
             this.LblLicenseInfoPersonName.Text = "Name:";
             // 
@@ -388,7 +390,7 @@
             this.PictureBoxDriverPhotoLicenseInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PictureBoxDriverPhotoLicenseInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PictureBoxDriverPhotoLicenseInfo.InitialImage = null;
-            this.PictureBoxDriverPhotoLicenseInfo.Location = new System.Drawing.Point(748, 50);
+            this.PictureBoxDriverPhotoLicenseInfo.Location = new System.Drawing.Point(868, 137);
             this.PictureBoxDriverPhotoLicenseInfo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PictureBoxDriverPhotoLicenseInfo.Name = "PictureBoxDriverPhotoLicenseInfo";
             this.PictureBoxDriverPhotoLicenseInfo.Size = new System.Drawing.Size(190, 198);
@@ -402,7 +404,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.GroupBoxDriverLicenseInfo);
             this.Name = "CtrlLicenseInfo";
-            this.Size = new System.Drawing.Size(1071, 542);
+            this.Size = new System.Drawing.Size(1071, 354);
             this.GroupBoxDriverLicenseInfo.ResumeLayout(false);
             this.GroupBoxDriverLicenseInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDriverPhotoLicenseInfo)).EndInit();

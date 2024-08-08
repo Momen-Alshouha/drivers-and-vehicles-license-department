@@ -354,5 +354,34 @@ namespace DVLD.DataAccess
 
             return (EnApplicationStatus)ApplicationStatus;
         }
+        public static int GetLastInsertedApplicationID()
+        {
+            int lastApplicationID = 0;
+
+            using (SqlConnection conn = _GetConnection())
+            {
+                string query = "SELECT MAX(ApplicationID) FROM Applications";
+
+                using (SqlCommand command = _CreateCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            lastApplicationID = Convert.ToInt32(result);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new DataAccessException("An error occurred while fetching the last inserted Application ID.", ex);
+                    }
+                }
+            }
+
+            return lastApplicationID;
+        }
+
     }
 }
