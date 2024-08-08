@@ -45,22 +45,21 @@ namespace DVLD.Presentation.Applications.Renew_Local_Driving_License_Application
             BtnRenew.Enabled = true;
             _LicenseID = LicenseInfo.LicenseID;
             _StLicense = LicenseInfo;
-            _StLicense.IsActive = true;
             _StLicense.CreatedByUserID = ClsGlobal.CurrentUser.UserID;
-            _StLicense.PaidFees = BusinessLogic.ClsLicense.GetFees(LicenseInfo.EnLicenseClass);
-            
             _StLicense.IssueDate = DateTime.Now;
-          
             _StApplicationData = _PrepareApplicationData();
             _StApplicationData.LicenseClassID = (int)LicenseInfo.EnLicenseClass;
-            int DefaultValidity = BusinessLogic.ClsLicense.GetDefaultValidityDateLength((int)LicenseInfo.EnLicenseClass);
-            _StLicense.ExpirationDate = DateTime.Now.AddYears(DefaultValidity);
-
             ctrlApplicationNewLicenseInfo1.SetDefaultValuesDataInCTRL(LicenseInfo.Notes, LicenseInfo.LicenseID, LicenseInfo.EnLicenseClass, EnApplicationType.RenewDrivingLicenseService);
         }
 
         private void BtnRenew_Click(object sender, EventArgs e)
         {
+
+            _StLicense.ExpirationDate = ctrlApplicationNewLicenseInfo1.StLicense.ExpirationDate;
+            _StLicense.IsActive = ctrlApplicationNewLicenseInfo1.StLicense.IsActive;
+            _StLicense.PaidFees = ctrlApplicationNewLicenseInfo1.StLicense.PaidFees;
+            _StLicense.Notes = ctrlApplicationNewLicenseInfo1.Notes;
+
             if (BusinessLogic.ClsLocalDrivingLicenseApplication.AddNew(_StApplicationData) != -1)
             {
                 int ApplicationID = BusinessLogic.ClsApplications.GetLastInsertedApplicationID();
