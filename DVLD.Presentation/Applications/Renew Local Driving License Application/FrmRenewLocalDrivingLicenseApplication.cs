@@ -42,6 +42,11 @@ namespace DVLD.Presentation.Applications.Renew_Local_Driving_License_Application
                 MessageBox.Show($"Can't Find License With ID: {LicenseID}!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!LicenseInfo.IsActive)
+            {
+                MessageBox.Show($"Can't Renew License With ID: {LicenseID}! it's not active license!", "Not Allowed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             BtnRenew.Enabled = true;
             _LicenseID = LicenseInfo.LicenseID;
             _StLicense = LicenseInfo;

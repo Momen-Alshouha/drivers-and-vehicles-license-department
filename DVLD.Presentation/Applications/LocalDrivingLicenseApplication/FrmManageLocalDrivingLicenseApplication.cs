@@ -128,6 +128,9 @@ namespace DVLD.Presentation.Applications.LocalDrivingLicenseApplication
             DataGridViewLocalDrivingLicenseApplications_View.Columns[2].Width = 100;
             DataGridViewLocalDrivingLicenseApplications_View.Columns[1].Width = 200;
             DataGridViewLocalDrivingLicenseApplications_View.Columns[3].Width = 250;
+            DataGridViewLocalDrivingLicenseApplications_View.Columns[5].HeaderText= "Passed Tests";
+            DataGridViewLocalDrivingLicenseApplications_View.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
         }
         private void PictureBoxAddNewLocalDrivingLicenseApplication_Click(object sender, EventArgs e)
         {

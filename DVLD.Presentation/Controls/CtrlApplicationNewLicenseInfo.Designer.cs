@@ -86,7 +86,7 @@
             // 
             this.ApplicationNewLicenseInfoLicenseFeesValue.AutoSize = true;
             this.ApplicationNewLicenseInfoLicenseFeesValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApplicationNewLicenseInfoLicenseFeesValue.Location = new System.Drawing.Point(170, 179);
+            this.ApplicationNewLicenseInfoLicenseFeesValue.Location = new System.Drawing.Point(170, 169);
             this.ApplicationNewLicenseInfoLicenseFeesValue.Name = "ApplicationNewLicenseInfoLicenseFeesValue";
             this.ApplicationNewLicenseInfoLicenseFeesValue.Size = new System.Drawing.Size(22, 24);
             this.ApplicationNewLicenseInfoLicenseFeesValue.TabIndex = 3;
@@ -96,7 +96,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 135);
+            this.label2.Location = new System.Drawing.Point(0, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(160, 24);
             this.label2.TabIndex = 2;
@@ -106,7 +106,7 @@
             // 
             this.ApplicationNewLicenseInfoApplicationFeesValue.AutoSize = true;
             this.ApplicationNewLicenseInfoApplicationFeesValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApplicationNewLicenseInfoApplicationFeesValue.Location = new System.Drawing.Point(170, 141);
+            this.ApplicationNewLicenseInfoApplicationFeesValue.Location = new System.Drawing.Point(170, 135);
             this.ApplicationNewLicenseInfoApplicationFeesValue.Name = "ApplicationNewLicenseInfoApplicationFeesValue";
             this.ApplicationNewLicenseInfoApplicationFeesValue.Size = new System.Drawing.Size(22, 24);
             this.ApplicationNewLicenseInfoApplicationFeesValue.TabIndex = 5;
@@ -116,7 +116,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(37, 169);
+            this.label4.Location = new System.Drawing.Point(36, 169);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 24);
             this.label4.TabIndex = 4;
@@ -126,7 +126,7 @@
             // 
             this.ApplicationNewLicenseInfoApplicationDateValue.AutoSize = true;
             this.ApplicationNewLicenseInfoApplicationDateValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApplicationNewLicenseInfoApplicationDateValue.Location = new System.Drawing.Point(170, 111);
+            this.ApplicationNewLicenseInfoApplicationDateValue.Location = new System.Drawing.Point(170, 103);
             this.ApplicationNewLicenseInfoApplicationDateValue.Name = "ApplicationNewLicenseInfoApplicationDateValue";
             this.ApplicationNewLicenseInfoApplicationDateValue.Size = new System.Drawing.Size(22, 24);
             this.ApplicationNewLicenseInfoApplicationDateValue.TabIndex = 7;
@@ -136,7 +136,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 103);
+            this.label6.Location = new System.Drawing.Point(-3, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(163, 24);
             this.label6.TabIndex = 6;
@@ -146,7 +146,7 @@
             // 
             this.ApplicationNewLicenseInfoIssueDateValue.AutoSize = true;
             this.ApplicationNewLicenseInfoIssueDateValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApplicationNewLicenseInfoIssueDateValue.Location = new System.Drawing.Point(170, 75);
+            this.ApplicationNewLicenseInfoIssueDateValue.Location = new System.Drawing.Point(170, 70);
             this.ApplicationNewLicenseInfoIssueDateValue.Name = "ApplicationNewLicenseInfoIssueDateValue";
             this.ApplicationNewLicenseInfoIssueDateValue.Size = new System.Drawing.Size(22, 24);
             this.ApplicationNewLicenseInfoIssueDateValue.TabIndex = 9;
@@ -185,7 +185,7 @@
             // 
             this.LblApplicationLicenseInfoOldLicenseIdValue.AutoSize = true;
             this.LblApplicationLicenseInfoOldLicenseIdValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApplicationLicenseInfoOldLicenseIdValue.Location = new System.Drawing.Point(477, 80);
+            this.LblApplicationLicenseInfoOldLicenseIdValue.Location = new System.Drawing.Point(476, 36);
             this.LblApplicationLicenseInfoOldLicenseIdValue.Name = "LblApplicationLicenseInfoOldLicenseIdValue";
             this.LblApplicationLicenseInfoOldLicenseIdValue.Size = new System.Drawing.Size(22, 24);
             this.LblApplicationLicenseInfoOldLicenseIdValue.TabIndex = 21;
@@ -195,7 +195,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(321, 75);
+            this.label3.Location = new System.Drawing.Point(320, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 24);
             this.label3.TabIndex = 20;
@@ -205,7 +205,7 @@
             // 
             this.LblApplicationNewLicenseInfoExpDateValue.AutoSize = true;
             this.LblApplicationNewLicenseInfoExpDateValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApplicationNewLicenseInfoExpDateValue.Location = new System.Drawing.Point(477, 116);
+            this.LblApplicationNewLicenseInfoExpDateValue.Location = new System.Drawing.Point(476, 69);
             this.LblApplicationNewLicenseInfoExpDateValue.Name = "LblApplicationNewLicenseInfoExpDateValue";
             this.LblApplicationNewLicenseInfoExpDateValue.Size = new System.Drawing.Size(22, 24);
             this.LblApplicationNewLicenseInfoExpDateValue.TabIndex = 19;
@@ -215,7 +215,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(310, 108);
+            this.label7.Location = new System.Drawing.Point(309, 69);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(152, 24);
             this.label7.TabIndex = 18;
@@ -225,7 +225,7 @@
             // 
             this.LblApplicationNewLicenseInfoCreatedByValue.AutoSize = true;
             this.LblApplicationNewLicenseInfoCreatedByValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApplicationNewLicenseInfoCreatedByValue.Location = new System.Drawing.Point(477, 146);
+            this.LblApplicationNewLicenseInfoCreatedByValue.Location = new System.Drawing.Point(476, 102);
             this.LblApplicationNewLicenseInfoCreatedByValue.Name = "LblApplicationNewLicenseInfoCreatedByValue";
             this.LblApplicationNewLicenseInfoCreatedByValue.Size = new System.Drawing.Size(22, 24);
             this.LblApplicationNewLicenseInfoCreatedByValue.TabIndex = 17;
@@ -235,7 +235,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(356, 174);
+            this.label11.Location = new System.Drawing.Point(355, 134);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(106, 24);
             this.label11.TabIndex = 16;
@@ -245,7 +245,7 @@
             // 
             this.LblApplicationNewLicenseInfoTotalFeesValue.AutoSize = true;
             this.LblApplicationNewLicenseInfoTotalFeesValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApplicationNewLicenseInfoTotalFeesValue.Location = new System.Drawing.Point(477, 184);
+            this.LblApplicationNewLicenseInfoTotalFeesValue.Location = new System.Drawing.Point(476, 134);
             this.LblApplicationNewLicenseInfoTotalFeesValue.Name = "LblApplicationNewLicenseInfoTotalFeesValue";
             this.LblApplicationNewLicenseInfoTotalFeesValue.Size = new System.Drawing.Size(22, 24);
             this.LblApplicationNewLicenseInfoTotalFeesValue.TabIndex = 15;
@@ -255,7 +255,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(350, 140);
+            this.label13.Location = new System.Drawing.Point(349, 102);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(113, 24);
             this.label13.TabIndex = 14;
@@ -265,7 +265,7 @@
             // 
             this.LblApplicationNewLicenseInfoNewLicenseIDValue.AutoSize = true;
             this.LblApplicationNewLicenseInfoNewLicenseIDValue.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApplicationNewLicenseInfoNewLicenseIDValue.Location = new System.Drawing.Point(477, 46);
+            this.LblApplicationNewLicenseInfoNewLicenseIDValue.Location = new System.Drawing.Point(176, 36);
             this.LblApplicationNewLicenseInfoNewLicenseIDValue.Name = "LblApplicationNewLicenseInfoNewLicenseIDValue";
             this.LblApplicationNewLicenseInfoNewLicenseIDValue.Size = new System.Drawing.Size(22, 24);
             this.LblApplicationNewLicenseInfoNewLicenseIDValue.TabIndex = 13;
@@ -275,7 +275,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(313, 41);
+            this.label15.Location = new System.Drawing.Point(11, 36);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(149, 24);
             this.label15.TabIndex = 12;
@@ -287,7 +287,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBoxApplicationNewLicense);
             this.Name = "CtrlApplicationNewLicenseInfo";
-            this.Size = new System.Drawing.Size(720, 344);
+            this.Size = new System.Drawing.Size(720, 336);
             this.groupBoxApplicationNewLicense.ResumeLayout(false);
             this.groupBoxApplicationNewLicense.PerformLayout();
             this.ResumeLayout(false);
