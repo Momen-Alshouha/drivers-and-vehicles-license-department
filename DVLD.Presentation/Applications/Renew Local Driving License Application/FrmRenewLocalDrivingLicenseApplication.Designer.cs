@@ -33,6 +33,8 @@
             this.BtnCloseRenewForm = new System.Windows.Forms.Button();
             this.ctrlLicenseInfoDetailsWithFilter1 = new DVLD.Presentation.Controls.CtrlLicenseInfoDetailsWithFilter();
             this.ctrlApplicationNewLicenseInfo1 = new DVLD.Presentation.Controls.CtrlApplicationNewLicenseInfo();
+            this.linkLabelShowLicensesHistoryFrmRenew = new System.Windows.Forms.LinkLabel();
+            this.linkLabelShowNewLicenseInfoFrmRenew = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // LblRenewFrmTitle
@@ -85,12 +87,40 @@
             this.ctrlApplicationNewLicenseInfo1.Size = new System.Drawing.Size(720, 344);
             this.ctrlApplicationNewLicenseInfo1.TabIndex = 5;
             // 
+            // linkLabelShowLicensesHistoryFrmRenew
+            // 
+            this.linkLabelShowLicensesHistoryFrmRenew.AutoSize = true;
+            this.linkLabelShowLicensesHistoryFrmRenew.Enabled = false;
+            this.linkLabelShowLicensesHistoryFrmRenew.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.linkLabelShowLicensesHistoryFrmRenew.Location = new System.Drawing.Point(739, 777);
+            this.linkLabelShowLicensesHistoryFrmRenew.Name = "linkLabelShowLicensesHistoryFrmRenew";
+            this.linkLabelShowLicensesHistoryFrmRenew.Size = new System.Drawing.Size(208, 24);
+            this.linkLabelShowLicensesHistoryFrmRenew.TabIndex = 6;
+            this.linkLabelShowLicensesHistoryFrmRenew.TabStop = true;
+            this.linkLabelShowLicensesHistoryFrmRenew.Text = "Show Licenses History";
+            this.linkLabelShowLicensesHistoryFrmRenew.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelShowLicensesHistoryFrmRenew_LinkClicked);
+            // 
+            // linkLabelShowNewLicenseInfoFrmRenew
+            // 
+            this.linkLabelShowNewLicenseInfoFrmRenew.AutoSize = true;
+            this.linkLabelShowNewLicenseInfoFrmRenew.Enabled = false;
+            this.linkLabelShowNewLicenseInfoFrmRenew.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.linkLabelShowNewLicenseInfoFrmRenew.Location = new System.Drawing.Point(739, 741);
+            this.linkLabelShowNewLicenseInfoFrmRenew.Name = "linkLabelShowNewLicenseInfoFrmRenew";
+            this.linkLabelShowNewLicenseInfoFrmRenew.Size = new System.Drawing.Size(216, 24);
+            this.linkLabelShowNewLicenseInfoFrmRenew.TabIndex = 7;
+            this.linkLabelShowNewLicenseInfoFrmRenew.TabStop = true;
+            this.linkLabelShowNewLicenseInfoFrmRenew.Text = "Show New License Info";
+            this.linkLabelShowNewLicenseInfoFrmRenew.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelShowNewLicenseInfoFrmRenew_LinkClicked);
+            // 
             // FrmRenewLocalDrivingLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1109, 884);
+            this.Controls.Add(this.linkLabelShowNewLicenseInfoFrmRenew);
+            this.Controls.Add(this.linkLabelShowLicensesHistoryFrmRenew);
             this.Controls.Add(this.ctrlApplicationNewLicenseInfo1);
             this.Controls.Add(this.ctrlLicenseInfoDetailsWithFilter1);
             this.Controls.Add(this.BtnCloseRenewForm);
@@ -110,5 +140,7 @@
         private System.Windows.Forms.Button BtnCloseRenewForm;
         private Controls.CtrlLicenseInfoDetailsWithFilter ctrlLicenseInfoDetailsWithFilter1;
         private Controls.CtrlApplicationNewLicenseInfo ctrlApplicationNewLicenseInfo1;
+        private System.Windows.Forms.LinkLabel linkLabelShowLicensesHistoryFrmRenew;
+        private System.Windows.Forms.LinkLabel linkLabelShowNewLicenseInfoFrmRenew;
     }
 }
