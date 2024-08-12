@@ -148,6 +148,7 @@
             this.replacmentsForDamagedOrLostDrivingLicenseToolStripMenuItem.Name = "replacmentsForDamagedOrLostDrivingLicenseToolStripMenuItem";
             this.replacmentsForDamagedOrLostDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(527, 42);
             this.replacmentsForDamagedOrLostDrivingLicenseToolStripMenuItem.Text = "Replacments For Damaged Or Lost Driving License ";
+            this.replacmentsForDamagedOrLostDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.replacmentsForDamagedOrLostDrivingLicenseToolStripMenuItem_Click);
             // 
             // releaseDetainedDrivingLicenseToolStripMenuItem
             // 
