@@ -88,11 +88,11 @@
     <Compile Include="Applications\Renew Local Driving License Application\FrmRenewLocalDrivingLicenseApplication.Designer.cs">
       <DependentUpon>FrmRenewLocalDrivingLicenseApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Replacment for damged or lost\FrmReplacmentForDamagedOrLost.cs">
+    <Compile Include="Applications\Replacment for damged or lost\FrmReplacementForDamagedOrLost.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Replacment for damged or lost\FrmReplacmentForDamagedOrLost.Designer.cs">
-      <DependentUpon>FrmReplacmentForDamagedOrLost.cs</DependentUpon>
+    <Compile Include="Applications\Replacment for damged or lost\FrmReplacementForDamagedOrLost.Designer.cs">
+      <DependentUpon>FrmReplacementForDamagedOrLost.cs</DependentUpon>
     </Compile>
     <Compile Include="ClsGlobal.cs" />
     <Compile Include="ClsUtil.cs" />
@@ -288,8 +288,8 @@
     <EmbeddedResource Include="Applications\Renew Local Driving License Application\FrmRenewLocalDrivingLicenseApplication.resx">
       <DependentUpon>FrmRenewLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Replacment for damged or lost\FrmReplacmentForDamagedOrLost.resx">
-      <DependentUpon>FrmReplacmentForDamagedOrLost.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Replacment for damged or lost\FrmReplacementForDamagedOrLost.resx">
+      <DependentUpon>FrmReplacementForDamagedOrLost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlApplicationNewLicenseInfo.resx">
       <DependentUpon>CtrlApplicationNewLicenseInfo.cs</DependentUpon>

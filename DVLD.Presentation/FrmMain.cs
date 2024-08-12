@@ -2,7 +2,7 @@
 using DVLD.Presentation.Applications.International;
 using DVLD.Presentation.Applications.LocalDrivingLicenseApplication;
 using DVLD.Presentation.Applications.Renew_Local_Driving_License_Application;
-using DVLD.Presentation.Applications.Replacment_for_damged_or_lost;
+using DVLD.Presentation.Applications.ReplacementForDamagedOrLost;
 using DVLD.Presentation.Drivers;
 using DVLD.Presentation.Login;
 using DVLD.Presentation.People;
@@ -110,7 +110,7 @@ namespace DVLD.Presentation
 
         private void replacmentsForDamagedOrLostDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmReplacmentForDamagedOrLost frmReplacmentForDamagedOrLost = new FrmReplacmentForDamagedOrLost();
+            FrmReplacementForDamagedOrLost frmReplacmentForDamagedOrLost = new FrmReplacementForDamagedOrLost();
             frmReplacmentForDamagedOrLost.ShowDialog();
         }
     }
