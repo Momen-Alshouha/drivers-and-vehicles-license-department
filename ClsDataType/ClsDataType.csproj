@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ClsApplication.cs" />
     <Compile Include="ClsDataType.cs" />
+    <Compile Include="ClsDetainedLicense.cs" />
     <Compile Include="ClsDriver.cs" />
     <Compile Include="ClsInternationaLicenseInfo.cs" />
     <Compile Include="ClsLicense.cs" />
