@@ -73,5 +73,13 @@ namespace DVLD.BusinessLogic
         {
             return DataAccess.ClsLicense.GetLicenseClassText(enLicenseClass);
         }
+        public static void DetainLicense(int LicenseID, decimal FineFees, int CreatedByUserID)
+        {
+            DataAccess.ClsLicense.DetainLicense(LicenseID, FineFees, CreatedByUserID);
+        }
+        public static void ReleaseLicense(int LicenseID, int ReleaseByUserID, int ReleaseApplicationID)
+        {
+            DataAccess.ClsLicense.ReleaseLicense(LicenseID, ReleaseByUserID, ReleaseApplicationID);
+        }
     }
 }
