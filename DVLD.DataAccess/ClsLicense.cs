@@ -501,7 +501,7 @@ namespace DVLD.DataAccess
 
             return isExpired;
         }
-        //TODO RenewLicense , DetainLicense, ReleaseLicense , Replace methods.
+        //TODO RenewLicense , DetainLicense, ReleaseLicense 
         public static bool HasInternationalLicense(int LicenseID)
         {
             bool hasInternationalLicense = false;
@@ -604,6 +604,88 @@ namespace DVLD.DataAccess
                     return "Truck/Heavy Vehicle";
                 default:
                     return "Unknown License Class";
+            }
+        }
+        public static void DetainLicense(int LicenseID, decimal FineFees, int CreatedByUserID)
+        {
+            string query = @"
+        Insert into DetainedLicenses 
+        (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, ReleaseDate, ReleaseByUserID, ReleaseApplicationID) 
+        values 
+        (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, @IsReleased, @ReleaseDate, @ReleaseByUserID, @ReleaseApplicationID)
+    ";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LicenseID", LicenseID);
+                        command.Parameters.AddWithValue("@DetainDate", DateTime.Now);
+                        command.Parameters.AddWithValue("@FineFees", FineFees);
+                        command.Parameters.AddWithValue("@CreatedByUserID",CreatedByUserID);
+                        command.Parameters.AddWithValue("@IsReleased", DBNull.Value);
+                        command.Parameters.AddWithValue("@ReleaseDate", DBNull.Value);
+                        command.Parameters.AddWithValue("@ReleaseByUserID", DBNull.Value);
+                        command.Parameters.AddWithValue("@ReleaseApplicationID", DBNull.Value);
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("An error occurred while detaining the license.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An unexpected error occurred.", ex);
+            }
+        }
+        public static void ReleaseLicense(int LicenseID, int ReleaseByUserID, int ReleaseApplicationID)
+        {
+            string query = @"
+        UPDATE DetainedLicenses
+        SET 
+            IsReleased = @IsReleased, 
+            ReleaseDate = @ReleaseDate, 
+            ReleaseByUserID = @ReleaseByUserID, 
+            ReleaseApplicationID = @ReleaseApplicationID
+        WHERE 
+            LicenseID = @LicenseID AND IsReleased IS NULL
+        ";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LicenseID", LicenseID);
+                        command.Parameters.AddWithValue("@IsReleased", true);
+                        command.Parameters.AddWithValue("@ReleaseDate", DateTime.Now);
+                        command.Parameters.AddWithValue("@ReleaseByUserID", ReleaseByUserID);
+                        command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected == 0)
+                        {
+                            throw new ApplicationException("No detained license found or the license has already been released.");
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("An error occurred while releasing the license.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An unexpected error occurred.", ex);
             }
         }
 
