@@ -59,7 +59,7 @@ namespace DVLD.Presentation.Licenses.Detain_License
 
         private void textBoxFineFeesDetainLicenseFrm_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBoxFineFeesDetainLicenseFrm.Text))
+            if (!string.IsNullOrEmpty(textBoxFineFeesDetainLicenseFrm.Text) && LicenseIDToDetain!=0)
             {
                 BtnDetainLicense.Enabled = true;
             } else

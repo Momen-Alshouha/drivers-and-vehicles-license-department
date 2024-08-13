@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.Presentation.Applications.Release_Detained_License;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace DVLD.Presentation.Licenses.Detain_License
         public FrmManageDetainedLicenses()
         {
             InitializeComponent();
+        }
+
+        private void pictureBoxReleaseLicense_Click(object sender, EventArgs e)
+        {
+            FrmReleaseDetainedLicenseApplication frmReleaseDetainedLicenseApplication = new FrmReleaseDetainedLicenseApplication();
+            frmReleaseDetainedLicenseApplication.ShowDialog();
+        }
+
+        private void pictureBoxDetainLicence_Click(object sender, EventArgs e)
+        {
+            FrmDetainLicense frmDetainLicense = new FrmDetainLicense();
+            frmDetainLicense.ShowDialog();
         }
     }
 }

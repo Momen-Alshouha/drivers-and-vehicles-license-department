@@ -90,6 +90,7 @@
             this.pictureBoxDetainLicence.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDetainLicence.TabIndex = 3;
             this.pictureBoxDetainLicence.TabStop = false;
+            this.pictureBoxDetainLicence.Click += new System.EventHandler(this.pictureBoxDetainLicence_Click);
             // 
             // pictureBoxReleaseLicense
             // 
@@ -101,6 +102,7 @@
             this.pictureBoxReleaseLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxReleaseLicense.TabIndex = 4;
             this.pictureBoxReleaseLicense.TabStop = false;
+            this.pictureBoxReleaseLicense.Click += new System.EventHandler(this.pictureBoxReleaseLicense_Click);
             // 
             // textBox1
             // 
