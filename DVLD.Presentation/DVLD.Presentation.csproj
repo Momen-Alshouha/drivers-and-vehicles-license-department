@@ -169,6 +169,12 @@
     <Compile Include="Licenses\Detain License\FrmDetainLicense.Designer.cs">
       <DependentUpon>FrmDetainLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="Licenses\Detain License\FrmManageDetainedLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Detain License\FrmManageDetainedLicenses.Designer.cs">
+      <DependentUpon>FrmManageDetainedLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Licenses\FrmLicenseInfoDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Detain License\FrmDetainLicense.resx">
       <DependentUpon>FrmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Detain License\FrmManageDetainedLicenses.resx">
+      <DependentUpon>FrmManageDetainedLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\FrmLicenseInfoDetails.resx">
       <DependentUpon>FrmLicenseInfoDetails.cs</DependentUpon>
@@ -589,6 +598,7 @@
     <None Include="Resources\AddPerson 32.png" />
     <None Include="Resources\Delete User 32.png" />
     <None Include="Resources\Release Detained License 512.png" />
+    <None Include="Resources\Detain 512.png" />
     <Content Include="screenshoots\manage_users.PNG" />
     <Content Include="screenshoots\user_information.PNG" />
     <None Include="Resources\Male.png" />
