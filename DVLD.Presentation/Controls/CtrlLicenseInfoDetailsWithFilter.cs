@@ -51,5 +51,9 @@ namespace DVLD.Presentation.Controls
                 pictureBoxSearchFilterLicenseID_Click(sender, e);
             }
         }
+        public void ChangeDetainTextToBeDetained()
+        {
+            ctrlLicenseInfo1.changedetainedTextToBeDetaind();
+        }
     }
 }

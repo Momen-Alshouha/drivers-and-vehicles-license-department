@@ -1,6 +1,7 @@
 ﻿using DVLD.Presentation.Properties;
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
 using static ClsDataType.ClsApplication;
@@ -129,7 +130,12 @@ namespace DVLD.Presentation.Controls
                     return "Unknown Issue Reason";
             }
         }
-
+        public void changedetainedTextToBeDetaind()
+        {
+            LblLicenseDetailsIsDetainedValue.Text = "Yes";
+            LblLicenseDetailsIsDetainedValue.ForeColor = Color.Red;
+            LblLicenseDetailsIsDetainedValue.Font = new Font(LblLicenseDetailsIsDetainedValue.Font, FontStyle.Bold); // set text to bold
+        }
         private void GroupBoxDriverLicenseInfo_Enter(object sender, EventArgs e)
         {
 

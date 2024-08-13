@@ -610,9 +610,9 @@ namespace DVLD.DataAccess
         {
             string query = @"
         Insert into DetainedLicenses 
-        (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, ReleaseDate, ReleaseByUserID, ReleaseApplicationID) 
+        (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID) 
         values 
-        (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, @IsReleased, @ReleaseDate, @ReleaseByUserID, @ReleaseApplicationID)
+        (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, @IsReleased, @ReleaseDate, @ReleasedByUserID, @ReleaseApplicationID)
     ";
 
             try
@@ -625,9 +625,9 @@ namespace DVLD.DataAccess
                         command.Parameters.AddWithValue("@DetainDate", DateTime.Now);
                         command.Parameters.AddWithValue("@FineFees", FineFees);
                         command.Parameters.AddWithValue("@CreatedByUserID",CreatedByUserID);
-                        command.Parameters.AddWithValue("@IsReleased", DBNull.Value);
+                        command.Parameters.AddWithValue("@IsReleased", 0);
                         command.Parameters.AddWithValue("@ReleaseDate", DBNull.Value);
-                        command.Parameters.AddWithValue("@ReleaseByUserID", DBNull.Value);
+                        command.Parameters.AddWithValue("@ReleasedByUserID", DBNull.Value);
                         command.Parameters.AddWithValue("@ReleaseApplicationID", DBNull.Value);
 
                         connection.Open();

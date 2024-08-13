@@ -157,6 +157,12 @@
     <Compile Include="Controls\CtrlPersonDetailsWithFilter.Designer.cs">
       <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Licenses\Detain License\FrmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Detain License\FrmDetainLicense.Designer.cs">
+      <DependentUpon>FrmDetainLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Licenses\FrmLicenseInfoDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +327,9 @@
     <EmbeddedResource Include="Controls\CtrlPersonDetailsWithFilter.resx">
       <DependentUpon>CtrlPersonDetailsWithFilter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Detain License\FrmDetainLicense.resx">
+      <DependentUpon>FrmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Licenses\FrmLicenseInfoDetails.resx">
       <DependentUpon>FrmLicenseInfoDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -480,7 +489,9 @@
   <ItemGroup>
     <None Include="Resources\DVLD_logo.PNG" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Applications\Release Detained License\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\License View 32.png" />
   </ItemGroup>

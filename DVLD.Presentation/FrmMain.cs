@@ -4,6 +4,7 @@ using DVLD.Presentation.Applications.LocalDrivingLicenseApplication;
 using DVLD.Presentation.Applications.Renew_Local_Driving_License_Application;
 using DVLD.Presentation.Applications.ReplacementForDamagedOrLost;
 using DVLD.Presentation.Drivers;
+using DVLD.Presentation.Licenses.Detain_License;
 using DVLD.Presentation.Login;
 using DVLD.Presentation.People;
 using DVLD.Presentation.People.Controls;
@@ -112,6 +113,12 @@ namespace DVLD.Presentation
         {
             FrmReplacementForDamagedOrLost frmReplacmentForDamagedOrLost = new FrmReplacementForDamagedOrLost();
             frmReplacmentForDamagedOrLost.ShowDialog();
+        }
+
+        private void detainLicenseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmDetainLicense frmDetainLicense = new FrmDetainLicense(); 
+            frmDetainLicense.ShowDialog();
         }
     }
 }
