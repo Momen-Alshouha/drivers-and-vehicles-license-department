@@ -644,17 +644,17 @@ namespace DVLD.DataAccess
                 throw new ApplicationException("An unexpected error occurred.", ex);
             }
         }
-        public static void ReleaseLicense(int LicenseID, int ReleaseByUserID, int ReleaseApplicationID)
+        public static void ReleaseLicense(int LicenseID, int ReleasedByUserID, int ReleaseApplicationID)
         {
             string query = @"
         UPDATE DetainedLicenses
         SET 
             IsReleased = @IsReleased, 
             ReleaseDate = @ReleaseDate, 
-            ReleaseByUserID = @ReleaseByUserID, 
+            ReleasedByUserID = @ReleasedByUserID, 
             ReleaseApplicationID = @ReleaseApplicationID
         WHERE 
-            LicenseID = @LicenseID AND IsReleased IS NULL
+            LicenseID = @LicenseID AND IsReleased = 0
         ";
 
             try
@@ -666,7 +666,7 @@ namespace DVLD.DataAccess
                         command.Parameters.AddWithValue("@LicenseID", LicenseID);
                         command.Parameters.AddWithValue("@IsReleased", true);
                         command.Parameters.AddWithValue("@ReleaseDate", DateTime.Now);
-                        command.Parameters.AddWithValue("@ReleaseByUserID", ReleaseByUserID);
+                        command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
                         command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
 
                         connection.Open();
@@ -688,6 +688,45 @@ namespace DVLD.DataAccess
                 throw new ApplicationException("An unexpected error occurred.", ex);
             }
         }
+        public static decimal GetFineFeesForDetainedLicense(int licenseID)
+        {
+            decimal fineFees = 0;
+
+            string query = @"
+            SELECT FineFees
+            FROM DetainedLicenses
+            WHERE LicenseID = @LicenseID and IsReleased = 0";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LicenseID", licenseID);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && decimal.TryParse(result.ToString(), out fineFees))
+                        {
+                            return fineFees;
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("An error occurred while retrieving fine fees for the detained license.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An unexpected error occurred.", ex);
+            }
+
+            return fineFees;
+        }
+
 
     }
 }

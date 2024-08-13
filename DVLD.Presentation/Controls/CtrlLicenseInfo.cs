@@ -130,9 +130,9 @@ namespace DVLD.Presentation.Controls
                     return "Unknown Issue Reason";
             }
         }
-        public void changedetainedTextToBeDetaind()
+        public void changedetainedTextToBeDetaind(string YesOrNo)
         {
-            LblLicenseDetailsIsDetainedValue.Text = "Yes";
+            LblLicenseDetailsIsDetainedValue.Text = YesOrNo;
             LblLicenseDetailsIsDetainedValue.ForeColor = Color.Red;
             LblLicenseDetailsIsDetainedValue.Font = new Font(LblLicenseDetailsIsDetainedValue.Font, FontStyle.Bold); // set text to bold
         }

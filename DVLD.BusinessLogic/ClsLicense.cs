@@ -81,5 +81,9 @@ namespace DVLD.BusinessLogic
         {
             DataAccess.ClsLicense.ReleaseLicense(LicenseID, ReleaseByUserID, ReleaseApplicationID);
         }
+        public static decimal GetFineFeesForDetainedLicense(int LicenseID)
+        {
+           return DataAccess.ClsLicense.GetFineFeesForDetainedLicense(LicenseID);
+        }
     }
 }

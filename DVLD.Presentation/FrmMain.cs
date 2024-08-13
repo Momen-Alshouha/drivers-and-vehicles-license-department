@@ -1,6 +1,7 @@
 ﻿using DVLD.Presentation.Application_Types;
 using DVLD.Presentation.Applications.International;
 using DVLD.Presentation.Applications.LocalDrivingLicenseApplication;
+using DVLD.Presentation.Applications.Release_Detained_License;
 using DVLD.Presentation.Applications.Renew_Local_Driving_License_Application;
 using DVLD.Presentation.Applications.ReplacementForDamagedOrLost;
 using DVLD.Presentation.Drivers;
@@ -119,6 +120,18 @@ namespace DVLD.Presentation
         {
             FrmDetainLicense frmDetainLicense = new FrmDetainLicense(); 
             frmDetainLicense.ShowDialog();
+        }
+
+        private void releaseDetainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReleaseDetainedLicenseApplication frmReleaseDetainedLicenseApplication = new FrmReleaseDetainedLicenseApplication();
+            frmReleaseDetainedLicenseApplication.ShowDialog();
+        }
+
+        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReleaseDetainedLicenseApplication frmReleaseDetainedLicenseApplication = new FrmReleaseDetainedLicenseApplication();
+            frmReleaseDetainedLicenseApplication.ShowDialog();
         }
     }
 }

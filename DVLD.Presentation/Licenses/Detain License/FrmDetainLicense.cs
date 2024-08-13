@@ -101,7 +101,7 @@ namespace DVLD.Presentation.Licenses.Detain_License
             BusinessLogic.ClsLicense.DetainLicense(LicenseIDToDetain, FineFees, ClsGlobal.CurrentUser.UserID);
             if (MessageBox.Show($"License With ID: {LicenseIDToDetain} Deained!", "Detained Successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                ctrlLicenseInfoDetailsWithFilter1.ChangeDetainTextToBeDetained();
+                ctrlLicenseInfoDetailsWithFilter1.ChangeDetainText("Yes");
                 BtnDetainLicense.Enabled = false;
             }
         }
