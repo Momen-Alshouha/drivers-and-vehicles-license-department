@@ -19,7 +19,7 @@ namespace DVLD.DataAccess
                     conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
                             dtDetainedLicenses.Load(reader);
                         }

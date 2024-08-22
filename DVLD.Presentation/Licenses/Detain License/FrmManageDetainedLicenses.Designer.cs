@@ -33,9 +33,9 @@
             this.dataGridViewDetainedLicenses = new System.Windows.Forms.DataGridView();
             this.pictureBoxDetainLicence = new System.Windows.Forms.PictureBox();
             this.pictureBoxReleaseLicense = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxFilterManageDetainedLicenses = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxFilterByDetainedLicenses = new System.Windows.Forms.ComboBox();
+            this.comboBoxFilterManageDetainedLicenses = new System.Windows.Forms.ComboBox();
             this.buttonCloseFrm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetainedLicenses)).BeginInit();
@@ -84,9 +84,9 @@
             // 
             this.pictureBoxDetainLicence.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDetainLicence.Image = global::DVLD.Presentation.Properties.Resources.Detain_512;
-            this.pictureBoxDetainLicence.Location = new System.Drawing.Point(1143, 197);
+            this.pictureBoxDetainLicence.Location = new System.Drawing.Point(1090, 155);
             this.pictureBoxDetainLicence.Name = "pictureBoxDetainLicence";
-            this.pictureBoxDetainLicence.Size = new System.Drawing.Size(70, 66);
+            this.pictureBoxDetainLicence.Size = new System.Drawing.Size(123, 108);
             this.pictureBoxDetainLicence.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDetainLicence.TabIndex = 3;
             this.pictureBoxDetainLicence.TabStop = false;
@@ -96,20 +96,21 @@
             // 
             this.pictureBoxReleaseLicense.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxReleaseLicense.Image = global::DVLD.Presentation.Properties.Resources.Release_Detained_License_512;
-            this.pictureBoxReleaseLicense.Location = new System.Drawing.Point(1067, 197);
+            this.pictureBoxReleaseLicense.Location = new System.Drawing.Point(948, 155);
             this.pictureBoxReleaseLicense.Name = "pictureBoxReleaseLicense";
-            this.pictureBoxReleaseLicense.Size = new System.Drawing.Size(70, 69);
+            this.pictureBoxReleaseLicense.Size = new System.Drawing.Size(136, 108);
             this.pictureBoxReleaseLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxReleaseLicense.TabIndex = 4;
             this.pictureBoxReleaseLicense.TabStop = false;
             this.pictureBoxReleaseLicense.Click += new System.EventHandler(this.pictureBoxReleaseLicense_Click);
             // 
-            // textBox1
+            // textBoxFilterManageDetainedLicenses
             // 
-            this.textBox1.Location = new System.Drawing.Point(292, 226);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 27);
-            this.textBox1.TabIndex = 5;
+            this.textBoxFilterManageDetainedLicenses.Location = new System.Drawing.Point(292, 226);
+            this.textBoxFilterManageDetainedLicenses.Name = "textBoxFilterManageDetainedLicenses";
+            this.textBoxFilterManageDetainedLicenses.Size = new System.Drawing.Size(141, 27);
+            this.textBoxFilterManageDetainedLicenses.TabIndex = 5;
+            this.textBoxFilterManageDetainedLicenses.Visible = false;
             // 
             // label2
             // 
@@ -122,19 +123,21 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Filter By :";
             // 
-            // comboBoxFilterByDetainedLicenses
+            // comboBoxFilterManageDetainedLicenses
             // 
-            this.comboBoxFilterByDetainedLicenses.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxFilterByDetainedLicenses.FormattingEnabled = true;
-            this.comboBoxFilterByDetainedLicenses.Items.AddRange(new object[] {
+            this.comboBoxFilterManageDetainedLicenses.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxFilterManageDetainedLicenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFilterManageDetainedLicenses.FormattingEnabled = true;
+            this.comboBoxFilterManageDetainedLicenses.Items.AddRange(new object[] {
             "None",
             "National No.",
             "License ID",
             "Full Name"});
-            this.comboBoxFilterByDetainedLicenses.Location = new System.Drawing.Point(139, 226);
-            this.comboBoxFilterByDetainedLicenses.Name = "comboBoxFilterByDetainedLicenses";
-            this.comboBoxFilterByDetainedLicenses.Size = new System.Drawing.Size(138, 27);
-            this.comboBoxFilterByDetainedLicenses.TabIndex = 7;
+            this.comboBoxFilterManageDetainedLicenses.Location = new System.Drawing.Point(139, 226);
+            this.comboBoxFilterManageDetainedLicenses.Name = "comboBoxFilterManageDetainedLicenses";
+            this.comboBoxFilterManageDetainedLicenses.Size = new System.Drawing.Size(138, 27);
+            this.comboBoxFilterManageDetainedLicenses.TabIndex = 7;
+            this.comboBoxFilterManageDetainedLicenses.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterManageDetainedLicenses_SelectedIndexChanged);
             // 
             // buttonCloseFrm
             // 
@@ -146,6 +149,7 @@
             this.buttonCloseFrm.TabIndex = 8;
             this.buttonCloseFrm.Text = "Close";
             this.buttonCloseFrm.UseVisualStyleBackColor = true;
+            this.buttonCloseFrm.Click += new System.EventHandler(this.buttonCloseFrm_Click);
             // 
             // FrmManageDetainedLicenses
             // 
@@ -154,9 +158,9 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1225, 682);
             this.Controls.Add(this.buttonCloseFrm);
-            this.Controls.Add(this.comboBoxFilterByDetainedLicenses);
+            this.Controls.Add(this.comboBoxFilterManageDetainedLicenses);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxFilterManageDetainedLicenses);
             this.Controls.Add(this.pictureBoxReleaseLicense);
             this.Controls.Add(this.pictureBoxDetainLicence);
             this.Controls.Add(this.dataGridViewDetainedLicenses);
@@ -181,9 +185,9 @@
         private System.Windows.Forms.DataGridView dataGridViewDetainedLicenses;
         private System.Windows.Forms.PictureBox pictureBoxDetainLicence;
         private System.Windows.Forms.PictureBox pictureBoxReleaseLicense;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxFilterManageDetainedLicenses;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxFilterByDetainedLicenses;
+        private System.Windows.Forms.ComboBox comboBoxFilterManageDetainedLicenses;
         private System.Windows.Forms.Button buttonCloseFrm;
     }
 }

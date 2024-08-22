@@ -10,15 +10,15 @@ namespace DVLD.BusinessLogic
 {
     public class ClsDetainedLicenses
     {
-        public DataTable GetAllDetainedLicenses()
+        public static DataTable GetAllDetainedLicenses()
         {
             return DataAccess.ClsDetainedLicenses.GetAllDetainedLicenses();
         }
-        public StDetainLicense? GetDetainedLicenseByDetainID(int detainID)
+        public static StDetainLicense? GetDetainedLicenseByDetainID(int detainID)
         {
             return DataAccess.ClsDetainedLicenses.GetDetainedLicenseByDetainID(detainID);
         }
-        public StDetainLicense? GetDetainedLicenseByLicenseID(int licenseID)
+        public static StDetainLicense? GetDetainedLicenseByLicenseID(int licenseID)
         {
             return DataAccess.ClsDetainedLicenses.GetDetainedLicenseByLicenseID(licenseID);
         }
