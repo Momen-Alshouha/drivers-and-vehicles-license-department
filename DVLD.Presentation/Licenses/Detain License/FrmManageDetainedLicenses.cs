@@ -7,7 +7,6 @@ namespace DVLD.Presentation.Licenses.Detain_License
 {
     public partial class FrmManageDetainedLicenses : Form
     {
-        // TODO: add content menu on detained licenses
         private DataTable dtDetainedLicenses;
 
         public FrmManageDetainedLicenses()
