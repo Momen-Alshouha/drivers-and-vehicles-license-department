@@ -22,7 +22,7 @@ This project is currently under active development. Certain features may be inco
 
 ![Drivers](./DVLD.Presentation/screenshoots/drivers.PNG)
 
-![Application Types](./DVLD.Presentation/screenshoots/drivers.PNG)
+![Application Types](./DVLD.Presentation/screenshoots/applications_types.PNG)
 
 ![Add/Update User](./DVLD.Presentation/screenshoots/add_update_user.PNG)
 
