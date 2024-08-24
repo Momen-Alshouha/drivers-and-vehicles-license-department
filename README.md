@@ -20,4 +20,25 @@ This project is currently under active development. Certain features may be inco
 
 ![User Information](./DVLD.Presentation/screenshoots/user_information.PNG)
 
+![Drivers](./DVLD.Presentation/screenshoots/drivers.PNG)
+
+![Application Types](./DVLD.Presentation/screenshoots/drivers.PNG)
+
+![Add/Update User](./DVLD.Presentation/screenshoots/add_update_user.PNG)
+
+![Manage Local Applications](./DVLD.Presentation/screenshoots/manage_local_applications.PNG)
+
+![New Local Driving License Application](./DVLD.Presentation/screenshoots/new_local_app.PNG)
+
+![Detain License](./DVLD.Presentation/screenshoots/detain_license.PNG)
+
+## Technologies Used
+- Programming Language: C#
+- Framework: .NET Framework (WinForms)
+- Architecture: N-tier architecture
+- Database: Microsoft SQL Server
+- Development Tools: Visual Studio
+
+
+
 
