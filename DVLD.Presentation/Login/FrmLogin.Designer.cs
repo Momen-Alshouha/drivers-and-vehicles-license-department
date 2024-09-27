@@ -43,9 +43,8 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1026, 689);
+            this.splitter1.Size = new System.Drawing.Size(912, 580);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -53,30 +52,29 @@
             // 
             this.LblLogin.AutoSize = true;
             this.LblLogin.Font = new System.Drawing.Font("Microsoft Tai Le", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLogin.Location = new System.Drawing.Point(1165, 176);
+            this.LblLogin.Location = new System.Drawing.Point(1036, 148);
             this.LblLogin.Name = "LblLogin";
-            this.LblLogin.Size = new System.Drawing.Size(178, 70);
+            this.LblLogin.Size = new System.Drawing.Size(148, 60);
             this.LblLogin.TabIndex = 4;
             this.LblLogin.Text = "Login";
             // 
             // TextBoxLoginFormUserName
             // 
             this.TextBoxLoginFormUserName.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxLoginFormUserName.Location = new System.Drawing.Point(1111, 279);
-            this.TextBoxLoginFormUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TextBoxLoginFormUserName.ForeColor = System.Drawing.Color.Black;
+            this.TextBoxLoginFormUserName.Location = new System.Drawing.Point(988, 235);
             this.TextBoxLoginFormUserName.Name = "TextBoxLoginFormUserName";
-            this.TextBoxLoginFormUserName.Size = new System.Drawing.Size(281, 33);
+            this.TextBoxLoginFormUserName.Size = new System.Drawing.Size(250, 29);
             this.TextBoxLoginFormUserName.TabIndex = 1;
             this.TextBoxLoginFormUserName.Text = "User Name";
             // 
             // TextBoxLoginFormPassword
             // 
             this.TextBoxLoginFormPassword.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxLoginFormPassword.Location = new System.Drawing.Point(1111, 331);
-            this.TextBoxLoginFormPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TextBoxLoginFormPassword.Location = new System.Drawing.Point(988, 279);
             this.TextBoxLoginFormPassword.Name = "TextBoxLoginFormPassword";
             this.TextBoxLoginFormPassword.PasswordChar = '*';
-            this.TextBoxLoginFormPassword.Size = new System.Drawing.Size(281, 33);
+            this.TextBoxLoginFormPassword.Size = new System.Drawing.Size(250, 29);
             this.TextBoxLoginFormPassword.TabIndex = 2;
             this.TextBoxLoginFormPassword.Text = "Password";
             // 
@@ -84,10 +82,9 @@
             // 
             this.ButtonLoginFormSignIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonLoginFormSignIn.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonLoginFormSignIn.Location = new System.Drawing.Point(1111, 427);
-            this.ButtonLoginFormSignIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonLoginFormSignIn.Location = new System.Drawing.Point(988, 360);
             this.ButtonLoginFormSignIn.Name = "ButtonLoginFormSignIn";
-            this.ButtonLoginFormSignIn.Size = new System.Drawing.Size(146, 62);
+            this.ButtonLoginFormSignIn.Size = new System.Drawing.Size(130, 52);
             this.ButtonLoginFormSignIn.TabIndex = 4;
             this.ButtonLoginFormSignIn.Text = "Sign In";
             this.ButtonLoginFormSignIn.UseVisualStyleBackColor = true;
@@ -96,10 +93,9 @@
             // CheckBoxLoginRememberMe
             // 
             this.CheckBoxLoginRememberMe.AutoSize = true;
-            this.CheckBoxLoginRememberMe.Location = new System.Drawing.Point(1111, 386);
-            this.CheckBoxLoginRememberMe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CheckBoxLoginRememberMe.Location = new System.Drawing.Point(988, 325);
             this.CheckBoxLoginRememberMe.Name = "CheckBoxLoginRememberMe";
-            this.CheckBoxLoginRememberMe.Size = new System.Drawing.Size(137, 23);
+            this.CheckBoxLoginRememberMe.Size = new System.Drawing.Size(119, 20);
             this.CheckBoxLoginRememberMe.TabIndex = 3;
             this.CheckBoxLoginRememberMe.Text = "Remember Me";
             this.CheckBoxLoginRememberMe.UseVisualStyleBackColor = true;
@@ -108,10 +104,9 @@
             // 
             this.PictureBoxFormLoginClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PictureBoxFormLoginClose.Image = global::DVLD.Presentation.Properties.Resources.CloseBlack;
-            this.PictureBoxFormLoginClose.Location = new System.Drawing.Point(1398, 14);
-            this.PictureBoxFormLoginClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PictureBoxFormLoginClose.Location = new System.Drawing.Point(1243, 12);
             this.PictureBoxFormLoginClose.Name = "PictureBoxFormLoginClose";
-            this.PictureBoxFormLoginClose.Size = new System.Drawing.Size(34, 33);
+            this.PictureBoxFormLoginClose.Size = new System.Drawing.Size(30, 28);
             this.PictureBoxFormLoginClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxFormLoginClose.TabIndex = 3;
             this.PictureBoxFormLoginClose.TabStop = false;
@@ -122,21 +117,20 @@
             this.pictureBox1.Image = global::DVLD.Presentation.Properties.Resources.DVLD_logo;
             this.pictureBox1.InitialImage = global::DVLD.Presentation.Properties.Resources.dvld;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1026, 689);
+            this.pictureBox1.Size = new System.Drawing.Size(912, 580);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1452, 689);
+            this.ClientSize = new System.Drawing.Size(1291, 580);
             this.Controls.Add(this.CheckBoxLoginRememberMe);
             this.Controls.Add(this.ButtonLoginFormSignIn);
             this.Controls.Add(this.TextBoxLoginFormPassword);
@@ -146,12 +140,12 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.splitter1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmLogin_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFormLoginClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
