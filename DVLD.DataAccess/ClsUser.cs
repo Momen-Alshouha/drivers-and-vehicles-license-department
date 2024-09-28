@@ -71,9 +71,8 @@ namespace DVLD.DataAccess
                                 _FillUserFromReader(reader, ref user);
 
                                 string storedHashedPassword = reader["Password"].ToString();
-                                string hashedInputPassword = HashPassword(inputPassword);
 
-                                if (hashedInputPassword == storedHashedPassword)
+                                if (inputPassword == storedHashedPassword)
                                 {
                                     isFound = true;  // Password matches
                                 }

@@ -1,10 +1,11 @@
-﻿using Microsoft.Win32; // For Registry access
+﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,11 +29,9 @@ namespace DVLD.Presentation.Login
 
         private void SetPlaceholder(TextBox textBox, string placeholder)
         {
-            // Set the initial placeholder text
             textBox.Text = placeholder;
             textBox.ForeColor = Color.Gray;
 
-            // Event handlers for removing and adding placeholder
             textBox.GotFocus += (sender, e) => RemovePlaceholder(textBox, placeholder);
             textBox.LostFocus += (sender, e) => AddPlaceholder(textBox, placeholder);
         }
@@ -60,10 +59,27 @@ namespace DVLD.Presentation.Login
             this.Close();
         }
 
+        private bool IsPasswordHashed(string password)
+        {
+            // SHA-256 hash length in Base64 is 44 characters (not 43)
+            return !string.IsNullOrWhiteSpace(password) && password.Length == 44 && IsBase64String(password);
+        }
+
+
+        // Method to check if a string is a valid Base64 encoded string
+        private bool IsBase64String(string base64)
+        {
+            // Check if the input string is a valid Base64 string
+            return (base64.Length % 4 == 0) && base64.All(c => "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".Contains(c));
+
+        }
         private void ButtonLoginFormSignIn_Click(object sender, EventArgs e)
         {
             string userName = TextBoxLoginFormUserName.Text;
             string password = TextBoxLoginFormPassword.Text;
+
+            password = IsPasswordHashed(password) ? password : HashPassword(password);
+
 
             if (BusinessLogic.ClsUser.GetUserByCredentials(userName, password, ref ClsGlobal.CurrentUser))
             {
@@ -112,13 +128,13 @@ namespace DVLD.Presentation.Login
             }
         }
 
-        private void SaveCredentials(string userName, string password)
+        private void SaveCredentials(string userName, string hashedPassword)
         {
             RegistryKey key = Registry.CurrentUser.CreateSubKey(RegistryKeyPath);
             if (key != null)
             {
                 key.SetValue(RegistryUserNameKey, userName);
-                key.SetValue(RegistryPasswordKey, password);
+                key.SetValue(RegistryPasswordKey, hashedPassword);
                 key.Close();
             }
         }
@@ -131,6 +147,15 @@ namespace DVLD.Presentation.Login
                 key.DeleteValue(RegistryUserNameKey, false);
                 key.DeleteValue(RegistryPasswordKey, false);
                 key.Close();
+            }
+        }
+
+        private static string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(bytes);
             }
         }
     }
