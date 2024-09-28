@@ -4,12 +4,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace DVLD.DataAccess
 {
     internal class Settings
     {
-        public static readonly string ConnectionString = "Server=.;Database=dvld;Integrated security=true;TrustServerCertificate=True";
+        public static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["DVLDConnectionString"].ConnectionString;
 
         public static SqlConnection GetConnection()
         {
