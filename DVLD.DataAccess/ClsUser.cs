@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 using static ClsDataType.ClsDataType;
 
 namespace DVLD.DataAccess
 {
     public class ClsUser
     {
+        private static string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(bytes);
+            }
+        }
+
         private static bool _GetUserInternal(string query, SqlParameter parameter, ref StUser user)
         {
             bool isFound = false;
@@ -39,8 +50,7 @@ namespace DVLD.DataAccess
 
             return isFound;
         }
-
-        private static bool _GetUserInternal(string query, SqlParameter param1, SqlParameter param2, ref StUser user)
+        private static bool _GetUserInternal(string query, SqlParameter param1, ref StUser user, string inputPassword)
         {
             bool isFound = false;
 
@@ -49,7 +59,6 @@ namespace DVLD.DataAccess
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.Add(param1);
-                    command.Parameters.Add(param2);
 
                     try
                     {
@@ -59,8 +68,19 @@ namespace DVLD.DataAccess
                         {
                             if (reader.Read())
                             {
-                                isFound = true;
                                 _FillUserFromReader(reader, ref user);
+
+                                string storedHashedPassword = reader["Password"].ToString();
+                                string hashedInputPassword = HashPassword(inputPassword);
+
+                                if (hashedInputPassword == storedHashedPassword)
+                                {
+                                    isFound = true;  // Password matches
+                                }
+                                else
+                                {
+                                    isFound = false;  // Password does not match
+                                }
                             }
                         }
                     }
@@ -93,10 +113,10 @@ namespace DVLD.DataAccess
 
         public static bool GetUser(string UserName, string Password, ref StUser user)
         {
-            return _GetUserInternal("select * from users where UserName = @UserName and Password = @Password",
-                                   new SqlParameter("@UserName", UserName),
-                                   new SqlParameter("@Password", Password),
-                                   ref user);
+            return _GetUserInternal("SELECT * FROM users WHERE UserName = @UserName",
+                                    new SqlParameter("@UserName", UserName),
+                                    ref user,
+                                    Password);  
         }
 
         public static bool GetUser(int UserID, ref StUser user)
